@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SyncDictionary </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="SyncDictionary ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="syncdictionary">SyncDictionary</h1>
+
+<p>A SyncDictionary is an associative array containing an unordered list of key, value pairs. Keys and values can be of the following types:</p>
+<ul>
+<li>Basic type (byte, int, float, string, UInt64, etc)</li>
+<li>Built-in Unity math type (Vector3, Quaternion, etc)</li>
+<li>NetworkIdentity</li>
+<li>Game object with a NetworkIdentity component attached.</li>
+<li>Struct with any of the above</li>
+</ul>
+<p>SyncDictionary works much like <a href="SyncLists.html">SyncLists</a>: when you make a change on the server the change is propagated to all clients and the Callback is called.</p>
+<p>To use it, create a class that derives from SyncDictionary for your specific type. This is necessary because the Weaver will add methods to that class. Then add a field to your NetworkBehaviour class.</p>
+<blockquote>
+<p>Note that by the time you subscribe to the callback, the dictionary will already be initialized, so you will not get a call for the initial data, only updates.</p><p>
+</blockquote>
+<blockquote>
+<p>Note SyncDictionaries must be initialized in the constructor, not in Startxxx().  You can make them readonly to ensure correct usage.</p>
+</blockquote>
+<h2 id="simple-example">Simple Example</h2>
+<pre><code class="lang-cs">using UnityEngine;
+using Mirror;
+
+public class ExamplePlayer : NetworkBehaviour
+{
+    public class SyncDictionaryStringItem : SyncDictionary&lt;string, Item&gt; {}
+
+    public struct Item
+    {
+        public string name;
+        public int hitPoints;
+        public int durability;
+    }
+
+    public readonly SyncDictionaryStringItem Equipment = new SyncDictionaryStringItem();
+
+    public override void OnStartServer()
+    {
+        Equipment.Add(&quot;head&quot;, new Item { name = &quot;Helmet&quot;, hitPoints = 10, durability = 20 });
+        Equipment.Add(&quot;body&quot;, new Item { name = &quot;Epic Armor&quot;, hitPoints = 50, durability = 50 });
+        Equipment.Add(&quot;feet&quot;, new Item { name = &quot;Sneakers&quot;, hitPoints = 3, durability = 40 });
+        Equipment.Add(&quot;hands&quot;, new Item { name = &quot;Sword&quot;, hitPoints = 30, durability = 15 });
+    }
+
+    public override void OnStartClient()
+    {
+        // Equipment is already populated with anything the server set up
+        // but we can subscribe to the callback in case it is updated later on
+        Equipment.Callback += OnEquipmentChange;
+    }
+
+    void OnEquipmentChange(SyncDictionaryStringItem.Operation op, string key, Item item)
+    {
+        // equipment changed,  perhaps update the gameobject
+        Debug.Log(op + &quot; - &quot; + key);
+    }
+}
+</code></pre>
+<p>By default, SyncDictionary uses a Dictionary to store it's data. If you want to use a different <code>IDictionary</code>implementation such as <code>SortedList</code> or <code>SortedDictionary</code>, add a constructor to your SyncDictionary implementation and pass a dictionary to the base class. For example:</p>
+<pre><code class="lang-cs">public class ExamplePlayer : NetworkBehaviour
+{
+    public class SyncDictionaryStringItem : SyncDictionary&lt;string, Item&gt; 
+    {
+        public SyncDictionaryStringItem() : base (new SortedList&lt;string,Item&gt;()) {}
+    }
+    
+    public readonly SyncDictionaryStringItem Equipment = new SyncDictionaryStringItem();
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

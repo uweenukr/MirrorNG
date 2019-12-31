@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>NetworkBehaviour </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="NetworkBehaviour ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="networkbehaviour">NetworkBehaviour</h1>
+
+<p><strong>See also <a class="xref" href="../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> in the API Reference.</strong></p>
+<p>Network Behaviour scripts work with game objects that have a NetworkIdentity component. These scripts can perform high-level API functions such as Commands, ClientRpc's, SyncEvents and SyncVars.</p>
+<p>With the server-authoritative system of Mirror, the server must use the <code>NetworkServer.Spawn</code> function to spawn game objects with Network Identity components. Spawning them this way assigns them a <code>netId</code> and creates them on clients connected to the server.</p>
+<p><strong>Note:</strong> This is not a component that you can add to a game object directly. Instead, you must create a script which inherits from <code>NetworkBehaviour</code> (instead of the default <code>MonoBehaviour</code>), then you can add your script as a component to a game object.</p>
+<h2 id="properties">Properties</h2>
+<ul>
+<li><strong>isLocalPlayer</strong><br>
+Returns true if this game object represents the player created for this client.</li>
+<li><strong>isServer</strong><br>
+Returns true if this game object is running on the server, and has been spawned.</li>
+<li><strong>isClient</strong><br>
+Returns true if this game object is on the client and has been spawned by the server.</li>
+<li><strong>hasAuthority</strong><br>
+Returns true if this client has <a href="Authority.html">ownership</a> over this game object.  It is normally false in the server,  except if the server is also a client (host mode).</li>
+<li><strong>netId</strong><br>
+The unique network ID of this game object. The server assigns this at run time. It is unique for all game objects in that network session.</li>
+<li><strong>netIdentity</strong><br>
+Returns the NetworkIdentity of this object</li>
+<li><strong>connectionToServer</strong><br>
+The NetworkConnection associated with the Network Identity component attached to this game object. This is only valid for <strong>player objects</strong> on the client.</li>
+<li><strong>connectionToClient</strong><br>
+The NetworkConnection associated with the Network Identity component attached to this game object. This is only valid for player game objects on the server.</li>
+</ul>
+<p>NetworkBehaviour scripts have the following features:</p>
+<ul>
+<li>Synchronized variables</li>
+<li>Network callbacks</li>
+<li>Server and client functions</li>
+<li>Sending commands</li>
+<li>Client RPC calls</li>
+<li>Networked events</li>
+</ul>
+<p><img src="UNetDirections.jpg" alt="Data Flow Graph"></p>
+<h2 id="network-callbacks">Network Callbacks</h2>
+<p>There are built-in callback functions which are invoked on NetworkBehaviour scripts for various network events. These are virtual functions on the base class, so you can override them in your own code like this:</p>
+<pre><code class="lang-cs">public class SpaceShip : NetworkBehaviour
+{
+    public override void OnStartServer()
+    {
+        // disable client stuff
+    }
+
+    public override void OnStartClient()
+    {
+        // register client events, enable effects
+    }
+}
+</code></pre>
+<p>The built-in callbacks are:</p>
+<ul>
+<li><strong>OnStartServer</strong> called when a game object spawns on the server, or when the server is started for game objects in the Scene</li>
+<li><strong>OnStartClient</strong> called when the game object spawns on the client, or when the client connects to a server for game objects in the Scene</li>
+<li><strong>OnSerialize</strong> called to gather state to send from the server to clients</li>
+<li><strong>OnDeSerialize</strong> called to apply state to game objects on clients</li>
+<li><strong>OnNetworkDestroy</strong> called on clients when the server destroys the game object</li>
+<li><strong>OnStartLocalPlayer</strong> called on clients for player game objects on the local client (only)</li>
+<li><strong>OnStartAuthority</strong> called on clients for behaviours that have authority, based on context and hasAuthority.</li>
+<li><strong>OnRebuildObservers</strong> called on the server when the set of observers for a game objects is rebuilt</li>
+<li><strong>OnSetLocalVisibility</strong> called on the client and/or server when the visibility of a game object changes for the local client</li>
+<li><strong>OnCheckObserver</strong> called on the server to check visibility state for a new client</li>
+</ul>
+<p>Note that in a peer-hosted setup, when one of the clients is acting as both host and client, both <code>OnStartServer</code> and <code>OnStartClient</code> are called on the same game object. Both these functions are useful for actions that are specific to either the client or server, such as suppressing effects on a server, or setting up client-side events.</p>
+<h2 id="server-and-client-functions">Server and Client functions</h2>
+<p>You can tag member functions in NetworkBehaviour scripts with custom attributes to designate them as server-only or client-only functions. <code>Server</code> and <code>ServerCallback</code> return immediately if the client is not active. Likewise, <code>Client</code> and <code>ClientCallback</code> return immediately if the server is not active.</p>
+<p>The <code>Server</code> and <code>Client</code> attributes are for your own custom callback functions. They do not generate compile time errors, but they do emit a warning log message if called in the wrong scope.</p>
+<p>The <code>ServerCallback</code> and <code>ClientCallback</code> attributes are for built-in callback functions that are called automatically by Mirror. These attributes do not cause a warning to be generated.</p>
+<p>For more information, see <a href="Attributes.html">Attributes</a>.</p>
+<h2 id="commands">Commands</h2>
+<p>To execute code on the server, you must use commands. The high-level API is a server-authoritative system, so commands are the only way for a client to trigger some code on the server.</p>
+<p>Only player game objects can send commands.</p>
+<p>When a client player game object sends a command, that command runs on the corresponding player game object on the server. This routing happens automatically, so it is impossible for a client to send a command for a different player.</p>
+<p>To define a command in your code, you must write a function which has:</p>
+<ul>
+<li>A name that begins with <code>Cmd</code></li>
+<li>The <code>Command</code> attribute</li>
+</ul>
+<p>Commands are called just by invoking the function normally on the client. Instead of the command function running on the client, it is automatically invoked on the corresponding player game object on the server.</p>
+<p>Commands are type-safe, have built-in security and routing to the player, and use an efficient serialization mechanism for the arguments to make calling them fast.</p>
+<p>See <a href="Communications/index.html">Communications</a> and related sections for more information.</p>
+<h2 id="client-rpc-calls">Client RPC Calls</h2>
+<p>Client RPC calls are a way for server game objects to make things happen on client game objects.</p>
+<p>Client RPC calls are not restricted to player game objects, and may be called on any game object with a Network Identity component.</p>
+<p>To define a Client RPC call in your code, you must write a function which:</p>
+<ul>
+<li>Has a name that begins with <code>Rpc</code></li>
+<li>Has the <code>ClientRpc</code> attribute</li>
+</ul>
+<p>See <a href="Communications/index.html">Communications</a> and related sections for more information.</p>
+<h2 id="networked-events">Networked Events</h2>
+<p>Networked events are like Client RPC calls, but instead of calling a function on the game object, they trigger Events instead.</p>
+<p>This allows you to write scripts which can register for a callback when an event is triggered.</p>
+<p>To define a Networked event in your code, you must write a function which both:</p>
+<ul>
+<li>Has a name that begins with <code>Event</code></li>
+<li>Has the <code>SyncEvent</code> attribute</li>
+</ul>
+<p>You can use events to build powerful networked game systems that can be extended by other scripts. This example shows how an effect script on the client can respond to events generated by a combat script on the server.</p>
+<p>SyncEvent is the base class that Commands and ClientRpc calls are derived from. You can use the SyncEvent attribute on your own functions to make your own event-driven networked game play code. Using SyncEvent, you can extend Mirror’s Multiplayer features to better fit your own programming patterns.</p>
+<p>See <a href="Sync/SyncEvent.html">SyncEvents</a> for more details.</p>
+<p> </p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

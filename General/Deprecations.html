@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Deprecations </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Deprecations ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="deprecations">Deprecations</h1>
+
+<p>Certain features of Unity Networking were removed from Mirror for various reasons. This page will identify all removed features, the reason for removal, and possible alternatives.</p>
+<h2 id="match-namespace">Match Namespace</h2>
+<p>As part of the Unity Services, this entire namespace was removed. It didn't work well to begin with, and was incredibly complex to be part of the core networking package. We expect this, along with other back-end services, will be provided through standalone apps that have integration to Mirror.</p>
+<h2 id="network-discovery">Network Discovery</h2>
+<p>NetworkDiscovery was a UNet component intended for UDP projects. Since Mirror was built on TCP, it was removed. Now that all <a href="../Transports/index.html">transports</a> are separate components, Discovery has been re-implemented in at least one of them.</p>
+<h2 id="networkport-in-network-manager">networkPort in Network Manager</h2>
+<p>Network Manager's <code>networkPort</code> property was removed now that all transports are separate components. Not all transports use ports, but those that do have a field for it. See <a href="../Transports/index.html">Transports</a> for more info.</p>
+<h2 id="playercontroller-in-networkconnection">playerController in NetworkConnection</h2>
+<p>This was renamed to <code>identity</code> since that's what it is: the <code>NetworkIdentity</code> for the connection. If you need to convert a project after this change, Visual Studio / VS Code can help...read more <a href="PlayerControllerToIdentity.html">here</a>.</p>
+<h2 id="local-player-authority-in-networkidentity">Local Player Authority in NetworkIdentity</h2>
+<p>This has been phased out through overhauling, and simplifying how <a href="../Guides/Authority.html">Authority</a> works in Mirror.</p>
+<h2 id="network-server-simple">Network Server Simple</h2>
+<p>This was too complex and impractical to maintain for what little it did, and was removed. There are much easier ways to make a basic listen server, with or without one of our transports.</p>
+<h2 id="couch-co-op">Couch Co-Op</h2>
+<p>The core networking was greatly simplified by removing this low-hanging fruit. It was buggy, and too convoluted to be worth fixing.  For those that need something like this, consider defining a non-visible player prefab as a message conduit that spawns actual player prefabs with client authority.  All inputs would route through the conduit prefab to control the player objects.</p>
+<h2 id="network-transform">Network Transform</h2>
+<p>This component was significantly simplified so that it only syncs position and rotation. Rigidbody support was removed. We will create a new separate component for NetworkRigidbody that will be server authoritative with physics simulation and interpolation.</p>
+<h2 id="quality-of-service-flags">Quality of Service Flags</h2>
+<p>In classic UNET, QoS Flags were used to determine how packets got to the remote end. For example, if you needed a packet to be prioritized in the queue, you would specify a high priority flag which the Unity LLAPI would then receive and deal appropriately. Unfortunately, this caused a lot of extra work for the transport layer and some of the QoS flags did not work as intended due to buggy or code that relied on too much magic.</p>
+<p>In Mirror, QoS flags were replaced with a &quot;Channels&quot; system. This system paves the way for future Mirror improvements, so you can send data on different channels - for example, you could have all game activity on channel 0, while in-game text chat is sent on channel 1 and voice chat is sent on channel 2. In the future, it may be possible to assign a transport system per channel, allowing one to have a TCP transport for critical game network data on channel 0, while in-game text and voice chat is running on a UDP transport in parallel on channel 1. Some transports (such as Ignorance.md) also provide legacy compatibility for those attached to QoS flags.</p>
+<p>The currently defined channels are:</p>
+<ul>
+<li><p><code>Channels.DefaultReliable = 0</code></p>
+</li>
+<li><p><code>Channels.DefaultUnreliable = 1</code></p>
+</li>
+</ul>
+<p>Currently, Mirror using it's default TCP transport will always send everything over a reliable channel. There is no way to bypass this behaviour without using a third-party transport, since TCP is always reliable. Other transports may support other channel sending methods.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

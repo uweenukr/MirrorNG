@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Mirror Network Profiler </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Mirror Network Profiler ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="mirror-network-profiler">Mirror Network Profiler</h1>
+
+<p>The <a href="https://mirror-networking.com/download/mirror-profiler/">mirror profiler</a> is part of the Mirror Pro suit.
+As of this writing it is accessible to our Github Supporters.</p>
+<p><img src="Profiler.png" alt="Network Profiler"></p>
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Make sure you have the latest version of Mirror</li>
+<li>Become a <a href="https://github.com/sponsors/vis2k">Github Supporter</a> if you haven't.</li>
+<li><a href="https://mirror-networking.com/download/mirror-profiler/">Download</a> the profiler</li>
+<li>Install the unity package in your project</li>
+</ol>
+<h2 id="usage">Usage</h2>
+<ol>
+<li>In Unity menu,  click on Open Window -&gt; Analysis -&gt; Mirror Network Profiler.  The profiler view will appear</li>
+<li>You may dock the profiler anywhere you want</li>
+<li>Start your game in the editor</li>
+<li>Press &quot;Record&quot; in the profiler</li>
+<li>Begin your game as host, client or server</li>
+<li>At the top a chart will show messages coming in and out</li>
+<li>Click the chart to select a frame</li>
+<li>The profiler will display information about all the messages sent and received in that frame</li>
+</ol>
+<p>Currently the messages display the following fields:</p>
+<ul>
+<li>In/Out: Whether the message was received (in) or sent (out)</li>
+<li>Name: Short name of the message,  if the message was a <code>[Command]</code>, <code>[ClientRpc]</code>, <code>[TargetRpc]</code> or <code>[TargetEvent]</code>,  this will display the name of the method,  otherwise it will display the name of the message class.</li>
+<li>Bytes: The size of the message in bytes</li>
+<li>Count: In the case of out messages,  this will contain how many clients the message was sent to.</li>
+<li>Total Bytes:  the size of the message multiplied by the amount of clients the message was sent to (Bytes * Count)</li>
+<li>Channel: The channel used to send the message.  As of this writing,  we cannot determine the channel for inbound messages, so it displays -1.  This will be improved in future versions. Transports can use channels for many purposes such as reliable, unreliable, encrypted, compressed, etc.</li>
+</ul>
+<h2 id="optimizing-bandwidth">Optimizing bandwidth</h2>
+<p>On most transports, the total bandwidth is dominated by the Count column.  This is because each message is packaged in a TCP or UDP frame,  which have large headers.</p>
+<ul>
+<li>If you are sending multiple <code>[Command]</code> in the same frame,  consider consolidating them into a single <code>[Command]</code> call if it makes sense</li>
+<li>If you see a large Count number on a specific message,  consider adding a NetworkProximityChecker to your object,  so that it is only visible to nearby players instead of the entire world. This can dramatically reduce the Count (and total bytes) depending on your game.</li>
+<li>If you are sending a message every single frame,  consider changing your logic so that you only send messages when things change,  or use a timer.</li>
+<li>Consider using SyncToOwner feature so that only the owner gets a message when private information such as inventory changes. This can dramatically reduce the Count depending on your game.</li>
+<li>If you have a lot of <code>[ClientRpc]</code> calls that synchronize data,  consider using <code>[SyncVar]</code> and synclists instead.  They can reduce the amount of messages because they only send deltas when they change,  plus they get batched together, so hundreds of variables can be synchronized with a single message.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

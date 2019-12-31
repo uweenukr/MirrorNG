@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Custom Character Spawning </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Custom Character Spawning ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="custom-character-spawning">Custom Character Spawning</h1>
+
+<p>Many games need character customization. You may want to pick the color of the hair, eyes, skin, height, race, etc.</p>
+<p>By default Mirror will instantiate the player for you. While that is convenient, it might prevent you from customizing it. Mirror provides the option of overriding player creation and customize it.</p>
+<ol>
+<li>Create a class that extends <code>NetworkManager</code> if you have not done so. For example:</li>
+</ol>
+<pre><code class="lang-cs">public class MMONetworkManager : NetworkManager
+{
+    ...
+}
+</code></pre>
+<p>and use it as your Network manager.</p>
+<ol start="2">
+<li><p>Open your Network Manager in the inspector and disable the &quot;Auto Create Player&quot; Boolean.</p>
+</li>
+<li><p>Create a message that describes your player. For example:</p>
+</li>
+</ol>
+<pre><code class="lang-cs">public class CreateMMOCharacterMessage : MessageBase
+{
+    public Race race;
+    public string name;
+    public Color hairColor;
+    public Color eyeColor;
+}
+
+public enum Race
+{
+    None,
+    Elvish,
+    Dwarvish,
+    Human
+}
+</code></pre>
+<ol start="4">
+<li><p>Create your player prefabs (as many as you need) and add them to the &quot;Register Spawnable Prefabs&quot; in your Network Manager, or add a single prefab to the player prefab field in the inspector.</p>
+</li>
+<li><p>Send your message and register a player:</p>
+</li>
+</ol>
+<pre><code class="lang-cs">public class MMONetworkManager : NetworkManager
+{
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+
+        NetworkServer.RegisterHandler&lt;CreateMMOCharacterMessage&gt;(OnCreateCharacter);
+    }
+
+    public override void OnClientConnect(NetworkConnection conn)
+    {
+        base.OnClientConnect(conn);
+
+        // you can send the message here, or wherever else you want
+        CreateMMOCharacterMessage characterMessage = new CreateMMOCharacterMessage
+        {
+            race = Race.Elvish,
+            name = &quot;Joe Gaba Gaba&quot;,
+            hairColor = Color.red,
+            eyeColor = Color.green
+        };
+
+        conn.Send(characterMessage);
+    }
+
+    void OnCreateCharacter(NetworkConnection conn, CreateMMOCharacterMessage message)
+    {
+        // playerPrefab is the one assigned in the inspector in Network
+        // Manager but you can use different prefabs per race for example
+        GameObject gameobject = Instantiate(playerPrefab);
+
+        // Apply data from the message however appropriate for your game
+        // Typically Player would be a component you write with syncvars or properties
+        Player player = gameobject.GetComponent&lt;Player&gt;();
+        player.hairColor = message.hairColor;
+        player.eyeColor = message.eyeColor;
+        player.name = message.name;
+        player.race = message.race;
+
+        // call this to use this gameobject as the primary controller
+        NetworkServer.AddPlayerForConnection(conn, gameobject);
+    }
+}
+</code></pre>
+<h2 id="ready-state">Ready State</h2>
+<p>In addition to players, client connections also have a “ready” state. The host sends clients that are ready information about spawned game objects and state synchronization updates; clients which are not ready are not sent these updates. When a client initially connects to a server, it is not ready. While in this non-ready state, the client can do things that don’t require real-time interactions with the game state on the server, such as loading Scenes, allowing the player to choose an avatar, or fill in log-in boxes. Once a client has completed all its pre-game work, and all its Assets are loaded, it can call <code>ClientScene.Ready</code> to enter the “ready” state. The simple example above demonstrates implementation of ready states; because adding a player with <code>NetworkServer.AddPlayerForConnection</code> also puts the client into the ready state if it is not already in that state.</p>
+<p>Clients can send and receive network messages without being ready, which also means they can do so without having an active player game object. So a client at a menu or selection screen can connect to the game and interact with it, even though they have no player game object. See documentation on <a href="../Communications/NetworkMessages.html">Network Messages</a> for more details about sending messages without using commands and RPC calls.</p>
+<h2 id="switching-players">Switching Players</h2>
+<p>To replace the player game object for a connection, use <code>NetworkServer.ReplacePlayerForConnection</code>. This is useful for restricting the commands that players can issue at certain times, such as in a pregame room screen. This function takes the same arguments as <code>AddPlayerForConnection</code>, but allows there to already be a player for that connection. The old player game object does not have to be destroyed. The <code>NetworkRoomManager</code> uses this technique to switch from the <code>NetworkRoomPlayer</code> game object to a game play player game object when all the players in the room are ready.</p>
+<p>You can also use <code>ReplacePlayerForConnection</code> to respawn a player or change the object that represents the player. In some cases it is better to just disable a game object and reset its game attributes on respawn. The following code sample demonstrates how to actually replace the player game object with a new game object:</p>
+<pre><code class="lang-cs">public class MyNetworkManager : NetworkManager
+{
+    public void ReplacePlayer(GameObject newPrefab)
+    {
+        NetworkConnection conn = NetworkClient.connection;
+
+        // Cache a reference to the current player object
+        GameObject oldPlayer = conn.identity.gameObject;
+
+        // Instantiate the new player object and broadcast to clients
+        NetworkServer.ReplacePlayerForConnection(conn, Instantiate(newPrefab));
+
+        // Remove the previous player object that's now been replaced
+        NetworkServer.Destroy(oldPlayer);
+    }
+}
+</code></pre>
+<p>If the player game object for a connection is destroyed, then that client cannot execute Commands. They can, however, still send network messages.</p>
+<p>To use <code>ReplacePlayerForConnection</code> you must have the <code>NetworkConnection</code> game object for the player’s client to establish the relationship between the game object and the client. This is usually the property <code>connectionToClient</code> on the <code>NetworkBehaviour</code> class, but if the old player has already been destroyed, then that might not be readily available.</p>
+<p>To find the connection, there are some lists available. If using the <code>NetworkRoomManager</code>, then the room players are available in <code>roomSlots</code>. The <code>NetworkServer</code> also has lists of <code>connections</code>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

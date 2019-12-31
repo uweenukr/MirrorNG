@@ -1,0 +1,819 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Transport
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Transport
+   ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirror.Transport">
+  
+  
+  <h1 id="Mirror_Transport" data-uid="Mirror.Transport" class="text-break">Class Transport
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Transport</span></div>
+      <div class="level2"><a class="xref" href="Mirror.FallbackTransport.html">FallbackTransport</a></div>
+      <div class="level2"><a class="xref" href="Mirror.LLAPITransport.html">LLAPITransport</a></div>
+      <div class="level2"><a class="xref" href="Mirror.MultiplexTransport.html">MultiplexTransport</a></div>
+      <div class="level2"><a class="xref" href="Mirror.Tcp.TcpTransport.html">TcpTransport</a></div>
+      <div class="level2"><a class="xref" href="Mirror.TelepathyTransport.html">TelepathyTransport</a></div>
+      <div class="level2"><a class="xref" href="Mirror.Websocket.WebsocketTransport.html">WebsocketTransport</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirror_Transport_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Transport : MonoBehaviour</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Mirror_Transport_activeTransport" data-uid="Mirror.Transport.activeTransport">activeTransport</h4>
+  <div class="markdown level1 summary"><p>The current transport used by Mirror.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Transport activeTransport</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.Transport.html">Transport</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_Transport_OnClientConnected" data-uid="Mirror.Transport.OnClientConnected">OnClientConnected</h4>
+  <div class="markdown level1 summary"><p>Notify subscribers when when this client establish a successful connection to the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnityEvent OnClientConnected</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEvent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_Transport_OnClientDataReceived" data-uid="Mirror.Transport.OnClientDataReceived">OnClientDataReceived</h4>
+  <div class="markdown level1 summary"><p>Notify subscribers when this client receive data from the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientDataReceivedEvent OnClientDataReceived</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.ClientDataReceivedEvent.html">ClientDataReceivedEvent</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_Transport_OnClientDisconnected" data-uid="Mirror.Transport.OnClientDisconnected">OnClientDisconnected</h4>
+  <div class="markdown level1 summary"><p>Notify subscribers when this client disconnects from the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnityEvent OnClientDisconnected</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEvent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_Transport_OnClientError" data-uid="Mirror.Transport.OnClientError">OnClientError</h4>
+  <div class="markdown level1 summary"><p>Notify subscribers when this clianet encounters an error communicating with the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnityEventException OnClientError</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.UnityEventException.html">UnityEventException</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_Transport_OnServerConnected" data-uid="Mirror.Transport.OnServerConnected">OnServerConnected</h4>
+  <div class="markdown level1 summary"><p>Notify subscribers when a client connects to this server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnityEventInt OnServerConnected</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.UnityEventInt.html">UnityEventInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_Transport_OnServerDataReceived" data-uid="Mirror.Transport.OnServerDataReceived">OnServerDataReceived</h4>
+  <div class="markdown level1 summary"><p>Notify subscribers when this server receives data from the client</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServerDataReceivedEvent OnServerDataReceived</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.ServerDataReceivedEvent.html">ServerDataReceivedEvent</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_Transport_OnServerDisconnected" data-uid="Mirror.Transport.OnServerDisconnected">OnServerDisconnected</h4>
+  <div class="markdown level1 summary"><p>Notify subscribers when a client disconnects from this server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnityEventInt OnServerDisconnected</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.UnityEventInt.html">UnityEventInt</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_Transport_OnServerError" data-uid="Mirror.Transport.OnServerError">OnServerError</h4>
+  <div class="markdown level1 summary"><p>Notify subscribers when this server has some problem communicating with the client</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UnityEventIntException OnServerError</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.UnityEventIntException.html">UnityEventIntException</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Mirror_Transport_Available_" data-uid="Mirror.Transport.Available*"></a>
+  <h4 id="Mirror_Transport_Available" data-uid="Mirror.Transport.Available">Available()</h4>
+  <div class="markdown level1 summary"><p>Is this transport available in the current platform?</p>
+<p>Some transports might only be available in mobile</p>
+<p>Many will not work in webgl</p>
+<p>Example usage: return Application.platform == RuntimePlatform.WebGLPlayer</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool Available()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if this transport works in the current platform</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_ClientConnect_" data-uid="Mirror.Transport.ClientConnect*"></a>
+  <h4 id="Mirror_Transport_ClientConnect_System_String_" data-uid="Mirror.Transport.ClientConnect(System.String)">ClientConnect(String)</h4>
+  <div class="markdown level1 summary"><p>Establish a connection to a server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void ClientConnect(string address)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td><p>The IP address or FQDN of the server we are trying to connect to</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_ClientConnect_" data-uid="Mirror.Transport.ClientConnect*"></a>
+  <h4 id="Mirror_Transport_ClientConnect_Uri_" data-uid="Mirror.Transport.ClientConnect(Uri)">ClientConnect(Uri)</h4>
+  <div class="markdown level1 summary"><p>Establish a connection to a server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ClientConnect(Uri uri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Uri</span></td>
+        <td><span class="parametername">uri</span></td>
+        <td><p>The address of the server we are trying to connect to</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_ClientConnected_" data-uid="Mirror.Transport.ClientConnected*"></a>
+  <h4 id="Mirror_Transport_ClientConnected" data-uid="Mirror.Transport.ClientConnected">ClientConnected()</h4>
+  <div class="markdown level1 summary"><p>Determines if we are currently connected to the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool ClientConnected()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if a connection has been established to the server</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_ClientDisconnect_" data-uid="Mirror.Transport.ClientDisconnect*"></a>
+  <h4 id="Mirror_Transport_ClientDisconnect" data-uid="Mirror.Transport.ClientDisconnect">ClientDisconnect()</h4>
+  <div class="markdown level1 summary"><p>Disconnect this client from the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void ClientDisconnect()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_Transport_ClientSend_" data-uid="Mirror.Transport.ClientSend*"></a>
+  <h4 id="Mirror_Transport_ClientSend_System_Int32_ArraySegment_System_Byte__" data-uid="Mirror.Transport.ClientSend(System.Int32,ArraySegment{System.Byte})">ClientSend(Int32, ArraySegment&lt;Byte&gt;)</h4>
+  <div class="markdown level1 summary"><p>Send data to the server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool ClientSend(int channelId, ArraySegment&lt;byte&gt; segment)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channelId</span></td>
+        <td><p>The channel to use.  0 is the default channel,
+but some transports might want to provide unreliable, encrypted, compressed, or any other feature
+as new channels</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ArraySegment</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">segment</span></td>
+        <td><p>The data to send to the server. Will be recycled after returning, so either use it directly or copy it internally. This allows for allocation-free sends!</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if the send was successful</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_GetMaxPacketSize_" data-uid="Mirror.Transport.GetMaxPacketSize*"></a>
+  <h4 id="Mirror_Transport_GetMaxPacketSize_System_Int32_" data-uid="Mirror.Transport.GetMaxPacketSize(System.Int32)">GetMaxPacketSize(Int32)</h4>
+  <div class="markdown level1 summary"><p>The maximum packet size for a given channel.  Unreliable transports
+usually can only deliver small packets. Reliable fragmented channels
+can usually deliver large ones.</p>
+<p>GetMaxPacketSize needs to return a value at all times. Even if the
+Transport isn't running, or isn't Available(). This is because
+Fallback and Multiplex transports need to find the smallest possible
+packet size at runtime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int GetMaxPacketSize(int channelId = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channelId</span></td>
+        <td><p>channel id</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>the size in bytes that can be sent via the provided channel</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_ServerActive_" data-uid="Mirror.Transport.ServerActive*"></a>
+  <h4 id="Mirror_Transport_ServerActive" data-uid="Mirror.Transport.ServerActive">ServerActive()</h4>
+  <div class="markdown level1 summary"><p>Determines if the server is up and running</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool ServerActive()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if the transport is ready for connections from clients</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_ServerDisconnect_" data-uid="Mirror.Transport.ServerDisconnect*"></a>
+  <h4 id="Mirror_Transport_ServerDisconnect_System_Int32_" data-uid="Mirror.Transport.ServerDisconnect(System.Int32)">ServerDisconnect(Int32)</h4>
+  <div class="markdown level1 summary"><p>Disconnect a client from this server.  Useful to kick people out.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool ServerDisconnect(int connectionId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">connectionId</span></td>
+        <td><p>the id of the client to disconnect</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if the client was kicked</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_ServerGetClientAddress_" data-uid="Mirror.Transport.ServerGetClientAddress*"></a>
+  <h4 id="Mirror_Transport_ServerGetClientAddress_System_Int32_" data-uid="Mirror.Transport.ServerGetClientAddress(System.Int32)">ServerGetClientAddress(Int32)</h4>
+  <div class="markdown level1 summary"><p>Get the client address</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string ServerGetClientAddress(int connectionId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">connectionId</span></td>
+        <td><p>id of the client</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>address of the client</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_ServerSend_" data-uid="Mirror.Transport.ServerSend*"></a>
+  <h4 id="Mirror_Transport_ServerSend_List_System_Int32__System_Int32_ArraySegment_System_Byte__" data-uid="Mirror.Transport.ServerSend(List{System.Int32},System.Int32,ArraySegment{System.Byte})">ServerSend(List&lt;Int32&gt;, Int32, ArraySegment&lt;Byte&gt;)</h4>
+  <div class="markdown level1 summary"><p>Send data to one or multiple clients. We provide a list, so that transports can make use
+of multicasting, and avoid allocations where possible.</p>
+<p>We don't provide a single ServerSend function to reduce complexity. Simply overwrite this
+one in your Transport.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool ServerSend(List&lt;int&gt; connectionIds, int channelId, ArraySegment&lt;byte&gt; segment)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">connectionIds</span></td>
+        <td><p>The list of client connection ids to send the data to</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channelId</span></td>
+        <td><p>The channel to be used.  Transports can use channels to implement
+other features such as unreliable, encryption, compression, etc...</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">ArraySegment</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">segment</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if the data was sent to all clients</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_Transport_ServerStart_" data-uid="Mirror.Transport.ServerStart*"></a>
+  <h4 id="Mirror_Transport_ServerStart" data-uid="Mirror.Transport.ServerStart">ServerStart()</h4>
+  <div class="markdown level1 summary"><p>Start listening for clients</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void ServerStart()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_Transport_ServerStop_" data-uid="Mirror.Transport.ServerStop*"></a>
+  <h4 id="Mirror_Transport_ServerStop" data-uid="Mirror.Transport.ServerStop">ServerStop()</h4>
+  <div class="markdown level1 summary"><p>Stop listening for clients and disconnect all existing clients</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void ServerStop()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_Transport_Shutdown_" data-uid="Mirror.Transport.Shutdown*"></a>
+  <h4 id="Mirror_Transport_Shutdown" data-uid="Mirror.Transport.Shutdown">Shutdown()</h4>
+  <div class="markdown level1 summary"><p>Shut down the transport, both as client and server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Shutdown()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_Transport_Update_" data-uid="Mirror.Transport.Update*"></a>
+  <h4 id="Mirror_Transport_Update" data-uid="Mirror.Transport.Update">Update()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update()</code></pre>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

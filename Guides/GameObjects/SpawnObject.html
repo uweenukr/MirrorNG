@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Spawning Game Objects </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Spawning Game Objects ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="spawning-game-objects">Spawning Game Objects</h1>
+
+<p>In Mirror, you usually “spawn” (that is, create) new game objects with <code>Instantiate</code>. However, in the multiplayer High Level API, the word “spawn” means something more specific. In the server-authoritative model of the HLAPI, to “spawn” a game object on the server means that the game object is created on clients connected to the server, and is managed by the spawning system.</p>
+<p>Once the game object is spawned using this system, state updates are sent to clients whenever the game object changes on the server. When Mirror destroys the game object on the server, it also destroys it on the clients. The server manages spawned game objects alongside all other networked game objects, so that if another client joins the game later, the server can spawn the game objects on that client. These spawned game objects have a unique network instance ID called “netId” that is the same on the server and clients for each game object. The unique network instance ID is used to route messages set across the network to game objects, and to identify game objects.</p>
+<p>When the server spawns a game object with a Network Identity component, the game object spawned on the client has the same “state”. This means it is identical to the game object on the server; it has the same Transform, movement state, and (if Network Transform and SyncVars are used) synchronized variables. Therefore, client game objects are always up-to-date when Mirror creates them. This avoids issues such as game objects spawning at the wrong initial location, then reappearing at their correct position when a state update arrives.</p>
+<p>The Network Manager before trying to register it with the Network Manager.</p>
+<p>To register a Prefab with the Network Manager in the Editor, select the Network Manager game object, and in the Inspector, navigate to the Network Manager component. Click the triangle next to Spawn Info to open the settings, then under Registered Spawnable Prefabs, click the plus (+) button. Drag and drop Prefabs into the empty field to assign them to the list.</p>
+<p><img src="SpawnObjects.PNG" alt="Registered Spawnable Prefabs"></p>
+<h2 id="spawning-without-network-manager">Spawning Without Network Manager</h2>
+<p>For more advanced users, you may find that you want to register Prefabs and spawn game objects without using the Network Manager component.</p>
+<p>To spawn game objects without using the Network Manager, you can handle the Prefab registration yourself via script. Use the <code>ClientScene.RegisterPrefab</code> method to register Prefabs to the Network Manager.</p>
+<pre><code class="lang-cs">using UnityEngine;
+using Mirror;
+
+public class MyNetworkManager : MonoBehaviour 
+{
+    public GameObject treePrefab;
+
+    // Register prefab and connect to the server  
+    public void ClientConnect()
+    {
+        ClientScene.RegisterPrefab(treePrefab);
+        NetworkClient.RegisterHandler&lt;ConnectMessage&gt;(OnClientConnect);
+        NetworkClient.Connect(&quot;localhost&quot;);
+    }
+
+    void OnClientConnect(NetworkConnection conn, ConnectMessage msg)
+    {
+        Debug.Log(&quot;Connected to server: &quot; + conn);
+    }
+}
+</code></pre>
+<p>In this example, you create an empty game object to act as the Network Manager, then create and attach the <code>MyNetworkManager</code> script (above) to that game object. Create a prefab that has a Network Identity component attached to it, and drag that onto the <code>treePrefab</code> slot on the <code>MyNetworkManager</code> component in the Inspector. This ensures that when the server spawns the tree game object, it also creates the same kind of game object on the clients.</p>
+<p>Registering prefabs ensures that there is no stalling or loading time for creating the Asset.</p>
+<p>For the script to work, you also need to add code for the server. Add this to the <code>MyNetworkManager</code> script:</p>
+<pre><code class="lang-cs">public void ServerListen()
+{
+    NetworkServer.RegisterHandler&lt;ConnectMessage&gt;(OnServerConnect);
+    NetworkServer.RegisterHandler&lt;ReadyMessage&gt;(OnClientReady);
+
+    if (NetworkServer.Listen(7777))
+        Debug.Log(&quot;Server started listening on port 7777&quot;);
+}
+
+// When client is ready spawn a few trees  
+void OnClientReady(NetworkConnection conn, ReadyMessage msg)
+{
+    Debug.Log(&quot;Client is ready to start: &quot; + conn);
+    NetworkServer.SetClientReady(conn);
+    SpawnTrees();
+}
+
+void SpawnTrees()
+{
+    int x = 0;
+    for (int i = 0; i &lt; 5; ++i)
+    {
+        GameObject treeGo = Instantiate(treePrefab, new Vector3(x++, 0, 0), Quaternion.identity);
+        NetworkServer.Spawn(treeGo);
+    }
+}
+
+void OnServerConnect(NetworkConnection conn, ConnectMessage msg)
+{
+    Debug.Log(&quot;New client connected: &quot; + conn);
+}
+</code></pre>
+<p>The server does not need to register anything, as it knows what game object is being spawned (and the asset ID is sent in the spawn message). The client needs to be able to look up the game object, so it must be registered on the client.</p>
+<p>When writing your own network manager, it’s important to make the client ready to receive state updates before calling the spawn command on the server, otherwise they won’t be sent. If you’re using Mirror’s built-in Network Manager component, this happens automatically.</p>
+<p>For more advanced uses, such as object pools or dynamically created Assets, you can use the <code>ClientScene.RegisterSpawnHandler</code> method, which allows callback functions to be registered for client-side spawning. See documentation on Custom Spawn Functions for an example of this.</p>
+<p>If the game object has a network state like synchronized variables, then that state is synchronized with the spawn message. In the following example, this script is attached to the tree Prefab:</p>
+<pre><code class="lang-cs">using UnityEngine;
+using Mirror;
+
+class Tree : NetworkBehaviour
+{
+    [SyncVar]
+    public int numLeaves;
+
+    public override void OnStartClient()
+    {
+        Debug.Log(&quot;Tree spawned with leaf count &quot; + numLeaves);
+    }
+}
+</code></pre>
+<p>With this script attached, you can change the <code>numLeaves</code> variable and modify the <code>SpawnTrees</code> function to see it accurately reflected on the client:</p>
+<pre><code class="lang-cs">void SpawnTrees()
+{
+    int x = 0;
+    for (int i = 0; i &lt; 5; ++i)
+    {
+        GameObject treeGo = Instantiate(treePrefab, new Vector3(x++, 0, 0), Quaternion.identity);
+        Tree tree = treeGo.GetComponent&lt;Tree&gt;();
+        tree.numLeaves = Random.Range(10,200);
+        Debug.Log(&quot;Spawning leaf with leaf count &quot; + tree.numLeaves);
+        NetworkServer.Spawn(treeGo);
+    }
+}
+</code></pre>
+<p>Attach the <code>Tree</code> script to the <code>treePrefab</code> script created earlier to see this in action.</p>
+<h3 id="constraints">Constraints</h3>
+<ul>
+<li>A NetworkIdentity must be on the root game object of a spawnable Prefab. Without this, the Network Manager can’t register the Prefab.</li>
+<li>NetworkBehaviour scripts must be on the same game object as the NetworkIdentity, not on child game objects</li>
+</ul>
+<h2 id="game-object-creation-flow">Game Object Creation Flow</h2>
+<p>The actual flow of internal operations that takes place for spawning game objects is:</p>
+<ul>
+<li>Prefab with Network Identity component is registered as spawnable.</li>
+<li>game object is instantiated from the Prefab on the server.</li>
+<li>Game code sets initial values on the instance (note that 3D physics forces applied here do not take effect immediately).</li>
+<li><code>NetworkServer.Spawn</code> is called with the instance.</li>
+<li>The state of the SyncVars on the instance on the server are collected by calling <code>OnSerialize</code> on [Network Behaviour] components.</li>
+<li>A network message of type <code>ObjectSpawn</code> is sent to connected clients that includes the SyncVar data.</li>
+<li><code>OnStartServer</code> is called on the instance on the server, and <code>isServer</code> is set to <code>true</code></li>
+<li>Clients receive the <code>ObjectSpawn</code> message and create a new instance from the registered Prefab.</li>
+<li>The SyncVar data is applied to the new instance on the client by calling OnDeserialize on Network Behaviour components.</li>
+<li><code>OnStartClient</code> is called on the instance on each client, and <code>isClient</code> is set to <code>true</code></li>
+<li>As game play progresses, changes to SyncVar values are automatically synchronized to clients. This continues until game ends.</li>
+<li><code>NetworkServer.Destroy</code> is called on the instance on the server.</li>
+<li>A network message of type <code>ObjectDestroy</code> is sent to clients.</li>
+<li><code>OnNetworkDestroy</code> is called on the instance on clients, then the instance is destroyed.</li>
+</ul>
+<h3 id="player-game-objects">Player Game Objects</h3>
+<p>Player game objects in the HLAPI work slightly differently to non-player game objects. The flow for spawning player game objects with the Network Manager is:</p>
+<ul>
+<li>Prefab with <code>NetworkIdentity</code> is registered as the <code>PlayerPrefab</code></li>
+<li>Client connects to the server</li>
+<li>Client calls <code>AddPlayer</code>, network message of type <code>MsgType.AddPlayer</code> is sent to the server</li>
+<li>Server receives message and calls <code>NetworkManager.OnServerAddPlayer</code></li>
+<li>game object is instantiated from the Player Prefab on the server</li>
+<li><code>NetworkManager.AddPlayerForConnection</code> is called with the new player instance on the server</li>
+<li>The player instance is spawned - you do not have to call <code>NetworkServer.Spawn</code> for the player instance. The spawn message is sent to all clients like on a normal spawn.</li>
+<li>A network message of type <code>Owner</code> is sent to the client that added the player (only that client!)</li>
+<li>The original client receives the network message</li>
+<li><code>OnStartLocalPlayer</code> is called on the player instance on the original client, and <code>isLocalPlayer</code> is set to true</li>
+</ul>
+<p>Note that <code>OnStartLocalPlayer</code> is called after <code>OnStartClient</code>, because it only happens when the ownership message arrives from the server after the player game object is spawned, so <code>isLocalPlayer</code> is not set in <code>OnStartClient</code>.</p>
+<p>Because <code>OnStartLocalPlayer</code> is only called for the client’s local player game object, it is a good place to perform initialization that should only be done for the local player. This could include enabling input processing, and enabling camera tracking for the player game object.</p>
+<h2 id="spawning-game-objects-with-client-authority">Spawning Game Objects with Client Authority</h2>
+<p>To spawn game objects and assign authority of those game objects to a particular client, use <code>NetworkServer.SpawnWithClientAuthority</code>, which takes as an argument the <code>NetworkConnection</code> of the client that is to be made the authority.</p>
+<p>For these game objects, the property <code>hasAuthority</code> is true on the client with authority, and <code>OnStartAuthority</code> is called on the client with authority. That client can issue commands for that game object. On other clients (and on the host), <code>hasAuthority</code> is false.</p>
+<p>Objects spawned with client authority must have <code>LocalPlayerAuthority</code> set in their <code>NetworkIdentity</code>.</p>
+<p>For example, the tree spawn example above can be modified to allow the tree to have client authority like this (note that we now need to pass in a NetworkConnection game object for the owning client’s connection):</p>
+<pre><code class="lang-cs">void SpawnTrees(NetworkConnection conn)
+{
+    int x = 0;
+    for (int i = 0; i &lt; 5; ++i)
+    {
+        GameObject treeGo = Instantiate(treePrefab, new Vector3(x++, 0, 0), Quaternion.identity);
+        Tree tree = treeGo.GetComponent&lt;Tree&gt;();
+        tree.numLeaves = Random.Range(10,200);
+        Debug.Log(&quot;Spawning leaf with leaf count &quot; + tree.numLeaves);
+        NetworkServer.SpawnWithClientAuthority(treeGo, conn);
+    }
+}
+</code></pre>
+<p>The Tree script can now be modified to send a command to the server:</p>
+<pre><code class="lang-cs">public override void OnStartAuthority()
+{
+    CmdMessageFromTree(&quot;Tree with &quot; + numLeaves + &quot; reporting in&quot;);
+}
+
+[Command]
+void CmdMessageFromTree(string msg)
+{
+    Debug.Log(&quot;Client sent a tree message: &quot; + msg);
+}
+</code></pre>
+<p>Note that you can’t just add the <code>CmdMessageFromTree</code> call into <code>OnStartClient</code>, because at that point the authority has not been set yet, so the call would fail.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

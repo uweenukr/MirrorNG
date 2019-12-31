@@ -1,0 +1,582 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NetworkClient
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NetworkClient
+   ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirror.NetworkClient">
+  
+  
+  <h1 id="Mirror_NetworkClient" data-uid="Mirror.NetworkClient" class="text-break">Class NetworkClient
+  </h1>
+  <div class="markdown level0 summary"><p>This is a network client class used by the networking system. It contains a NetworkConnection that is used to connect to a network server.</p>
+<p>The <a class="xref" href="Mirror.NetworkClient.html">NetworkClient</a> handle connection state, messages handlers, and connection configuration. There can be many <a class="xref" href="Mirror.NetworkClient.html">NetworkClient</a> instances in a process at a time, but only one that is connected to a game server (<a class="xref" href="Mirror.NetworkServer.html">NetworkServer</a>) that uses spawned objects.</p>
+<p><a class="xref" href="Mirror.NetworkClient.html">NetworkClient</a> has an internal update function where it handles events from the transport layer. This includes asynchronous connect events, disconnect events and incoming data from a server.</p>
+<p>The <a class="xref" href="Mirror.NetworkManager.html">NetworkManager</a> has a NetworkClient instance that it uses for games that it starts, but the NetworkClient may be used by itself.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">NetworkClient</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirror_NetworkClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class NetworkClient : object</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Mirror_NetworkClient_handlers" data-uid="Mirror.NetworkClient.handlers">handlers</h4>
+  <div class="markdown level1 summary"><p>The registered network message handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Dictionary&lt;int, NetworkMessageDelegate&gt; handlers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.Int32</span>, <a class="xref" href="Mirror.NetworkMessageDelegate.html">NetworkMessageDelegate</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Mirror_NetworkClient_active_" data-uid="Mirror.NetworkClient.active*"></a>
+  <h4 id="Mirror_NetworkClient_active" data-uid="Mirror.NetworkClient.active">active</h4>
+  <div class="markdown level1 summary"><p>active is true while a client is connecting/connected
+(= while the network is active)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool active { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkClient_connection_" data-uid="Mirror.NetworkClient.connection*"></a>
+  <h4 id="Mirror_NetworkClient_connection" data-uid="Mirror.NetworkClient.connection">connection</h4>
+  <div class="markdown level1 summary"><p>The NetworkConnection object this client is using.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkConnection connection { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkClient_isConnected_" data-uid="Mirror.NetworkClient.isConnected*"></a>
+  <h4 id="Mirror_NetworkClient_isConnected" data-uid="Mirror.NetworkClient.isConnected">isConnected</h4>
+  <div class="markdown level1 summary"><p>This gives the current connection status of the client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isConnected { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkClient_isLocalClient_" data-uid="Mirror.NetworkClient.isLocalClient*"></a>
+  <h4 id="Mirror_NetworkClient_isLocalClient" data-uid="Mirror.NetworkClient.isLocalClient">isLocalClient</h4>
+  <div class="markdown level1 summary"><p>NetworkClient can connect to local server in host mode too</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isLocalClient { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkClient_serverIp_" data-uid="Mirror.NetworkClient.serverIp*"></a>
+  <h4 id="Mirror_NetworkClient_serverIp" data-uid="Mirror.NetworkClient.serverIp">serverIp</h4>
+  <div class="markdown level1 summary"><p>The IP address of the server that this client is connected to.</p>
+<p>This will be empty if the client has not connected yet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string serverIp { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Mirror_NetworkClient_Connect_" data-uid="Mirror.NetworkClient.Connect*"></a>
+  <h4 id="Mirror_NetworkClient_Connect_System_String_" data-uid="Mirror.NetworkClient.Connect(System.String)">Connect(String)</h4>
+  <div class="markdown level1 summary"><p>Connect client to a NetworkServer instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Connect(string address)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">address</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkClient_Connect_" data-uid="Mirror.NetworkClient.Connect*"></a>
+  <h4 id="Mirror_NetworkClient_Connect_Uri_" data-uid="Mirror.NetworkClient.Connect(Uri)">Connect(Uri)</h4>
+  <div class="markdown level1 summary"><p>Connect client to a NetworkServer instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Connect(Uri uri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Uri</span></td>
+        <td><span class="parametername">uri</span></td>
+        <td><p>Address of the server to connect to</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkClient_Disconnect_" data-uid="Mirror.NetworkClient.Disconnect*"></a>
+  <h4 id="Mirror_NetworkClient_Disconnect" data-uid="Mirror.NetworkClient.Disconnect">Disconnect()</h4>
+  <div class="markdown level1 summary"><p>Disconnect from server.</p>
+<p>The disconnect message will be invoked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Disconnect()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkClient_RegisterHandler_" data-uid="Mirror.NetworkClient.RegisterHandler*"></a>
+  <h4 id="Mirror_NetworkClient_RegisterHandler__1_Action___0__System_Boolean_" data-uid="Mirror.NetworkClient.RegisterHandler``1(Action{``0},System.Boolean)">RegisterHandler&lt;T&gt;(Action&lt;T&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Register a handler for a particular message type.</p>
+<p>There are several system message types which you can add handlers for. You can also add your own message types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterHandler&lt;T&gt;(Action&lt;T&gt; handler, bool requireAuthentication = true)
+    where T : IMessageBase, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;T&gt;</td>
+        <td><span class="parametername">handler</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">requireAuthentication</span></td>
+        <td><p>true if the message requires an authenticated connection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The message type to unregister.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkClient_RegisterHandler_" data-uid="Mirror.NetworkClient.RegisterHandler*"></a>
+  <h4 id="Mirror_NetworkClient_RegisterHandler__1_Action_Mirror_NetworkConnection___0__System_Boolean_" data-uid="Mirror.NetworkClient.RegisterHandler``1(Action{Mirror.NetworkConnection,``0},System.Boolean)">RegisterHandler&lt;T&gt;(Action&lt;NetworkConnection, T&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Register a handler for a particular message type.</p>
+<p>There are several system message types which you can add handlers for. You can also add your own message types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterHandler&lt;T&gt;(Action&lt;NetworkConnection, T&gt; handler, bool requireAuthentication = true)
+    where T : IMessageBase, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a>, T&gt;</td>
+        <td><span class="parametername">handler</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">requireAuthentication</span></td>
+        <td><p>true if the message requires an authenticated connection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The message type to unregister.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkClient_Send_" data-uid="Mirror.NetworkClient.Send*"></a>
+  <h4 id="Mirror_NetworkClient_Send__1___0_System_Int32_" data-uid="Mirror.NetworkClient.Send``1(``0,System.Int32)">Send&lt;T&gt;(T, Int32)</h4>
+  <div class="markdown level1 summary"><p>This sends a network message with a message Id to the server. This message is sent on channel zero, which by default is the reliable channel.</p>
+<p>The message must be an instance of a class derived from MessageBase.</p>
+<p>The message id passed to Send() is used to identify the handler function to invoke on the server when the message is received.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Send&lt;T&gt;(T message, int channelId = null)
+    where T : IMessageBase</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channelId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if message was sent.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The message type to unregister.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkClient_Shutdown_" data-uid="Mirror.NetworkClient.Shutdown*"></a>
+  <h4 id="Mirror_NetworkClient_Shutdown" data-uid="Mirror.NetworkClient.Shutdown">Shutdown()</h4>
+  <div class="markdown level1 summary"><p>Shut down a client.</p>
+<p>This should be done when a client is no longer going to be used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Shutdown()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkClient_UnregisterHandler_" data-uid="Mirror.NetworkClient.UnregisterHandler*"></a>
+  <h4 id="Mirror_NetworkClient_UnregisterHandler__1" data-uid="Mirror.NetworkClient.UnregisterHandler``1">UnregisterHandler&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"><p>Unregisters a network message handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnregisterHandler&lt;T&gt;()
+    where T : IMessageBase</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The message type to unregister.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

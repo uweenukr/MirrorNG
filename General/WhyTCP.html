@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Why TCP by default and not UDP? </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Why TCP by default and not UDP? ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="why-tcp-by-default-and-not-udp">Why TCP by default and not UDP?</h1>
+
+<p>It's the year 2019 and every game developer swears by UDP. Yet we chose TCP as default for Mirror. Why is that?</p>
+<p>First of all, a quick word about the major differences between UDP and TCP.</p>
+<ul>
+<li>UDP has lower latency, unreliable and hard to use correctly</li>
+<li>TCP has higher latency, reliable and easy to use</li>
+</ul>
+<h2 id="tcp-transmision-control-protocol">TCP (Transmision Control Protocol)</h2>
+<p><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Congestion_control">Tcp</a> is a protocol built on top of IP. It is by far the most popular protocol on the internet.  Everything you are seeing in this page was sent to your browser via TCP. It is designed to be simple to use and scalable.</p>
+<p>Servers open a TCP port and wait for connections.  Clients send an initial message (handshake) to establish the connection then send data.  Data flows one byte after another, always in the right order, without missing anything. Some of the key features include:</p>
+<ul>
+<li>Reliable: if a packet gets lost,  TCP will resend it. All data is either transmitted successfully or you get an error and the connection is closed.  Applications don't have to worry about missing packets.</li>
+<li>Fragmented: network cards cannot just send 1 MB of data. They can only send small packets of 1.5Kb or less.  If a lot of data is sent by the application, TCP will split it into small packets and reassemble the data on the receiving end.</li>
+<li>Sequenced: If you send data &quot;a&quot; and &quot;b&quot; you will not receive &quot;b&quot; and &quot;a&quot;.  TCP guarantees that every byte will arrive in the same order it was sent.</li>
+<li>Connection oriented: TCP has the concept of a connection.  A client sends an initial handshake message.  A connection is considered established until either the client and server decides to disconnect.  Both the client and server get notified when the connection ends and can react accordingly,  for example saving and destroying player object.</li>
+<li>Congestion control: If a server is being overwhelmed,  TCP will throttle the data to avoid congestion collapse.</li>
+</ul>
+<p>These are great features that make it very easy for programmers to work with TCP, but they come at a cost:  Latency.</p>
+<p>Suppose an object is moving from point a to b to c.  The server sends 3 messages: move to a, b, c. Suppose b gets lost (wifi drops a lot of packets for example) and c arrives fine. We could skip b and move towards c instead,  but we can't because the operating system won't give us c until b is retransmitted.</p>
+<p>For this reason, AAA studios consistently prefer UDP for fast paced action games.</p>
+<h2 id="udp-user-datagram-protocol">UDP (User Datagram Protocol)</h2>
+<p><a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a> is also a protocol based on IP.  It is used for real time applications such as fast paced action games or voice over ip, where low latency is more important than reliability.</p>
+<p>A server opens a port and waits for messages. Clients send messages to the port, and the server may send messages back. Data flows in both ways as individual messages.</p>
+<p>There is no concept of connection, so there is no built in way to determine if a client disconnects. Messages are delivered as soon as possible,  there is no guarantee that the order will be preserved or that they will be delivered at all.  Messages must be small,  typically 1.5Kb or less.</p>
+<p>Mirror does need reliability, fragmentation, sequenced, connections for many things,  so we would not use raw UDP.  We would use a library that implements those features on top of UDP such as <a href="http://enet.bespin.org/">ENet</a>, <a href="https://github.com/RevenantX/LiteNetLib">LiteNetLib</a> or LLAPI,  typically referred to as RUDP (Reliable UDP)</p>
+<p>The obvious question is:  do RUDP libraries just reinventing TCP?  yes, to some degree they do. But the point is that those features are optional and we can send messages without the extra features for low latency data such as movement or voice.</p>
+<h2 id="dark-ages">Dark ages</h2>
+<p>Back in 2015 when we started uMMORPG and Cubica, we originally used Unity's built in Networking system aka UNET. UNET used LLAPI, an RUDP library that avoided garbage collection at all costs.</p>
+<p>What sounds good in theory, was terrible in practice. We spent about half our work hours from 2015 to 2018 dealing with UNET bugs. There was packet loss, highly complex code due to GC avoidance, synchronization issues, memory leaks and random errors. Most importantly, no decent way to debug any of it.</p>
+<p>If a monster didn't spawn on a client, we wouldn't know what caused it.</p>
+<ul>
+<li>Was the packet dropped by UDP?</li>
+<li>Was it a bug in the highly complex UNET source code?</li>
+<li>Was the reliable layer on top of UDP not working as intended?</li>
+<li>Was the reliable layer actually fully reliable?</li>
+<li>Did we use the right networking config for the host that we tested it on?</li>
+<li>Or was it a bug in our own project?</li>
+</ul>
+<p>After 3 years in UDP/LLAPI hell, we realized if we ever wanted to finish our games, we would need a networking layer that just works. We could have tried other RUDP transports, but we would end up debugging them instead.</p>
+<p>That's why we made Telepathy and Mirror. <strong>Life is short. We just need the damn thing to work.</strong></p>
+<h2 id="the-choice-is-yours">The choice is yours</h2>
+<p>We acknowledge not everyone will agree with our reasoning. Rather than push our views on users, we made Mirror transport independent. A few months later, Unity did the same thing. You can easily swap out the transport for one of the several RUDP implementations simply by dragging it into your NetworkManager gameobject. Pick whatever works best for you. We recommend you profile your game and collect real world numbers before you make a final decision.</p>
+<p>After we made Mirror transport independent,  the community stepped up integrated several RUDP transports with Mirror.  While the default is Telepathy (simple &quot;just works&quot; TCP transport) you can choose among several <a href="../Transports/index.html">transports</a> or even write your own.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

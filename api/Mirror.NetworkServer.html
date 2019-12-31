@@ -1,0 +1,1566 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NetworkServer
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NetworkServer
+   ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirror.NetworkServer">
+  
+  
+  <h1 id="Mirror_NetworkServer" data-uid="Mirror.NetworkServer" class="text-break">Class NetworkServer
+  </h1>
+  <div class="markdown level0 summary"><p>The NetworkServer.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">NetworkServer</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirror_NetworkServer_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class NetworkServer : object</code></pre>
+  </div>
+  <h5 id="Mirror_NetworkServer_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>NetworkServer handles remote connections from remote clients via a NetworkServerSimple instance, and also has a local connection for a local client.</p>
+<p>The NetworkServer is a singleton. It has static convenience functions such as NetworkServer.SendToAll() and NetworkServer.Spawn() which automatically use the singleton instance.</p>
+<p>The NetworkManager uses the NetworkServer, but it can be used without the NetworkManager.</p>
+<p>The set of networked objects that have been spawned is managed by NetworkServer. Objects are spawned with NetworkServer.Spawn() which adds them to this set, and makes them be created on clients. Spawned objects are removed automatically when they are destroyed, or than they can be removed from the spawned set by calling NetworkServer.UnSpawn() - this does not destroy the object.</p>
+<p>There are a number of internal messages used by NetworkServer, these are setup when NetworkServer.Listen() is called.</p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Mirror_NetworkServer_connections" data-uid="Mirror.NetworkServer.connections">connections</h4>
+  <div class="markdown level1 summary"><p>A list of local connections on the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary&lt;int, NetworkConnectionToClient&gt; connections</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.Int32</span>, <a class="xref" href="Mirror.NetworkConnectionToClient.html">NetworkConnectionToClient</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkServer_dontListen" data-uid="Mirror.NetworkServer.dontListen">dontListen</h4>
+  <div class="markdown level1 summary"><p>If you enable this, the server will not listen for incoming connections on the regular network port.</p>
+<p>This can be used if the game is running in host mode and does not want external players to be able to connect - making it like a single-player game. Also this can be useful when using AddExternalConnection().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool dontListen</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkServer_handlers" data-uid="Mirror.NetworkServer.handlers">handlers</h4>
+  <div class="markdown level1 summary"><p>Dictionary of the message handlers registered with the server.</p>
+<p>The key to the dictionary is the message Id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary&lt;int, NetworkMessageDelegate&gt; handlers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.Int32</span>, <a class="xref" href="Mirror.NetworkMessageDelegate.html">NetworkMessageDelegate</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Mirror_NetworkServer_active_" data-uid="Mirror.NetworkServer.active*"></a>
+  <h4 id="Mirror_NetworkServer_active" data-uid="Mirror.NetworkServer.active">active</h4>
+  <div class="markdown level1 summary"><p>Checks if the server has been started.</p>
+<p>This will be true after NetworkServer.Listen() has been called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool active { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_localClientActive_" data-uid="Mirror.NetworkServer.localClientActive*"></a>
+  <h4 id="Mirror_NetworkServer_localClientActive" data-uid="Mirror.NetworkServer.localClientActive">localClientActive</h4>
+  <div class="markdown level1 summary"><p>True is a local client is currently active on the server.</p>
+<p>This will be true for &quot;Hosts&quot; on hosted server games.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool localClientActive { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_localConnection_" data-uid="Mirror.NetworkServer.localConnection*"></a>
+  <h4 id="Mirror_NetworkServer_localConnection" data-uid="Mirror.NetworkServer.localConnection">localConnection</h4>
+  <div class="markdown level1 summary"><p>The connection to the host mode client (if any).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkConnectionToClient localConnection { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnectionToClient.html">NetworkConnectionToClient</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Mirror_NetworkServer_AddConnection_" data-uid="Mirror.NetworkServer.AddConnection*"></a>
+  <h4 id="Mirror_NetworkServer_AddConnection_Mirror_NetworkConnectionToClient_" data-uid="Mirror.NetworkServer.AddConnection(Mirror.NetworkConnectionToClient)">AddConnection(NetworkConnectionToClient)</h4>
+  <div class="markdown level1 summary"><p>This accepts a network connection and adds it to the server.</p>
+<p>This connection will use the callbacks registered with the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddConnection(NetworkConnectionToClient conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnectionToClient.html">NetworkConnectionToClient</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Network connection to add.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if added.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_AddPlayerForConnection_" data-uid="Mirror.NetworkServer.AddPlayerForConnection*"></a>
+  <h4 id="Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_GameObject_" data-uid="Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject)">AddPlayerForConnection(NetworkConnection, GameObject)</h4>
+  <div class="markdown level1 summary"><p>When an AddPlayer message handler has received a request from a player, the server calls this to associate the player object with the connection.</p>
+<p>When a player is added for a connection, the client for that connection is made ready automatically. The player object is automatically spawned, so you do not need to call NetworkServer.Spawn for that object. This function is used for &quot;adding&quot; a player, not for &quot;replacing&quot; the player on a connection. If there is already a player on this playerControllerId for this connection, this will fail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddPlayerForConnection(NetworkConnection conn, GameObject player)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection which is adding the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>Player object spawned for the player.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_AddPlayerForConnection_" data-uid="Mirror.NetworkServer.AddPlayerForConnection*"></a>
+  <h4 id="Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_GameObject_Guid_" data-uid="Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject,Guid)">AddPlayerForConnection(NetworkConnection, GameObject, Guid)</h4>
+  <div class="markdown level1 summary"><p>When an AddPlayer message handler has received a request from a player, the server calls this to associate the player object with the connection.</p>
+<p>When a player is added for a connection, the client for that connection is made ready automatically. The player object is automatically spawned, so you do not need to call NetworkServer.Spawn for that object. This function is used for &quot;adding&quot; a player, not for &quot;replacing&quot; the player on a connection. If there is already a player on this playerControllerId for this connection, this will fail.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddPlayerForConnection(NetworkConnection conn, GameObject player, Guid assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection which is adding the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>Player object spawned for the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_ClearHandlers_" data-uid="Mirror.NetworkServer.ClearHandlers*"></a>
+  <h4 id="Mirror_NetworkServer_ClearHandlers" data-uid="Mirror.NetworkServer.ClearHandlers">ClearHandlers()</h4>
+  <div class="markdown level1 summary"><p>Clear all registered callback handlers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearHandlers()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkServer_Destroy_" data-uid="Mirror.NetworkServer.Destroy*"></a>
+  <h4 id="Mirror_NetworkServer_Destroy_GameObject_" data-uid="Mirror.NetworkServer.Destroy(GameObject)">Destroy(GameObject)</h4>
+  <div class="markdown level1 summary"><p>Destroys this object and corresponding objects on all clients.</p>
+<p>In some cases it is useful to remove an object but not delete it on the server. For that, use NetworkServer.UnSpawn() instead of NetworkServer.Destroy().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Destroy(GameObject obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>Game object to destroy.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_DestroyPlayerForConnection_" data-uid="Mirror.NetworkServer.DestroyPlayerForConnection*"></a>
+  <h4 id="Mirror_NetworkServer_DestroyPlayerForConnection_Mirror_NetworkConnection_" data-uid="Mirror.NetworkServer.DestroyPlayerForConnection(Mirror.NetworkConnection)">DestroyPlayerForConnection(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>This destroys all the player objects associated with a NetworkConnections on a server.</p>
+<p>This is used when a client disconnects, to remove the players for that client. This also destroys non-player objects that have client authority set for this connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DestroyPlayerForConnection(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connections object to clean up for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_DisconnectAll_" data-uid="Mirror.NetworkServer.DisconnectAll*"></a>
+  <h4 id="Mirror_NetworkServer_DisconnectAll" data-uid="Mirror.NetworkServer.DisconnectAll">DisconnectAll()</h4>
+  <div class="markdown level1 summary"><p>Disconnect all currently connected clients, including the local connection.</p>
+<p>This can only be called on the server. Clients will receive the Disconnect message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DisconnectAll()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkServer_DisconnectAllConnections_" data-uid="Mirror.NetworkServer.DisconnectAllConnections*"></a>
+  <h4 id="Mirror_NetworkServer_DisconnectAllConnections" data-uid="Mirror.NetworkServer.DisconnectAllConnections">DisconnectAllConnections()</h4>
+  <div class="markdown level1 summary"><p>Disconnect all currently connected clients except the local connection.</p>
+<p>This can only be called on the server. Clients will receive the Disconnect message.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DisconnectAllConnections()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkServer_Listen_" data-uid="Mirror.NetworkServer.Listen*"></a>
+  <h4 id="Mirror_NetworkServer_Listen_System_Int32_" data-uid="Mirror.NetworkServer.Listen(System.Int32)">Listen(Int32)</h4>
+  <div class="markdown level1 summary"><p>Start the server, setting the maximum number of connections.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Listen(int maxConns)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">maxConns</span></td>
+        <td><p>Maximum number of allowed connections</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_RegisterHandler_" data-uid="Mirror.NetworkServer.RegisterHandler*"></a>
+  <h4 id="Mirror_NetworkServer_RegisterHandler__1_Action___0__System_Boolean_" data-uid="Mirror.NetworkServer.RegisterHandler``1(Action{``0},System.Boolean)">RegisterHandler&lt;T&gt;(Action&lt;T&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Register a handler for a particular message type.</p>
+<p>There are several system message types which you can add handlers for. You can also add your own message types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterHandler&lt;T&gt;(Action&lt;T&gt; handler, bool requireAuthentication = true)
+    where T : IMessageBase, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;T&gt;</td>
+        <td><span class="parametername">handler</span></td>
+        <td><p>Function handler which will be invoked for when this message type is received.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">requireAuthentication</span></td>
+        <td><p>True if the message requires an authenticated connection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_RegisterHandler_" data-uid="Mirror.NetworkServer.RegisterHandler*"></a>
+  <h4 id="Mirror_NetworkServer_RegisterHandler__1_Action_Mirror_NetworkConnection___0__System_Boolean_" data-uid="Mirror.NetworkServer.RegisterHandler``1(Action{Mirror.NetworkConnection,``0},System.Boolean)">RegisterHandler&lt;T&gt;(Action&lt;NetworkConnection, T&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Register a handler for a particular message type.</p>
+<p>There are several system message types which you can add handlers for. You can also add your own message types.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterHandler&lt;T&gt;(Action&lt;NetworkConnection, T&gt; handler, bool requireAuthentication = true)
+    where T : IMessageBase, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a>, T&gt;</td>
+        <td><span class="parametername">handler</span></td>
+        <td><p>Function handler which will be invoked for when this message type is received.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">requireAuthentication</span></td>
+        <td><p>True if the message requires an authenticated connection</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_RemoveConnection_" data-uid="Mirror.NetworkServer.RemoveConnection*"></a>
+  <h4 id="Mirror_NetworkServer_RemoveConnection_System_Int32_" data-uid="Mirror.NetworkServer.RemoveConnection(System.Int32)">RemoveConnection(Int32)</h4>
+  <div class="markdown level1 summary"><p>This removes an external connection added with AddExternalConnection().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RemoveConnection(int connectionId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">connectionId</span></td>
+        <td><p>The id of the connection to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if the removal succeeded</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_ReplacePlayerForConnection_" data-uid="Mirror.NetworkServer.ReplacePlayerForConnection*"></a>
+  <h4 id="Mirror_NetworkServer_ReplacePlayerForConnection_Mirror_NetworkConnection_GameObject_Guid_System_Boolean_" data-uid="Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,GameObject,Guid,System.Boolean)">ReplacePlayerForConnection(NetworkConnection, GameObject, Guid, Boolean)</h4>
+  <div class="markdown level1 summary"><p>This replaces the player object for a connection with a different player object. The old player object is not destroyed.</p>
+<p>If a connection already has a player object, this can be used to replace that object with a different player object. This does NOT change the ready state of the connection, so it can safely be used while changing scenes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ReplacePlayerForConnection(NetworkConnection conn, GameObject player, Guid assetId, bool keepAuthority = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection which is adding the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>Player object spawned for the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">keepAuthority</span></td>
+        <td><p>Does the previous player remain attached to this connection?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_ReplacePlayerForConnection_" data-uid="Mirror.NetworkServer.ReplacePlayerForConnection*"></a>
+  <h4 id="Mirror_NetworkServer_ReplacePlayerForConnection_Mirror_NetworkConnection_GameObject_System_Boolean_" data-uid="Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,GameObject,System.Boolean)">ReplacePlayerForConnection(NetworkConnection, GameObject, Boolean)</h4>
+  <div class="markdown level1 summary"><p>This replaces the player object for a connection with a different player object. The old player object is not destroyed.</p>
+<p>If a connection already has a player object, this can be used to replace that object with a different player object. This does NOT change the ready state of the connection, so it can safely be used while changing scenes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ReplacePlayerForConnection(NetworkConnection conn, GameObject player, bool keepAuthority = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection which is adding the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>Player object spawned for the player.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">keepAuthority</span></td>
+        <td><p>Does the previous player remain attached to this connection?</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_Reset_" data-uid="Mirror.NetworkServer.Reset*"></a>
+  <h4 id="Mirror_NetworkServer_Reset" data-uid="Mirror.NetworkServer.Reset">Reset()</h4>
+  <div class="markdown level1 summary"><p>Reset the NetworkServer singleton.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Reset()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkServer_SendToAll_" data-uid="Mirror.NetworkServer.SendToAll*"></a>
+  <h4 id="Mirror_NetworkServer_SendToAll__1___0_System_Int32_" data-uid="Mirror.NetworkServer.SendToAll``1(``0,System.Int32)">SendToAll&lt;T&gt;(T, Int32)</h4>
+  <div class="markdown level1 summary"><p>Send a message structure with the given type number to all connected clients.</p>
+<p>This applies to clients that are ready and not-ready.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SendToAll&lt;T&gt;(T msg, int channelId = null)
+    where T : IMessageBase</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td><p>Message structure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channelId</span></td>
+        <td><p>Transport channel to use</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_SendToClientOfPlayer_" data-uid="Mirror.NetworkServer.SendToClientOfPlayer*"></a>
+  <h4 id="Mirror_NetworkServer_SendToClientOfPlayer__1_Mirror_NetworkIdentity___0_" data-uid="Mirror.NetworkServer.SendToClientOfPlayer``1(Mirror.NetworkIdentity,``0)">SendToClientOfPlayer&lt;T&gt;(NetworkIdentity, T)</h4>
+  <div class="markdown level1 summary"><p>send this message to the player only</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SendToClientOfPlayer&lt;T&gt;(NetworkIdentity identity, T msg)
+    where T : IMessageBase</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td><span class="parametername">identity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_SendToReady_" data-uid="Mirror.NetworkServer.SendToReady*"></a>
+  <h4 id="Mirror_NetworkServer_SendToReady__1_Mirror_NetworkIdentity___0_System_Boolean_System_Int32_" data-uid="Mirror.NetworkServer.SendToReady``1(Mirror.NetworkIdentity,``0,System.Boolean,System.Int32)">SendToReady&lt;T&gt;(NetworkIdentity, T, Boolean, Int32)</h4>
+  <div class="markdown level1 summary"><p>Send a message structure with the given type number to only clients which are ready.</p>
+<p>See Networking.NetworkClient.Ready.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SendToReady&lt;T&gt;(NetworkIdentity identity, T msg, bool includeOwner = true, int channelId = null)
+    where T : IMessageBase</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td><span class="parametername">identity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td><p>Message structure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeOwner</span></td>
+        <td><p>Send to observers including self..</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channelId</span></td>
+        <td><p>Transport channel to use</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_SendToReady_" data-uid="Mirror.NetworkServer.SendToReady*"></a>
+  <h4 id="Mirror_NetworkServer_SendToReady__1_Mirror_NetworkIdentity___0_System_Int32_" data-uid="Mirror.NetworkServer.SendToReady``1(Mirror.NetworkIdentity,``0,System.Int32)">SendToReady&lt;T&gt;(NetworkIdentity, T, Int32)</h4>
+  <div class="markdown level1 summary"><p>Send a message structure with the given type number to only clients which are ready.</p>
+<p>See Networking.NetworkClient.Ready.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SendToReady&lt;T&gt;(NetworkIdentity identity, T msg, int channelId = null)
+    where T : IMessageBase</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td><span class="parametername">identity</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">msg</span></td>
+        <td><p>Message structure.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">channelId</span></td>
+        <td><p>Transport channel to use</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_SetAllClientsNotReady_" data-uid="Mirror.NetworkServer.SetAllClientsNotReady*"></a>
+  <h4 id="Mirror_NetworkServer_SetAllClientsNotReady" data-uid="Mirror.NetworkServer.SetAllClientsNotReady">SetAllClientsNotReady()</h4>
+  <div class="markdown level1 summary"><p>Marks all connected clients as no longer ready.</p>
+<p>All clients will no longer be sent state synchronization updates. The player&apos;s clients can call ClientManager.Ready() again to re-enter the ready state. This is useful when switching scenes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetAllClientsNotReady()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkServer_SetClientNotReady_" data-uid="Mirror.NetworkServer.SetClientNotReady*"></a>
+  <h4 id="Mirror_NetworkServer_SetClientNotReady_Mirror_NetworkConnection_" data-uid="Mirror.NetworkServer.SetClientNotReady(Mirror.NetworkConnection)">SetClientNotReady(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Sets the client of the connection to be not-ready.</p>
+<p>Clients that are not ready do not receive spawned objects or state synchronization updates. They client can be made ready again by calling SetClientReady().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetClientNotReady(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection of the client to make not ready.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_SetClientReady_" data-uid="Mirror.NetworkServer.SetClientReady*"></a>
+  <h4 id="Mirror_NetworkServer_SetClientReady_Mirror_NetworkConnection_" data-uid="Mirror.NetworkServer.SetClientReady(Mirror.NetworkConnection)">SetClientReady(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Sets the client to be ready.</p>
+<p>When a client has signaled that it is ready, this method tells the server that the client is ready to receive spawned objects and state synchronization updates. This is usually called in a handler for the SYSTEM_READY message. If there is not specific action a game needs to take for this message, relying on the default ready handler function is probably fine, so this call wont be needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetClientReady(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection of the client to make ready.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_Shutdown_" data-uid="Mirror.NetworkServer.Shutdown*"></a>
+  <h4 id="Mirror_NetworkServer_Shutdown" data-uid="Mirror.NetworkServer.Shutdown">Shutdown()</h4>
+  <div class="markdown level1 summary"><p>This shuts down the server and disconnects all clients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Shutdown()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkServer_Spawn_" data-uid="Mirror.NetworkServer.Spawn*"></a>
+  <h4 id="Mirror_NetworkServer_Spawn_GameObject_GameObject_" data-uid="Mirror.NetworkServer.Spawn(GameObject,GameObject)">Spawn(GameObject, GameObject)</h4>
+  <div class="markdown level1 summary"><p>This spawns an object like NetworkServer.Spawn() but also assigns Client Authority to the specified client.</p>
+<p>This is the same as calling NetworkIdentity.AssignClientAuthority on the spawned object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Spawn(GameObject obj, GameObject player)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to spawn.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>The player object to set Client Authority to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_Spawn_" data-uid="Mirror.NetworkServer.Spawn*"></a>
+  <h4 id="Mirror_NetworkServer_Spawn_GameObject_Guid_Mirror_NetworkConnection_" data-uid="Mirror.NetworkServer.Spawn(GameObject,Guid,Mirror.NetworkConnection)">Spawn(GameObject, Guid, NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>This spawns an object like NetworkServer.Spawn() but also assigns Client Authority to the specified client.</p>
+<p>This is the same as calling NetworkIdentity.AssignClientAuthority on the spawned object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Spawn(GameObject obj, Guid assetId, NetworkConnection ownerConnection = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The object to spawn.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>The assetId of the object to spawn. Used for custom spawn handlers.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">ownerConnection</span></td>
+        <td><p>The connection that has authority over the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_Spawn_" data-uid="Mirror.NetworkServer.Spawn*"></a>
+  <h4 id="Mirror_NetworkServer_Spawn_GameObject_Mirror_NetworkConnection_" data-uid="Mirror.NetworkServer.Spawn(GameObject,Mirror.NetworkConnection)">Spawn(GameObject, NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Spawn the given game object on all clients which are ready.</p>
+<p>This will cause a new object to be instantiated from the registered prefab, or from a custom spawn function.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Spawn(GameObject obj, NetworkConnection ownerConnection = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>Game object with NetworkIdentity to spawn.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">ownerConnection</span></td>
+        <td><p>The connection that has authority over the object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_SpawnObjects_" data-uid="Mirror.NetworkServer.SpawnObjects*"></a>
+  <h4 id="Mirror_NetworkServer_SpawnObjects" data-uid="Mirror.NetworkServer.SpawnObjects">SpawnObjects()</h4>
+  <div class="markdown level1 summary"><p>This causes NetworkIdentity objects in a scene to be spawned on a server.</p>
+<p>NetworkIdentity objects in a scene are disabled by default. Calling SpawnObjects() causes these scene objects to be enabled and spawned. It is like calling NetworkServer.Spawn() for each of them.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SpawnObjects()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Success if objects where spawned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_SpawnWithClientAuthority_" data-uid="Mirror.NetworkServer.SpawnWithClientAuthority*"></a>
+  <h4 id="Mirror_NetworkServer_SpawnWithClientAuthority_GameObject_GameObject_" data-uid="Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,GameObject)">SpawnWithClientAuthority(GameObject, GameObject)</h4>
+  <div class="markdown level1 summary"><p>Obsolete: Use <a class="xref" href="Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_GameObject_">Spawn(GameObject, GameObject)</a> instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SpawnWithClientAuthority(GameObject obj, GameObject player)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">player</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_SpawnWithClientAuthority_" data-uid="Mirror.NetworkServer.SpawnWithClientAuthority*"></a>
+  <h4 id="Mirror_NetworkServer_SpawnWithClientAuthority_GameObject_Guid_Mirror_NetworkConnection_" data-uid="Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,Guid,Mirror.NetworkConnection)">SpawnWithClientAuthority(GameObject, Guid, NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Use <a class="xref" href="Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Guid_Mirror_NetworkConnection_">Spawn(GameObject, Guid, NetworkConnection)</a> instead</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SpawnWithClientAuthority(GameObject obj, Guid assetId, NetworkConnection ownerConnection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">ownerConnection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_SpawnWithClientAuthority_" data-uid="Mirror.NetworkServer.SpawnWithClientAuthority*"></a>
+  <h4 id="Mirror_NetworkServer_SpawnWithClientAuthority_GameObject_Mirror_NetworkConnection_" data-uid="Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,Mirror.NetworkConnection)">SpawnWithClientAuthority(GameObject, NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Use <a class="xref" href="Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Mirror_NetworkConnection_">Spawn(GameObject, NetworkConnection)</a> instead</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool SpawnWithClientAuthority(GameObject obj, NetworkConnection ownerConnection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">ownerConnection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_UnregisterHandler_" data-uid="Mirror.NetworkServer.UnregisterHandler*"></a>
+  <h4 id="Mirror_NetworkServer_UnregisterHandler__1" data-uid="Mirror.NetworkServer.UnregisterHandler``1">UnregisterHandler&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"><p>Unregisters a handler for a particular message type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnregisterHandler&lt;T&gt;()
+    where T : IMessageBase</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Message type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkServer_UnSpawn_" data-uid="Mirror.NetworkServer.UnSpawn*"></a>
+  <h4 id="Mirror_NetworkServer_UnSpawn_GameObject_" data-uid="Mirror.NetworkServer.UnSpawn(GameObject)">UnSpawn(GameObject)</h4>
+  <div class="markdown level1 summary"><p>This takes an object that has been spawned and un-spawns it.</p>
+<p>The object will be removed from clients that it was spawned on, or the custom spawn handler function on the client will be called for the object.</p>
+<p>Unlike when calling NetworkServer.Destroy(), on the server the object will NOT be destroyed. This allows the server to re-use the object, even spawn it again later.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnSpawn(GameObject obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td><p>The spawned object to be unspawned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

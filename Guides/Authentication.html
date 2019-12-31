@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Authentication </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Authentication ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="authentication">Authentication</h1>
+
+<p>When you have a multiplayer game, often you need to store information about your player for later games, keep game stats or communicate with your friends. For all these use cases, you often need a way to uniquely identify a user. Being able to tell users apart is called authentication. There are several methods available, some examples include:</p>
+<ul>
+<li>Ask the user for username and password</li>
+<li>Use a third party oath or OpenID identity provider, such as Facebook, Twitter, Google</li>
+<li>Use a third party service such as PlayFab, GameLift or Steam</li>
+<li>Use the device id, very popular method in mobile</li>
+<li>Use Google Play in Android</li>
+<li>Use Game Center in IOS</li>
+<li>Use a web service in your website</li>
+</ul>
+<h2 id="encryption-warning">Encryption Warning</h2>
+<p>By default Mirror uses Telepathy, which is not encrypted, so if you want to do authentication through Mirror, we highly recommend you use a transport that supports encryption.</p>
+<h2 id="message-registration">Message Registration</h2>
+<p>By default all messages registered to <code>NetworkServer</code> and <code>NetworkClient</code> require authentication unless explicitly indicated otherwise. To register messages to bypass authentication, you need to specify <code>false</code> for a new bool parameter to the <code>RegisterMessage</code> method:</p>
+<pre><code>NetworkServer.RegisterHandler&lt;ConnectMessage&gt;(OnServerConnectInternal, false);
+</code></pre>
+<p>Certain internal messages already have been set to bypass authentication:</p>
+<ul>
+<li>Server
+<ul>
+<li><code>ConnectMessage</code></li>
+<li><code>DisconnectMessage</code></li>
+<li><code>ErrorMessage</code></li>
+<li><code>NetworkPingMessage</code></li>
+</ul>
+</li>
+<li>Client
+<ul>
+<li><code>ConnectMessage</code></li>
+<li><code>DisconnectMessage</code></li>
+<li><code>ErrorMessage</code></li>
+<li><code>SceneMessage</code></li>
+<li><code>NetworkPongMessage</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="basic-authenticator">Basic Authenticator</h2>
+<p>Mirror includes a <a href="../Components/Authenticators/Basic.html">Basic Authenticator</a> in the Mirror / Authenticators folder which just uses a simple username and password.</p>
+<h2 id="custom-authenticators">Custom Authenticators</h2>
+<p>Authenticators are derived from an <code>Authenticator</code> abstract class that allows you to implement any authentication scheme you need.</p>
+<p>To make your Authenticator, create a class that inherits from <code>Authenticator</code> and override the methods as needed. - When a client is successfully authenticated,  call <code>base.OnServerAuthenticated.Invoke(conn)</code> on the server and <code>base.OnClientAuthenticated.Invoke(conn)</code> on the client. Mirror is listening for these events to proceed with the connection sequence. Subscribe to OnServerAuthenticated and OnClientAuthenticated events if you wish to perform additional steps after authentication.</p>
+<h3 id="tips">Tips</h3>
+<ul>
+<li>Register handlers for messages in <code>OnStartServer</code> and <code>OnStartClient</code>. They're called from StartServer/StartHost, and StartClient, respectively.</li>
+<li>Send a message to the client if authentication fails, especially if there's some issue they can resolve.</li>
+<li>Call the <code>Disconnect()</code> method of the <code>NetworkConnection</code> on the server and client when authentication fails. If you want to give the user a few tries to get their credentials right, you certainly can, but Mirror will not do the disconnect for you.
+<ul>
+<li>Remember to put a small delay on the Disconnect call on the server if you send a failure message so that it has a chance to be delivered before the connection is dropped.</li>
+</ul>
+</li>
+<li><code>NetworkConnection</code> has an <code>AuthenticationData</code> object where you can drop a class instance of any data you need to persist on the server related to the authentication, such as account id's, tokens, character selection, etc.</li>
+</ul>
+<p>Now that you have the foundation of a custom Authenticator component, the rest is up to you. You can exchange any number of custom messages between the server and client as necessary to complete your authentication process before approving the client.</p>
+<p>If you write a good authenticator, consider sharing it with other users or donating it to the mirror project.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

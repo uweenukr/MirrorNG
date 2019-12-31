@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Pong </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Pong ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="pong">Pong</h1>
+
+<p>A simple example for &quot;How to built a multiplayer game with Mirror&quot; is Pong,
+which is included in the AssetStore package of Mirror. It illustrates the usage
+of NetworkManager, NetworkManagerHUD, NetworkBehaviour, NetworkIdentity,
+NetworkTransform, NetworkStartPosition and NetworkingAttributes.</p>
+<p><img src="Pong1.jpg" alt="Pong"></p>
+<h2 id="setting-the-number-of-players">Setting the number of players</h2>
+<p>First of all, let's have a look at the NetworkManager object in the main scene.
+When adding the NetworkManager component to a gameobject, a few default settings
+are already set (<strong>Don't destroy on Load</strong>, <strong>Run in Background</strong>, ...) For
+playing Pong the maximum number of players is 2, so the setting <strong>Network
+Info/Max connections</strong> will also be 2. As there are no other scenes (room,
+online or offline scene) in this sample the properties for <strong>Offline Scene</strong> and
+<strong>Online Scene</strong> will stay empty.</p>
+<h2 id="creating-the-player">Creating the player</h2>
+<p>Furthermore every player needs a racket to play with. Each player who joins the
+game will have his own controllable object, which represents him within the
+game. This gameobject is called <em>PlayerObject</em>. For spawning the <em>PlayerObject</em>
+a prefab has to be created, containing at least a NetworkIdentity component with
+<strong>Local Player Authority</strong> checked. The <strong>Local Player Authority</strong> allows the
+player to control and modify the gameobjects properties (e.g. for movement). The
+NetworkManager needs a reference to this prefab, which is located in <strong>Spawn
+Info/Player Prefab</strong>. To have the player movement synchronized over the network,
+the player prefab also contains a NetworkTransform.</p>
+<p><img src="Pong2.jpg" alt="NetworkManagerSettings"></p>
+<h2 id="player-start-position">Player start position</h2>
+<p>The main scene contains 2 gameobjects with only a NetworkStartPosition component
+(gameobjects RacketSpawnLeft, RacketSpawnRight in the scene). These transforms
+will be automatically registered by the NetworkManager as spawning positions.</p>
+<p><img src="Pong3.jpg" alt="NetworkStartPositions"></p>
+<h2 id="setting-up-the-network">Setting up the network</h2>
+<p>A very convenient component for establish/testing connections is the
+NetworkManagerHUD. It provides basic functionality for start a game as LAN
+client, LAN server or host (LAN client and LAN server at the same time). It
+requires the NetworkManager component.</p>
+<p><img src="Pong4.jpg" alt="NetworkManagerHUD"></p>
+<h2 id="the-ball-of-pong">The ball of Pong</h2>
+<p>The ball is the main focus of Pong, as this is the object needed to score
+points. Its NetworkIdentity component has neither <strong>Server Only</strong> nor <strong>Local
+Player Authority</strong> checked, as it's moved by the server physics engine and can
+be influenced by the players. As with the <em>PlayerObject</em> the position is
+synchronized via NetworkTransform. When having multiple scenes, the ball can be
+spawned by the NetworkManager, but to keep this sample simple, it's placed
+directly within the main scene.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

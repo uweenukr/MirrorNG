@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SyncVars </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="SyncVars ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="syncvars">SyncVars</h1>
+
+<p><a href="https://www.youtube.com/watch?v=T7AoozedYfI&amp;list=PLkx8oFug638oBYF5EOwsSS-gOVBXj1dkP&amp;index=5"><img src="../../images/video_tutorial.png" alt="SyncVar video tutorial"></a></p>
+<p>SyncVars are properties of classes that inherit from NetworkBehaviour, which are synchronized from the server to clients. When a game object is spawned, or a new player joins a game in progress, they are sent the latest state of all SyncVars on networked objects that are visible to them. Use the <code>SyncVar</code> custom attribute to specify which variables in your script you want to synchronize.</p>
+<p>The state of SyncVars is applied to game objects on clients before <code>OnStartClient()</code> is called, so the state of the object is always up-to-date inside <code>OnStartClient()</code>.</p>
+<p>SyncVars can use any <a href="../DataTypes.html">type supported by Mirror</a>. You can have up to 64 SyncVars on a single NetworkBehaviour script, including SyncLists (see next section, below).</p>
+<p>The server automatically sends SyncVar updates when the value of a SyncVar changes, so you do not need to track when they change or send information about the changes yourself.</p>
+<blockquote>
+<p>The <a href="SyncVarHook.html">SyncVar hook</a> attribute can be used to specify a method to be called when the SyncVar changes value on the client.</p>
+</blockquote>
+<h2 id="syncvar-example">SyncVar Example</h2>
+<p>Let's say we have a networked object with a script called Enemy:</p>
+<pre><code class="lang-cs">public class Enemy : NetworkBehaviour
+{
+    [SyncVar]
+    public int health = 100;
+
+    void OnMouseUp()
+    {
+        NetworkIdentity ni = NetworkClient.connection.identity;
+        PlayerController pc = ni.GetComponent&lt;PlayerController&gt;();
+        pc.currentTarget = gameObject;
+    }
+}
+</code></pre>
+<p>The <code>PlayerController</code> might look like this:</p>
+<pre><code class="lang-cs">public class PlayerController : NetworkBehaviour
+{
+    public GameObject currentTarget;
+
+    void Update()
+    {
+        if (isLocalPlayer)
+            if (currentTarget != null)
+                if (currentTarget.tag == &quot;Enemy&quot;)
+                    if (Input.GetKeyDown(KeyCode.X))
+                        CmdShoot(currentTarget);
+    }
+
+    [Command]
+    public void CmdShoot(GameObject enemy)
+    {
+        // Do your own shot validation here because this runs on the server
+        enemy.GetComponent&lt;Enemy&gt;().health -= 5;
+    }
+}
+</code></pre>
+<p>In this example, when a Player clicks on an Enemy, the networked enemy game object is assigned to <code>PlayerController.currentTarget</code>. When the player presses X, with a correct target selected, that target is passed through a Command, which runs on the server, to decrement the <code>health</code> SyncVar. All clients will be updated with that new value. You can then have a UI on the enemy to show the current value.</p>
+<h2 id="class-inheritance">Class inheritance</h2>
+<p>SyncVars work with class inheritance. Consider this example:</p>
+<pre><code class="lang-cs">class Pet : NetworkBehaviour
+{
+    [SyncVar] 
+    String name;
+}
+
+class Cat : Pet
+{
+    [SyncVar]
+    public Color32 color;
+}
+</code></pre>
+<p>You can attach the Cat component to your cat prefab, and it will synchronize both it's <code>name</code> and <code>color</code>.</p>
+<blockquote>
+<p><strong>Warning</strong> Both <code>Cat</code> and <code>Pet</code> should be in the same assembly. If they are in separate assemblies, make sure not to change <code>name</code> from inside <code>Cat</code> directly, add a method to <code>Pet</code> instead.</p>
+</blockquote>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

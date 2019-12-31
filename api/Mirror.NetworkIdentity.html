@@ -1,0 +1,702 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NetworkIdentity
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NetworkIdentity
+   ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirror.NetworkIdentity">
+  
+  
+  <h1 id="Mirror_NetworkIdentity" data-uid="Mirror.NetworkIdentity" class="text-break">Class NetworkIdentity
+  </h1>
+  <div class="markdown level0 summary"><p>The NetworkIdentity identifies objects across the network, between server and clients. Its primary data is a NetworkInstanceId which is allocated by the server and then set on clients. This is used in network communications to be able to lookup game objects on different machines.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">NetworkIdentity</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirror_NetworkIdentity_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class NetworkIdentity : MonoBehaviour</code></pre>
+  </div>
+  <h5 id="Mirror_NetworkIdentity_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>The NetworkIdentity is used to synchronize information in the object with the network. Only the server should create instances of objects which have NetworkIdentity as otherwise they will not be properly connected to the system.</p>
+<p>For complex objects with a hierarchy of subcomponents, the NetworkIdentity must be on the root of the hierarchy. It is not supported to have multiple NetworkIdentity components on subcomponents of a hierarchy.</p>
+<p>NetworkBehaviour scripts require a NetworkIdentity on the game object to be able to function.</p>
+<p>The NetworkIdentity manages the dirty state of the NetworkBehaviours of the object. When it discovers that NetworkBehaviours are dirty, it causes an update packet to be created and sent to clients.</p>
+<p>The flow for serialization updates managed by the NetworkIdentity is:</p>
+<p>* Each NetworkBehaviour has a dirty mask. This mask is available inside OnSerialize as syncVarDirtyBits</p>
+<p>* Each SyncVar in a NetworkBehaviour script is assigned a bit in the dirty mask.</p>
+<p>* Changing the value of SyncVars causes the bit for that SyncVar to be set in the dirty mask</p>
+<p>* Alternatively, calling SetDirtyBit() writes directly to the dirty mask</p>
+<p>* NetworkIdentity objects are checked on the server as part of it&apos;s update loop</p>
+<p>* If any NetworkBehaviours on a NetworkIdentity are dirty, then an UpdateVars packet is created for that object</p>
+<p>* The UpdateVars packet is populated by calling OnSerialize on each NetworkBehaviour on the object</p>
+<p>* NetworkBehaviours that are NOT dirty write a zero to the packet for their dirty bits</p>
+<p>* NetworkBehaviours that are dirty write their dirty mask, then the values for the SyncVars that have changed</p>
+<p>* If OnSerialize returns true for a NetworkBehaviour, the dirty mask is reset for that NetworkBehaviour, so it will not send again until its value changes.</p>
+<p>* The UpdateVars packet is sent to ready clients that are observing the object</p>
+<p>On the client:</p>
+<p>* an UpdateVars packet is received for an object</p>
+<p>* The OnDeserialize function is called for each NetworkBehaviour script on the object</p>
+<p>* Each NetworkBehaviour script on the object reads a dirty mask.</p>
+<p>* If the dirty mask for a NetworkBehaviour is zero, the OnDeserialize functions returns without reading any more</p>
+<p>* If the dirty mask is non-zero value, then the OnDeserialize function reads the values for the SyncVars that correspond to the dirty bits that are set</p>
+<p>* If there are SyncVar hook functions, those are invoked with the value read from the stream.</p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Mirror_NetworkIdentity_clientAuthorityCallback" data-uid="Mirror.NetworkIdentity.clientAuthorityCallback">clientAuthorityCallback</h4>
+  <div class="markdown level1 summary"><p>A callback that can be populated to be notified when the client-authority state of objects changes.</p>
+<p>Whenever an object is spawned using SpawnWithClientAuthority, or the client authority status of an object is changed with AssignClientAuthority or RemoveClientAuthority, then this callback will be invoked.</p>
+<p>This callback is only invoked on the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkIdentity.ClientAuthorityCallback clientAuthorityCallback</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkIdentity.ClientAuthorityCallback.html">NetworkIdentity.ClientAuthorityCallback</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkIdentity_observers" data-uid="Mirror.NetworkIdentity.observers">observers</h4>
+  <div class="markdown level1 summary"><p>The set of network connections (players) that can see this object.</p>
+<p>null until OnStartServer was called. this is necessary for SendTo* to work properly in server-only mode.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;int, NetworkConnection&gt; observers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.Int32</span>, <a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkIdentity_serverOnly" data-uid="Mirror.NetworkIdentity.serverOnly">serverOnly</h4>
+  <div class="markdown level1 summary"><p>Flag to make this object only exist when the game is running as a server (or host).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool serverOnly</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkIdentity_spawned" data-uid="Mirror.NetworkIdentity.spawned">spawned</h4>
+  <div class="markdown level1 summary"><p>All spawned NetworkIdentities by netId. Available on server and client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly Dictionary&lt;uint, NetworkIdentity&gt; spawned</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.UInt32</span>, <a class="xref" href="Mirror.NetworkIdentity.html">NetworkIdentity</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Mirror_NetworkIdentity_assetId_" data-uid="Mirror.NetworkIdentity.assetId*"></a>
+  <h4 id="Mirror_NetworkIdentity_assetId" data-uid="Mirror.NetworkIdentity.assetId">assetId</h4>
+  <div class="markdown level1 summary"><p>Unique identifier used to find the source assets when server spawns the on clients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Guid assetId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Guid</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_clientAuthorityOwner_" data-uid="Mirror.NetworkIdentity.clientAuthorityOwner*"></a>
+  <h4 id="Mirror_NetworkIdentity_clientAuthorityOwner" data-uid="Mirror.NetworkIdentity.clientAuthorityOwner">clientAuthorityOwner</h4>
+  <div class="markdown level1 summary"><p>Obsolete: Use <a class="xref" href="Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_connectionToClient">connectionToClient</a> instead</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkConnectionToClient clientAuthorityOwner { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnectionToClient.html">NetworkConnectionToClient</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_connectionToClient_" data-uid="Mirror.NetworkIdentity.connectionToClient*"></a>
+  <h4 id="Mirror_NetworkIdentity_connectionToClient" data-uid="Mirror.NetworkIdentity.connectionToClient">connectionToClient</h4>
+  <div class="markdown level1 summary"><p>The NetworkConnection associated with this <a class="xref" href="Mirror.NetworkIdentity.html">NetworkIdentity</a> This is valid for player and other owned objects in the server.</p>
+<p>Use it to return details such as the connection&apos;s identity, IP address and ready status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkConnectionToClient connectionToClient { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnectionToClient.html">NetworkConnectionToClient</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_connectionToServer_" data-uid="Mirror.NetworkIdentity.connectionToServer*"></a>
+  <h4 id="Mirror_NetworkIdentity_connectionToServer" data-uid="Mirror.NetworkIdentity.connectionToServer">connectionToServer</h4>
+  <div class="markdown level1 summary"><p>The NetworkConnection associated with this NetworkIdentity. This is only valid for player objects on a local client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkConnection connectionToServer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_hasAuthority_" data-uid="Mirror.NetworkIdentity.hasAuthority*"></a>
+  <h4 id="Mirror_NetworkIdentity_hasAuthority" data-uid="Mirror.NetworkIdentity.hasAuthority">hasAuthority</h4>
+  <div class="markdown level1 summary"><p>This returns true if this object is the authoritative player object on the client.</p>
+<p>This value is determined at runtime. For most objects, authority is held by the server.</p>
+<p>For objects that had their authority set by AssignClientAuthority on the server, this will be true on the client that owns the object. NOT on other clients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool hasAuthority { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_isClient_" data-uid="Mirror.NetworkIdentity.isClient*"></a>
+  <h4 id="Mirror_NetworkIdentity_isClient" data-uid="Mirror.NetworkIdentity.isClient">isClient</h4>
+  <div class="markdown level1 summary"><p>Returns true if running as a client and this object was spawned by a server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isClient { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_isLocalPlayer_" data-uid="Mirror.NetworkIdentity.isLocalPlayer*"></a>
+  <h4 id="Mirror_NetworkIdentity_isLocalPlayer" data-uid="Mirror.NetworkIdentity.isLocalPlayer">isLocalPlayer</h4>
+  <div class="markdown level1 summary"><p>This returns true if this object is the one that represents the player on the local machine.</p>
+<p>This is set when the server has spawned an object for this particular client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isLocalPlayer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_isServer_" data-uid="Mirror.NetworkIdentity.isServer*"></a>
+  <h4 id="Mirror_NetworkIdentity_isServer" data-uid="Mirror.NetworkIdentity.isServer">isServer</h4>
+  <div class="markdown level1 summary"><p>Returns true if NetworkServer.active and server is not stopped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isServer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_netId_" data-uid="Mirror.NetworkIdentity.netId*"></a>
+  <h4 id="Mirror_NetworkIdentity_netId" data-uid="Mirror.NetworkIdentity.netId">netId</h4>
+  <div class="markdown level1 summary"><p>Unique identifier for this particular object instance, used for tracking objects between networked clients and the server.</p>
+<p>This is a unique identifier for this particular GameObject instance. Use it to track GameObjects between networked clients and the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint netId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_NetworkBehaviours_" data-uid="Mirror.NetworkIdentity.NetworkBehaviours*"></a>
+  <h4 id="Mirror_NetworkIdentity_NetworkBehaviours" data-uid="Mirror.NetworkIdentity.NetworkBehaviours">NetworkBehaviours</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkBehaviour[] NetworkBehaviours { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkBehaviour.html">NetworkBehaviour</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_sceneId_" data-uid="Mirror.NetworkIdentity.sceneId*"></a>
+  <h4 id="Mirror_NetworkIdentity_sceneId" data-uid="Mirror.NetworkIdentity.sceneId">sceneId</h4>
+  <div class="markdown level1 summary"><p>A unique identifier for NetworkIdentity objects within a scene.</p>
+<p>This is used for spawning scene objects on clients.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong sceneId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Mirror_NetworkIdentity_AssignClientAuthority_" data-uid="Mirror.NetworkIdentity.AssignClientAuthority*"></a>
+  <h4 id="Mirror_NetworkIdentity_AssignClientAuthority_Mirror_NetworkConnection_" data-uid="Mirror.NetworkIdentity.AssignClientAuthority(Mirror.NetworkConnection)">AssignClientAuthority(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Assign control of an object to a client via the client's <a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></p>
+<p>This causes hasAuthority to be set on the client that owns the object, and NetworkBehaviour.OnStartAuthority will be called on that client. This object then will be in the NetworkConnection.clientOwnedObjects list for the connection.</p>
+<p>Authority can be removed with RemoveClientAuthority. Only one client can own an object at any time. This does not need to be called for player objects, as their authority is setup automatically.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AssignClientAuthority(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection of the client to assign authority to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if authority was assigned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_GetSceneIdenity_" data-uid="Mirror.NetworkIdentity.GetSceneIdenity*"></a>
+  <h4 id="Mirror_NetworkIdentity_GetSceneIdenity_System_UInt64_" data-uid="Mirror.NetworkIdentity.GetSceneIdenity(System.UInt64)">GetSceneIdenity(UInt64)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkIdentity GetSceneIdenity(ulong id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_RebuildObservers_" data-uid="Mirror.NetworkIdentity.RebuildObservers*"></a>
+  <h4 id="Mirror_NetworkIdentity_RebuildObservers_System_Boolean_" data-uid="Mirror.NetworkIdentity.RebuildObservers(System.Boolean)">RebuildObservers(Boolean)</h4>
+  <div class="markdown level1 summary"><p>This causes the set of players that can see this object to be rebuild. The OnRebuildObservers callback function will be invoked on each NetworkBehaviour.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RebuildObservers(bool initialize)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">initialize</span></td>
+        <td><p>True if this is the first time.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkIdentity_RemoveClientAuthority_" data-uid="Mirror.NetworkIdentity.RemoveClientAuthority*"></a>
+  <h4 id="Mirror_NetworkIdentity_RemoveClientAuthority" data-uid="Mirror.NetworkIdentity.RemoveClientAuthority">RemoveClientAuthority()</h4>
+  <div class="markdown level1 summary"><p>Removes ownership for an object.</p>
+<p>This applies to objects that had authority set by AssignClientAuthority, or <a class="xref" href="Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Mirror_NetworkConnection_">Spawn(GameObject, NetworkConnection)</a> with a NetworkConnection parameter included.</p>
+<p>Authority cannot be removed for player objects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RemoveClientAuthority()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkIdentity_ResetNextNetworkId_" data-uid="Mirror.NetworkIdentity.ResetNextNetworkId*"></a>
+  <h4 id="Mirror_NetworkIdentity_ResetNextNetworkId" data-uid="Mirror.NetworkIdentity.ResetNextNetworkId">ResetNextNetworkId()</h4>
+  <div class="markdown level1 summary"><p>Resets nextNetworkId = 1</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ResetNextNetworkId()</code></pre>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

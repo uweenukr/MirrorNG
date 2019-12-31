@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Network Clients and Servers </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Network Clients and Servers ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="network-clients-and-servers">Network Clients and Servers</h1>
+
+<p>Many multiplayer games can use the Network Manager to manage connections, but you can also use the lower-level NetworkServer and NetworkClient classes directly.</p>
+<p>When using the High-Level API, every game must have a host server to connect to. Each participant in a multiplayer game can be a client, a dedicated server, or a combination of server and client at the same time. This combination role is the common case of a multiplayer game with no dedicated server.</p>
+<p>For multiplayer games with no dedicated server, one of the players running the game acts as the server for that game. That player’s instance of the game runs a “local client” instead of a normal remote client. The local client uses the same Scenes and game objects as the server, and communicates internally using message queues instead of sending messages across the network. To Mirror code and systems, the local client is just another client, so almost all user code is the same, whether a client is local or remote. This makes it easy to make a game that works in both multiplayer and standalone mode with the same code.</p>
+<p>A common pattern for multiplayer games is to have a game object that manages the network state of the game. Below is the start of a Network Manager script. This script would be attached to a game object that is in the start-up Scene of the game. It has a simple UI and keyboard handling functions that allow the game to be started in different network modes. Before you release your game you should create a more visually appealing menu, with options such as “Start single player game” and “Start multiplayer game”.</p>
+<pre><code class="lang-cs">using UnityEngine;
+using Mirror;
+
+public class MyNetworkManager : MonoBehaviour
+{
+    public bool isAtStartup = true;
+
+    void Update () 
+    {
+        if (isAtStartup)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+                SetupServer();
+
+            if (Input.GetKeyDown(KeyCode.C))
+                SetupClient();
+
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                SetupServer();
+                SetupLocalClient();
+            }
+        }
+    }
+    void OnGUI()
+    {
+        if (isAtStartup)
+        {
+            GUI.Label(new Rect(2, 10, 150, 100), &quot;Press S for server&quot;);
+            GUI.Label(new Rect(2, 30, 150, 100), &quot;Press B for both&quot;);
+            GUI.Label(new Rect(2, 50, 150, 100), &quot;Press C for client&quot;);
+        }
+    }
+}
+</code></pre>
+<p>This basic code calls setup functions to get things going. Below are the simple setup functions for each of the scenarios. These functions create a server, or the right kind of client for each scenario. Note that the remote client assumes the server is on the same machine (localhost). For a finished game this would be an internet address, or something supplied by a matchmaker or master server.</p>
+<pre><code class="lang-cs">// Create a server and listen on a port  
+public void SetupServer()
+{
+    NetworkServer.Listen(7777);
+    isAtStartup = false;
+}
+
+// Create a client and connect to the server port  
+public void SetupClient()
+{
+    NetworkClient.RegisterHandler&lt;ConnectMessage&gt;(OnConnected);
+    NetworkClient.Connect(&quot;localhost&quot;);
+    isAtStartup = false;
+}
+
+// Create a local client and connect to the local server  
+public void SetupLocalClient()
+{
+    NetworkClient.RegisterHandler&lt;ConnectMessage&gt;(OnConnected);
+    isAtStartup = false;
+}
+</code></pre>
+<p>The clients in this code register a callback function for the connection event <code>ConnectMessage</code>. This is a built-in message of Mirror that the script invokes when a client connects to a server. In this case, the code for the handler on the client is:</p>
+<pre><code class="lang-cs">// client function
+public void OnConnected(NetworkConnection conn, ConnectMessage netMsg)
+{
+    Debug.Log(&quot;Connected to server&quot;);
+}
+</code></pre>
+<p>This is enough to get a multiplayer application up and running. With this script you can then send network messages using <code>NetworkClient.Send</code> and <code>NetworkServer.SendToAll</code>. Note that sending messages is a low level way of interacting with the system.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

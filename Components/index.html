@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Components Overview </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Components Overview ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="components-overview">Components Overview</h1>
+
+<p>These core components are included in Mirror:</p>
+<ul>
+<li><a href="NetworkAnimator.html">NetworkAnimator</a><br>
+The Network Animator component allows you to synchronize animation states for networked objects. It synchronizes state and parameters from an Animator Controller.</li>
+<li><a href="NetworkIdentity.html">NetworkIdentity</a><br>
+The Network Identity component is at the heart of the Mirror networking high-level API. It controls a game object’s unique identity on the network, and it uses that identity to make the networking system aware of the game object. It offers two different options for configuration and they are mutually exclusive, which means either one of the options or none can be checked.</li>
+<li><a href="NetworkManager.html">NetworkManager</a><br>
+The Network Manager is a component for managing the networking aspects of a multiplayer game.</li>
+<li><a href="NetworkManagerHUD.html">NetworkManagerHUD</a><br>
+The Network Manager HUD is a quick-start tool to help you start building your multiplayer game straight away, without first having to build a user interface for game creation/connection/joining. It allows you to jump straight into your gameplay programming, and means you can build your own version of these controls later in your development schedule.</li>
+<li><a href="NetworkProximityChecker.html">NetworkProximityChecker</a><br>
+The Network Proximity Checker component controls the visibility of game objects for network clients, based on proximity to players.</li>
+<li><a href="NetworkRoomManager.html">NetworkRoomManager</a><br>
+The Network Room Manager is an extension component of Network Manager that provides a basic functional room.</li>
+<li><a href="NetworkRoomPlayer.html">NetworkRoomPlayer</a><br>
+The Network Room Player is a component that's required on Player prefabs used in the Room Scene with the Network Room Manager above.</li>
+<li><a href="NetworkStartPosition.html">NetworkStartPosition</a><br>
+Network Start Position is used by the Network Manager when creating player objects. The position and rotation of the Network Start Position are used to place the newly created player object.</li>
+<li><a href="NetworkTransform.html">NetworkTransform</a><br>
+The Network Transform component synchronizes the movement and rotation of game objects across the network. Note that the network Transform component only synchronizes spawned networked game objects.</li>
+<li><a href="NetworkTransformChild.html">NetworkTransformChild</a><br>
+The Network Transform Child component synchronizes the position and rotation of the child game object of a game object with a Network Transform component.</li>
+</ul>
+<h2 id="authenticators">Authenticators</h2>
+<p><a href="Authenticators/index.html">Authenticators</a> are also available and more will be added soon:</p>
+<ul>
+<li><a href="Authenticators/Basic.html">Basic Authenticator</a><br>
+Mirror includes a Basic Authenticator in the Mirror / Authenticators folder which just uses a simple username and password.</li>
+<li><a href="Authenticators/PlayFab.html">PlayFab Authenticator</a><br>
+Coming Soon</li>
+<li><a href="Authenticators/Facebook.html">Facebook Authenticator</a><br>
+Coming Soon</li>
+<li><a href="Authenticators/Google.html">Google Authenticator</a><br>
+Coming Soon</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

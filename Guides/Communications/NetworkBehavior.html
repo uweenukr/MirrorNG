@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>NetworkBehaviour Callbacks </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="NetworkBehaviour Callbacks ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="networkbehaviour-callbacks">NetworkBehaviour Callbacks</h1>
+
+<p><a href="https://www.youtube.com/watch?v=5Oj4lPPIfps&amp;list=PLkx8oFug638oBYF5EOwsSS-gOVBXj1dkP&amp;index=4"><img src="../../images/video_tutorial.png" alt="Network behaviour callbacks start cycle video tutorial"></a></p>
+<p><strong>See also <a class="xref" href="../../api/Mirror.NetworkBehaviour.html">NetworkBehaviour</a> in the API Reference.</strong></p>
+<p>Like the Network Manager callbacks, there are a number of events relating to network behaviours that can occur over the course of a normal multiplayer game. These include events such as the host starting up, a player joining, or a player leaving. Each of these possible events has an associated callback that you can implement in your own code to take action when the event occurs.</p>
+<p>When you create a script which inherits from <code>NetworkBehaviour</code>, you can write your own implementation of what should happen when these events occur. To do this, you override the virtual methods on the <code>NetworkBehaviour</code> class with your own implementation of what should happen when the given event occurs.</p>
+<p>This page lists all the virtual methods (callbacks) that you can implement on <code>NetworkBehaviour</code>, and when they occur.</p>
+<h2 id="server-mode">Server mode</h2>
+<p><strong>When a client connects:</strong></p>
+<ul>
+<li><code>OnStartServer</code></li>
+<li><code>OnRebuildObservers</code></li>
+<li><code>Start()</code> function is called</li>
+</ul>
+<h2 id="client-mode">Client mode</h2>
+<p><strong>When a client connects:</strong></p>
+<ul>
+<li><code>OnStartClient</code></li>
+<li><code>OnStartLocalPlayer</code></li>
+<li><code>OnStartAuthority</code></li>
+<li><code>Start()</code> function is called</li>
+</ul>
+<h2 id="host-mode">Host mode</h2>
+<p>These are only called on the <strong>Player Game Objects</strong> when a client connects:</p>
+<ul>
+<li><code>OnStartServer</code></li>
+<li><code>OnStartClient</code></li>
+<li><code>OnRebuildObservers</code></li>
+<li><code>OnStartAuthority</code></li>
+<li><code>OnStartLocalPlayer</code></li>
+<li><code>Start()</code> function is called</li>
+<li><code>OnSetLocalVisibility</code></li>
+</ul>
+<p><strong>On any remaining clients, when a client disconnects:</strong></p>
+<ul>
+<li><code>OnNetworkDestroy</code></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

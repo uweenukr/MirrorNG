@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>State Synchronization </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="State Synchronization ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="state-synchronization">State Synchronization</h1>
+
+<p>State synchronization refers to the synchronization of values such as integers, floating point numbers, strings and boolean values belonging to scripts.</p>
+<p>State synchronization is done from the Server to remote clients. The local client does not have data serialized to it. It does not need it, because it shares the Scene with the server. However, SyncVar hooks are called on local clients.</p>
+<p>Data is not synchronized in the opposite direction - from remote clients to the server. To do this, you need to use Commands.</p>
+<ul>
+<li><a href="SyncVars.html">SyncVars</a><br>
+SyncVars are variables of scripts that inherit from NetworkBehaviour, which are synchronized from the server to clients.</li>
+<li><a href="SyncEvent.html">SyncEvents</a><br>
+SyncEvents are networked events like ClientRpc’s, but instead of calling a function on the game object, they trigger Events instead.</li>
+<li><a href="SyncLists.html">SyncLists</a><br>
+SyncLists contain lists of values and synchronize data from servers to clients.</li>
+<li><a href="SyncDictionary.html">SyncDictionary</a><br>
+A SyncDictionary is an associative array containing an unordered list of key, value pairs.</li>
+<li><a href="SyncHashSet.html">SyncHashSet</a><br>
+An unordered set of values that do not repeat.</li>
+<li><a href="SyncSortedSet.html">SyncSortedSet</a><br>
+A sorted set of values that do not repeat.</li>
+</ul>
+<h2 id="sync-to-owner">Sync To Owner</h2>
+<p>It is often the case when you don't want some player data visible to other players. In the inspector change the &quot;Network Sync Mode&quot; from &quot;Observers&quot; (default) to &quot;Owner&quot; to let Mirror know to synchronize the data only with the owning client.</p>
+<p>For example, suppose you are making an inventory system. Suppose player A,B and C are in the same area. There will be a total of 12 objects in the entire network:</p>
+<ul>
+<li>Client A has Player A (himself),  Player B and Player C</li>
+<li>Client B has Player A ,  Player B (himself) and Player C</li>
+<li>Client C has Player A ,  Player B and Player C (himself)</li>
+<li>Server has Player A, Player B, Player C</li>
+</ul>
+<p>each one of them would have an Inventory component</p>
+<p>Suppose Player A picks up some loot.  The server adds the loot to Player's A inventory,  which would have a <a href="SyncLists.html">SyncLists</a> of Items.</p>
+<p>By default,  Mirror now has to synchronize player A's inventory everywhere,  that means sending an update message to client A,  client B and client C,  because they all have a copy of Player A. This is wasteful,  Client B and Client C do not need to know about Player's A inventory,  they never see it on screen.  It is also a security problem,  someone could hack the client and display other people's inventory and use it to their advantage.</p>
+<p>If you set the &quot;Network Sync Mode&quot;  in the Inventory component to &quot;Owner&quot;,  then Player A's inventory will only be synchronized with Client A.</p>
+<p>Now,  suppose instead of 3 people you have 50 people in an area and one of them picks up loot.  It means that instead of sending 50 messages to 50 different clients,  you would only send 1.  This can have a big impact in bandwith in your game.</p>
+<p>Other typical use cases include quests,  player's hand in a card game, skills, experience, or any other data you don't need to share with other players.</p>
+<h2 id="advanced-state-synchronization">Advanced State Synchronization</h2>
+<p>In most cases, the use of SyncVars is enough for your game scripts to serialize their state to clients. However in some cases you might require more complex serialization code. This page is only relevant for advanced developers who need customized synchronization solutions that go beyond Mirror’s normal SyncVar feature.</p>
+<h2 id="custom-serialization-functions">Custom Serialization Functions</h2>
+<p>To perform your own custom serialization, you can implement virtual functions on NetworkBehaviour to be used for SyncVar serialization. These functions are:</p>
+<pre><code class="lang-cs">public virtual bool OnSerialize(NetworkWriter writer, bool initialState);
+</code></pre>
+<pre><code class="lang-cs">public virtual void OnDeserialize(NetworkReader reader, bool initialState);
+</code></pre>
+<p>Use the <code>initialState</code> flag to differentiate between the first time a game object is serialized and when incremental updates can be sent. The first time a game object is sent to a client, it must include a full state snapshot, but subsequent updates can save on bandwidth by including only incremental changes. Note that SyncVar hook functions are not called when <code>initialState</code> is true; they are only called for incremental updates.</p>
+<p>If a class has SyncVars, then implementations of these functions are added automatically to the class, meaning that a class that has SyncVars cannot also have custom serialization functions.</p>
+<p>The <code>OnSerialize</code> function should return true to indicate that an update should be sent. If it returns true, the dirty bits for that script are set to zero. If it returns false, the dirty bits are not changed. This allows multiple changes to a script to be accumulated over time and sent when the system is ready, instead of every frame.</p>
+<p>Although this works,  it is usually better to let Mirror generate these methods and provide <a href="../DataTypes.html">custom serializers</a> for your specific field.</p>
+<h2 id="serialization-flow">Serialization Flow</h2>
+<p>Game objects with the Network Identity component attached can have multiple scripts derived from <code>NetworkBehaviour</code>. The flow for serializing these game objects is:</p>
+<p>On the server:</p>
+<ul>
+<li>Each <code>NetworkBehaviour</code> has a dirty mask. This mask is available inside <code>OnSerialize</code> as <code>syncVarDirtyBits</code></li>
+<li>Each SyncVar in a <code>NetworkBehaviour</code> script is assigned a bit in the dirty mask.</li>
+<li>Changing the value of SyncVars causes the bit for that SyncVar to be set in the dirty mask</li>
+<li>Alternatively, calling <code>SetDirtyBit</code> writes directly to the dirty mask</li>
+<li>NetworkIdentity game objects are checked on the server as part of it’s update loop</li>
+<li>If any <code>NetworkBehaviours</code> on a <code>NetworkIdentity</code> are dirty, then an <code>UpdateVars</code> packet is created for that game object</li>
+<li>The <code>UpdateVars</code> packet is populated by calling <code>OnSerialize</code> on each <code>NetworkBehaviour</code> on the game object</li>
+<li><code>NetworkBehaviours</code> that are not dirty write a zero to the packet for their dirty bits</li>
+<li><code>NetworkBehaviours</code> that are dirty write their dirty mask, then the values for the SyncVars that have changed</li>
+<li>If <code>OnSerialize</code> returns true for a <code>NetworkBehaviour</code>, the dirty mask is reset for that <code>NetworkBehaviour</code> so it does not send again until its value changes.</li>
+<li>The <code>UpdateVars</code> packet is sent to ready clients that are observing the game object</li>
+</ul>
+<p>On the client:</p>
+<ul>
+<li>an <code>UpdateVars packet</code> is received for a game object</li>
+<li>The <code>OnDeserialize</code> function is called for each <code>NetworkBehaviour</code> script on the game object</li>
+<li>Each <code>NetworkBehaviour</code> script on the game object reads a dirty mask.</li>
+<li>If the dirty mask for a <code>NetworkBehaviour</code> is zero, the <code>OnDeserialize</code> function returns without reading any more</li>
+<li>If the dirty mask is non-zero value, then the <code>OnDeserialize</code> function reads the values for the SyncVars that correspond to the dirty bits that are set</li>
+<li>If there are SyncVar hook functions, those are invoked with the value read from the stream.</li>
+</ul>
+<p>So for this script:</p>
+<pre><code class="lang-cs">public class data : NetworkBehaviour
+{
+    [SyncVar]
+    public int int1 = 66;
+
+    [SyncVar]
+    public int int2 = 23487;
+
+    [SyncVar]
+    public string MyString = &quot;Example string&quot;;
+}
+</code></pre>
+<p>The following code sample demonstrates the generated <code>OnSerialize</code> function:</p>
+<pre><code class="lang-cs">public override bool OnSerialize(NetworkWriter writer, bool forceAll)
+{
+    if (forceAll)
+    {
+        // The first time a game object is sent to a client, send all the data (and no dirty bits)
+        writer.WritePackedUInt32((uint)this.int1);
+        writer.WritePackedUInt32((uint)this.int2);
+        writer.Write(this.MyString);
+        return true;
+    }
+
+    bool wroteSyncVar = false;
+    if ((base.get_syncVarDirtyBits() &amp; 1u) != 0u)
+    {
+        if (!wroteSyncVar)
+        {
+            // Write dirty bits if this is the first SyncVar written
+            writer.WritePackedUInt32(base.get_syncVarDirtyBits());
+            wroteSyncVar = true;
+        }
+        writer.WritePackedUInt32((uint)this.int1);
+    }
+
+    if ((base.get_syncVarDirtyBits() &amp; 2u) != 0u)
+    {
+        if (!wroteSyncVar)
+        {
+            // Write dirty bits if this is the first SyncVar written
+            writer.WritePackedUInt32(base.get_syncVarDirtyBits());
+            wroteSyncVar = true;
+        }
+        writer.WritePackedUInt32((uint)this.int2);
+    }
+
+    if ((base.get_syncVarDirtyBits() &amp; 4u) != 0u)
+    {
+        if (!wroteSyncVar)
+        {
+            // Write dirty bits if this is the first SyncVar written
+            writer.WritePackedUInt32(base.get_syncVarDirtyBits());
+            wroteSyncVar = true;
+        }
+        writer.Write(this.MyString);
+    }
+
+    if (!wroteSyncVar)
+    {
+        // Write zero dirty bits if no SyncVars were written
+        writer.WritePackedUInt32(0);
+    }
+    return wroteSyncVar;
+}
+</code></pre>
+<p>The following code sample demonstrates the <code>OnDeserialize</code> function:</p>
+<pre><code class="lang-cs">public override void OnDeserialize(NetworkReader reader, bool initialState)
+{
+    if (initialState)
+    {
+        this.int1 = (int)reader.ReadPackedUInt32();
+        this.int2 = (int)reader.ReadPackedUInt32();
+        this.MyString = reader.ReadString();
+        return;
+    }
+
+    int num = (int)reader.ReadPackedUInt32();
+    if ((num &amp; 1) != 0)
+    {
+        this.int1 = (int)reader.ReadPackedUInt32();
+    }
+
+    if ((num &amp; 2) != 0)
+    {
+        this.int2 = (int)reader.ReadPackedUInt32();
+    }
+
+    if ((num &amp; 4) != 0)
+    {
+        this.MyString = reader.ReadString();
+    }
+}
+</code></pre>
+<p>If a <code>NetworkBehaviour</code> has a base class that also has serialization functions, the base class functions should also be called.</p>
+<p>Note that the <code>UpdateVar</code> packets created for game object state updates may be aggregated in buffers before being sent to the client, so a single transport layer packet may contain updates for multiple game objects.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

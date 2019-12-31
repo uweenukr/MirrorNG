@@ -1,0 +1,1613 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NetworkManager
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NetworkManager
+   ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirror.NetworkManager">
+  
+  
+  <h1 id="Mirror_NetworkManager" data-uid="Mirror.NetworkManager" class="text-break">Class NetworkManager
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">NetworkManager</span></div>
+      <div class="level2"><a class="xref" href="Mirror.NetworkRoomManager.html">NetworkRoomManager</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirror_NetworkManager_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class NetworkManager : MonoBehaviour</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Mirror_NetworkManager_authenticator" data-uid="Mirror.NetworkManager.authenticator">authenticator</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public NetworkAuthenticator authenticator</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkAuthenticator.html">NetworkAuthenticator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_autoCreatePlayer" data-uid="Mirror.NetworkManager.autoCreatePlayer">autoCreatePlayer</h4>
+  <div class="markdown level1 summary"><p>A flag to control whether or not player objects are automatically created on connect, and on scene change.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool autoCreatePlayer</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_clientLoadedScene" data-uid="Mirror.NetworkManager.clientLoadedScene">clientLoadedScene</h4>
+  <div class="markdown level1 summary"><p>This is true if the client loaded a new scene when connecting to the server.</p>
+<p>This is set before OnClientConnect is called, so it can be checked there to perform different logic if a scene load occurred.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool clientLoadedScene</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_dontDestroyOnLoad" data-uid="Mirror.NetworkManager.dontDestroyOnLoad">dontDestroyOnLoad</h4>
+  <div class="markdown level1 summary"><p>A flag to control whether the NetworkManager object is destroyed when the scene changes.</p>
+<p>This should be set if your game has a single NetworkManager that exists for the lifetime of the process. If there is a NetworkManager in each scene, then this should not be set.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool dontDestroyOnLoad</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_isNetworkActive" data-uid="Mirror.NetworkManager.isNetworkActive">isNetworkActive</h4>
+  <div class="markdown level1 summary"><p>True if the server or client is started and running</p>
+<p>This is set True in StartServer / StartClient, and set False in StopServer / StopClient</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool isNetworkActive</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_loadingSceneAsync" data-uid="Mirror.NetworkManager.loadingSceneAsync">loadingSceneAsync</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static UnityEngine.AsyncOperation loadingSceneAsync</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UnityEngine.AsyncOperation</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_maxConnections" data-uid="Mirror.NetworkManager.maxConnections">maxConnections</h4>
+  <div class="markdown level1 summary"><p>The maximum number of concurrent network connections to support.</p>
+<p>This effects the memory usage of the network layer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int maxConnections</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_networkAddress" data-uid="Mirror.NetworkManager.networkAddress">networkAddress</h4>
+  <div class="markdown level1 summary"><p>The network address currently in use.</p>
+<p>For clients, this is the address of the server that is connected to. For servers, this is the local address.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string networkAddress</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_networkSceneName" data-uid="Mirror.NetworkManager.networkSceneName">networkSceneName</h4>
+  <div class="markdown level1 summary"><p>The name of the current network scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string networkSceneName</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Mirror_NetworkManager_networkSceneName_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This is populated if the NetworkManager is doing scene management. This should not be changed directly. Calls to ServerChangeScene() cause this to change. New clients that connect to a server will automatically load this scene.</p>
+<p>This is used to make sure that all scene changes are initialized by Mirror.</p>
+<p>Loading a scene manually wont set networkSceneName, so Mirror would still load it again on start.</p>
+</div>
+  
+  
+  <h4 id="Mirror_NetworkManager_offlineScene" data-uid="Mirror.NetworkManager.offlineScene">offlineScene</h4>
+  <div class="markdown level1 summary"><p>The scene to switch to when offline.</p>
+<p>Setting this makes the NetworkManager do scene management. This scene will be switched to when a network session is completed - such as a client disconnect, or a server shutdown.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string offlineScene</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_onlineScene" data-uid="Mirror.NetworkManager.onlineScene">onlineScene</h4>
+  <div class="markdown level1 summary"><p>The scene to switch to when online.</p>
+<p>Setting this makes the NetworkManager do scene management. This scene will be switched to when a network session is started - such as a client connect, or a server listen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string onlineScene</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_playerPrefab" data-uid="Mirror.NetworkManager.playerPrefab">playerPrefab</h4>
+  <div class="markdown level1 summary"><p>The default prefab to be used to create player objects on the server.</p>
+<p>Player objects are created in the default handler for AddPlayer() on the server. Implementing OnServerAddPlayer overrides this behaviour.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public GameObject playerPrefab</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_playerSpawnMethod" data-uid="Mirror.NetworkManager.playerSpawnMethod">playerSpawnMethod</h4>
+  <div class="markdown level1 summary"><p>The current method of spawning players used by the NetworkManager.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PlayerSpawnMethod playerSpawnMethod</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.PlayerSpawnMethod.html">PlayerSpawnMethod</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_runInBackground" data-uid="Mirror.NetworkManager.runInBackground">runInBackground</h4>
+  <div class="markdown level1 summary"><p>Controls whether the program runs when it is in the background.</p>
+<p>This is required when multiple instances of a program using networking are running on the same machine, such as when testing using localhost. But this is not recommended when deploying to mobile platforms.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool runInBackground</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_serverTickRate" data-uid="Mirror.NetworkManager.serverTickRate">serverTickRate</h4>
+  <div class="markdown level1 summary"><p>Server Update frequency, per second. Use around 60Hz for fast paced games like Counter-Strike to minimize latency. Use around 30Hz for games like WoW to minimize computations. Use around 1-10Hz for slow paced games like EVE.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int serverTickRate</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_showDebugMessages" data-uid="Mirror.NetworkManager.showDebugMessages">showDebugMessages</h4>
+  <div class="markdown level1 summary"><p>Enables verbose debug messages in the console</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool showDebugMessages</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_singleton" data-uid="Mirror.NetworkManager.singleton">singleton</h4>
+  <div class="markdown level1 summary"><p>NetworkManager singleton</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkManager singleton</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkManager.html">NetworkManager</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_spawnPrefabs" data-uid="Mirror.NetworkManager.spawnPrefabs">spawnPrefabs</h4>
+  <div class="markdown level1 summary"><p>List of prefabs that will be registered with the spawning system.</p>
+<p>For each of these prefabs, ClientManager.RegisterPrefab() will be automatically invoke.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;GameObject&gt; spawnPrefabs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">GameObject</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_startOnHeadless" data-uid="Mirror.NetworkManager.startOnHeadless">startOnHeadless</h4>
+  <div class="markdown level1 summary"><p>Automatically invoke StartServer()</p>
+<p>If the application is a Server Build or run with the -batchMode command line arguement, StartServer is automatically invoked.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool startOnHeadless</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_startPositionIndex" data-uid="Mirror.NetworkManager.startPositionIndex">startPositionIndex</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static int startPositionIndex</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_startPositions" data-uid="Mirror.NetworkManager.startPositions">startPositions</h4>
+  <div class="markdown level1 summary"><p>List of transforms populted by NetworkStartPosition components found in the scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static List&lt;Transform&gt; startPositions</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">List</span>&lt;<span class="xref">Transform</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkManager_transport" data-uid="Mirror.NetworkManager.transport">transport</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Transport transport</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.Transport.html">Transport</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Mirror_NetworkManager_isHeadless_" data-uid="Mirror.NetworkManager.isHeadless*"></a>
+  <h4 id="Mirror_NetworkManager_isHeadless" data-uid="Mirror.NetworkManager.isHeadless">isHeadless</h4>
+  <div class="markdown level1 summary"><p>headless mode detection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool isHeadless { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_numPlayers_" data-uid="Mirror.NetworkManager.numPlayers*"></a>
+  <h4 id="Mirror_NetworkManager_numPlayers" data-uid="Mirror.NetworkManager.numPlayers">numPlayers</h4>
+  <div class="markdown level1 summary"><p>Number of active player objects across all connections on the server.</p>
+<p>This is only valid on the host / server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int numPlayers { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Mirror_NetworkManager_Awake_" data-uid="Mirror.NetworkManager.Awake*"></a>
+  <h4 id="Mirror_NetworkManager_Awake" data-uid="Mirror.NetworkManager.Awake">Awake()</h4>
+  <div class="markdown level1 summary"><p>virtual so that inheriting classes' Awake() can call base.Awake() too</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Awake()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_ConfigureServerFrameRate_" data-uid="Mirror.NetworkManager.ConfigureServerFrameRate*"></a>
+  <h4 id="Mirror_NetworkManager_ConfigureServerFrameRate" data-uid="Mirror.NetworkManager.ConfigureServerFrameRate">ConfigureServerFrameRate()</h4>
+  <div class="markdown level1 summary"><p>Set the frame rate for a headless server.</p>
+<p>Override if you wish to disable the behavior or set your own tick rate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ConfigureServerFrameRate()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_GetStartPosition_" data-uid="Mirror.NetworkManager.GetStartPosition*"></a>
+  <h4 id="Mirror_NetworkManager_GetStartPosition" data-uid="Mirror.NetworkManager.GetStartPosition">GetStartPosition()</h4>
+  <div class="markdown level1 summary"><p>This finds a spawn position based on NetworkStartPosition objects in the scene.</p>
+<p>This is used by the default implementation of OnServerAddPlayer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transform GetStartPosition()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><p>Returns the transform to spawn a player at, or null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_LateUpdate_" data-uid="Mirror.NetworkManager.LateUpdate*"></a>
+  <h4 id="Mirror_NetworkManager_LateUpdate" data-uid="Mirror.NetworkManager.LateUpdate">LateUpdate()</h4>
+  <div class="markdown level1 summary"><p>virtual so that inheriting classes' LateUpdate() can call base.LateUpdate() too</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void LateUpdate()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_OnApplicationQuit_" data-uid="Mirror.NetworkManager.OnApplicationQuit*"></a>
+  <h4 id="Mirror_NetworkManager_OnApplicationQuit" data-uid="Mirror.NetworkManager.OnApplicationQuit">OnApplicationQuit()</h4>
+  <div class="markdown level1 summary"><p>called when quitting the application by closing the window / pressing stop in the editor</p>
+<p>virtual so that inheriting classes&apos; OnApplicationQuit() can call base.OnApplicationQuit() too</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnApplicationQuit()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_OnClientChangeScene_" data-uid="Mirror.NetworkManager.OnClientChangeScene*"></a>
+  <h4 id="Mirror_NetworkManager_OnClientChangeScene_System_String_Mirror_SceneOperation_System_Boolean_" data-uid="Mirror.NetworkManager.OnClientChangeScene(System.String,Mirror.SceneOperation,System.Boolean)">OnClientChangeScene(String, SceneOperation, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Called from ClientChangeScene immediately before SceneManager.LoadSceneAsync is executed</p>
+<p>This allows client to do work / cleanup / prep before the scene changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnClientChangeScene(string newSceneName, SceneOperation sceneOperation, bool customHandling)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">newSceneName</span></td>
+        <td><p>Name of the scene that's about to be loaded</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.SceneOperation.html">SceneOperation</a></td>
+        <td><span class="parametername">sceneOperation</span></td>
+        <td><p>Scene operation that's about to happen</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">customHandling</span></td>
+        <td><p>true to indicate that scene loading will be handled through overrides</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnClientConnect_" data-uid="Mirror.NetworkManager.OnClientConnect*"></a>
+  <h4 id="Mirror_NetworkManager_OnClientConnect_Mirror_NetworkConnection_" data-uid="Mirror.NetworkManager.OnClientConnect(Mirror.NetworkConnection)">OnClientConnect(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Called on the client when connected to a server.</p>
+<p>The default implementation of this function sets the client as ready and adds a player. Override the function to dictate what happens when the client connects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnClientConnect(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection to the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnClientDisconnect_" data-uid="Mirror.NetworkManager.OnClientDisconnect*"></a>
+  <h4 id="Mirror_NetworkManager_OnClientDisconnect_Mirror_NetworkConnection_" data-uid="Mirror.NetworkManager.OnClientDisconnect(Mirror.NetworkConnection)">OnClientDisconnect(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Called on clients when disconnected from a server.</p>
+<p>This is called on the client when it disconnects from the server. Override this function to decide what happens when the client disconnects.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnClientDisconnect(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection to the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnClientError_" data-uid="Mirror.NetworkManager.OnClientError*"></a>
+  <h4 id="Mirror_NetworkManager_OnClientError_Mirror_NetworkConnection_System_Int32_" data-uid="Mirror.NetworkManager.OnClientError(Mirror.NetworkConnection,System.Int32)">OnClientError(NetworkConnection, Int32)</h4>
+  <div class="markdown level1 summary"><p>Called on clients when a network error occurs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnClientError(NetworkConnection conn, int errorCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection to a server.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">errorCode</span></td>
+        <td><p>Error code.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnClientNotReady_" data-uid="Mirror.NetworkManager.OnClientNotReady*"></a>
+  <h4 id="Mirror_NetworkManager_OnClientNotReady_Mirror_NetworkConnection_" data-uid="Mirror.NetworkManager.OnClientNotReady(Mirror.NetworkConnection)">OnClientNotReady(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Called on clients when a servers tells the client it is no longer ready.</p>
+<p>This is commonly used when switching scenes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnClientNotReady(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection to the server.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnClientSceneChanged_" data-uid="Mirror.NetworkManager.OnClientSceneChanged*"></a>
+  <h4 id="Mirror_NetworkManager_OnClientSceneChanged_Mirror_NetworkConnection_" data-uid="Mirror.NetworkManager.OnClientSceneChanged(Mirror.NetworkConnection)">OnClientSceneChanged(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Called on clients when a scene has completed loaded, when the scene load was initiated by the server.</p>
+<p>Scene changes can cause player objects to be destroyed. The default implementation of OnClientSceneChanged in the NetworkManager is to add a player object for the connection if no player object exists.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnClientSceneChanged(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The network connection that the scene change message arrived on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnDestroy_" data-uid="Mirror.NetworkManager.OnDestroy*"></a>
+  <h4 id="Mirror_NetworkManager_OnDestroy" data-uid="Mirror.NetworkManager.OnDestroy">OnDestroy()</h4>
+  <div class="markdown level1 summary"><p>virtual so that inheriting classes' OnDestroy() can call base.OnDestroy() too</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnDestroy()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_OnServerAddPlayer_" data-uid="Mirror.NetworkManager.OnServerAddPlayer*"></a>
+  <h4 id="Mirror_NetworkManager_OnServerAddPlayer_Mirror_NetworkConnection_" data-uid="Mirror.NetworkManager.OnServerAddPlayer(Mirror.NetworkConnection)">OnServerAddPlayer(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Called on the server when a client adds a new player with ClientScene.AddPlayer.</p>
+<p>The default implementation for this function creates a new player object from the playerPrefab.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnServerAddPlayer(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection from client.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnServerAddPlayer_" data-uid="Mirror.NetworkManager.OnServerAddPlayer*"></a>
+  <h4 id="Mirror_NetworkManager_OnServerAddPlayer_Mirror_NetworkConnection_Mirror_AddPlayerMessage_" data-uid="Mirror.NetworkManager.OnServerAddPlayer(Mirror.NetworkConnection,Mirror.AddPlayerMessage)">OnServerAddPlayer(NetworkConnection, AddPlayerMessage)</h4>
+  <div class="markdown level1 summary"><p>Obsolete: Override <a class="xref" href="Mirror.NetworkManager.html#Mirror_NetworkManager_OnServerAddPlayer_Mirror_NetworkConnection_">OnServerAddPlayer(NetworkConnection)</a> instead.</p>
+<p>See <a href="../Guides/GameObjects/SpawnPlayerCustom.html">Custom Players</a> for details.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnServerAddPlayer(NetworkConnection conn, AddPlayerMessage extraMessage)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection from client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.AddPlayerMessage.html">AddPlayerMessage</a></td>
+        <td><span class="parametername">extraMessage</span></td>
+        <td><p>An extra message object passed for the new player.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnServerChangeScene_" data-uid="Mirror.NetworkManager.OnServerChangeScene*"></a>
+  <h4 id="Mirror_NetworkManager_OnServerChangeScene_System_String_" data-uid="Mirror.NetworkManager.OnServerChangeScene(System.String)">OnServerChangeScene(String)</h4>
+  <div class="markdown level1 summary"><p>Called from ServerChangeScene immediately before SceneManager.LoadSceneAsync is executed</p>
+<p>This allows server to do work / cleanup / prep before the scene changes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnServerChangeScene(string newSceneName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">newSceneName</span></td>
+        <td><p>Name of the scene that's about to be loaded</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnServerConnect_" data-uid="Mirror.NetworkManager.OnServerConnect*"></a>
+  <h4 id="Mirror_NetworkManager_OnServerConnect_Mirror_NetworkConnection_" data-uid="Mirror.NetworkManager.OnServerConnect(Mirror.NetworkConnection)">OnServerConnect(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Called on the server when a new client connects.</p>
+<p>Unity calls this on the Server when a Client connects to the Server. Use an override to tell the NetworkManager what to do when a client connects to the server.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnServerConnect(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection from client.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnServerDisconnect_" data-uid="Mirror.NetworkManager.OnServerDisconnect*"></a>
+  <h4 id="Mirror_NetworkManager_OnServerDisconnect_Mirror_NetworkConnection_" data-uid="Mirror.NetworkManager.OnServerDisconnect(Mirror.NetworkConnection)">OnServerDisconnect(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Called on the server when a client disconnects.</p>
+<p>This is called on the Server when a Client disconnects from the Server. Use an override to decide what should happen when a disconnection is detected.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnServerDisconnect(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection from client.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnServerError_" data-uid="Mirror.NetworkManager.OnServerError*"></a>
+  <h4 id="Mirror_NetworkManager_OnServerError_Mirror_NetworkConnection_System_Int32_" data-uid="Mirror.NetworkManager.OnServerError(Mirror.NetworkConnection,System.Int32)">OnServerError(NetworkConnection, Int32)</h4>
+  <div class="markdown level1 summary"><p>Called on the server when a network error occurs for a client connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnServerError(NetworkConnection conn, int errorCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection from client.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">errorCode</span></td>
+        <td><p>Error code.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnServerReady_" data-uid="Mirror.NetworkManager.OnServerReady*"></a>
+  <h4 id="Mirror_NetworkManager_OnServerReady_Mirror_NetworkConnection_" data-uid="Mirror.NetworkManager.OnServerReady(Mirror.NetworkConnection)">OnServerReady(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Called on the server when a client is ready.</p>
+<p>The default implementation of this function calls NetworkServer.SetClientReady() to continue the network setup process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnServerReady(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>Connection from client.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnServerRemovePlayer_" data-uid="Mirror.NetworkManager.OnServerRemovePlayer*"></a>
+  <h4 id="Mirror_NetworkManager_OnServerRemovePlayer_Mirror_NetworkConnection_Mirror_NetworkIdentity_" data-uid="Mirror.NetworkManager.OnServerRemovePlayer(Mirror.NetworkConnection,Mirror.NetworkIdentity)">OnServerRemovePlayer(NetworkConnection, NetworkIdentity)</h4>
+  <div class="markdown level1 summary"><p>Called on the server when a client removes a player.</p>
+<p>The default implementation of this function destroys the corresponding player object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnServerRemovePlayer(NetworkConnection conn, NetworkIdentity player)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The connection to remove the player from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td><span class="parametername">player</span></td>
+        <td><p>The player identity to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnServerSceneChanged_" data-uid="Mirror.NetworkManager.OnServerSceneChanged*"></a>
+  <h4 id="Mirror_NetworkManager_OnServerSceneChanged_System_String_" data-uid="Mirror.NetworkManager.OnServerSceneChanged(System.String)">OnServerSceneChanged(String)</h4>
+  <div class="markdown level1 summary"><p>Called on the server when a scene is completed loaded, when the scene load was initiated by the server with ServerChangeScene().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnServerSceneChanged(string sceneName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sceneName</span></td>
+        <td><p>The name of the new scene.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_OnStartClient_" data-uid="Mirror.NetworkManager.OnStartClient*"></a>
+  <h4 id="Mirror_NetworkManager_OnStartClient" data-uid="Mirror.NetworkManager.OnStartClient">OnStartClient()</h4>
+  <div class="markdown level1 summary"><p>This is invoked when the client is started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnStartClient()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_OnStartHost_" data-uid="Mirror.NetworkManager.OnStartHost*"></a>
+  <h4 id="Mirror_NetworkManager_OnStartHost" data-uid="Mirror.NetworkManager.OnStartHost">OnStartHost()</h4>
+  <div class="markdown level1 summary"><p>This is invoked when a host is started.</p>
+<p>StartHost has multiple signatures, but they all cause this hook to be called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnStartHost()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_OnStartServer_" data-uid="Mirror.NetworkManager.OnStartServer*"></a>
+  <h4 id="Mirror_NetworkManager_OnStartServer" data-uid="Mirror.NetworkManager.OnStartServer">OnStartServer()</h4>
+  <div class="markdown level1 summary"><p>This is invoked when a server is started - including when a host is started.</p>
+<p>StartServer has multiple signatures, but they all cause this hook to be called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnStartServer()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_OnStopClient_" data-uid="Mirror.NetworkManager.OnStopClient*"></a>
+  <h4 id="Mirror_NetworkManager_OnStopClient" data-uid="Mirror.NetworkManager.OnStopClient">OnStopClient()</h4>
+  <div class="markdown level1 summary"><p>This is called when a client is stopped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnStopClient()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_OnStopHost_" data-uid="Mirror.NetworkManager.OnStopHost*"></a>
+  <h4 id="Mirror_NetworkManager_OnStopHost" data-uid="Mirror.NetworkManager.OnStopHost">OnStopHost()</h4>
+  <div class="markdown level1 summary"><p>This is called when a host is stopped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnStopHost()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_OnStopServer_" data-uid="Mirror.NetworkManager.OnStopServer*"></a>
+  <h4 id="Mirror_NetworkManager_OnStopServer" data-uid="Mirror.NetworkManager.OnStopServer">OnStopServer()</h4>
+  <div class="markdown level1 summary"><p>This is called when a server is stopped - including when a host is stopped.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnStopServer()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_OnValidate_" data-uid="Mirror.NetworkManager.OnValidate*"></a>
+  <h4 id="Mirror_NetworkManager_OnValidate" data-uid="Mirror.NetworkManager.OnValidate">OnValidate()</h4>
+  <div class="markdown level1 summary"><p>virtual so that inheriting classes' OnValidate() can call base.OnValidate() too</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void OnValidate()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_RegisterStartPosition_" data-uid="Mirror.NetworkManager.RegisterStartPosition*"></a>
+  <h4 id="Mirror_NetworkManager_RegisterStartPosition_Transform_" data-uid="Mirror.NetworkManager.RegisterStartPosition(Transform)">RegisterStartPosition(Transform)</h4>
+  <div class="markdown level1 summary"><p>Registers the transform of a game object as a player spawn location.</p>
+<p>This is done automatically by NetworkStartPosition components, but can be done manually from user script code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterStartPosition(Transform start)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>Transform to register.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_ServerChangeScene_" data-uid="Mirror.NetworkManager.ServerChangeScene*"></a>
+  <h4 id="Mirror_NetworkManager_ServerChangeScene_System_String_" data-uid="Mirror.NetworkManager.ServerChangeScene(System.String)">ServerChangeScene(String)</h4>
+  <div class="markdown level1 summary"><p>This causes the server to switch scenes and sets the networkSceneName.</p>
+<p>Clients that connect to this server will automatically switch to this scene. This is called autmatically if onlineScene or offlineScene are set, but it can be called from user code to switch scenes again while the game is in progress. This automatically sets clients to be not-ready. The clients must call NetworkClient.Ready() again to participate in the new scene.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void ServerChangeScene(string newSceneName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">newSceneName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_Shutdown_" data-uid="Mirror.NetworkManager.Shutdown*"></a>
+  <h4 id="Mirror_NetworkManager_Shutdown" data-uid="Mirror.NetworkManager.Shutdown">Shutdown()</h4>
+  <div class="markdown level1 summary"><p>This is the only way to clear the singleton, so another instance can be created.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Shutdown()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_Start_" data-uid="Mirror.NetworkManager.Start*"></a>
+  <h4 id="Mirror_NetworkManager_Start" data-uid="Mirror.NetworkManager.Start">Start()</h4>
+  <div class="markdown level1 summary"><p>virtual so that inheriting classes' Start() can call base.Start() too</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void Start()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_StartClient_" data-uid="Mirror.NetworkManager.StartClient*"></a>
+  <h4 id="Mirror_NetworkManager_StartClient" data-uid="Mirror.NetworkManager.StartClient">StartClient()</h4>
+  <div class="markdown level1 summary"><p>This starts a network client. It uses the networkAddress and networkPort properties as the address to connect to.</p>
+<p>This makes the newly created client connect to the server immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StartClient()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_StartClient_" data-uid="Mirror.NetworkManager.StartClient*"></a>
+  <h4 id="Mirror_NetworkManager_StartClient_Uri_" data-uid="Mirror.NetworkManager.StartClient(Uri)">StartClient(Uri)</h4>
+  <div class="markdown level1 summary"><p>This starts a network client. It uses the networkAddress and networkPort properties as the address to connect to.</p>
+<p>This makes the newly created client connect to the server immediately.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StartClient(Uri uri)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Uri</span></td>
+        <td><span class="parametername">uri</span></td>
+        <td><p>location of the server to connect to</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_NetworkManager_StartHost_" data-uid="Mirror.NetworkManager.StartHost*"></a>
+  <h4 id="Mirror_NetworkManager_StartHost" data-uid="Mirror.NetworkManager.StartHost">StartHost()</h4>
+  <div class="markdown level1 summary"><p>This starts a network &quot;host&quot; - a server and client in the same application.</p>
+<p>The client returned from StartHost() is a special &quot;local&quot; client that communicates to the in-process server using a message queue instead of the real network. But in almost all other cases, it can be treated as a normal client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void StartHost()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_StartServer_" data-uid="Mirror.NetworkManager.StartServer*"></a>
+  <h4 id="Mirror_NetworkManager_StartServer" data-uid="Mirror.NetworkManager.StartServer">StartServer()</h4>
+  <div class="markdown level1 summary"><p>This starts a new server.</p>
+<p>This uses the networkPort property as the listen port.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StartServer()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_StopClient_" data-uid="Mirror.NetworkManager.StopClient*"></a>
+  <h4 id="Mirror_NetworkManager_StopClient" data-uid="Mirror.NetworkManager.StopClient">StopClient()</h4>
+  <div class="markdown level1 summary"><p>Stops the client that the manager is using.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StopClient()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_StopHost_" data-uid="Mirror.NetworkManager.StopHost*"></a>
+  <h4 id="Mirror_NetworkManager_StopHost" data-uid="Mirror.NetworkManager.StopHost">StopHost()</h4>
+  <div class="markdown level1 summary"><p>This stops both the client and the server that the manager is using.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StopHost()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_StopServer_" data-uid="Mirror.NetworkManager.StopServer*"></a>
+  <h4 id="Mirror_NetworkManager_StopServer" data-uid="Mirror.NetworkManager.StopServer">StopServer()</h4>
+  <div class="markdown level1 summary"><p>Stops the server that the manager is using.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StopServer()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_NetworkManager_UnRegisterStartPosition_" data-uid="Mirror.NetworkManager.UnRegisterStartPosition*"></a>
+  <h4 id="Mirror_NetworkManager_UnRegisterStartPosition_Transform_" data-uid="Mirror.NetworkManager.UnRegisterStartPosition(Transform)">UnRegisterStartPosition(Transform)</h4>
+  <div class="markdown level1 summary"><p>Unregisters the transform of a game object as a player spawn location.</p>
+<p>This is done automatically by the <a class="xref" href="Mirror.NetworkStartPosition.html">NetworkStartPosition</a> component, but can be done manually from user code.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnRegisterStartPosition(Transform start)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Transform</span></td>
+        <td><span class="parametername">start</span></td>
+        <td><p>Transform to unregister.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

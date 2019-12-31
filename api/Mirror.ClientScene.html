@@ -1,0 +1,813 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ClientScene
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ClientScene
+   ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirror.ClientScene">
+  
+  
+  <h1 id="Mirror_ClientScene" data-uid="Mirror.ClientScene" class="text-break">Class ClientScene
+  </h1>
+  <div class="markdown level0 summary"><p>A client manager which contains static client information and functions.</p>
+<p>This manager contains references to tracked static local objects such as spawner registrations. It also has the default message handlers used by clients when they registered none themselves. The manager handles adding/removing player objects to the game after a client connection has been set as ready.</p>
+<p>The ClientScene is a singleton, and it has static convenience methods such as ClientScene.Ready().</p>
+<p>The ClientScene is used by the NetworkManager, but it can be used by itself.</p>
+<p>As the ClientScene manages player objects on the client, it is where clients request to add players. The NetworkManager does this via the ClientScene automatically when auto-add-players is set, but it can be done through code using the function ClientScene.AddPlayer(). This sends an AddPlayer message to the server and will cause a player object to be created for this client.</p>
+<p>Like NetworkServer, the ClientScene understands the concept of the local client. The function ClientScene.ConnectLocalServer() is used to become a host by starting a local client (when a server is already running).</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ClientScene</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirror_ClientScene_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class ClientScene : object</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="Mirror_ClientScene_prefabs" data-uid="Mirror.ClientScene.prefabs">prefabs</h4>
+  <div class="markdown level1 summary"><p>This is a dictionary of the prefabs that are registered on the client with ClientScene.RegisterPrefab().</p>
+<p>The key to the dictionary is the prefab asset Id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary&lt;System.Guid, GameObject&gt; prefabs</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.Guid</span>, <span class="xref">GameObject</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_ClientScene_spawnableObjects" data-uid="Mirror.ClientScene.spawnableObjects">spawnableObjects</h4>
+  <div class="markdown level1 summary"><p>This is dictionary of the disabled NetworkIdentity objects in the scene that could be spawned by messages from the server.</p>
+<p>The key to the dictionary is the NetworkIdentity sceneId.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Dictionary&lt;ulong, NetworkIdentity&gt; spawnableObjects</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary</span>&lt;<span class="xref">System.UInt64</span>, <a class="xref" href="Mirror.NetworkIdentity.html">NetworkIdentity</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Mirror_ClientScene_localPlayer_" data-uid="Mirror.ClientScene.localPlayer*"></a>
+  <h4 id="Mirror_ClientScene_localPlayer" data-uid="Mirror.ClientScene.localPlayer">localPlayer</h4>
+  <div class="markdown level1 summary"><p>NetworkIdentity of the localPlayer</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkIdentity localPlayer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkIdentity.html">NetworkIdentity</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_ready_" data-uid="Mirror.ClientScene.ready*"></a>
+  <h4 id="Mirror_ClientScene_ready" data-uid="Mirror.ClientScene.ready">ready</h4>
+  <div class="markdown level1 summary"><p>Returns true when a client's connection has been set to ready.</p>
+<p>A client that is ready recieves state updates from the server, while a client that is not ready does not. This useful when the state of the game is not normal, such as a scene change or end-of-game.</p>
+<p>This is read-only. To change the ready state of a client, use ClientScene.Ready(). The server is able to set the ready state of clients using NetworkServer.SetClientReady(), NetworkServer.SetClientNotReady() and NetworkServer.SetAllClientsNotReady().</p>
+<p>This is done when changing scenes so that clients don&apos;t receive state update messages during scene loading.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool ready { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_readyConnection_" data-uid="Mirror.ClientScene.readyConnection*"></a>
+  <h4 id="Mirror_ClientScene_readyConnection" data-uid="Mirror.ClientScene.readyConnection">readyConnection</h4>
+  <div class="markdown level1 summary"><p>The NetworkConnection object that is currently &quot;ready&quot;. This is the connection to the server where objects are spawned from.</p>
+<p>This connection can be used to send messages to the server. There can only be one ready connection at a time. There can be multiple NetworkClient instances in existence, each with their own NetworkConnections, but there is only one ClientScene instance and corresponding ready connection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static NetworkConnection readyConnection { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Mirror_ClientScene_AddPlayer_" data-uid="Mirror.ClientScene.AddPlayer*"></a>
+  <h4 id="Mirror_ClientScene_AddPlayer" data-uid="Mirror.ClientScene.AddPlayer">AddPlayer()</h4>
+  <div class="markdown level1 summary"><p>This adds a player GameObject for this client.</p>
+<p>This causes an AddPlayer message to be sent to the server, and NetworkManager.OnServerAddPlayer is called.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddPlayer()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if player was added.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_AddPlayer_" data-uid="Mirror.ClientScene.AddPlayer*"></a>
+  <h4 id="Mirror_ClientScene_AddPlayer_Mirror_NetworkConnection_" data-uid="Mirror.ClientScene.AddPlayer(Mirror.NetworkConnection)">AddPlayer(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>This adds a player GameObject for this client. This causes an AddPlayer message to be sent to the server, and NetworkManager.OnServerAddPlayer is called. If an extra message was passed to AddPlayer, then OnServerAddPlayer will be called with a NetworkReader that contains the contents of the message.</p>
+<p>extraMessage can contain character selection, etc.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool AddPlayer(NetworkConnection readyConn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">readyConn</span></td>
+        <td><p>The connection to become ready for this client.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if player was added.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_ClearSpawners_" data-uid="Mirror.ClientScene.ClearSpawners*"></a>
+  <h4 id="Mirror_ClientScene_ClearSpawners" data-uid="Mirror.ClientScene.ClearSpawners">ClearSpawners()</h4>
+  <div class="markdown level1 summary"><p>This clears the registered spawn prefabs and spawn handler functions for this client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void ClearSpawners()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_ClientScene_DestroyAllClientObjects_" data-uid="Mirror.ClientScene.DestroyAllClientObjects*"></a>
+  <h4 id="Mirror_ClientScene_DestroyAllClientObjects" data-uid="Mirror.ClientScene.DestroyAllClientObjects">DestroyAllClientObjects()</h4>
+  <div class="markdown level1 summary"><p>Destroys all networked objects on the client.</p>
+<p>This can be used to clean up when a network connection is closed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void DestroyAllClientObjects()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_ClientScene_GetPrefab_" data-uid="Mirror.ClientScene.GetPrefab*"></a>
+  <h4 id="Mirror_ClientScene_GetPrefab_System_Guid_GameObject__" data-uid="Mirror.ClientScene.GetPrefab(System.Guid,GameObject@)">GetPrefab(System.Guid, out GameObject)</h4>
+  <div class="markdown level1 summary"><p>Find the registered prefab for this asset id.
+Useful for debuggers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool GetPrefab(System.Guid assetId, out GameObject prefab)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>asset id of the prefab</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">prefab</span></td>
+        <td><p>the prefab gameobject</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if prefab was registered</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_PrepareToSpawnSceneObjects_" data-uid="Mirror.ClientScene.PrepareToSpawnSceneObjects*"></a>
+  <h4 id="Mirror_ClientScene_PrepareToSpawnSceneObjects" data-uid="Mirror.ClientScene.PrepareToSpawnSceneObjects">PrepareToSpawnSceneObjects()</h4>
+  <div class="markdown level1 summary"><p>Call this after loading/unloading a scene in the client after connection to register the spawnable objects</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void PrepareToSpawnSceneObjects()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_ClientScene_Ready_" data-uid="Mirror.ClientScene.Ready*"></a>
+  <h4 id="Mirror_ClientScene_Ready_Mirror_NetworkConnection_" data-uid="Mirror.ClientScene.Ready(Mirror.NetworkConnection)">Ready(NetworkConnection)</h4>
+  <div class="markdown level1 summary"><p>Signal that the client connection is ready to enter the game.</p>
+<p>This could be for example when a client enters an ongoing game and has finished loading the current scene. The server should respond to the SYSTEM_READY event with an appropriate handler which instantiates the players object for example.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Ready(NetworkConnection conn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td><p>The client connection which is ready.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if succcessful</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_RegisterPrefab_" data-uid="Mirror.ClientScene.RegisterPrefab*"></a>
+  <h4 id="Mirror_ClientScene_RegisterPrefab_GameObject_" data-uid="Mirror.ClientScene.RegisterPrefab(GameObject)">RegisterPrefab(GameObject)</h4>
+  <div class="markdown level1 summary"><p>Registers a prefab with the spawning system.</p>
+<p>When a NetworkIdentity object is spawned on a server with NetworkServer.SpawnObject(), and the prefab that the object was created from was registered with RegisterPrefab(), the client will use that prefab to instantiate a corresponding client object with the same netId.</p>
+<p>The NetworkManager has a list of spawnable prefabs, it uses this function to register those prefabs with the ClientScene.</p>
+<p>The set of current spawnable object is available in the ClientScene static member variable ClientScene.prefabs, which is a dictionary of NetworkAssetIds and prefab references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterPrefab(GameObject prefab)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">prefab</span></td>
+        <td><p>A Prefab that will be spawned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_RegisterPrefab_" data-uid="Mirror.ClientScene.RegisterPrefab*"></a>
+  <h4 id="Mirror_ClientScene_RegisterPrefab_GameObject_Mirror_SpawnDelegate_Mirror_UnSpawnDelegate_" data-uid="Mirror.ClientScene.RegisterPrefab(GameObject,Mirror.SpawnDelegate,Mirror.UnSpawnDelegate)">RegisterPrefab(GameObject, SpawnDelegate, UnSpawnDelegate)</h4>
+  <div class="markdown level1 summary"><p>Registers a prefab with the spawning system.</p>
+<p>When a NetworkIdentity object is spawned on a server with NetworkServer.SpawnObject(), and the prefab that the object was created from was registered with RegisterPrefab(), the client will use that prefab to instantiate a corresponding client object with the same netId.</p>
+<p>The NetworkManager has a list of spawnable prefabs, it uses this function to register those prefabs with the ClientScene.</p>
+<p>The set of current spawnable object is available in the ClientScene static member variable ClientScene.prefabs, which is a dictionary of NetworkAssetIds and prefab references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterPrefab(GameObject prefab, SpawnDelegate spawnHandler, UnSpawnDelegate unspawnHandler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">prefab</span></td>
+        <td><p>A Prefab that will be spawned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.SpawnDelegate.html">SpawnDelegate</a></td>
+        <td><span class="parametername">spawnHandler</span></td>
+        <td><p>A method to use as a custom spawnhandler on clients.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.UnSpawnDelegate.html">UnSpawnDelegate</a></td>
+        <td><span class="parametername">unspawnHandler</span></td>
+        <td><p>A method to use as a custom un-spawnhandler on clients.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_RegisterPrefab_" data-uid="Mirror.ClientScene.RegisterPrefab*"></a>
+  <h4 id="Mirror_ClientScene_RegisterPrefab_GameObject_Mirror_SpawnHandlerDelegate_Mirror_UnSpawnDelegate_" data-uid="Mirror.ClientScene.RegisterPrefab(GameObject,Mirror.SpawnHandlerDelegate,Mirror.UnSpawnDelegate)">RegisterPrefab(GameObject, SpawnHandlerDelegate, UnSpawnDelegate)</h4>
+  <div class="markdown level1 summary"><p>Registers a prefab with the spawning system.</p>
+<p>When a NetworkIdentity object is spawned on a server with NetworkServer.SpawnObject(), and the prefab that the object was created from was registered with RegisterPrefab(), the client will use that prefab to instantiate a corresponding client object with the same netId.</p>
+<p>The NetworkManager has a list of spawnable prefabs, it uses this function to register those prefabs with the ClientScene.</p>
+<p>The set of current spawnable object is available in the ClientScene static member variable ClientScene.prefabs, which is a dictionary of NetworkAssetIds and prefab references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterPrefab(GameObject prefab, SpawnHandlerDelegate spawnHandler, UnSpawnDelegate unspawnHandler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">prefab</span></td>
+        <td><p>A Prefab that will be spawned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.SpawnHandlerDelegate.html">SpawnHandlerDelegate</a></td>
+        <td><span class="parametername">spawnHandler</span></td>
+        <td><p>A method to use as a custom spawnhandler on clients.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.UnSpawnDelegate.html">UnSpawnDelegate</a></td>
+        <td><span class="parametername">unspawnHandler</span></td>
+        <td><p>A method to use as a custom un-spawnhandler on clients.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_RegisterPrefab_" data-uid="Mirror.ClientScene.RegisterPrefab*"></a>
+  <h4 id="Mirror_ClientScene_RegisterPrefab_GameObject_System_Guid_" data-uid="Mirror.ClientScene.RegisterPrefab(GameObject,System.Guid)">RegisterPrefab(GameObject, System.Guid)</h4>
+  <div class="markdown level1 summary"><p>Registers a prefab with the spawning system.</p>
+<p>When a NetworkIdentity object is spawned on a server with NetworkServer.SpawnObject(), and the prefab that the object was created from was registered with RegisterPrefab(), the client will use that prefab to instantiate a corresponding client object with the same netId.</p>
+<p>The NetworkManager has a list of spawnable prefabs, it uses this function to register those prefabs with the ClientScene.</p>
+<p>The set of current spawnable object is available in the ClientScene static member variable ClientScene.prefabs, which is a dictionary of NetworkAssetIds and prefab references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterPrefab(GameObject prefab, System.Guid newAssetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">prefab</span></td>
+        <td><p>A Prefab that will be spawned.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Guid</span></td>
+        <td><span class="parametername">newAssetId</span></td>
+        <td><p>An assetId to be assigned to this prefab. This allows a dynamically created game object to be registered for an already known asset Id.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_RegisterSpawnHandler_" data-uid="Mirror.ClientScene.RegisterSpawnHandler*"></a>
+  <h4 id="Mirror_ClientScene_RegisterSpawnHandler_System_Guid_Mirror_SpawnDelegate_Mirror_UnSpawnDelegate_" data-uid="Mirror.ClientScene.RegisterSpawnHandler(System.Guid,Mirror.SpawnDelegate,Mirror.UnSpawnDelegate)">RegisterSpawnHandler(System.Guid, SpawnDelegate, UnSpawnDelegate)</h4>
+  <div class="markdown level1 summary"><p>This is an advanced spawning function that registers a custom assetId with the UNET spawning system.</p>
+<p>This can be used to register custom spawning methods for an assetId - instead of the usual method of registering spawning methods for a prefab. This should be used when no prefab exists for the spawned objects - such as when they are constructed dynamically at runtime from configuration data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterSpawnHandler(System.Guid assetId, SpawnDelegate spawnHandler, UnSpawnDelegate unspawnHandler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>Custom assetId string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.SpawnDelegate.html">SpawnDelegate</a></td>
+        <td><span class="parametername">spawnHandler</span></td>
+        <td><p>A method to use as a custom spawnhandler on clients.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.UnSpawnDelegate.html">UnSpawnDelegate</a></td>
+        <td><span class="parametername">unspawnHandler</span></td>
+        <td><p>A method to use as a custom un-spawnhandler on clients.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_RegisterSpawnHandler_" data-uid="Mirror.ClientScene.RegisterSpawnHandler*"></a>
+  <h4 id="Mirror_ClientScene_RegisterSpawnHandler_System_Guid_Mirror_SpawnHandlerDelegate_Mirror_UnSpawnDelegate_" data-uid="Mirror.ClientScene.RegisterSpawnHandler(System.Guid,Mirror.SpawnHandlerDelegate,Mirror.UnSpawnDelegate)">RegisterSpawnHandler(System.Guid, SpawnHandlerDelegate, UnSpawnDelegate)</h4>
+  <div class="markdown level1 summary"><p>This is an advanced spawning function that registers a custom assetId with the UNET spawning system.</p>
+<p>This can be used to register custom spawning methods for an assetId - instead of the usual method of registering spawning methods for a prefab. This should be used when no prefab exists for the spawned objects - such as when they are constructed dynamically at runtime from configuration data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterSpawnHandler(System.Guid assetId, SpawnHandlerDelegate spawnHandler, UnSpawnDelegate unspawnHandler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>Custom assetId string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.SpawnHandlerDelegate.html">SpawnHandlerDelegate</a></td>
+        <td><span class="parametername">spawnHandler</span></td>
+        <td><p>A method to use as a custom spawnhandler on clients.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Mirror.UnSpawnDelegate.html">UnSpawnDelegate</a></td>
+        <td><span class="parametername">unspawnHandler</span></td>
+        <td><p>A method to use as a custom un-spawnhandler on clients.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_RemovePlayer_" data-uid="Mirror.ClientScene.RemovePlayer*"></a>
+  <h4 id="Mirror_ClientScene_RemovePlayer" data-uid="Mirror.ClientScene.RemovePlayer">RemovePlayer()</h4>
+  <div class="markdown level1 summary"><p>Removes the player from the game.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool RemovePlayer()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if succcessful</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_UnregisterPrefab_" data-uid="Mirror.ClientScene.UnregisterPrefab*"></a>
+  <h4 id="Mirror_ClientScene_UnregisterPrefab_GameObject_" data-uid="Mirror.ClientScene.UnregisterPrefab(GameObject)">UnregisterPrefab(GameObject)</h4>
+  <div class="markdown level1 summary"><p>Removes a registered spawn prefab that was setup with ClientScene.RegisterPrefab.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnregisterPrefab(GameObject prefab)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">GameObject</span></td>
+        <td><span class="parametername">prefab</span></td>
+        <td><p>The prefab to be removed from registration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_ClientScene_UnregisterSpawnHandler_" data-uid="Mirror.ClientScene.UnregisterSpawnHandler*"></a>
+  <h4 id="Mirror_ClientScene_UnregisterSpawnHandler_System_Guid_" data-uid="Mirror.ClientScene.UnregisterSpawnHandler(System.Guid)">UnregisterSpawnHandler(System.Guid)</h4>
+  <div class="markdown level1 summary"><p>Removes a registered spawn handler function that was registered with ClientScene.RegisterHandler().</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnregisterSpawnHandler(System.Guid assetId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Guid</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>The assetId for the handler to be removed for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

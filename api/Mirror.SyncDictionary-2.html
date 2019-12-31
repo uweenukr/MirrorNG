@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SyncDictionary&lt;TKey, TValue&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SyncDictionary&lt;TKey, TValue&gt;
+   ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirror.SyncDictionary`2">
+  
+  
+  <h1 id="Mirror_SyncDictionary_2" data-uid="Mirror.SyncDictionary`2" class="text-break">Class SyncDictionary&lt;TKey, TValue&gt;
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Mirror.SyncIDictionary-2.html">SyncIDictionary</a>&lt;TKey, TValue&gt;</div>
+    <div class="level2"><span class="xref">SyncDictionary&lt;TKey, TValue&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Mirror.SyncObject.html">SyncObject</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_objects">SyncIDictionary&lt;TKey, TValue&gt;.objects</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Count">SyncIDictionary&lt;TKey, TValue&gt;.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_IsReadOnly">SyncIDictionary&lt;TKey, TValue&gt;.IsReadOnly</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Callback">SyncIDictionary&lt;TKey, TValue&gt;.Callback</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_SerializeKey_Mirror_NetworkWriter__0_">SyncIDictionary&lt;TKey, TValue&gt;.SerializeKey(NetworkWriter, TKey)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_SerializeItem_Mirror_NetworkWriter__1_">SyncIDictionary&lt;TKey, TValue&gt;.SerializeItem(NetworkWriter, TValue)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_DeserializeKey_Mirror_NetworkReader_">SyncIDictionary&lt;TKey, TValue&gt;.DeserializeKey(NetworkReader)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_DeserializeItem_Mirror_NetworkReader_">SyncIDictionary&lt;TKey, TValue&gt;.DeserializeItem(NetworkReader)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_IsDirty">SyncIDictionary&lt;TKey, TValue&gt;.IsDirty</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Keys">SyncIDictionary&lt;TKey, TValue&gt;.Keys</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Values">SyncIDictionary&lt;TKey, TValue&gt;.Values</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Flush">SyncIDictionary&lt;TKey, TValue&gt;.Flush()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_OnSerializeAll_Mirror_NetworkWriter_">SyncIDictionary&lt;TKey, TValue&gt;.OnSerializeAll(NetworkWriter)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_OnSerializeDelta_Mirror_NetworkWriter_">SyncIDictionary&lt;TKey, TValue&gt;.OnSerializeDelta(NetworkWriter)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_OnDeserializeAll_Mirror_NetworkReader_">SyncIDictionary&lt;TKey, TValue&gt;.OnDeserializeAll(NetworkReader)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_OnDeserializeDelta_Mirror_NetworkReader_">SyncIDictionary&lt;TKey, TValue&gt;.OnDeserializeDelta(NetworkReader)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Clear">SyncIDictionary&lt;TKey, TValue&gt;.Clear()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_ContainsKey__0_">SyncIDictionary&lt;TKey, TValue&gt;.ContainsKey(TKey)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Remove__0_">SyncIDictionary&lt;TKey, TValue&gt;.Remove(TKey)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Item__0_">SyncIDictionary&lt;TKey, TValue&gt;.Item[TKey]</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_TryGetValue__0__1__">SyncIDictionary&lt;TKey, TValue&gt;.TryGetValue(TKey, TValue)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Add__0__1_">SyncIDictionary&lt;TKey, TValue&gt;.Add(TKey, TValue)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Add_KeyValuePair__0__1__">SyncIDictionary&lt;TKey, TValue&gt;.Add(KeyValuePair&lt;TKey, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Contains_KeyValuePair__0__1__">SyncIDictionary&lt;TKey, TValue&gt;.Contains(KeyValuePair&lt;TKey, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_CopyTo_KeyValuePair__0__1____System_Int32_">SyncIDictionary&lt;TKey, TValue&gt;.CopyTo(KeyValuePair&lt;TKey, TValue&gt;[], Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_Remove_KeyValuePair__0__1__">SyncIDictionary&lt;TKey, TValue&gt;.Remove(KeyValuePair&lt;TKey, TValue&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.SyncIDictionary-2.html#Mirror_SyncIDictionary_2_GetEnumerator">SyncIDictionary&lt;TKey, TValue&gt;.GetEnumerator()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirror_SyncDictionary_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class SyncDictionary&lt;TKey, TValue&gt; : SyncIDictionary&lt;TKey, TValue&gt;, SyncObject</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Mirror_SyncDictionary_2__ctor_" data-uid="Mirror.SyncDictionary`2.#ctor*"></a>
+  <h4 id="Mirror_SyncDictionary_2__ctor" data-uid="Mirror.SyncDictionary`2.#ctor">SyncDictionary()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SyncDictionary()</code></pre>
+  </div>
+  
+  
+  <a id="Mirror_SyncDictionary_2__ctor_" data-uid="Mirror.SyncDictionary`2.#ctor*"></a>
+  <h4 id="Mirror_SyncDictionary_2__ctor_IEqualityComparer__0__" data-uid="Mirror.SyncDictionary`2.#ctor(IEqualityComparer{`0})">SyncDictionary(IEqualityComparer&lt;TKey&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SyncDictionary(IEqualityComparer&lt;TKey&gt; eq)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IEqualityComparer</span>&lt;TKey&gt;</td>
+        <td><span class="parametername">eq</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Mirror_SyncDictionary_2_Keys_" data-uid="Mirror.SyncDictionary`2.Keys*"></a>
+  <h4 id="Mirror_SyncDictionary_2_Keys" data-uid="Mirror.SyncDictionary`2.Keys">Keys</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;TKey, TValue&gt;.KeyCollection Keys { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary.KeyCollection</span>&lt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Mirror_SyncDictionary_2_Values_" data-uid="Mirror.SyncDictionary`2.Values*"></a>
+  <h4 id="Mirror_SyncDictionary_2_Values" data-uid="Mirror.SyncDictionary`2.Values">Values</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;TKey, TValue&gt;.ValueCollection Values { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary.ValueCollection</span>&lt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Mirror_SyncDictionary_2_GetEnumerator_" data-uid="Mirror.SyncDictionary`2.GetEnumerator*"></a>
+  <h4 id="Mirror_SyncDictionary_2_GetEnumerator" data-uid="Mirror.SyncDictionary`2.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;TKey, TValue&gt;.Enumerator GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Dictionary.Enumerator</span>&lt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Mirror.SyncObject.html">SyncObject</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

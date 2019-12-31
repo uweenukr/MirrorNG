@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Telepathy </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Telepathy ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="telepathy">Telepathy</h1>
+
+<p>Simple, message based, MMO Scale TCP networking in C#. And no magic.</p>
+<ul>
+<li>Telepathy was designed with the <a href="https://en.wikipedia.org/wiki/KISS_principle">KISS Principle</a> in mind.</li>
+<li>Telepathy is fast and extremely reliable, designed for <a href="https://assetstore.unity.com/packages/templates/systems/ummorpg-51212">MMO</a> scale Networking.</li>
+<li>Telepathy uses framing, so anything sent will be received the same way.</li>
+<li>Telepathy is raw C# and can be used in Unity3D too.</li>
+<li>Telepathy is available on <a href="https://github.com/vis2k/Telepathy">GitHub</a></li>
+</ul>
+<h2 id="what-makes-telepathy-special">What makes Telepathy special?</h2>
+<p>Telepathy was originally designed for <a href="https://assetstore.unity.com/packages/templates/systems/ummorpg-51212">uMMORPG</a> after 3 years in UDP hell.</p>
+<p>We needed a library that is:</p>
+<ul>
+<li>Stable &amp; Bug free: Telepathy uses only 400 lines of code. There is no magic.</li>
+<li>High performance: Telepathy can handle thousands of connections and packages.</li>
+<li>Concurrent: Telepathy uses one thread per connection. It can make heavy use of multi core processors.</li>
+<li>Simple: Telepathy takes care of everything. All you need to do is call Connect/GetNextMessage/Disconnect.</li>
+<li>Message based: if we send 10 and then 2 bytes, then the other end receives 10 and then 2 bytes, never 12 at once.</li>
+</ul>
+<p>MMORPGs are insanely difficult to make and we created Telepathy so that we would never have to worry about low level Networking again.</p>
+<h2 id="what-about">What about...</h2>
+<ul>
+<li>Async Sockets: didn't perform better in our benchmarks.</li>
+<li>ConcurrentQueue: .NET 3.5 compatibility is important for Unity. Wasn't faster than our SafeQueue anyway.</li>
+<li>UDP vs. TCP: Minecraft and World of Warcraft are two of the biggest multiplayer games of all time and they both use TCP networking. There is a reason for that.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

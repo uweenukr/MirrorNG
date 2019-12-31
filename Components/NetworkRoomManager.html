@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>NetworkRoomManager </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="NetworkRoomManager ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="networkroommanager">NetworkRoomManager</h1>
+
+<p>**Please see the Room example in the Examples folder in your Mirror folder</p>
+<p>The Network Room Manager is a specialized type of <a href="NetworkManager.html">Network Manager</a> that provides a multiplayer room before entering the main play scene of the game. It allows you to set up a network with:</p>
+<ul>
+<li>A maximum player limit</li>
+<li>Automatic start when all players are ready</li>
+<li>Option to prevent players from joining a game in progress</li>
+<li>Customizable ways for players to choose options while in room  </li>
+</ul>
+<p>There are two types of player objects with the Network Room Manager:</p>
+<p><strong>Room Player Prefab</strong></p>
+<ul>
+<li>One for each player</li>
+<li>Created when client connects, or player is added</li>
+<li>Persists until client disconnects</li>
+<li>Holds ready flag and configuration data</li>
+<li>Handles commands in the room</li>
+<li>Must use the <a href="NetworkRoomPlayer.html">Network Room Player</a> component</li>
+</ul>
+<p><strong>Player Prefab</strong></p>
+<ul>
+<li>One for each player</li>
+<li>Created when game scene is started</li>
+<li>Destroyed when leaving game scene</li>
+<li>Handles commands in the game  </li>
+</ul>
+<p><img src="NetworkRoomManager.png" alt="Network Room Manager"></p>
+<h2 id="properties">Properties</h2>
+<ul>
+<li><strong>Show Room GUI</strong><br>
+Show the default OnGUI controls for the room.</li>
+<li><strong>Min Players</strong><br>
+Minimum number of players needed to start a game.</li>
+<li><strong>Room Player Prefab</strong><br>
+The prefab to create for players when they enter the room (requires Network Room Player component).</li>
+<li><strong>Room Scene</strong><br>
+The scene to use for the room.</li>
+<li><strong>Gameplay Scene</strong><br>
+The scene to use for main game play.</li>
+<li><strong>pendingPlayers</strong><br>
+List&lt;PendingPlayer&gt; that holds players that are ready to start playing.</li>
+<li><strong>roomSlots</strong><br>
+List&lt;NetworkRoomPlayer&gt; that manages the slots for connected clients in the room.</li>
+<li><strong>allPlayersReady</strong><br>
+Bool indicating if all players are ready to start playing.  This value changes as players invoke <code>CmdChangeReadyState</code> indicating true or false, and will be set false when a new client connects.</li>
+</ul>
+<h2 id="methods">Methods</h2>
+<h3 id="server-virtual-methods">Server Virtual Methods</h3>
+<pre><code class="lang-cs">public virtual void OnRoomStartHost() {}
+
+public virtual void OnRoomStopHost() {}
+
+public virtual void OnRoomStartServer() {}
+
+public virtual void OnRoomServerConnect(NetworkConnection conn) {}
+
+public virtual void OnRoomServerDisconnect(NetworkConnection conn) {}
+
+public virtual void OnRoomServerSceneChanged(string sceneName) {}
+
+public virtual GameObject OnRoomServerCreateRoomPlayer(NetworkConnection conn)
+{
+    return null;
+}
+
+public virtual GameObject OnRoomServerCreateGamePlayer(NetworkConnection conn)
+{
+    return null;
+}
+
+public virtual bool OnRoomServerSceneLoadedForPlayer(GameObject roomPlayer, GameObject gamePlayer)
+{
+    return true;
+}
+
+public virtual void OnRoomServerPlayersReady()
+{
+    ServerChangeScene(GameplayScene);
+}
+</code></pre>
+<h3 id="client-virtual-methods">Client Virtual Methods</h3>
+<pre><code class="lang-cs">public virtual void OnRoomClientEnter() {}
+
+public virtual void OnRoomClientExit() {}
+
+public virtual void OnRoomClientConnect(NetworkConnection conn) {}
+
+public virtual void OnRoomClientDisconnect(NetworkConnection conn) {}
+
+public virtual void OnRoomStartClient() {}
+
+public virtual void OnRoomStopClient() {}
+
+public virtual void OnRoomClientSceneChanged(NetworkConnection conn) {}
+
+public virtual void OnRoomClientAddPlayerFailed() {}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

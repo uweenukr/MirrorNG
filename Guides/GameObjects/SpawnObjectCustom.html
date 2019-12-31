@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Custom Spawn Functions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Custom Spawn Functions ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="custom-spawn-functions">Custom Spawn Functions</h1>
+
+<p>You can use spawn handler functions to customize the default behavior when creating spawned game objects on the client. Spawn handler functions ensure you have full control of how you spawn the game object, as well as how you destroy it.</p>
+<p>Use <code>ClientScene.RegisterSpawnHandler</code> to register functions to spawn and destroy client game objects. The server creates game objects directly, and then spawns them on the clients through this functionality. This function takes the asset ID of the game object and two function delegates: one to handle creating game objects on the client, and one to handle destroying game objects on the client. The asset ID can be a dynamic one, or just the asset ID found on the prefab game object you want to spawn (if you have one).</p>
+<p>The spawn / unspawn delegates need to have this game object signature. This is defined in the high level API.</p>
+<pre><code class="lang-cs">// Handles requests to spawn game objects on the client
+public delegate GameObject SpawnDelegate(Vector3 position, System.Guid assetId);
+
+// Handles requests to unspawn game objects on the client
+public delegate void UnSpawnDelegate(GameObject spawned);
+</code></pre>
+<p>The asset ID passed to the spawn function can be found on <code>NetworkIdentity.assetId</code> for prefabs, where it is populated automatically. The registration for a dynamic asset ID is handled like this:</p>
+<pre><code class="lang-cs">// generate a new unique assetId 
+System.Guid creatureAssetId = System.Guid.NewGuid();
+
+// register handlers for the new assetId
+ClientScene.RegisterSpawnHandler(creatureAssetId, SpawnCreature, UnSpawnCreature);
+
+// get assetId on an existing prefab
+System.Guid coinAssetId = coinPrefab.GetComponent&lt;NetworkIdentity&gt;().assetId;
+
+// register handlers for an existing prefab you'd like to custom spawn
+ClientScene.RegisterSpawnHandler(coinAssetId, SpawnCoin, UnSpawnCoin);
+
+// spawn a coin - SpawnCoin is called on client
+NetworkServer.Spawn(gameObject, coinAssetId);
+</code></pre>
+<p>The spawn functions themselves are implemented with the delegate signature. Here is the coin spawner. The <code>SpawnCreature</code> would look the same, but have different spawn logic:</p>
+<pre><code class="lang-cs">public GameObject SpawnCoin(Vector3 position, System.Guid assetId)
+{
+    return Instantiate(m_CoinPrefab, position, Quaternion.identity);
+}
+public void UnSpawnCoin(GameObject spawned)
+{
+    Destroy(spawned);
+}
+</code></pre>
+<p>When using custom spawn functions, it is sometimes useful to be able to unspawn game objects without destroying them. This can be done by calling <code>NetworkServer.UnSpawn</code>. This causes a message to be sent to clients to un-spawn the game object, so that the custom unspawn function will be called on the clients. The game object is not destroyed when this function is called.</p>
+<p>Note that on the host, game objects are not spawned for the local client, because they already exist on the server. This also means that no spawn handler functions are called.</p>
+<h2 id="setting-up-a-game-object-pool-with-custom-spawn-handlers">Setting Up a Game Object Pool with Custom Spawn Handlers</h2>
+<p>Here is an example of how you might set up a very simple game object pooling system with custom spawn handlers. Spawning and unspawning then puts game objects in or out of the pool.</p>
+<pre><code class="lang-cs">using UnityEngine;
+using Mirror;
+using System.Collections;
+
+public class SpawnManager : MonoBehaviour
+{
+    public int m_ObjectPoolSize = 5;
+    public GameObject m_Prefab;
+    public GameObject[] m_Pool;
+
+    public System.Guid assetId { get; set;
+}
+    
+    public delegate GameObject SpawnDelegate(Vector3 position, System.Guid assetId);
+    public delegate void UnSpawnDelegate(GameObject spawned);
+
+    void Start()
+    {
+        assetId = m_Prefab.GetComponent&lt;NetworkIdentity&gt; ().assetId;
+        m_Pool = new GameObject[m_ObjectPoolSize];
+        for (int i = 0; i &lt; m_ObjectPoolSize; ++i)
+        {
+            m_Pool[i] = Instantiate(m_Prefab, Vector3.zero, Quaternion.identity);
+            m_Pool[i].name = &quot;PoolObject&quot; + i;
+            m_Pool[i].SetActive(false);
+        }
+        
+        ClientScene.RegisterSpawnHandler(assetId, SpawnObject, UnSpawnObject);
+    }
+
+    public GameObject GetFromPool(Vector3 position)
+    {
+        foreach (var obj in m_Pool)
+        {
+            if (!obj.activeInHierarchy)
+            {
+                Debug.Log(&quot;Activating GameObject &quot; + obj.name + &quot; at &quot; + position);
+                obj.transform.position = position;
+                obj.SetActive (true);
+                return obj;
+            }
+        }
+        Debug.LogError (&quot;Could not grab game object from pool, nothing available&quot;);
+        return null;
+    }
+    
+    public GameObject SpawnObject(Vector3 position, System.Guid assetId)
+    {
+        return GetFromPool(position);
+    }
+    
+    public void UnSpawnObject(GameObject spawned)
+    {
+        Debug.Log (&quot;Re-pooling game object &quot; + spawned.name);
+        spawned.SetActive (false);
+    }
+}
+</code></pre>
+<p>To use this manager, create a new empty game object and name it “SpawnManager”. Create a new script called <em>SpawnManager,</em> copy in the code sample above, and attach it to the new SpawnManager game object. Next, drag a prefab you want to spawn multiple times to the Prefab field, and set the Object Pool Size (default is 5).</p>
+<p>Finally, set up a reference to the SpawnManager in the script you are using for player movement:</p>
+<pre><code class="lang-cs">SpawnManager spawnManager;
+
+void Start()
+{
+    spawnManager = GameObject.Find(&quot;SpawnManager&quot;).GetComponent&lt;SpawnManager&gt; ();
+}
+</code></pre>
+<p>Your player logic might contain something like this, which moves and fires coins:</p>
+<pre><code class="lang-cs">void Update()
+{
+    if (!isLocalPlayer)
+        return;
+    
+    var x = Input.GetAxis(&quot;Horizontal&quot;)*0.1f;
+    var z = Input.GetAxis(&quot;Vertical&quot;)*0.1f;
+    
+    transform.Translate(x, 0, z);
+
+    if (Input.GetKeyDown(KeyCode.Space))
+    {
+        // Command function is called on the client, but invoked on the server
+        CmdFire();
+    }
+}
+</code></pre>
+<p>In the fire logic on the player, make it use the game object pool:</p>
+<pre><code class="lang-cs">[Command]
+void CmdFire()
+{
+    // Set up coin on server
+    var coin = spawnManager.GetFromPool(transform.position + transform.forward);  
+    coin.GetComponent&lt;Rigidbody&gt;().velocity = transform.forward*4;
+    
+    // spawn coin on client, custom spawn handler is called
+    NetworkServer.Spawn(coin, spawnManager.assetId);
+    
+    // when the coin is destroyed on the server, it is automatically destroyed on clients
+    StartCoroutine (Destroy (coin, 2.0f));
+}
+
+public IEnumerator Destroy(GameObject go, float timer)
+{
+    yield return new WaitForSeconds (timer);
+    spawnManager.UnSpawnObject(go);
+    NetworkServer.UnSpawn(go);
+}
+</code></pre>
+<p>The automatic destruction shows how the game objects are returned to the pool and re-used when you fire again.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

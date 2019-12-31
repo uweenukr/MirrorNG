@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Migration Guide </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Migration Guide ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="migration-guide">Migration Guide</h1>
+
+<h2 id="migrating-a-project-from-unet-hlapi">Migrating a project from UNet (HLAPI)</h2>
+<p>This guide gives you a step by step instruction for migrating your project from HLAP to Mirror. Mirror is a fork of UNet. As such the migration is straight forward for most projects.</p>
+<p>You should review the information on the <a href="Deprecations.html">Deprecations</a> page to see if your project will be impacted.</p>
+<p>There's also a Migration Tool you can try:<br>
+<a href="https://github.com/Lymdun/MirrorConverter/">https://github.com/Lymdun/MirrorConverter/</a></p>
+<h3 id="1-backup">1. BACKUP</h3>
+<p>You have been warned.</p>
+<h3 id="2-install-mirror-and-restart-unity">2. Install Mirror and Restart Unity</h3>
+<p>Get Mirror from the <a href="https://assetstore.unity.com/packages/tools/network/mirror-129321">asset store</a> and import it in your project.</p>
+<p>Alternatively you can grab the latest <a href="https://github.com/vis2k/Mirror/releases">release</a> from GitHub if you're feeling adventurous, but be aware that bleeding edge dev releases are not necessarily stable.</p>
+<p><strong>NOTE:</strong> You must restart Unity after adding Mirror to the project for the components menu to update correctly.</p>
+<h3 id="3-replace-namespace">3. Replace namespace</h3>
+<p>Replace <code>UnityEngine.Networking</code> for <code>Mirror</code> everywhere in your project. For example, if you have this:</p>
+<pre><code class="lang-cs">using UnityEngine.Networking;
+
+public class Player : NetworkBehaviour
+{
+    ...
+}
+</code></pre>
+<p>replace it with:</p>
+<pre><code class="lang-cs">using Mirror;
+
+public class Player : NetworkBehaviour
+{
+    ...
+}
+</code></pre>
+<p>At this point, you might get some compilation errors. Don't panic, these are easy to fix. Keep going...</p>
+<h3 id="4-replace-playercontroller-with-identity">4. Replace playerController with identity</h3>
+<p>Replace references to <code>NetworkConnection.playerController</code> with <code>NetworkConnection.identity</code>. Click <a href="PlayerControllerToIdentity.html">here</a> for guidance.</p>
+<h3 id="5-remove-networksettings">5. Remove NetworkSettings</h3>
+<p>NetworkSettings in UNet have channels, but this is flat out broken. Rather than ignoring your settings we removed channels from NetworkSettings completely.  <code>sendInterval</code> is now set in code and / or the inspector too.</p>
+<p>For example, if you have this code:</p>
+<pre><code class="lang-cs">[NetworkSettings(channel=1,sendInterval=0.05f)]
+public class NetStreamer : NetworkBehaviour
+{
+    ...
+}
+</code></pre>
+<p>replace it with:</p>
+<pre><code class="lang-cs">public class NetStreamer : NetworkBehaviour
+{
+    void Start()
+    {
+        syncInterval = 0.05f;
+    }
+}
+</code></pre>
+<p>Please note that the default transport <a href="../Transports/Telepathy.html">Telpathy</a>, completely ignores channels, all messages are reliable, sequenced and fragmented. They just work with no fuss. If you want to take advantage of unreliable channels use LLAPITransport instead.</p>
+<h3 id="6-change-syncliststruct-to-synclist">6. Change SyncListStruct to SyncList</h3>
+<p>There is a bug in the original UNet Weaver that makes it mess with our <code>Mirror.SyncListStruct</code> without checking the namespace. In Mirror, we fixed SyncLists so that they work with structs by default.</p>
+<p>For example, if you have definitions like:</p>
+<pre><code class="lang-cs">public class SyncListQuest : SyncListStruct&lt;Quest&gt; { }
+</code></pre>
+<p>replace them with:</p>
+<pre><code class="lang-cs">public class SyncListQuest : SyncList&lt;Quest&gt; { }
+</code></pre>
+<h3 id="7-replace-networkhash128-and-networkinstanceid">7. Replace NetworkHash128 and NetworkInstanceId</h3>
+<p>These have been changed to System.Guid and uint, respectively.</p>
+<p>For example, if you have something like this:</p>
+<pre><code class="lang-cs">public sealed class SpawnItemMessage : MessageBase
+{
+    public NetworkHash128 assetID;
+    public NetworkInstanceId networkInstanceID;
+    public Vector3 position;
+    public Quaternion rotation;
+}
+</code></pre>
+<p>replace with:</p>
+<pre><code class="lang-cs">public sealed class SpawnItemMessage : MessageBase
+{
+    public System.Guid assetID;
+    public uint networkInstanceID;
+    public Vector3 position;
+    public Quaternion rotation;
+}
+</code></pre>
+<h3 id="8-update-your-synclist-callbacks">8. Update your synclist callbacks</h3>
+<p>In UNet, SyncLists have a callback delegate that gets called in the client whenever the list is updated.  We have changed the callback to be a C# event instead and we also pass the item that was updated/removed.</p>
+<p>For example, if you have this code:</p>
+<pre><code class="lang-cs">using UnityEngine;
+using UnityEngine.Networking;
+
+public  class MyBehaviour : NetworkBehaviour
+{
+    public SyncListInt m_ints = new SyncListInt();
+
+    private void OnIntChanged(SyncListInt.Operation op, int index)
+    {
+        Debug.Log(&quot;list changed &quot; + op);
+    }
+
+    public override void OnStartClient()
+    {
+        m_ints.Callback = OnIntChanged;
+    }
+}
+</code></pre>
+<p>replace it with:</p>
+<pre><code class="lang-cs">using UnityEngine;
+using Mirror;
+
+public  class MyBehaviour : NetworkBehaviour
+{
+    public SyncListInt m_ints = new SyncListInt();
+
+    private void OnIntChanged(SyncListInt.Operation op, int index, int item)
+    {
+        Debug.Log(&quot;list changed &quot; + op + &quot; item &quot; + item);
+    }
+
+    public override void OnStartClient()
+    {
+        m_ints.Callback += OnIntChanged;
+    }
+}
+</code></pre>
+<p>Notice the callback will also work in the server in Mirror.</p>
+<h3 id="9-replace-components">9. Replace Components</h3>
+<p>Every networked prefab and scene object needs to be adjusted. They will be using <code>NetworkIdentity</code> from Unet, and you need to replace that component with <code>NetworkIdentity</code> from Mirror. You may be using other network components, such as <code>NetworkAnimator</code> or <code>NetworkTransform</code>. All components from Unet should be replaced with their corresponding component from Mirror.</p>
+<p>Note that if you remove and add a NetworkIdentity, you will need to reassign it in any component that was referencing it.</p>
+<h3 id="10-update-extended-components">10. Update Extended Components</h3>
+<p>Some commonly extended components, such as NetworkManager, have changed method parameters in Mirror. A commonly used override is OnServerAddPlayer. Using the original HLAPI, your override may have looked like this:</p>
+<pre><code class="lang-cs">public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId, NetworkReader extraMessageReader)
+{
+    base.OnServerAddPlayer(conn, playerControllerId, extraMessageReader);
+    // your code
+}
+</code></pre>
+<p>In your newly Mirror-capable NetworkManager, if you are using the <code>OnServerAddPlayer</code> override, remove the &quot;playerControllerId&quot; parameter from your override and the base call, and change the <code>NetworkReader</code> into <code>AddPlayerMessage</code>:</p>
+<pre><code class="lang-cs">public override void OnServerAddPlayer(NetworkConnection conn, AddPlayerMessage extraMessage)
+{
+    base.OnServerAddPlayer(conn, extraMessage);
+    // your code
+}
+</code></pre>
+<p>Note that in UNet the parameter &quot;extraMessageReader&quot; is optional, but in Mirror it is required.</p>
+<h3 id="11-pick-your-transport">11. Pick your transport</h3>
+<p>You can choose one of several transports in Mirror.  Open your NetworkManager gameobject,   in the inspector you will see a <code>TelepathyTransport</code> component by default.  Drag in one of the available transports and remove <code>TelepathyTransport</code> if you wish to use a UDP based transport instead.</p>
+<h3 id="12-configure-address-and-port">12. Configure address and port</h3>
+<p>In HLAPI, you configure the port and local address in the NetworkManager. One of our goals is to make Mirror transport independent. Not all transports need address and port.  Some transports might even use more than one port at the same time, so these settings were inadequate. We removed the port and address and all other Network Info properties from NetworkManager,  and we moved them to the transport components instead.</p>
+<h3 id="13-update-your-firewall-and-router">13. Update your firewall and router</h3>
+<p>LLAPI uses UDP. Mirror uses TCP by default. This means you may need to change your router port forwarding and firewall rules in your machine to expose the TCP port instead of UDP. This highly depends on your router and operating system.</p>
+<h2 id="video-version">Video version</h2>
+<p>See for yourself how uMMORPG was migrated to Mirror</p>
+<p><a href="http://www.youtube.com/watch?v=LF9rTSS3rlI"><img src="MigrationVideo.jpg" alt="Manually upgrading uMMORPG V1.130 to V1.131 (Mirror)"></a></p>
+<h2 id="possible-error-messages">Possible Error Messages</h2>
+<ul>
+<li><p>TypeLoadException: A type load exception has occurred. - happens if you still have SyncListStruct instead of SyncListSTRUCT in your project.</p>
+</li>
+<li><p>NullPointerException: The most likely cause is that you replaced NetworkIdentities or other components but you had them assigned somewhere. Reassign those references.</p>
+</li>
+<li><p><code>error CS0246: The type or namespace name 'UnityWebRequest' could not be found. Are you missing 'UnityEngine.Networking' using directive?</code></p>
+<p>Add this to the top of your script:</p>
+<pre><code class="lang-cs">    using UnityWebRequest = UnityEngine.Networking.UnityWebRequest;
+</code></pre>
+<p><code>UnityWebRequest</code> is not part of UNet or Mirror, but it is in the same namespace as UNet. Changing the namespace to Mirror caused your script not to find UnityWebRequest. The same applies for <code>WWW</code> and all <code>UnityWebRequest</code> related classes.</p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

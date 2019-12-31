@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Remote Actions </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Remote Actions ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="remote-actions">Remote Actions</h1>
+
+<p><a href="https://www.youtube.com/watch?v=Ie0JQB2bCpk&amp;list=PLkx8oFug638oBYF5EOwsSS-gOVBXj1dkP&amp;index=5"><img src="../../images/video_tutorial.png" alt="Remote actions video tutorial"></a></p>
+<p>The network system has ways to perform actions across the network. These type of actions are sometimes called Remote Procedure Calls. There are two types of RPCs in the network system, Commands - which are called from the client and run on the server; and ClientRpc calls - which are called on the server and run on clients.</p>
+<p>The diagram below shows the directions that remote actions take:</p>
+<p><img src="UNetDirections.jpg" alt="Data Flow Graph"></p>
+<h2 id="commands">Commands</h2>
+<p>Commands are sent from player objects on the client to player objects on the server. For security, Commands can only be sent from YOUR player object, so you cannot control the objects of other players. To make a function into a command, add the [Command] custom attribute to it, and add the “Cmd” prefix. This function will now be run on the server when it is called on the client. Any arguments will automatically be passed to the server with the command.</p>
+<p>Commands functions must have the prefix “Cmd”. This is a hint when reading code that calls the command - this function is special and is not invoked locally like a normal function.</p>
+<pre><code class="lang-cs">public class Player : NetworkBehaviour
+{
+    void Update()
+    {
+        if (!isLocalPlayer) return;
+
+        if (Input.GetKey(KeyCode.X))
+            CmdDropCube();
+    }
+
+    // assigned in inspector
+    public GameObject cubePrefab;
+
+    [Command]
+    void CmdDropCube()
+    {
+        if (cubePrefab != null)
+        {
+            Vector3 spawnPos = transform.position + transform.forward * 2;
+            Quaternion spawnRot = transform.rotation;
+            GameObject cube = Instantiate(cubePrefab, spawnPos, spawnRot);
+            NetworkServer.Spawn(cube);
+        }
+    }
+}
+</code></pre>
+<p>Be careful of sending commands from the client every frame! This can cause a lot of network traffic.</p>
+<p>It is possible to send commands from non-player objects that have client authority. These objects must have been spawned with <code>NetworkServer.SpawnWithClientAuthority</code> or have authority set with <code>NetworkIdentity.AssignClientAuthority</code>. Commands sent from these object are run on the server instance of the object, not on the associated player object for the client.</p>
+<h2 id="clientrpc-calls">ClientRpc Calls</h2>
+<p>ClientRpc calls are sent from objects on the server to objects on clients. They can be sent from any server object with a NetworkIdentity that has been spawned. Since the server has authority, then there no security issues with server objects being able to send these calls. To make a function into a ClientRpc call, add the [ClientRpc] custom attribute to it, and add the “Rpc” prefix. This function will now be run on clients when it is called on the server. Any arguments will automatically be passed to the clients with the ClientRpc call..</p>
+<p>ClientRpc functions must have the prefix “Rpc”. This is a hint when reading code that calls the method - this function is special and is not invoked locally like a normal function.</p>
+<pre><code class="lang-cs">public class Player : NetworkBehaviour
+{
+    int health;
+
+    public void TakeDamage(int amount)
+    {
+        if (!isServer) return;
+
+        health -= amount;
+        RpcDamage(amount);
+    }
+
+    [ClientRpc]
+    void RpcDamage(int amount)
+    {
+        Debug.Log(&quot;Took damage:&quot; + amount);
+    }
+}
+</code></pre>
+<p>When running a game as a host with a local client, ClientRpc calls will be invoked on the local client even though it is in the same process as the server. So the behaviours of local and remote clients are the same for ClientRpc calls.</p>
+<h2 id="targetrpc-calls">TargetRpc Calls</h2>
+<p>TargetRpc functions are called by user code on the server, and then invoked on the corresponding client object on the client of the specified NetworkConnection. The arguments to the RPC call are serialized across the network, so that the client function is invoked with the same values as the function on the server. These functions must begin with the prefix &quot;Target&quot; and cannot be static.</p>
+<p>The first argument to an TargetRpc function must be a NetworkConnection object.</p>
+<p>This example shows how a client can use a Command to make a request from the server (<code>CmdMagic</code>) by including its own <code>connectionToClient</code> as one of the parameters of the TargetRpc invoked directly from that Command:</p>
+<pre><code class="lang-cs">public class Player : NetworkBehaviour
+{
+    [Command]
+    void CmdMagic(int damage)
+    {
+        TargetDoMagic(connectionToClient, damage);
+    }
+
+    [TargetRpc]
+    public void TargetDoMagic(NetworkConnection target, int damage)
+    {
+        // This output will appear on the client that called the [Command] above
+        Debug.LogFormat(&quot;Magic Damage = {0}&quot;, damage);
+    }
+}
+</code></pre>
+<h2 id="arguments-to-remote-actions">Arguments to Remote Actions</h2>
+<p>The arguments passed to commands and ClientRpc calls are serialized and sent over the network. You can use any <a href="../DataTypes.html">supported mirror type</a>.</p>
+<p>Arguments to remote actions cannot be sub-components of game objects, such as script instances or Transforms.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

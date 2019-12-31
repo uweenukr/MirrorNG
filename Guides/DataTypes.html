@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Data types </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Data types ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="data-types">Data types</h1>
+
+<p>The client and server can pass data to each other via <a href="Communications/RemoteActions.html">Remote methods</a>, <a href="Sync/index.html">State Synchronization</a> or via <a href="Communications/NetworkMessages.html">Network Messages</a></p>
+<p>Mirror supports a number of data types you can use with these, including:</p>
+<ul>
+<li>Basic c# types (byte, int, char, uint, float, string, UInt64, etc)</li>
+<li>Built-in Unity math type (Vector3, Quaternion, Rect, Plane, Vector3Int, etc)</li>
+<li>NetworkIdentity</li>
+<li>Game object with a NetworkIdentity component attached.</li>
+<li>Structures with any of the above (it's recommended to implement IEquatable&lt;T&gt; to avoid boxing and to have the struct readonly, cause modifying one of fields doesn't cause a resync)</li>
+<li>Arrays of any of the above (not supported with syncvars or synclists)</li>
+<li>ArraySegments of any of the above (not supported with syncvars or synclists)</li>
+</ul>
+<h2 id="custom-data-types">Custom Data Types</h2>
+<p>Sometimes you don't want mirror to generate serialization for your own types. For example, instead of serializing quest data, you may want to serialize just the quest id, and the receiver can look up the quest by id in a predefined list.</p>
+<p>Sometimes you may want to serialize data which uses a different type not supported by Mirror, such as DateTime or System.Uri</p>
+<p>You can add support for any type by adding extension methods to <code>NetworkWriter</code> and <code>NetworkReader</code>. For example, to add support for <code>DateTime</code>, add this somewhere in your project:</p>
+<pre><code class="lang-cs">public static class DateTimeReaderWriter
+{
+      public static void WriteDateTime(this NetworkWriter writer, DateTime dateTime)
+      {
+          writer.WriteInt64(dateTime.Ticks);
+      }
+     
+      public static DateTime ReadDateTime(this NetworkReader reader)
+      {
+          return new DateTime(reader.ReadInt64());
+      }
+}
+</code></pre>
+<p>...then you can use <code>DateTime</code> in your <code>[Command]</code> or <code>SyncList</code></p>
+<h2 id="inheritance-and-polymorphism">Inheritance and Polymorphism</h2>
+<p>Sometimes you might want to send a polymorphic data type to your commands. Mirror does not serialize the type name to keep messages small and for security reasons, therefore Mirror cannot figure out the type of object it received by looking at the message.</p>
+<blockquote>
+<p><strong>This code does not work out of the box.</strong></p>
+</blockquote>
+<pre><code class="lang-cs">class Item 
+{
+    public string name;
+}
+
+class Weapon : Item
+{
+    public int hitPoints;
+}
+
+class Armor : Item
+{
+    public int hitPoints;
+    public int level;
+}
+
+class Player : NetworkBehaviour
+{
+    [Command]
+    void CmdEquip(Item item)
+    {
+        // IMPORTANT: this does not work. Mirror will pass you an object of type item
+        // even if you pass a weapon or an armor.
+        if (item is Weapon weapon)
+        {
+            // The item is a weapon, 
+            // maybe you need to equip it in the hand
+        }
+        else if (item is Armor armor)
+        {
+            // you might want to equip armor in the body
+        }
+    }
+
+    [Command]
+    void CmdEquipArmor(Armor armor)
+    {
+        // IMPORTANT: this does not work either,  you will receive an armor,  but 
+        // the armor will not have a valid Item.name,  even if you passed an armor with name
+    }
+}
+</code></pre>
+<p>CmdEquip will work if you provide a custom serializer for the <code>Item</code> type. For example:</p>
+<pre><code class="lang-cs">
+public static class ItemSerializer 
+{
+    const byte WEAPON = 1;
+    const byte ARMOR = 2;
+
+    public static void WriteItem(this NetworkWriter writer, Item item)
+    {
+        if (item is Weapon weapon)
+        {
+            writer.WriteByte(WEAPON);
+            writer.WriteString(weapon.name);
+            writer.WritePackedInt32(weapon.hitPoints);
+        }
+        else if (item is Armor armor)
+        {
+            writer.WriteByte(ARMOR);
+            writer.WriteString(armor.name);
+            writer.WritePackedInt32(armor.hitPoints);
+            writer.WritePackedInt32(armor.level);
+        }
+    }
+
+    public static Item ReadItem(this NetworkReader reader)
+    {
+        byte type = reader.ReadByte();
+        switch(type)
+        {
+            case WEAPON:
+                return new Weapon
+                {
+                    name = reader.ReadString(),
+                    hitPoints = reader.ReadPackedInt32()
+                };
+            case ARMOR:
+                return new Armor
+                {
+                    name = reader.ReadString(),
+                    hitPoints = reader.ReadPackedInt32(),
+                    level = reader.ReadPackedInt32()
+                };
+            default:
+                throw new Exception($&quot;Invalid weapon type {type}&quot;);
+        }
+    }
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
