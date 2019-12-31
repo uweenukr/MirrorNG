@@ -256,33 +256,7 @@
   </h3>
   
   
-  <h4 id="Mirror_NetworkProximityChecker_castLayers" data-uid="Mirror.NetworkProximityChecker.castLayers">castLayers</h4>
-  <div class="markdown level1 summary"><p>Select only the Player's layer to avoid unnecessary SphereCasts against the Terrain, etc.</p>
-<p>~0 means &apos;Everything&apos;.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LayerMask castLayers</code></pre>
-  </div>
-  <h5 class="fieldValue">Field Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">LayerMask</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <h4 id="Mirror_NetworkProximityChecker_checkMethod" data-uid="Mirror.NetworkProximityChecker.checkMethod">checkMethod</h4>
+  <h4 id="Mirror_NetworkProximityChecker_ActualCheckMethod" data-uid="Mirror.NetworkProximityChecker.ActualCheckMethod">ActualCheckMethod</h4>
   <div class="markdown level1 summary"><p>Which method to use for checking proximity of players.</p>
 <p>Physics3D uses 3D physics to determine proximity.</p>
 <p>Physics2D uses 2D physics to determine proximity.</p>
@@ -290,7 +264,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public NetworkProximityChecker.CheckMethod checkMethod</code></pre>
+    <pre><code class="lang-csharp hljs">public NetworkProximityChecker.CheckMethod ActualCheckMethod</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -309,14 +283,40 @@
   </table>
   
   
-  <h4 id="Mirror_NetworkProximityChecker_forceHidden" data-uid="Mirror.NetworkProximityChecker.forceHidden">forceHidden</h4>
+  <h4 id="Mirror_NetworkProximityChecker_CastLayers" data-uid="Mirror.NetworkProximityChecker.CastLayers">CastLayers</h4>
+  <div class="markdown level1 summary"><p>Select only the Player's layer to avoid unnecessary SphereCasts against the Terrain, etc.</p>
+<p>~0 means &apos;Everything&apos;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LayerMask CastLayers</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LayerMask</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="Mirror_NetworkProximityChecker_ForceHidden" data-uid="Mirror.NetworkProximityChecker.ForceHidden">ForceHidden</h4>
   <div class="markdown level1 summary"><p>Flag to force this object to be hidden for players.</p>
 <p>If this object is a player object, it will not be hidden for that player.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool forceHidden</code></pre>
+    <pre><code class="lang-csharp hljs">public bool ForceHidden</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -335,13 +335,13 @@
   </table>
   
   
-  <h4 id="Mirror_NetworkProximityChecker_visRange" data-uid="Mirror.NetworkProximityChecker.visRange">visRange</h4>
+  <h4 id="Mirror_NetworkProximityChecker_VisibilityRange" data-uid="Mirror.NetworkProximityChecker.VisibilityRange">VisibilityRange</h4>
   <div class="markdown level1 summary"><p>The maximim range that objects will be visible at.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int visRange</code></pre>
+    <pre><code class="lang-csharp hljs">public int VisibilityRange</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -360,13 +360,13 @@
   </table>
   
   
-  <h4 id="Mirror_NetworkProximityChecker_visUpdateInterval" data-uid="Mirror.NetworkProximityChecker.visUpdateInterval">visUpdateInterval</h4>
+  <h4 id="Mirror_NetworkProximityChecker_VisibilityUpdateInterval" data-uid="Mirror.NetworkProximityChecker.VisibilityUpdateInterval">VisibilityUpdateInterval</h4>
   <div class="markdown level1 summary"><p>How often (in seconds) that this object should update the list of observers that can see it.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public float visUpdateInterval</code></pre>
+    <pre><code class="lang-csharp hljs">public float VisibilityUpdateInterval</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">

@@ -1832,18 +1832,18 @@ references:
   commentId: T:Mirror.NetworkAnimator
   fullName: Mirror.NetworkAnimator
   nameWithType: NetworkAnimator
-- uid: Mirror.NetworkAnimator.animator
-  name: animator
-  href: api/Mirror.NetworkAnimator.html#Mirror_NetworkAnimator_animator
-  commentId: F:Mirror.NetworkAnimator.animator
-  fullName: Mirror.NetworkAnimator.animator
-  nameWithType: NetworkAnimator.animator
-- uid: Mirror.NetworkAnimator.clientAuthority
-  name: clientAuthority
-  href: api/Mirror.NetworkAnimator.html#Mirror_NetworkAnimator_clientAuthority
-  commentId: F:Mirror.NetworkAnimator.clientAuthority
-  fullName: Mirror.NetworkAnimator.clientAuthority
-  nameWithType: NetworkAnimator.clientAuthority
+- uid: Mirror.NetworkAnimator.Animator
+  name: Animator
+  href: api/Mirror.NetworkAnimator.html#Mirror_NetworkAnimator_Animator
+  commentId: F:Mirror.NetworkAnimator.Animator
+  fullName: Mirror.NetworkAnimator.Animator
+  nameWithType: NetworkAnimator.Animator
+- uid: Mirror.NetworkAnimator.ClientAuthority
+  name: ClientAuthority
+  href: api/Mirror.NetworkAnimator.html#Mirror_NetworkAnimator_ClientAuthority
+  commentId: F:Mirror.NetworkAnimator.ClientAuthority
+  fullName: Mirror.NetworkAnimator.ClientAuthority
+  nameWithType: NetworkAnimator.ClientAuthority
 - uid: Mirror.NetworkAnimator.OnDeserialize(Mirror.NetworkReader,System.Boolean)
   name: OnDeserialize(NetworkReader, Boolean)
   href: api/Mirror.NetworkAnimator.html#Mirror_NetworkAnimator_OnDeserialize_Mirror_NetworkReader_System_Boolean_
@@ -4274,18 +4274,18 @@ references:
   commentId: T:Mirror.NetworkProximityChecker
   fullName: Mirror.NetworkProximityChecker
   nameWithType: NetworkProximityChecker
-- uid: Mirror.NetworkProximityChecker.castLayers
-  name: castLayers
-  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_castLayers
-  commentId: F:Mirror.NetworkProximityChecker.castLayers
-  fullName: Mirror.NetworkProximityChecker.castLayers
-  nameWithType: NetworkProximityChecker.castLayers
-- uid: Mirror.NetworkProximityChecker.checkMethod
-  name: checkMethod
-  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_checkMethod
-  commentId: F:Mirror.NetworkProximityChecker.checkMethod
-  fullName: Mirror.NetworkProximityChecker.checkMethod
-  nameWithType: NetworkProximityChecker.checkMethod
+- uid: Mirror.NetworkProximityChecker.ActualCheckMethod
+  name: ActualCheckMethod
+  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_ActualCheckMethod
+  commentId: F:Mirror.NetworkProximityChecker.ActualCheckMethod
+  fullName: Mirror.NetworkProximityChecker.ActualCheckMethod
+  nameWithType: NetworkProximityChecker.ActualCheckMethod
+- uid: Mirror.NetworkProximityChecker.CastLayers
+  name: CastLayers
+  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_CastLayers
+  commentId: F:Mirror.NetworkProximityChecker.CastLayers
+  fullName: Mirror.NetworkProximityChecker.CastLayers
+  nameWithType: NetworkProximityChecker.CastLayers
 - uid: Mirror.NetworkProximityChecker.CheckMethod
   name: NetworkProximityChecker.CheckMethod
   href: api/Mirror.NetworkProximityChecker.CheckMethod.html
@@ -4304,12 +4304,12 @@ references:
   commentId: F:Mirror.NetworkProximityChecker.CheckMethod.Physics3D
   fullName: Mirror.NetworkProximityChecker.CheckMethod.Physics3D
   nameWithType: NetworkProximityChecker.CheckMethod.Physics3D
-- uid: Mirror.NetworkProximityChecker.forceHidden
-  name: forceHidden
-  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_forceHidden
-  commentId: F:Mirror.NetworkProximityChecker.forceHidden
-  fullName: Mirror.NetworkProximityChecker.forceHidden
-  nameWithType: NetworkProximityChecker.forceHidden
+- uid: Mirror.NetworkProximityChecker.ForceHidden
+  name: ForceHidden
+  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_ForceHidden
+  commentId: F:Mirror.NetworkProximityChecker.ForceHidden
+  fullName: Mirror.NetworkProximityChecker.ForceHidden
+  nameWithType: NetworkProximityChecker.ForceHidden
 - uid: Mirror.NetworkProximityChecker.OnCheckObserver(Mirror.NetworkConnection)
   name: OnCheckObserver(NetworkConnection)
   href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_OnCheckObserver_Mirror_NetworkConnection_
@@ -4352,18 +4352,18 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkProximityChecker.OnSetHostVisibility
   nameWithType: NetworkProximityChecker.OnSetHostVisibility
-- uid: Mirror.NetworkProximityChecker.visRange
-  name: visRange
-  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_visRange
-  commentId: F:Mirror.NetworkProximityChecker.visRange
-  fullName: Mirror.NetworkProximityChecker.visRange
-  nameWithType: NetworkProximityChecker.visRange
-- uid: Mirror.NetworkProximityChecker.visUpdateInterval
-  name: visUpdateInterval
-  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_visUpdateInterval
-  commentId: F:Mirror.NetworkProximityChecker.visUpdateInterval
-  fullName: Mirror.NetworkProximityChecker.visUpdateInterval
-  nameWithType: NetworkProximityChecker.visUpdateInterval
+- uid: Mirror.NetworkProximityChecker.VisibilityRange
+  name: VisibilityRange
+  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_VisibilityRange
+  commentId: F:Mirror.NetworkProximityChecker.VisibilityRange
+  fullName: Mirror.NetworkProximityChecker.VisibilityRange
+  nameWithType: NetworkProximityChecker.VisibilityRange
+- uid: Mirror.NetworkProximityChecker.VisibilityUpdateInterval
+  name: VisibilityUpdateInterval
+  href: api/Mirror.NetworkProximityChecker.html#Mirror_NetworkProximityChecker_VisibilityUpdateInterval
+  commentId: F:Mirror.NetworkProximityChecker.VisibilityUpdateInterval
+  fullName: Mirror.NetworkProximityChecker.VisibilityUpdateInterval
+  nameWithType: NetworkProximityChecker.VisibilityUpdateInterval
 - uid: Mirror.NetworkReader
   name: NetworkReader
   href: api/Mirror.NetworkReader.html
@@ -5014,12 +5014,12 @@ references:
   commentId: T:Mirror.NetworkRoomManager
   fullName: Mirror.NetworkRoomManager
   nameWithType: NetworkRoomManager
-- uid: Mirror.NetworkRoomManager.allPlayersReady
-  name: allPlayersReady
-  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_allPlayersReady
-  commentId: F:Mirror.NetworkRoomManager.allPlayersReady
-  fullName: Mirror.NetworkRoomManager.allPlayersReady
-  nameWithType: NetworkRoomManager.allPlayersReady
+- uid: Mirror.NetworkRoomManager.AllPlayersReady
+  name: AllPlayersReady
+  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_AllPlayersReady
+  commentId: F:Mirror.NetworkRoomManager.AllPlayersReady
+  fullName: Mirror.NetworkRoomManager.AllPlayersReady
+  nameWithType: NetworkRoomManager.AllPlayersReady
 - uid: Mirror.NetworkRoomManager.CheckReadyToBegin
   name: CheckReadyToBegin()
   href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_CheckReadyToBegin
@@ -5493,36 +5493,36 @@ references:
   commentId: T:Mirror.NetworkRoomManager.PendingPlayer
   fullName: Mirror.NetworkRoomManager.PendingPlayer
   nameWithType: NetworkRoomManager.PendingPlayer
-- uid: Mirror.NetworkRoomManager.PendingPlayer.conn
-  name: conn
-  href: api/Mirror.NetworkRoomManager.PendingPlayer.html#Mirror_NetworkRoomManager_PendingPlayer_conn
-  commentId: F:Mirror.NetworkRoomManager.PendingPlayer.conn
-  fullName: Mirror.NetworkRoomManager.PendingPlayer.conn
-  nameWithType: NetworkRoomManager.PendingPlayer.conn
-- uid: Mirror.NetworkRoomManager.PendingPlayer.roomPlayer
-  name: roomPlayer
-  href: api/Mirror.NetworkRoomManager.PendingPlayer.html#Mirror_NetworkRoomManager_PendingPlayer_roomPlayer
-  commentId: F:Mirror.NetworkRoomManager.PendingPlayer.roomPlayer
-  fullName: Mirror.NetworkRoomManager.PendingPlayer.roomPlayer
-  nameWithType: NetworkRoomManager.PendingPlayer.roomPlayer
-- uid: Mirror.NetworkRoomManager.pendingPlayers
-  name: pendingPlayers
-  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_pendingPlayers
-  commentId: F:Mirror.NetworkRoomManager.pendingPlayers
-  fullName: Mirror.NetworkRoomManager.pendingPlayers
-  nameWithType: NetworkRoomManager.pendingPlayers
+- uid: Mirror.NetworkRoomManager.PendingPlayer.Conn
+  name: Conn
+  href: api/Mirror.NetworkRoomManager.PendingPlayer.html#Mirror_NetworkRoomManager_PendingPlayer_Conn
+  commentId: F:Mirror.NetworkRoomManager.PendingPlayer.Conn
+  fullName: Mirror.NetworkRoomManager.PendingPlayer.Conn
+  nameWithType: NetworkRoomManager.PendingPlayer.Conn
+- uid: Mirror.NetworkRoomManager.PendingPlayer.RoomPlayer
+  name: RoomPlayer
+  href: api/Mirror.NetworkRoomManager.PendingPlayer.html#Mirror_NetworkRoomManager_PendingPlayer_RoomPlayer
+  commentId: F:Mirror.NetworkRoomManager.PendingPlayer.RoomPlayer
+  fullName: Mirror.NetworkRoomManager.PendingPlayer.RoomPlayer
+  nameWithType: NetworkRoomManager.PendingPlayer.RoomPlayer
+- uid: Mirror.NetworkRoomManager.PendingPlayers
+  name: PendingPlayers
+  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_PendingPlayers
+  commentId: F:Mirror.NetworkRoomManager.PendingPlayers
+  fullName: Mirror.NetworkRoomManager.PendingPlayers
+  nameWithType: NetworkRoomManager.PendingPlayers
 - uid: Mirror.NetworkRoomManager.RoomScene
   name: RoomScene
   href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_RoomScene
   commentId: F:Mirror.NetworkRoomManager.RoomScene
   fullName: Mirror.NetworkRoomManager.RoomScene
   nameWithType: NetworkRoomManager.RoomScene
-- uid: Mirror.NetworkRoomManager.roomSlots
-  name: roomSlots
-  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_roomSlots
-  commentId: F:Mirror.NetworkRoomManager.roomSlots
-  fullName: Mirror.NetworkRoomManager.roomSlots
-  nameWithType: NetworkRoomManager.roomSlots
+- uid: Mirror.NetworkRoomManager.RoomSlots
+  name: RoomSlots
+  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_RoomSlots
+  commentId: F:Mirror.NetworkRoomManager.RoomSlots
+  fullName: Mirror.NetworkRoomManager.RoomSlots
+  nameWithType: NetworkRoomManager.RoomSlots
 - uid: Mirror.NetworkRoomManager.ServerChangeScene(System.String)
   name: ServerChangeScene(String)
   href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_ServerChangeScene_System_String_
@@ -5555,12 +5555,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkRoomPlayer.CmdChangeReadyState
   nameWithType: NetworkRoomPlayer.CmdChangeReadyState
-- uid: Mirror.NetworkRoomPlayer.index
-  name: index
-  href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_index
-  commentId: F:Mirror.NetworkRoomPlayer.index
-  fullName: Mirror.NetworkRoomPlayer.index
-  nameWithType: NetworkRoomPlayer.index
+- uid: Mirror.NetworkRoomPlayer.Index
+  name: Index
+  href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_Index
+  commentId: F:Mirror.NetworkRoomPlayer.Index
+  fullName: Mirror.NetworkRoomPlayer.Index
+  nameWithType: NetworkRoomPlayer.Index
 - uid: Mirror.NetworkRoomPlayer.OnClientEnterRoom
   name: OnClientEnterRoom()
   href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_OnClientEnterRoom
@@ -5613,18 +5613,18 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkRoomPlayer.OnGUI
   nameWithType: NetworkRoomPlayer.OnGUI
-- uid: Mirror.NetworkRoomPlayer.readyToBegin
-  name: readyToBegin
-  href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_readyToBegin
-  commentId: F:Mirror.NetworkRoomPlayer.readyToBegin
-  fullName: Mirror.NetworkRoomPlayer.readyToBegin
-  nameWithType: NetworkRoomPlayer.readyToBegin
-- uid: Mirror.NetworkRoomPlayer.showRoomGUI
-  name: showRoomGUI
-  href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_showRoomGUI
-  commentId: F:Mirror.NetworkRoomPlayer.showRoomGUI
-  fullName: Mirror.NetworkRoomPlayer.showRoomGUI
-  nameWithType: NetworkRoomPlayer.showRoomGUI
+- uid: Mirror.NetworkRoomPlayer.ReadyToBegin
+  name: ReadyToBegin
+  href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_ReadyToBegin
+  commentId: F:Mirror.NetworkRoomPlayer.ReadyToBegin
+  fullName: Mirror.NetworkRoomPlayer.ReadyToBegin
+  nameWithType: NetworkRoomPlayer.ReadyToBegin
+- uid: Mirror.NetworkRoomPlayer.ShowRoomGUI
+  name: ShowRoomGUI
+  href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_ShowRoomGUI
+  commentId: F:Mirror.NetworkRoomPlayer.ShowRoomGUI
+  fullName: Mirror.NetworkRoomPlayer.ShowRoomGUI
+  nameWithType: NetworkRoomPlayer.ShowRoomGUI
 - uid: Mirror.NetworkRoomPlayer.Start
   name: Start()
   href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_Start
@@ -6242,19 +6242,19 @@ references:
   commentId: T:Mirror.NetworkTransform
   fullName: Mirror.NetworkTransform
   nameWithType: NetworkTransform
-- uid: Mirror.NetworkTransform.targetComponent
-  name: targetComponent
-  href: api/Mirror.NetworkTransform.html#Mirror_NetworkTransform_targetComponent
-  commentId: P:Mirror.NetworkTransform.targetComponent
-  fullName: Mirror.NetworkTransform.targetComponent
-  nameWithType: NetworkTransform.targetComponent
-- uid: Mirror.NetworkTransform.targetComponent*
-  name: targetComponent
-  href: api/Mirror.NetworkTransform.html#Mirror_NetworkTransform_targetComponent_
-  commentId: Overload:Mirror.NetworkTransform.targetComponent
+- uid: Mirror.NetworkTransform.TargetComponent
+  name: TargetComponent
+  href: api/Mirror.NetworkTransform.html#Mirror_NetworkTransform_TargetComponent
+  commentId: P:Mirror.NetworkTransform.TargetComponent
+  fullName: Mirror.NetworkTransform.TargetComponent
+  nameWithType: NetworkTransform.TargetComponent
+- uid: Mirror.NetworkTransform.TargetComponent*
+  name: TargetComponent
+  href: api/Mirror.NetworkTransform.html#Mirror_NetworkTransform_TargetComponent_
+  commentId: Overload:Mirror.NetworkTransform.TargetComponent
   isSpec: "True"
-  fullName: Mirror.NetworkTransform.targetComponent
-  nameWithType: NetworkTransform.targetComponent
+  fullName: Mirror.NetworkTransform.TargetComponent
+  nameWithType: NetworkTransform.TargetComponent
 - uid: Mirror.NetworkTransformBase
   name: NetworkTransformBase
   href: api/Mirror.NetworkTransformBase.html
@@ -6303,36 +6303,36 @@ references:
   commentId: T:Mirror.NetworkTransformBase.DataPoint
   fullName: Mirror.NetworkTransformBase.DataPoint
   nameWithType: NetworkTransformBase.DataPoint
-- uid: Mirror.NetworkTransformBase.DataPoint.localPosition
-  name: localPosition
-  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_localPosition
-  commentId: F:Mirror.NetworkTransformBase.DataPoint.localPosition
-  fullName: Mirror.NetworkTransformBase.DataPoint.localPosition
-  nameWithType: NetworkTransformBase.DataPoint.localPosition
-- uid: Mirror.NetworkTransformBase.DataPoint.localRotation
-  name: localRotation
-  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_localRotation
-  commentId: F:Mirror.NetworkTransformBase.DataPoint.localRotation
-  fullName: Mirror.NetworkTransformBase.DataPoint.localRotation
-  nameWithType: NetworkTransformBase.DataPoint.localRotation
-- uid: Mirror.NetworkTransformBase.DataPoint.localScale
-  name: localScale
-  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_localScale
-  commentId: F:Mirror.NetworkTransformBase.DataPoint.localScale
-  fullName: Mirror.NetworkTransformBase.DataPoint.localScale
-  nameWithType: NetworkTransformBase.DataPoint.localScale
-- uid: Mirror.NetworkTransformBase.DataPoint.movementSpeed
-  name: movementSpeed
-  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_movementSpeed
-  commentId: F:Mirror.NetworkTransformBase.DataPoint.movementSpeed
-  fullName: Mirror.NetworkTransformBase.DataPoint.movementSpeed
-  nameWithType: NetworkTransformBase.DataPoint.movementSpeed
-- uid: Mirror.NetworkTransformBase.DataPoint.timeStamp
-  name: timeStamp
-  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_timeStamp
-  commentId: F:Mirror.NetworkTransformBase.DataPoint.timeStamp
-  fullName: Mirror.NetworkTransformBase.DataPoint.timeStamp
-  nameWithType: NetworkTransformBase.DataPoint.timeStamp
+- uid: Mirror.NetworkTransformBase.DataPoint.LocalPosition
+  name: LocalPosition
+  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_LocalPosition
+  commentId: F:Mirror.NetworkTransformBase.DataPoint.LocalPosition
+  fullName: Mirror.NetworkTransformBase.DataPoint.LocalPosition
+  nameWithType: NetworkTransformBase.DataPoint.LocalPosition
+- uid: Mirror.NetworkTransformBase.DataPoint.LocalRotation
+  name: LocalRotation
+  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_LocalRotation
+  commentId: F:Mirror.NetworkTransformBase.DataPoint.LocalRotation
+  fullName: Mirror.NetworkTransformBase.DataPoint.LocalRotation
+  nameWithType: NetworkTransformBase.DataPoint.LocalRotation
+- uid: Mirror.NetworkTransformBase.DataPoint.LocalScale
+  name: LocalScale
+  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_LocalScale
+  commentId: F:Mirror.NetworkTransformBase.DataPoint.LocalScale
+  fullName: Mirror.NetworkTransformBase.DataPoint.LocalScale
+  nameWithType: NetworkTransformBase.DataPoint.LocalScale
+- uid: Mirror.NetworkTransformBase.DataPoint.MovementSpeed
+  name: MovementSpeed
+  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_MovementSpeed
+  commentId: F:Mirror.NetworkTransformBase.DataPoint.MovementSpeed
+  fullName: Mirror.NetworkTransformBase.DataPoint.MovementSpeed
+  nameWithType: NetworkTransformBase.DataPoint.MovementSpeed
+- uid: Mirror.NetworkTransformBase.DataPoint.TimeStamp
+  name: TimeStamp
+  href: api/Mirror.NetworkTransformBase.DataPoint.html#Mirror_NetworkTransformBase_DataPoint_TimeStamp
+  commentId: F:Mirror.NetworkTransformBase.DataPoint.TimeStamp
+  fullName: Mirror.NetworkTransformBase.DataPoint.TimeStamp
+  nameWithType: NetworkTransformBase.DataPoint.TimeStamp
 - uid: Mirror.NetworkTransformBase.OnDeserialize(Mirror.NetworkReader,System.Boolean)
   name: OnDeserialize(NetworkReader, Boolean)
   href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_OnDeserialize_Mirror_NetworkReader_System_Boolean_
@@ -6359,44 +6359,44 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkTransformBase.OnSerialize
   nameWithType: NetworkTransformBase.OnSerialize
-- uid: Mirror.NetworkTransformBase.targetComponent
-  name: targetComponent
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_targetComponent
-  commentId: P:Mirror.NetworkTransformBase.targetComponent
-  fullName: Mirror.NetworkTransformBase.targetComponent
-  nameWithType: NetworkTransformBase.targetComponent
-- uid: Mirror.NetworkTransformBase.targetComponent*
-  name: targetComponent
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_targetComponent_
-  commentId: Overload:Mirror.NetworkTransformBase.targetComponent
+- uid: Mirror.NetworkTransformBase.TargetComponent
+  name: TargetComponent
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_TargetComponent
+  commentId: P:Mirror.NetworkTransformBase.TargetComponent
+  fullName: Mirror.NetworkTransformBase.TargetComponent
+  nameWithType: NetworkTransformBase.TargetComponent
+- uid: Mirror.NetworkTransformBase.TargetComponent*
+  name: TargetComponent
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_TargetComponent_
+  commentId: Overload:Mirror.NetworkTransformBase.TargetComponent
   isSpec: "True"
-  fullName: Mirror.NetworkTransformBase.targetComponent
-  nameWithType: NetworkTransformBase.targetComponent
+  fullName: Mirror.NetworkTransformBase.TargetComponent
+  nameWithType: NetworkTransformBase.TargetComponent
 - uid: Mirror.NetworkTransformChild
   name: NetworkTransformChild
   href: api/Mirror.NetworkTransformChild.html
   commentId: T:Mirror.NetworkTransformChild
   fullName: Mirror.NetworkTransformChild
   nameWithType: NetworkTransformChild
-- uid: Mirror.NetworkTransformChild.target
-  name: target
-  href: api/Mirror.NetworkTransformChild.html#Mirror_NetworkTransformChild_target
-  commentId: F:Mirror.NetworkTransformChild.target
-  fullName: Mirror.NetworkTransformChild.target
-  nameWithType: NetworkTransformChild.target
-- uid: Mirror.NetworkTransformChild.targetComponent
-  name: targetComponent
-  href: api/Mirror.NetworkTransformChild.html#Mirror_NetworkTransformChild_targetComponent
-  commentId: P:Mirror.NetworkTransformChild.targetComponent
-  fullName: Mirror.NetworkTransformChild.targetComponent
-  nameWithType: NetworkTransformChild.targetComponent
-- uid: Mirror.NetworkTransformChild.targetComponent*
-  name: targetComponent
-  href: api/Mirror.NetworkTransformChild.html#Mirror_NetworkTransformChild_targetComponent_
-  commentId: Overload:Mirror.NetworkTransformChild.targetComponent
+- uid: Mirror.NetworkTransformChild.Target
+  name: Target
+  href: api/Mirror.NetworkTransformChild.html#Mirror_NetworkTransformChild_Target
+  commentId: F:Mirror.NetworkTransformChild.Target
+  fullName: Mirror.NetworkTransformChild.Target
+  nameWithType: NetworkTransformChild.Target
+- uid: Mirror.NetworkTransformChild.TargetComponent
+  name: TargetComponent
+  href: api/Mirror.NetworkTransformChild.html#Mirror_NetworkTransformChild_TargetComponent
+  commentId: P:Mirror.NetworkTransformChild.TargetComponent
+  fullName: Mirror.NetworkTransformChild.TargetComponent
+  nameWithType: NetworkTransformChild.TargetComponent
+- uid: Mirror.NetworkTransformChild.TargetComponent*
+  name: TargetComponent
+  href: api/Mirror.NetworkTransformChild.html#Mirror_NetworkTransformChild_TargetComponent_
+  commentId: Overload:Mirror.NetworkTransformChild.TargetComponent
   isSpec: "True"
-  fullName: Mirror.NetworkTransformChild.targetComponent
-  nameWithType: NetworkTransformChild.targetComponent
+  fullName: Mirror.NetworkTransformChild.TargetComponent
+  nameWithType: NetworkTransformChild.TargetComponent
 - uid: Mirror.NetworkWriter
   name: NetworkWriter
   href: api/Mirror.NetworkWriter.html
