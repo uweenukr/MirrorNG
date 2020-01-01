@@ -396,7 +396,9 @@
   
   <a id="Mirror_NetworkRoomManager_OnClientConnect_" data-uid="Mirror.NetworkRoomManager.OnClientConnect*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnClientConnect_Mirror_NetworkConnection_" data-uid="Mirror.NetworkRoomManager.OnClientConnect(Mirror.NetworkConnection)">OnClientConnect(NetworkConnection)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called on the client when connected to a server.</p>
+<p>The default implementation of this function sets the client as ready and adds a player. Override the function to dictate what happens when the client connects.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -415,7 +417,7 @@
       <tr>
         <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
         <td><span class="parametername">conn</span></td>
-        <td><p>Connection of the client</p>
+        <td><p>Connection to the server.</p>
 </td>
       </tr>
     </tbody>
@@ -426,7 +428,9 @@
   
   <a id="Mirror_NetworkRoomManager_OnClientDisconnect_" data-uid="Mirror.NetworkRoomManager.OnClientDisconnect*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnClientDisconnect_Mirror_NetworkConnection_" data-uid="Mirror.NetworkRoomManager.OnClientDisconnect(Mirror.NetworkConnection)">OnClientDisconnect(NetworkConnection)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called on clients when disconnected from a server.</p>
+<p>This is called on the client when it disconnects from the server. Override this function to decide what happens when the client disconnects.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -445,7 +449,7 @@
       <tr>
         <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
         <td><span class="parametername">conn</span></td>
-        <td><p>Connection of the client</p>
+        <td><p>Connection to the server.</p>
 </td>
       </tr>
     </tbody>
@@ -456,7 +460,9 @@
   
   <a id="Mirror_NetworkRoomManager_OnClientSceneChanged_" data-uid="Mirror.NetworkRoomManager.OnClientSceneChanged*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnClientSceneChanged_Mirror_NetworkConnection_" data-uid="Mirror.NetworkRoomManager.OnClientSceneChanged(Mirror.NetworkConnection)">OnClientSceneChanged(NetworkConnection)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called on clients when a scene has completed loaded, when the scene load was initiated by the server.</p>
+<p>Scene changes can cause player objects to be destroyed. The default implementation of OnClientSceneChanged in the NetworkManager is to add a player object for the connection if no player object exists.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -967,7 +973,9 @@
   
   <a id="Mirror_NetworkRoomManager_OnServerAddPlayer_" data-uid="Mirror.NetworkRoomManager.OnServerAddPlayer*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnServerAddPlayer_Mirror_NetworkConnection_" data-uid="Mirror.NetworkRoomManager.OnServerAddPlayer(Mirror.NetworkConnection)">OnServerAddPlayer(NetworkConnection)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called on the server when a client adds a new player with ClientScene.AddPlayer.</p>
+<p>The default implementation for this function creates a new player object from the playerPrefab.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -986,7 +994,7 @@
       <tr>
         <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
         <td><span class="parametername">conn</span></td>
-        <td><p>Connection of the client</p>
+        <td><p>Connection from client.</p>
 </td>
       </tr>
     </tbody>
@@ -997,7 +1005,9 @@
   
   <a id="Mirror_NetworkRoomManager_OnServerConnect_" data-uid="Mirror.NetworkRoomManager.OnServerConnect*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnServerConnect_Mirror_NetworkConnection_" data-uid="Mirror.NetworkRoomManager.OnServerConnect(Mirror.NetworkConnection)">OnServerConnect(NetworkConnection)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called on the server when a new client connects.</p>
+<p>Unity calls this on the Server when a Client connects to the Server. Use an override to tell the NetworkManager what to do when a client connects to the server.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1016,7 +1026,7 @@
       <tr>
         <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
         <td><span class="parametername">conn</span></td>
-        <td><p>Connection of the client</p>
+        <td><p>Connection from client.</p>
 </td>
       </tr>
     </tbody>
@@ -1027,7 +1037,9 @@
   
   <a id="Mirror_NetworkRoomManager_OnServerDisconnect_" data-uid="Mirror.NetworkRoomManager.OnServerDisconnect*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnServerDisconnect_Mirror_NetworkConnection_" data-uid="Mirror.NetworkRoomManager.OnServerDisconnect(Mirror.NetworkConnection)">OnServerDisconnect(NetworkConnection)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called on the server when a client disconnects.</p>
+<p>This is called on the Server when a Client disconnects from the Server. Use an override to decide what should happen when a disconnection is detected.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1046,7 +1058,7 @@
       <tr>
         <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
         <td><span class="parametername">conn</span></td>
-        <td><p>Connection of the client</p>
+        <td><p>Connection from client.</p>
 </td>
       </tr>
     </tbody>
@@ -1057,7 +1069,9 @@
   
   <a id="Mirror_NetworkRoomManager_OnServerReady_" data-uid="Mirror.NetworkRoomManager.OnServerReady*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnServerReady_Mirror_NetworkConnection_" data-uid="Mirror.NetworkRoomManager.OnServerReady(Mirror.NetworkConnection)">OnServerReady(NetworkConnection)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called on the server when a client is ready.</p>
+<p>The default implementation of this function calls NetworkServer.SetClientReady() to continue the network setup process.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1076,7 +1090,7 @@
       <tr>
         <td><a class="xref" href="Mirror.NetworkConnection.html">NetworkConnection</a></td>
         <td><span class="parametername">conn</span></td>
-        <td><p>Connection of the client</p>
+        <td><p>Connection from client.</p>
 </td>
       </tr>
     </tbody>
@@ -1087,7 +1101,8 @@
   
   <a id="Mirror_NetworkRoomManager_OnServerSceneChanged_" data-uid="Mirror.NetworkRoomManager.OnServerSceneChanged*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnServerSceneChanged_System_String_" data-uid="Mirror.NetworkRoomManager.OnServerSceneChanged(System.String)">OnServerSceneChanged(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Called on the server when a scene is completed loaded, when the scene load was initiated by the server with ServerChangeScene().</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1106,7 +1121,8 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">sceneName</span></td>
-        <td></td>
+        <td><p>The name of the new scene.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -1116,7 +1132,8 @@
   
   <a id="Mirror_NetworkRoomManager_OnStartClient_" data-uid="Mirror.NetworkRoomManager.OnStartClient*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnStartClient" data-uid="Mirror.NetworkRoomManager.OnStartClient">OnStartClient()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This is invoked when the client is started.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1128,7 +1145,9 @@
   
   <a id="Mirror_NetworkRoomManager_OnStartHost_" data-uid="Mirror.NetworkRoomManager.OnStartHost*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnStartHost" data-uid="Mirror.NetworkRoomManager.OnStartHost">OnStartHost()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This is invoked when a host is started.</p>
+<p>StartHost has multiple signatures, but they all cause this hook to be called.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1140,7 +1159,9 @@
   
   <a id="Mirror_NetworkRoomManager_OnStartServer_" data-uid="Mirror.NetworkRoomManager.OnStartServer*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnStartServer" data-uid="Mirror.NetworkRoomManager.OnStartServer">OnStartServer()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This is invoked when a server is started - including when a host is started.</p>
+<p>StartServer has multiple signatures, but they all cause this hook to be called.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1152,7 +1173,8 @@
   
   <a id="Mirror_NetworkRoomManager_OnStopClient_" data-uid="Mirror.NetworkRoomManager.OnStopClient*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnStopClient" data-uid="Mirror.NetworkRoomManager.OnStopClient">OnStopClient()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This is called when a client is stopped.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1164,7 +1186,8 @@
   
   <a id="Mirror_NetworkRoomManager_OnStopHost_" data-uid="Mirror.NetworkRoomManager.OnStopHost*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnStopHost" data-uid="Mirror.NetworkRoomManager.OnStopHost">OnStopHost()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This is called when a host is stopped.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1176,7 +1199,8 @@
   
   <a id="Mirror_NetworkRoomManager_OnStopServer_" data-uid="Mirror.NetworkRoomManager.OnStopServer*"></a>
   <h4 id="Mirror_NetworkRoomManager_OnStopServer" data-uid="Mirror.NetworkRoomManager.OnStopServer">OnStopServer()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This is called when a server is stopped - including when a host is stopped.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -1200,7 +1224,9 @@
   
   <a id="Mirror_NetworkRoomManager_ServerChangeScene_" data-uid="Mirror.NetworkRoomManager.ServerChangeScene*"></a>
   <h4 id="Mirror_NetworkRoomManager_ServerChangeScene_System_String_" data-uid="Mirror.NetworkRoomManager.ServerChangeScene(System.String)">ServerChangeScene(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>This causes the server to switch scenes and sets the networkSceneName.</p>
+<p>Clients that connect to this server will automatically switch to this scene. This is called autmatically if onlineScene or offlineScene are set, but it can be called from user code to switch scenes again while the game is in progress. This automatically sets clients to be not-ready. The clients must call NetworkClient.Ready() again to participate in the new scene.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
