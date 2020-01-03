@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Struct ReadyMessage
+    <title>Class NetworkStreamExtensions
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Struct ReadyMessage
+    <meta name="title" content="Class NetworkStreamExtensions
    ">
     <meta name="generator" content="docfx 2.45.1.0">
     
@@ -78,39 +78,40 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Mirror.ReadyMessage">
+            <article class="content wrap" id="_content" data-uid="Telepathy.NetworkStreamExtensions">
   
   
-  <h1 id="Mirror_ReadyMessage" data-uid="Mirror.ReadyMessage" class="text-break">Struct ReadyMessage
+  <h1 id="Telepathy_NetworkStreamExtensions" data-uid="Telepathy.NetworkStreamExtensions" class="text-break">Class NetworkStreamExtensions
   </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="Mirror.IMessageBase.html">IMessageBase</a></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">NetworkStreamExtensions</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.html">Mirror</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Telepathy.html">Telepathy</a></h6>
   <h6><strong>Assembly</strong>: doc.dll</h6>
-  <h5 id="Mirror_ReadyMessage_syntax">Syntax</h5>
+  <h5 id="Telepathy_NetworkStreamExtensions_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public struct ReadyMessage : IMessageBase</code></pre>
+    <pre><code class="lang-csharp hljs">public static class NetworkStreamExtensions : object</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/apiSpec/new?filename=Mirror_ReadyMessage_Deserialize_Mirror_NetworkReader_.md&amp;value=---%0Auid%3A%20Mirror.ReadyMessage.Deserialize(Mirror.NetworkReader)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MirrorNG/MirrorNG/new/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/apiSpec/new?filename=Telepathy_NetworkStreamExtensions_ReadExactly_NetworkStream_System_Byte___System_Int32_.md&amp;value=---%0Auid%3A%20Telepathy.NetworkStreamExtensions.ReadExactly(NetworkStream%2CSystem.Byte%5B%5D%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/Assets/Mirror/Runtime/Messages.cs/#L45">View Source</a>
+    <a href="https://github.com/MirrorNG/MirrorNG/blob/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/Assets/Mirror/Runtime/Transport/Telepathy/NetworkStreamExtensions.cs/#L31">View Source</a>
   </span>
-  <a id="Mirror_ReadyMessage_Deserialize_" data-uid="Mirror.ReadyMessage.Deserialize*"></a>
-  <h4 id="Mirror_ReadyMessage_Deserialize_Mirror_NetworkReader_" data-uid="Mirror.ReadyMessage.Deserialize(Mirror.NetworkReader)">Deserialize(NetworkReader)</h4>
+  <a id="Telepathy_NetworkStreamExtensions_ReadExactly_" data-uid="Telepathy.NetworkStreamExtensions.ReadExactly*"></a>
+  <h4 id="Telepathy_NetworkStreamExtensions_ReadExactly_NetworkStream_System_Byte___System_Int32_" data-uid="Telepathy.NetworkStreamExtensions.ReadExactly(NetworkStream,System.Byte[],System.Int32)">ReadExactly(NetworkStream, Byte[], Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Deserialize(NetworkReader reader)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool ReadExactly(this NetworkStream stream, byte[] buffer, int amount)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -123,26 +124,51 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Mirror.NetworkReader.html">NetworkReader</a></td>
-        <td><span class="parametername">reader</span></td>
+        <td><span class="xref">NetworkStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">buffer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">amount</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/MirrorNG/MirrorNG/new/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/apiSpec/new?filename=Mirror_ReadyMessage_Serialize_Mirror_NetworkWriter_.md&amp;value=---%0Auid%3A%20Mirror.ReadyMessage.Serialize(Mirror.NetworkWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/MirrorNG/MirrorNG/new/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/apiSpec/new?filename=Telepathy_NetworkStreamExtensions_ReadSafely_NetworkStream_System_Byte___System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20Telepathy.NetworkStreamExtensions.ReadSafely(NetworkStream%2CSystem.Byte%5B%5D%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/MirrorNG/MirrorNG/blob/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/Assets/Mirror/Runtime/Messages.cs/#L47">View Source</a>
+    <a href="https://github.com/MirrorNG/MirrorNG/blob/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/Assets/Mirror/Runtime/Transport/Telepathy/NetworkStreamExtensions.cs/#L14">View Source</a>
   </span>
-  <a id="Mirror_ReadyMessage_Serialize_" data-uid="Mirror.ReadyMessage.Serialize*"></a>
-  <h4 id="Mirror_ReadyMessage_Serialize_Mirror_NetworkWriter_" data-uid="Mirror.ReadyMessage.Serialize(Mirror.NetworkWriter)">Serialize(NetworkWriter)</h4>
+  <a id="Telepathy_NetworkStreamExtensions_ReadSafely_" data-uid="Telepathy.NetworkStreamExtensions.ReadSafely*"></a>
+  <h4 id="Telepathy_NetworkStreamExtensions_ReadSafely_NetworkStream_System_Byte___System_Int32_System_Int32_" data-uid="Telepathy.NetworkStreamExtensions.ReadSafely(NetworkStream,System.Byte[],System.Int32,System.Int32)">ReadSafely(NetworkStream, Byte[], Int32, Int32)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Serialize(NetworkWriter writer)</code></pre>
+    <pre><code class="lang-csharp hljs">public static int ReadSafely(this NetworkStream stream, byte[] buffer, int offset, int size)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -155,16 +181,42 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Mirror.NetworkWriter.html">NetworkWriter</a></td>
-        <td><span class="parametername">writer</span></td>
+        <td><span class="xref">NetworkStream</span></td>
+        <td><span class="parametername">stream</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">buffer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">offset</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">size</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="Mirror.IMessageBase.html">IMessageBase</a>
-  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -173,10 +225,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/new/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/apiSpec/new?filename=Mirror_ReadyMessage.md&amp;value=---%0Auid%3A%20Mirror.ReadyMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/new/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/apiSpec/new?filename=Telepathy_NetworkStreamExtensions.md&amp;value=---%0Auid%3A%20Telepathy.NetworkStreamExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/Assets/Mirror/Runtime/Messages.cs/#L43" class="contribution-link">View Source</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/259c06b9eab6b552a0f339884e57f7d9f1ac54d8/Assets/Mirror/Runtime/Transport/Telepathy/NetworkStreamExtensions.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
