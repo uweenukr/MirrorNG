@@ -3964,67 +3964,6 @@ references:
   commentId: F:Mirror.NetworkManagerMode.ServerOnly
   fullName: Mirror.NetworkManagerMode.ServerOnly
   nameWithType: NetworkManagerMode.ServerOnly
-- uid: Mirror.NetworkMessage
-  name: NetworkMessage
-  href: api/Mirror.NetworkMessage.html
-  commentId: T:Mirror.NetworkMessage
-  fullName: Mirror.NetworkMessage
-  nameWithType: NetworkMessage
-- uid: Mirror.NetworkMessage.channelId
-  name: channelId
-  href: api/Mirror.NetworkMessage.html#Mirror_NetworkMessage_channelId
-  commentId: F:Mirror.NetworkMessage.channelId
-  fullName: Mirror.NetworkMessage.channelId
-  nameWithType: NetworkMessage.channelId
-- uid: Mirror.NetworkMessage.conn
-  name: conn
-  href: api/Mirror.NetworkMessage.html#Mirror_NetworkMessage_conn
-  commentId: F:Mirror.NetworkMessage.conn
-  fullName: Mirror.NetworkMessage.conn
-  nameWithType: NetworkMessage.conn
-- uid: Mirror.NetworkMessage.msgType
-  name: msgType
-  href: api/Mirror.NetworkMessage.html#Mirror_NetworkMessage_msgType
-  commentId: F:Mirror.NetworkMessage.msgType
-  fullName: Mirror.NetworkMessage.msgType
-  nameWithType: NetworkMessage.msgType
-- uid: Mirror.NetworkMessage.reader
-  name: reader
-  href: api/Mirror.NetworkMessage.html#Mirror_NetworkMessage_reader
-  commentId: F:Mirror.NetworkMessage.reader
-  fullName: Mirror.NetworkMessage.reader
-  nameWithType: NetworkMessage.reader
-- uid: Mirror.NetworkMessage.ReadMessage*
-  name: ReadMessage
-  href: api/Mirror.NetworkMessage.html#Mirror_NetworkMessage_ReadMessage_
-  commentId: Overload:Mirror.NetworkMessage.ReadMessage
-  isSpec: "True"
-  fullName: Mirror.NetworkMessage.ReadMessage
-  nameWithType: NetworkMessage.ReadMessage
-- uid: Mirror.NetworkMessage.ReadMessage``1
-  name: ReadMessage<TMsg>()
-  href: api/Mirror.NetworkMessage.html#Mirror_NetworkMessage_ReadMessage__1
-  commentId: M:Mirror.NetworkMessage.ReadMessage``1
-  name.vb: ReadMessage(Of TMsg)()
-  fullName: Mirror.NetworkMessage.ReadMessage<TMsg>()
-  fullName.vb: Mirror.NetworkMessage.ReadMessage(Of TMsg)()
-  nameWithType: NetworkMessage.ReadMessage<TMsg>()
-  nameWithType.vb: NetworkMessage.ReadMessage(Of TMsg)()
-- uid: Mirror.NetworkMessage.ReadMessage``1(``0)
-  name: ReadMessage<TMsg>(TMsg)
-  href: api/Mirror.NetworkMessage.html#Mirror_NetworkMessage_ReadMessage__1___0_
-  commentId: M:Mirror.NetworkMessage.ReadMessage``1(``0)
-  name.vb: ReadMessage(Of TMsg)(TMsg)
-  fullName: Mirror.NetworkMessage.ReadMessage<TMsg>(TMsg)
-  fullName.vb: Mirror.NetworkMessage.ReadMessage(Of TMsg)(TMsg)
-  nameWithType: NetworkMessage.ReadMessage<TMsg>(TMsg)
-  nameWithType.vb: NetworkMessage.ReadMessage(Of TMsg)(TMsg)
-- uid: Mirror.NetworkMessageDelegate
-  name: NetworkMessageDelegate
-  href: api/Mirror.NetworkMessageDelegate.html
-  commentId: T:Mirror.NetworkMessageDelegate
-  fullName: Mirror.NetworkMessageDelegate
-  nameWithType: NetworkMessageDelegate
 - uid: Mirror.NetworkPingMessage
   name: NetworkPingMessage
   href: api/Mirror.NetworkPingMessage.html
@@ -5612,12 +5551,6 @@ references:
   commentId: F:Mirror.NetworkServer.dontListen
   fullName: Mirror.NetworkServer.dontListen
   nameWithType: NetworkServer.dontListen
-- uid: Mirror.NetworkServer.handlers
-  name: handlers
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_handlers
-  commentId: F:Mirror.NetworkServer.handlers
-  fullName: Mirror.NetworkServer.handlers
-  nameWithType: NetworkServer.handlers
 - uid: Mirror.NetworkServer.Listen(System.Int32)
   name: Listen(Int32)
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Listen_System_Int32_
