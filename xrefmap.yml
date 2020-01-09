@@ -1716,12 +1716,12 @@ references:
   commentId: T:Mirror.NetworkAuthenticator
   fullName: Mirror.NetworkAuthenticator
   nameWithType: NetworkAuthenticator
-- uid: Mirror.NetworkAuthenticator.OnClientAuthenticate(Mirror.NetworkConnection)
-  name: OnClientAuthenticate(NetworkConnection)
-  href: api/Mirror.NetworkAuthenticator.html#Mirror_NetworkAuthenticator_OnClientAuthenticate_Mirror_NetworkConnection_
-  commentId: M:Mirror.NetworkAuthenticator.OnClientAuthenticate(Mirror.NetworkConnection)
-  fullName: Mirror.NetworkAuthenticator.OnClientAuthenticate(Mirror.NetworkConnection)
-  nameWithType: NetworkAuthenticator.OnClientAuthenticate(NetworkConnection)
+- uid: Mirror.NetworkAuthenticator.OnClientAuthenticate(Mirror.NetworkConnectionToServer)
+  name: OnClientAuthenticate(NetworkConnectionToServer)
+  href: api/Mirror.NetworkAuthenticator.html#Mirror_NetworkAuthenticator_OnClientAuthenticate_Mirror_NetworkConnectionToServer_
+  commentId: M:Mirror.NetworkAuthenticator.OnClientAuthenticate(Mirror.NetworkConnectionToServer)
+  fullName: Mirror.NetworkAuthenticator.OnClientAuthenticate(Mirror.NetworkConnectionToServer)
+  nameWithType: NetworkAuthenticator.OnClientAuthenticate(NetworkConnectionToServer)
 - uid: Mirror.NetworkAuthenticator.OnClientAuthenticate*
   name: OnClientAuthenticate
   href: api/Mirror.NetworkAuthenticator.html#Mirror_NetworkAuthenticator_OnClientAuthenticate_
@@ -1732,15 +1732,15 @@ references:
 - uid: Mirror.NetworkAuthenticator.OnClientAuthenticated
   name: OnClientAuthenticated
   href: api/Mirror.NetworkAuthenticator.html#Mirror_NetworkAuthenticator_OnClientAuthenticated
-  commentId: F:Mirror.NetworkAuthenticator.OnClientAuthenticated
+  commentId: E:Mirror.NetworkAuthenticator.OnClientAuthenticated
   fullName: Mirror.NetworkAuthenticator.OnClientAuthenticated
   nameWithType: NetworkAuthenticator.OnClientAuthenticated
-- uid: Mirror.NetworkAuthenticator.OnServerAuthenticate(Mirror.NetworkConnection)
-  name: OnServerAuthenticate(NetworkConnection)
-  href: api/Mirror.NetworkAuthenticator.html#Mirror_NetworkAuthenticator_OnServerAuthenticate_Mirror_NetworkConnection_
-  commentId: M:Mirror.NetworkAuthenticator.OnServerAuthenticate(Mirror.NetworkConnection)
-  fullName: Mirror.NetworkAuthenticator.OnServerAuthenticate(Mirror.NetworkConnection)
-  nameWithType: NetworkAuthenticator.OnServerAuthenticate(NetworkConnection)
+- uid: Mirror.NetworkAuthenticator.OnServerAuthenticate(Mirror.NetworkConnectionToClient)
+  name: OnServerAuthenticate(NetworkConnectionToClient)
+  href: api/Mirror.NetworkAuthenticator.html#Mirror_NetworkAuthenticator_OnServerAuthenticate_Mirror_NetworkConnectionToClient_
+  commentId: M:Mirror.NetworkAuthenticator.OnServerAuthenticate(Mirror.NetworkConnectionToClient)
+  fullName: Mirror.NetworkAuthenticator.OnServerAuthenticate(Mirror.NetworkConnectionToClient)
+  nameWithType: NetworkAuthenticator.OnServerAuthenticate(NetworkConnectionToClient)
 - uid: Mirror.NetworkAuthenticator.OnServerAuthenticate*
   name: OnServerAuthenticate
   href: api/Mirror.NetworkAuthenticator.html#Mirror_NetworkAuthenticator_OnServerAuthenticate_
@@ -1751,7 +1751,7 @@ references:
 - uid: Mirror.NetworkAuthenticator.OnServerAuthenticated
   name: OnServerAuthenticated
   href: api/Mirror.NetworkAuthenticator.html#Mirror_NetworkAuthenticator_OnServerAuthenticated
-  commentId: F:Mirror.NetworkAuthenticator.OnServerAuthenticated
+  commentId: E:Mirror.NetworkAuthenticator.OnServerAuthenticated
   fullName: Mirror.NetworkAuthenticator.OnServerAuthenticated
   nameWithType: NetworkAuthenticator.OnServerAuthenticated
 - uid: Mirror.NetworkAuthenticator.OnStartClient
@@ -2611,15 +2611,15 @@ references:
   fullName.vb: Mirror.NetworkClient.RegisterHandler(Of T)(Action(Of T), System.Boolean)
   nameWithType: NetworkClient.RegisterHandler<T>(Action<T>, Boolean)
   nameWithType.vb: NetworkClient.RegisterHandler(Of T)(Action(Of T), Boolean)
-- uid: Mirror.NetworkClient.RegisterHandler``1(Action{Mirror.NetworkConnection,``0},System.Boolean)
-  name: RegisterHandler<T>(Action<NetworkConnection, T>, Boolean)
-  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_RegisterHandler__1_Action_Mirror_NetworkConnection___0__System_Boolean_
-  commentId: M:Mirror.NetworkClient.RegisterHandler``1(Action{Mirror.NetworkConnection,``0},System.Boolean)
-  name.vb: RegisterHandler(Of T)(Action(Of NetworkConnection, T), Boolean)
-  fullName: Mirror.NetworkClient.RegisterHandler<T>(Action<Mirror.NetworkConnection, T>, System.Boolean)
-  fullName.vb: Mirror.NetworkClient.RegisterHandler(Of T)(Action(Of Mirror.NetworkConnection, T), System.Boolean)
-  nameWithType: NetworkClient.RegisterHandler<T>(Action<NetworkConnection, T>, Boolean)
-  nameWithType.vb: NetworkClient.RegisterHandler(Of T)(Action(Of NetworkConnection, T), Boolean)
+- uid: Mirror.NetworkClient.RegisterHandler``1(Action{Mirror.NetworkConnectionToServer,``0},System.Boolean)
+  name: RegisterHandler<T>(Action<NetworkConnectionToServer, T>, Boolean)
+  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_RegisterHandler__1_Action_Mirror_NetworkConnectionToServer___0__System_Boolean_
+  commentId: M:Mirror.NetworkClient.RegisterHandler``1(Action{Mirror.NetworkConnectionToServer,``0},System.Boolean)
+  name.vb: RegisterHandler(Of T)(Action(Of NetworkConnectionToServer, T), Boolean)
+  fullName: Mirror.NetworkClient.RegisterHandler<T>(Action<Mirror.NetworkConnectionToServer, T>, System.Boolean)
+  fullName.vb: Mirror.NetworkClient.RegisterHandler(Of T)(Action(Of Mirror.NetworkConnectionToServer, T), System.Boolean)
+  nameWithType: NetworkClient.RegisterHandler<T>(Action<NetworkConnectionToServer, T>, Boolean)
+  nameWithType.vb: NetworkClient.RegisterHandler(Of T)(Action(Of NetworkConnectionToServer, T), Boolean)
 - uid: Mirror.NetworkClient.Send*
   name: Send
   href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Send_
@@ -5673,15 +5673,15 @@ references:
   fullName.vb: Mirror.NetworkServer.RegisterHandler(Of T)(Action(Of T), System.Boolean)
   nameWithType: NetworkServer.RegisterHandler<T>(Action<T>, Boolean)
   nameWithType.vb: NetworkServer.RegisterHandler(Of T)(Action(Of T), Boolean)
-- uid: Mirror.NetworkServer.RegisterHandler``1(Action{Mirror.NetworkConnection,``0},System.Boolean)
-  name: RegisterHandler<T>(Action<NetworkConnection, T>, Boolean)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_RegisterHandler__1_Action_Mirror_NetworkConnection___0__System_Boolean_
-  commentId: M:Mirror.NetworkServer.RegisterHandler``1(Action{Mirror.NetworkConnection,``0},System.Boolean)
-  name.vb: RegisterHandler(Of T)(Action(Of NetworkConnection, T), Boolean)
-  fullName: Mirror.NetworkServer.RegisterHandler<T>(Action<Mirror.NetworkConnection, T>, System.Boolean)
-  fullName.vb: Mirror.NetworkServer.RegisterHandler(Of T)(Action(Of Mirror.NetworkConnection, T), System.Boolean)
-  nameWithType: NetworkServer.RegisterHandler<T>(Action<NetworkConnection, T>, Boolean)
-  nameWithType.vb: NetworkServer.RegisterHandler(Of T)(Action(Of NetworkConnection, T), Boolean)
+- uid: Mirror.NetworkServer.RegisterHandler``1(Action{Mirror.NetworkConnectionToClient,``0},System.Boolean)
+  name: RegisterHandler<T>(Action<NetworkConnectionToClient, T>, Boolean)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_RegisterHandler__1_Action_Mirror_NetworkConnectionToClient___0__System_Boolean_
+  commentId: M:Mirror.NetworkServer.RegisterHandler``1(Action{Mirror.NetworkConnectionToClient,``0},System.Boolean)
+  name.vb: RegisterHandler(Of T)(Action(Of NetworkConnectionToClient, T), Boolean)
+  fullName: Mirror.NetworkServer.RegisterHandler<T>(Action<Mirror.NetworkConnectionToClient, T>, System.Boolean)
+  fullName.vb: Mirror.NetworkServer.RegisterHandler(Of T)(Action(Of Mirror.NetworkConnectionToClient, T), System.Boolean)
+  nameWithType: NetworkServer.RegisterHandler<T>(Action<NetworkConnectionToClient, T>, Boolean)
+  nameWithType.vb: NetworkServer.RegisterHandler(Of T)(Action(Of NetworkConnectionToClient, T), Boolean)
 - uid: Mirror.NetworkServer.RemoveConnection(System.Int32)
   name: RemoveConnection(Int32)
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_RemoveConnection_System_Int32_
@@ -10731,12 +10731,6 @@ references:
   commentId: T:Mirror.UnityEventIntException
   fullName: Mirror.UnityEventIntException
   nameWithType: UnityEventIntException
-- uid: Mirror.UnityEventNetworkConnection
-  name: UnityEventNetworkConnection
-  href: api/Mirror.UnityEventNetworkConnection.html
-  commentId: T:Mirror.UnityEventNetworkConnection
-  fullName: Mirror.UnityEventNetworkConnection
-  nameWithType: UnityEventNetworkConnection
 - uid: Mirror.UnSpawnDelegate
   name: UnSpawnDelegate
   href: api/Mirror.UnSpawnDelegate.html
