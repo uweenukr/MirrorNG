@@ -3340,6 +3340,19 @@ references:
   commentId: F:Mirror.NetworkManager.maxConnections
   fullName: Mirror.NetworkManager.maxConnections
   nameWithType: NetworkManager.maxConnections
+- uid: Mirror.NetworkManager.mode
+  name: mode
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_mode
+  commentId: P:Mirror.NetworkManager.mode
+  fullName: Mirror.NetworkManager.mode
+  nameWithType: NetworkManager.mode
+- uid: Mirror.NetworkManager.mode*
+  name: mode
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_mode_
+  commentId: Overload:Mirror.NetworkManager.mode
+  isSpec: "True"
+  fullName: Mirror.NetworkManager.mode
+  nameWithType: NetworkManager.mode
 - uid: Mirror.NetworkManager.networkAddress
   name: networkAddress
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_networkAddress
@@ -3921,6 +3934,36 @@ references:
   commentId: F:Mirror.NetworkManagerHUD.showGUI
   fullName: Mirror.NetworkManagerHUD.showGUI
   nameWithType: NetworkManagerHUD.showGUI
+- uid: Mirror.NetworkManagerMode
+  name: NetworkManagerMode
+  href: api/Mirror.NetworkManagerMode.html
+  commentId: T:Mirror.NetworkManagerMode
+  fullName: Mirror.NetworkManagerMode
+  nameWithType: NetworkManagerMode
+- uid: Mirror.NetworkManagerMode.ClientOnly
+  name: ClientOnly
+  href: api/Mirror.NetworkManagerMode.html#Mirror_NetworkManagerMode_ClientOnly
+  commentId: F:Mirror.NetworkManagerMode.ClientOnly
+  fullName: Mirror.NetworkManagerMode.ClientOnly
+  nameWithType: NetworkManagerMode.ClientOnly
+- uid: Mirror.NetworkManagerMode.Host
+  name: Host
+  href: api/Mirror.NetworkManagerMode.html#Mirror_NetworkManagerMode_Host
+  commentId: F:Mirror.NetworkManagerMode.Host
+  fullName: Mirror.NetworkManagerMode.Host
+  nameWithType: NetworkManagerMode.Host
+- uid: Mirror.NetworkManagerMode.Offline
+  name: Offline
+  href: api/Mirror.NetworkManagerMode.html#Mirror_NetworkManagerMode_Offline
+  commentId: F:Mirror.NetworkManagerMode.Offline
+  fullName: Mirror.NetworkManagerMode.Offline
+  nameWithType: NetworkManagerMode.Offline
+- uid: Mirror.NetworkManagerMode.ServerOnly
+  name: ServerOnly
+  href: api/Mirror.NetworkManagerMode.html#Mirror_NetworkManagerMode_ServerOnly
+  commentId: F:Mirror.NetworkManagerMode.ServerOnly
+  fullName: Mirror.NetworkManagerMode.ServerOnly
+  nameWithType: NetworkManagerMode.ServerOnly
 - uid: Mirror.NetworkMessage
   name: NetworkMessage
   href: api/Mirror.NetworkMessage.html
@@ -11887,6 +11930,25 @@ references:
   isSpec: "True"
   fullName: Telepathy.Server.Stop
   nameWithType: Server.Stop
+- uid: Telepathy.ThreadExtensions
+  name: ThreadExtensions
+  href: api/Telepathy.ThreadExtensions.html
+  commentId: T:Telepathy.ThreadExtensions
+  fullName: Telepathy.ThreadExtensions
+  nameWithType: ThreadExtensions
+- uid: Telepathy.ThreadExtensions.AbortAndJoin(Thread)
+  name: AbortAndJoin(Thread)
+  href: api/Telepathy.ThreadExtensions.html#Telepathy_ThreadExtensions_AbortAndJoin_Thread_
+  commentId: M:Telepathy.ThreadExtensions.AbortAndJoin(Thread)
+  fullName: Telepathy.ThreadExtensions.AbortAndJoin(Thread)
+  nameWithType: ThreadExtensions.AbortAndJoin(Thread)
+- uid: Telepathy.ThreadExtensions.AbortAndJoin*
+  name: AbortAndJoin
+  href: api/Telepathy.ThreadExtensions.html#Telepathy_ThreadExtensions_AbortAndJoin_
+  commentId: Overload:Telepathy.ThreadExtensions.AbortAndJoin
+  isSpec: "True"
+  fullName: Telepathy.ThreadExtensions.AbortAndJoin
+  nameWithType: ThreadExtensions.AbortAndJoin
 - uid: Telepathy.Utils
   name: Utils
   href: api/Telepathy.Utils.html

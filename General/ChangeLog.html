@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="change-log">Change Log</h1>
 
-<h2 id="version-7xx---in-progress">Version 7.x.x - In progress</h2>
+<h2 id="version-677---2020-jan-01">Version 6.7.7 - 2020-Jan-01</h2>
 <ul>
 <li>Added: <a href="ScriptTemplates.html">Script Templates</a> -- See the new Mirror section in the Assets &gt; Create menu.</li>
 <li>Added: Full Text Search added to docs</li>
@@ -87,12 +87,15 @@
 <li>Added: Some youtube videos have been created and linked from various doc pages where appropriate</li>
 <li>Added: Transports can now support using a URI for connection including port</li>
 <li>Added: version.txt file is now included with the release version in it.</li>
+<li>Added: Structs that inherit from IMessageBase now generate serializers</li>
 <li>Fixed: Components now appear in docs under API Reference</li>
 <li>Fixed: Delayed disconnect in Basic Authenticator</li>
 <li>Fixed: Multiplexer now handles OnClientConnect and GetMaxMessageSize correctly</li>
 <li>Fixed: NetworkRoomManager OnRoomServerCreateGamePlayer now includes the Room Player Object as parameter</li>
-<li>Changed: NetworkManager startPositionIndex is now public</li>
+<li>Changed: Room example now has NetworkRoomManager in the Offline scene and correctly switches to the Room scene when server / client is started</li>
+<li>Changed: NetworkManager startPositionIndex and loadingSceneAsync are now public</li>
 <li>Changed: SceneMessage now has an optional customHandling flag so devs can handle their own custom scene loading, e.g. using Addressables.</li>
+<li>Changed: <strong>Breaking</strong> NetworkTransform now defaults to server authority and has a Client Authority checkbox.</li>
 </ul>
 <h2 id="version-630---2019-dec-09">Version 6.3.0 - 2019-Dec-09</h2>
 <ul>
@@ -399,7 +402,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/7f473c4ddba341d48f383f40259770dff67a5c3a/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/f502ea4cd9d9023afb66285ec963b4eeb5b6acd7/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

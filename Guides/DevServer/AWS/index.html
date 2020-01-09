@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Amazon Web Services (AWS) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Amazon Web Services (AWS) ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="amazon-web-services-aws">Amazon Web Services (AWS)</h1>
+
+<p>During this section we will focus on using a Windows instance and connecting from a Windows computer.</p>
+<blockquote>
+<p><strong>NOTE</strong>: AWS requires a payment method/credit card added before being able to use a Windows server.</p>
+</blockquote>
+<p>Don't forget to read up on the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-free-tier.html">free tier limitations</a>.
+During this example we will be using the free tier of the EC2 option, which gives us the possibility to use a Windows instance (if you have already added a payment method).
+For more information about which services offer a Free Tier, see <a href="https://aws.amazon.com/free/?all-free-tier.sort-by=item.additionalFields.SortRank&amp;all-free-tier.sort-order=asc&amp;awsf.Free%20Tier%20Types=tier%2312monthsfree&amp;awsf.Free%20Tier%20Categories=categories%23compute">AWS Free Tier</a>.</p>
+<p>These are the steps we will go through from start to finish:</p>
+<ol>
+<li>Account creation</li>
+<li>Setting up an instance with the EC2 Management Console</li>
+<li>Configuring the server via RDP (Remote Desktop)</li>
+<li>Setting up the firewall to allow connections through</li>
+<li>Testing the connection</li>
+</ol>
+<h2 id="1-account-creation">1. Account Creation</h2>
+<p>Go to the <a href="https://portal.aws.amazon.com/billing/signup?nc2=h_ct&amp;src=default&amp;redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start">Account creation page</a> and
+sign up with your details and payment method (e.g. credit card). Adding the payment method is necessary to run a windows instance on AWS.</p>
+<h2 id="2-setting-up-an-instance-with-the-ec2-management-console">2. Setting up an instance with the EC2 Management Console</h2>
+<p>After setting up your account you should be logged in.
+Always make sure you're in your correct region so it's a good habit to check in the top right corner. Change it to the closest location to you now.
+After this click on Services in the top left corner and click on EC2. This will bring you to the EC2 instance dashboard and ready to Launch your instance!</p>
+<p>Click on <strong>&quot;Launch Instance&quot;</strong>.
+<img src="AWS%20Setup.png" alt="EC2-Management-Dashboard"></p>
+<p>There are 7 steps to creating your AWS Instance:</p>
+<ol>
+<li>Choose an Amazon Machine Image (AMI)</li>
+<li>Choose Instance Type</li>
+<li>Configure Instance</li>
+<li>Add Storage</li>
+<li>Add Tags</li>
+<li>Configure Security Group</li>
+<li>Review</li>
+</ol>
+<h4 id="step-1-choose-an-amazon-machine-image">Step 1: Choose an Amazon Machine Image</h4>
+<p>Scroll down until you see the Microsoft Windows Server 2019 Base (take the newest one if this is outdated).
+Make sure that the option you select has the &quot;Free Tier Eligible&quot; under the icon and click on &quot;Select&quot;.
+<img src="Microsoft%20Server%202019.PNG" alt="Amazon Machine Image: Microsoft Server 2019"></p>
+<h4 id="step-2-choose-instance-type">Step 2: Choose Instance Type</h4>
+<p>Make sure you choose the instance type with the &quot;free tier eligible&quot;, at the time of writing this is the t2.micro instance.
+Click on <strong>&quot;Next: Configure Instance Details&quot;</strong>. <strong>Do not</strong> click on Review and Launch.</p>
+<p><img src="Step%202.png" alt="Choose Instance Type"></p>
+<h4 id="step-3-configure-instance">Step 3: Configure Instance</h4>
+<p>Nothing has to be changed at this step. Keep it default. Click on <strong>&quot;Next: Add Storage&quot;</strong>.</p>
+<h4 id="step-4-add-storage">Step 4: Add Storage</h4>
+<p>Nothing has to be changed. Keep it default. The 30GB is more than you need but there will be an error if you choose a lower amount.
+Keep in mind that you can always click &quot;Previous&quot; if you need to return, you do not need to repeat the entire process if you make a mistake (unless you click Launch at the end).</p>
+<p>Click on <strong>&quot;Next: Add Tags&quot;</strong> to continue.</p>
+<h4 id="step-5-add-tags">Step 5: Add Tags</h4>
+<p>Nothing has to be changed. Keep it default. Click on <strong>&quot;Next: Configure Security Groups&quot;</strong></p>
+<h4 id="step-6-configure-security-groups">Step 6: Configure Security Groups</h4>
+<blockquote>
+<p><strong>IMPORTANT STEP</strong> This makes it possible to connect to your instance from outside for:</p>
+</blockquote>
+<ul>
+<li>RDP (needed for this example)</li>
+<li>For clients connecting through port 7777 for your Mirror Project.</li>
+<li>SSH (if needed)</li>
+</ul>
+<p>Create a new security group and you can give it your own name and description. Add the following rules:</p>
+<ul>
+<li>RDP with source &quot;Anywhere&quot;, Description can be whatever but put it as Remote Desktop Program.</li>
+<li>Custom TCP Rule with port 7777 and source &quot;Anywhere&quot;, Description can be whatever but put it as Mirror.</li>
+<li>SSH with source &quot;Anywhere&quot;, Description can be whatever but put it as SSH.</li>
+</ul>
+<p>SSH is not strictly necessary but can be used to remote connect to it through other means than the RDP.</p>
+<p>You can ignore the warning about the source as this is just a testing environment. In the future you might wish to restrict this but you will almost never know the clients' connection IP's beforehand.</p>
+<p>Click on <strong>&quot;Next: Review and Launch&quot;</strong></p>
+<p><img src="Step%206.png" alt="Configuring Security Groups"></p>
+<h4 id="step-7-review">Step 7: Review</h4>
+<p>Almost there! Make sure everything is correct and you are using the free tier, then click on <strong>&quot;Launch&quot;</strong>.</p>
+<p><img src="Review.png" alt="Review Of The Instance"></p>
+<p>One more thing: A window will pop up asking for your key pair. Just create a new one by selecting the dropdown: <strong>&quot;Create a new key pair&quot;</strong> and give it a name, click on <strong>&quot;Download Key Pair&quot;</strong>.</p>
+<p>Keep the key file (.PEM File) somewhere secure (To be 100% certain, back it up somewhere).</p>
+<blockquote>
+<p><strong>YOU CANNOT ACCESS THE CREATED INSTANCE WITHOUT THIS KEY</strong></p>
+</blockquote>
+<p><img src="KeyPair.PNG" alt="Key Pair"></p>
+<p>Now you can (finally) click on <strong>&quot;Launch Instances&quot;</strong>!</p>
+<p>Go back to your EC2 dashboard by clicking on &quot;Services&quot; at the top left and clicking on EC2.
+Now you see you have &quot;Running Instances: 1&quot;. <strong>Click on &quot;Running Instances&quot; to continue</strong>.</p>
+<p><img src="Running%20instances.png" alt="Your Running Instances"></p>
+<blockquote>
+<p>A new instance might take around 5-10 minutes to set up. Refresh the page after 10 minutes if nothing changes.</p>
+</blockquote>
+<p>Now you did all this but you want to get ON the dedicated server right? Perfect! The next step will get you up and running!</p>
+<h2 id="3-configuring-the-server-via-rdp-remote-desktop">3. Configuring the server via RDP (Remote Desktop)</h2>
+<p>Time to get the RDP file so you can start connecting. There are a few things we'll need:</p>
+<ol>
+<li>RDP file with the key pair added to it</li>
+<li>Configure RDP file once downloaded to allow getting files from our C: drive or other drives (so you can easily get your zip project)</li>
+<li>Enter the windows Admin password once you start the RDP file</li>
+</ol>
+<p>Once you've done this, you should be able to continue using the same RDP file.</p>
+<h4 id="rdp-file-with-the-key-pair-added-to-it">RDP file with the key pair added to it</h4>
+<blockquote>
+<p>Get the password <strong>before</strong> clicking Download</p>
+</blockquote>
+<p><img src="Connect%20to%20your%20instance%201.png" alt="Connect To Your Instance 1"></p>
+<blockquote>
+<p><strong>Copy the Password for later</strong></p>
+</blockquote>
+<p><img src="Connect%20to%20your%20instance%202.png" alt="Connect To Your Instance 2"></p>
+<p>Now click on <strong>&quot;Download Remote Desktop File&quot;</strong>. The RDP file will be downloaded.</p>
+<p><img src="Connect%20to%20your%20instance%203.png" alt="Connect To Your Instance 3"></p>
+<h4 id="configure-rdp-file-for-easy-file-access">Configure RDP file for easy file access</h4>
+<p>Go to your freshly downloaded RDP file and rightclick it and then click &quot;Edit&quot;.</p>
+<p>Go to the third tab &quot;Local sources&quot;, at the bottom click &quot;more&quot; under local devices and sources.
+On the new window select your C: drive or any other drive. This is your own computer your connecting from. For easy file exchange.</p>
+<p><img src="Configure%20RDP%20for%20Data.PNG" alt="Configuring the RDP file"></p>
+<p>Perfect! Now you can run the RDP file! The RDP file will ask a password. If you forgot your password you can get it back by rightclicking
+the instance and clicking on &quot;Get Windows Password&quot;. You will be asked to re-enter your key pair (.PEM) file and decrypt the message.
+Once done you will be able to copy the password.</p>
+<p><img src="Retrieve%20Default%20Windows%20Administrator%20Password.PNG" alt="Retrieve Your Default Windows Administrator Password"></p>
+<p><img src="Retrieve%20Default%20Windows%20Administrator%20Password%202.PNG" alt="Retrieve Your Default Windows Administrator Password 2"></p>
+<p>There you have it! Now you have your password and Remote Desktop should show you logging into your dedicated server!</p>
+<h4 id="setting-up-the-firewall-to-allow-connections-through">Setting up the firewall to allow connections through</h4>
+<p>Go to the windows firewall settings, go to the advanced firewall settings and go to inbound rules. <strong>Add a new rule</strong> and choose the port type.
+Select TCP and enter the 7777 port (or any other if you use another port in Mirror). Continue clicking next and keep things default.
+Close all the windows when done.</p>
+<p><img src="Windows%20Firewall%20Exception.PNG" alt="Windows Firewall Exception"></p>
+<p>AWESOME! You now have everything set up to accept incoming requests on <strong>port 7777</strong>.</p>
+<h2 id="4-testing-the-connection">4. Testing the connection</h2>
+<p>Before you can (finally) test out your server build of your project you need to get it on the dedicated server!</p>
+<p>Place your (zipped) server build at the root of your added drive (C: or another) to make it easier to find it fast.</p>
+<p>Go to <strong>&quot;My Computer&quot;</strong> and because of our previous changes to the RDP we should now see your local drive under &quot;Devices and Drives&quot;.
+Double click it and because you placed your zipped server build on that drive, you should see it immediatly when it's done loading.</p>
+<p><img src="Your%20Drive%20on%20the%20dedicated%20host.PNG" alt="Your Drive on the dedicated host"></p>
+<p>Now unzip the project in a new folder on the dedicated server's desktop and run it.</p>
+<p>Want to test if it sees the 7777 port is open after you started your Mirror server?
+Get your IPv4 public IP from the EC2 Management Console from your instance and use it on your client to connect to that IP.</p>
+<p>Go to <a href="https://www.portcheckers.com/">PortChecker</a> and enter the Dedicated Server IP address and enter port 7777.</p>
+<blockquote>
+<p>NOTE: If you are not running your game / project then the port will be closed. It's only open when the server is running.</p>
+</blockquote>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/f502ea4cd9d9023afb66285ec963b4eeb5b6acd7/doc/Guides/DevServer/AWS/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

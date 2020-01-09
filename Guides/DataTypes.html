@@ -79,6 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="data-types">Data types</h1>
 
+<p><a href="https://www.youtube.com/watch?v=DIIeGYAawY0&amp;list=PLkx8oFug638oBYF5EOwsSS-gOVBXj1dkP&amp;index=9"><img src="../images/video_tutorial.png" alt="built in data types video tutorial"></a></p>
 <p>The client and server can pass data to each other via <a href="Communications/RemoteActions.html">Remote methods</a>, <a href="Sync/index.html">State Synchronization</a> or via <a href="Communications/NetworkMessages.html">Network Messages</a></p>
 <p>Mirror supports a number of data types you can use with these, including:</p>
 <ul>
@@ -91,6 +92,7 @@
 <li>ArraySegments of any of the above (not supported with syncvars or synclists)</li>
 </ul>
 <h2 id="custom-data-types">Custom Data Types</h2>
+<p><a href="https://www.youtube.com/watch?v=svXHy2TGaS8&amp;list=PLkx8oFug638oBYF5EOwsSS-gOVBXj1dkP&amp;index=10"><img src="../images/video_tutorial.png" alt="built in data types video tutorial"></a></p>
 <p>Sometimes you don't want mirror to generate serialization for your own types. For example, instead of serializing quest data, you may want to serialize just the quest id, and the receiver can look up the quest by id in a predefined list.</p>
 <p>Sometimes you may want to serialize data which uses a different type not supported by Mirror, such as DateTime or System.Uri</p>
 <p>You can add support for any type by adding extension methods to <code>NetworkWriter</code> and <code>NetworkReader</code>. For example, to add support for <code>DateTime</code>, add this somewhere in your project:</p>
@@ -211,7 +213,7 @@ public static class ItemSerializer
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/7f473c4ddba341d48f383f40259770dff67a5c3a/doc/Guides/DataTypes.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/f502ea4cd9d9023afb66285ec963b4eeb5b6acd7/doc/Guides/DataTypes.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
