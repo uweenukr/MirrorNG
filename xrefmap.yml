@@ -1691,6 +1691,25 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkAnimator.OnSerialize
   nameWithType: NetworkAnimator.OnSerialize
+- uid: Mirror.NetworkAnimator.ResetTrigger(System.Int32)
+  name: ResetTrigger(Int32)
+  href: api/Mirror.NetworkAnimator.html#Mirror_NetworkAnimator_ResetTrigger_System_Int32_
+  commentId: M:Mirror.NetworkAnimator.ResetTrigger(System.Int32)
+  fullName: Mirror.NetworkAnimator.ResetTrigger(System.Int32)
+  nameWithType: NetworkAnimator.ResetTrigger(Int32)
+- uid: Mirror.NetworkAnimator.ResetTrigger(System.String)
+  name: ResetTrigger(String)
+  href: api/Mirror.NetworkAnimator.html#Mirror_NetworkAnimator_ResetTrigger_System_String_
+  commentId: M:Mirror.NetworkAnimator.ResetTrigger(System.String)
+  fullName: Mirror.NetworkAnimator.ResetTrigger(System.String)
+  nameWithType: NetworkAnimator.ResetTrigger(String)
+- uid: Mirror.NetworkAnimator.ResetTrigger*
+  name: ResetTrigger
+  href: api/Mirror.NetworkAnimator.html#Mirror_NetworkAnimator_ResetTrigger_
+  commentId: Overload:Mirror.NetworkAnimator.ResetTrigger
+  isSpec: "True"
+  fullName: Mirror.NetworkAnimator.ResetTrigger
+  nameWithType: NetworkAnimator.ResetTrigger
 - uid: Mirror.NetworkAnimator.SetTrigger(System.Int32)
   name: SetTrigger(Int32)
   href: api/Mirror.NetworkAnimator.html#Mirror_NetworkAnimator_SetTrigger_System_Int32_
@@ -10491,6 +10510,19 @@ references:
   isSpec: "True"
   fullName: Mirror.Transport.GetMaxPacketSize
   nameWithType: Transport.GetMaxPacketSize
+- uid: Mirror.Transport.OnApplicationQuit
+  name: OnApplicationQuit()
+  href: api/Mirror.Transport.html#Mirror_Transport_OnApplicationQuit
+  commentId: M:Mirror.Transport.OnApplicationQuit
+  fullName: Mirror.Transport.OnApplicationQuit()
+  nameWithType: Transport.OnApplicationQuit()
+- uid: Mirror.Transport.OnApplicationQuit*
+  name: OnApplicationQuit
+  href: api/Mirror.Transport.html#Mirror_Transport_OnApplicationQuit_
+  commentId: Overload:Mirror.Transport.OnApplicationQuit
+  isSpec: "True"
+  fullName: Mirror.Transport.OnApplicationQuit
+  nameWithType: Transport.OnApplicationQuit
 - uid: Mirror.Transport.OnClientConnected
   name: OnClientConnected
   href: api/Mirror.Transport.html#Mirror_Transport_OnClientConnected

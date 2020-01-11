@@ -82,9 +82,8 @@
 <p><a href="https://www.youtube.com/watch?v=T7AoozedYfI&amp;list=PLkx8oFug638oBYF5EOwsSS-gOVBXj1dkP&amp;index=5"><img src="../../images/video_tutorial.png" alt="SyncVar hook video tutorial"></a></p>
 <p>The hook attribute can be used to specify a function to be called when the SyncVar changes value on the client.  This ensures that all clients receive the proper variables from other clients.</p>
 <ul>
-<li>The Hook method must have a single parameter of the same type as the SyncVar property.  This parameter should have a unique name, e.g. newValue.</li>
-<li>Reference the hook parameter inside the hook to use the new value.  Referencing the property value will be the old value, in case you need to compare.</li>
-<li>The property will be updated after the hook completes. You may update the property yourself inside the hook.</li>
+<li>The Hook method must have a two parameters of the same type as the SyncVar property. One for the old value, one for the new value.</li>
+<li>The Hook is always called after the value was set. You don't need to set it yourself.</li>
 </ul>
 <p>Below is a simple example of assigning a random color to each player when they're spawned on the server.  All clients will see all players in the correct colors, even if they join later.</p>
 <pre><code class="lang-cs">using UnityEngine;
@@ -99,19 +98,19 @@ public class PlayerController : NetworkBehaviour
     // Unity makes a clone of the Material every time GetComponent&lt;Renderer&gt;().material is used.
     // Cache it here and Destroy it in OnDestroy to prevent a memory leak.
     Material cachedMaterial;
-    
+
     public override void OnStartServer()
     {
         base.OnStartServer();
         playerColor = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
     }
 
-    void SetColor(Color color)
+    void SetColor(Color oldColor, Color newColor)
     {
         if (cachedMaterial == null)
             cachedMaterial = GetComponent&lt;Renderer&gt;().material;
 
-        cachedMaterial.color = color;
+        cachedMaterial.color = newColor;
     }
 
     void OnDestroy()
@@ -128,7 +127,7 @@ public class PlayerController : NetworkBehaviour
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/f165929ea36ef7c516c4c6b802899c104fae5e7d/doc/Guides/Sync/SyncVarHook.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/2fa4aaf486665e90ea301575fdcd0ea668e0fce0/doc/Guides/Sync/SyncVarHook.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
