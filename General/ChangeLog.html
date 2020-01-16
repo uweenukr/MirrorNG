@@ -82,6 +82,7 @@
 <h2 id="version-7xx---in-progress">Version 7.x.x - In Progress</h2>
 <ul>
 <li>Added: NetworkAnimator now has a ResetTrigger function and server / client authority warnings</li>
+<li>Added: NetworkTransform now has 3 new floats for Sensitivity to quiet down message traffic from micro changes.</li>
 <li>Fixed: NetworkTransform and NetworkAnimator now uses NetworkWriterPool</li>
 <li>Fixed: NetworkTransform and NetworkAnimator now respect <code>hasAuthority</code> for client owned objects</li>
 <li>Fixed: NetworkTransform will now correctly teleport if time / distance are too large</li>
@@ -91,6 +92,7 @@
 <li>Fixed: Starting server immediately after cancelling client connection attempt no longer throws a NRE</li>
 <li>Fixed: IL2CPP builds no longer trigger an assert when stopping server</li>
 <li>Fixed: SyncVars are now set for Host player before hook is invoked</li>
+<li>Fixed: StopHost no longer tries to change to the Offline scene twice</li>
 <li>Changed: Shutdown logic has been streamlined</li>
 <li>Changed: OnApplicationQuit virtual method added to Transport class and <code>Transport.activeTransport.Shutdown()</code> is no longer called from Network Manager</li>
 <li>Changed: <strong>Breaking</strong> SyncVar Hooks now require <strong>two</strong> parameters, one each for the old and new value, and the property value is now set <strong>before</strong> the hook is called.</li>
@@ -418,7 +420,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/cfb7996df786e4ebc75fd45482225690b9d86439/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/31c3c1f8e5b8bbcd03bebb2dc5e89a4794e05558/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

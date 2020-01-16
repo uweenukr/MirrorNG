@@ -6131,6 +6131,24 @@ references:
   commentId: F:Mirror.NetworkTransformBase.DataPoint.TimeStamp
   fullName: Mirror.NetworkTransformBase.DataPoint.TimeStamp
   nameWithType: NetworkTransformBase.DataPoint.TimeStamp
+- uid: Mirror.NetworkTransformBase.localEulerAnglesSensitivity
+  name: localEulerAnglesSensitivity
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_localEulerAnglesSensitivity
+  commentId: F:Mirror.NetworkTransformBase.localEulerAnglesSensitivity
+  fullName: Mirror.NetworkTransformBase.localEulerAnglesSensitivity
+  nameWithType: NetworkTransformBase.localEulerAnglesSensitivity
+- uid: Mirror.NetworkTransformBase.localPositionSensitivity
+  name: localPositionSensitivity
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_localPositionSensitivity
+  commentId: F:Mirror.NetworkTransformBase.localPositionSensitivity
+  fullName: Mirror.NetworkTransformBase.localPositionSensitivity
+  nameWithType: NetworkTransformBase.localPositionSensitivity
+- uid: Mirror.NetworkTransformBase.localScaleSensitivity
+  name: localScaleSensitivity
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_localScaleSensitivity
+  commentId: F:Mirror.NetworkTransformBase.localScaleSensitivity
+  fullName: Mirror.NetworkTransformBase.localScaleSensitivity
+  nameWithType: NetworkTransformBase.localScaleSensitivity
 - uid: Mirror.NetworkTransformBase.OnDeserialize(Mirror.NetworkReader,System.Boolean)
   name: OnDeserialize(NetworkReader, Boolean)
   href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_OnDeserialize_Mirror_NetworkReader_System_Boolean_

@@ -99,17 +99,20 @@
 <pre><code class="lang-cs">using UnityEngine;
 using Mirror;
 
+[System.Serializable]
+public struct Item
+{
+    public string name;
+    public int hitPoints;
+    public int durability;
+}
+
+[System.Serializable]
+public class SyncDictionaryStringItem : SyncDictionary&lt;string, Item&gt; {}
+
 public class ExamplePlayer : NetworkBehaviour
 {
-    public class SyncDictionaryStringItem : SyncDictionary&lt;string, Item&gt; {}
-
-    public struct Item
-    {
-        public string name;
-        public int hitPoints;
-        public int durability;
-    }
-
+    [SerializeField]
     public readonly SyncDictionaryStringItem Equipment = new SyncDictionaryStringItem();
 
     public override void OnStartServer()
@@ -135,13 +138,15 @@ public class ExamplePlayer : NetworkBehaviour
 }
 </code></pre>
 <p>By default, SyncDictionary uses a Dictionary to store it's data. If you want to use a different <code>IDictionary</code>implementation such as <code>SortedList</code> or <code>SortedDictionary</code>, add a constructor to your SyncDictionary implementation and pass a dictionary to the base class. For example:</p>
-<pre><code class="lang-cs">public class ExamplePlayer : NetworkBehaviour
+<pre><code class="lang-cs">[System.Serializable]
+public class SyncDictionaryStringItem : SyncDictionary&lt;string, Item&gt; 
 {
-    public class SyncDictionaryStringItem : SyncDictionary&lt;string, Item&gt; 
-    {
-        public SyncDictionaryStringItem() : base (new SortedList&lt;string,Item&gt;()) {}
-    }
+    public SyncDictionaryStringItem() : base (new SortedList&lt;string,Item&gt;()) {}
+}
     
+public class ExamplePlayer : NetworkBehaviour
+{
+    [SerializeField]
     public readonly SyncDictionaryStringItem Equipment = new SyncDictionaryStringItem();
 }
 </code></pre>
@@ -153,7 +158,7 @@ public class ExamplePlayer : NetworkBehaviour
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/cfb7996df786e4ebc75fd45482225690b9d86439/doc/Guides/Sync/SyncDictionary.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/31c3c1f8e5b8bbcd03bebb2dc5e89a4794e05558/doc/Guides/Sync/SyncDictionary.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

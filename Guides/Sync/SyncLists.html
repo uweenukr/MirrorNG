@@ -91,16 +91,18 @@
 </ul>
 <h2 id="usage">Usage</h2>
 <p>Create a class that derives from SyncList for your specific type. This is necessary because Mirror will add methods to that class with the weaver. Then add a SyncList field to your NetworkBehaviour class. For example:</p>
-<pre><code class="lang-cs">public struct Item
+<pre><code class="lang-cs">[System.Serializable]
+public struct Item
 {
     public string name;
     public int amount;
     public Color32 color;
 }
 
-class SyncListItem : SyncList&lt;Item&gt; {}
+[System.Serializable]
+public class SyncListItem : SyncList&lt;Item&gt; {}
 
-class Player : NetworkBehaviour
+public class Player : NetworkBehaviour
 {
     readonly SyncListItem inventory = new SyncListItem();
 
@@ -198,7 +200,7 @@ Note SyncLists must be initialized in the constructor, not in Startxxx().  You c
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/cfb7996df786e4ebc75fd45482225690b9d86439/doc/Guides/Sync/SyncLists.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/31c3c1f8e5b8bbcd03bebb2dc5e89a4794e05558/doc/Guides/Sync/SyncLists.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

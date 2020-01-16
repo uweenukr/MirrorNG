@@ -83,10 +83,12 @@
 <p>A SyncHashSet can contain any <a href="../DataTypes.html">supported mirror type</a></p>
 <h2 id="usage">Usage</h2>
 <p>Create a class that derives from SyncHashSet for your specific type. This is necessary because Mirror will add methods to that class with the weaver. Then add a SyncHashSet field to your NetworkBehaviour class. For example:</p>
-<pre><code class="lang-cs">class Player : NetworkBehaviour {
+<pre><code class="lang-cs">[System.Serializable]
+public class SyncSkillSet : SyncHashSet&lt;string&gt; {}
 
-    class SyncSkillSet : SyncHashSet&lt;string&gt; {}
+public class Player : NetworkBehaviour {
 
+    [SerializeField]
     readonly SyncSkillSet skills = new SyncSkillSet();
 
     int skillPoints = 10;
@@ -109,10 +111,12 @@
 <p>Note that by the time you subscribe, the set will already be initialized, so you will not get a call for the initial data, only updates.</p>
 Note SyncSets must be initialized in the constructor, not in Startxxx().  You can make them readonly to ensure correct usage.<p>
 </blockquote>
-<pre><code class="lang-cs">class Player : NetworkBehaviour
-{
-    class SyncSetBuffs : SyncHashSet&lt;string&gt; {};
+<pre><code class="lang-cs">[System.Serializable]
+public class SyncSetBuffs : SyncHashSet&lt;string&gt; {};
 
+public class Player : NetworkBehaviour
+{
+    [SerializeField]
     public readonly SyncSetBuffs buffs = new SyncSetBuffs();
 
     // this will add the delegate on the client.
@@ -147,7 +151,7 @@ Note SyncSets must be initialized in the constructor, not in Startxxx().  You ca
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/cfb7996df786e4ebc75fd45482225690b9d86439/doc/Guides/Sync/SyncHashSet.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/31c3c1f8e5b8bbcd03bebb2dc5e89a4794e05558/doc/Guides/Sync/SyncHashSet.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
