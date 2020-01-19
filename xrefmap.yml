@@ -125,6 +125,19 @@ references:
   isSpec: "True"
   fullName: Mirror.ClientScene.ClearSpawners
   nameWithType: ClientScene.ClearSpawners
+- uid: Mirror.ClientScene.client
+  name: client
+  href: api/Mirror.ClientScene.html#Mirror_ClientScene_client
+  commentId: P:Mirror.ClientScene.client
+  fullName: Mirror.ClientScene.client
+  nameWithType: ClientScene.client
+- uid: Mirror.ClientScene.client*
+  name: client
+  href: api/Mirror.ClientScene.html#Mirror_ClientScene_client_
+  commentId: Overload:Mirror.ClientScene.client
+  isSpec: "True"
+  fullName: Mirror.ClientScene.client
+  nameWithType: ClientScene.client
 - uid: Mirror.ClientScene.DestroyAllClientObjects
   name: DestroyAllClientObjects()
   href: api/Mirror.ClientScene.html#Mirror_ClientScene_DestroyAllClientObjects
@@ -288,6 +301,19 @@ references:
   isSpec: "True"
   fullName: Mirror.ClientScene.RemovePlayer
   nameWithType: ClientScene.RemovePlayer
+- uid: Mirror.ClientScene.server
+  name: server
+  href: api/Mirror.ClientScene.html#Mirror_ClientScene_server
+  commentId: P:Mirror.ClientScene.server
+  fullName: Mirror.ClientScene.server
+  nameWithType: ClientScene.server
+- uid: Mirror.ClientScene.server*
+  name: server
+  href: api/Mirror.ClientScene.html#Mirror_ClientScene_server_
+  commentId: Overload:Mirror.ClientScene.server
+  isSpec: "True"
+  fullName: Mirror.ClientScene.server
+  nameWithType: ClientScene.server
 - uid: Mirror.ClientScene.spawnableObjects
   name: spawnableObjects
   href: api/Mirror.ClientScene.html#Mirror_ClientScene_spawnableObjects
@@ -1818,6 +1844,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkBehaviour.ClearAllDirtyBits
   nameWithType: NetworkBehaviour.ClearAllDirtyBits
+- uid: Mirror.NetworkBehaviour.client
+  name: client
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_client
+  commentId: P:Mirror.NetworkBehaviour.client
+  fullName: Mirror.NetworkBehaviour.client
+  nameWithType: NetworkBehaviour.client
+- uid: Mirror.NetworkBehaviour.client*
+  name: client
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_client_
+  commentId: Overload:Mirror.NetworkBehaviour.client
+  isSpec: "True"
+  fullName: Mirror.NetworkBehaviour.client
+  nameWithType: NetworkBehaviour.client
 - uid: Mirror.NetworkBehaviour.CmdDelegate
   name: NetworkBehaviour.CmdDelegate
   href: api/Mirror.NetworkBehaviour.CmdDelegate.html
@@ -2377,6 +2416,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkBehaviour.SerializeObjectsDelta
   nameWithType: NetworkBehaviour.SerializeObjectsDelta
+- uid: Mirror.NetworkBehaviour.server
+  name: server
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_server
+  commentId: P:Mirror.NetworkBehaviour.server
+  fullName: Mirror.NetworkBehaviour.server
+  nameWithType: NetworkBehaviour.server
+- uid: Mirror.NetworkBehaviour.server*
+  name: server
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_server_
+  commentId: Overload:Mirror.NetworkBehaviour.server
+  isSpec: "True"
+  fullName: Mirror.NetworkBehaviour.server
+  nameWithType: NetworkBehaviour.server
 - uid: Mirror.NetworkBehaviour.SetDirtyBit(System.UInt64)
   name: SetDirtyBit(UInt64)
   href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SetDirtyBit_System_UInt64_
@@ -2575,12 +2627,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkClient.connection
   nameWithType: NetworkClient.connection
-- uid: Mirror.NetworkClient.Disconnect
-  name: Disconnect()
-  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Disconnect
-  commentId: M:Mirror.NetworkClient.Disconnect
-  fullName: Mirror.NetworkClient.Disconnect()
-  nameWithType: NetworkClient.Disconnect()
+- uid: Mirror.NetworkClient.Disconnect(Mirror.NetworkServer)
+  name: Disconnect(NetworkServer)
+  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Disconnect_Mirror_NetworkServer_
+  commentId: M:Mirror.NetworkClient.Disconnect(Mirror.NetworkServer)
+  fullName: Mirror.NetworkClient.Disconnect(Mirror.NetworkServer)
+  nameWithType: NetworkClient.Disconnect(NetworkServer)
 - uid: Mirror.NetworkClient.Disconnect*
   name: Disconnect
   href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Disconnect_
@@ -3034,6 +3086,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkIdentity.AssignClientAuthority
   nameWithType: NetworkIdentity.AssignClientAuthority
+- uid: Mirror.NetworkIdentity.client
+  name: client
+  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_client
+  commentId: P:Mirror.NetworkIdentity.client
+  fullName: Mirror.NetworkIdentity.client
+  nameWithType: NetworkIdentity.client
+- uid: Mirror.NetworkIdentity.client*
+  name: client
+  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_client_
+  commentId: Overload:Mirror.NetworkIdentity.client
+  isSpec: "True"
+  fullName: Mirror.NetworkIdentity.client
+  nameWithType: NetworkIdentity.client
 - uid: Mirror.NetworkIdentity.clientAuthorityCallback
   name: clientAuthorityCallback
   href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_clientAuthorityCallback
@@ -3234,6 +3299,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkIdentity.sceneId
   nameWithType: NetworkIdentity.sceneId
+- uid: Mirror.NetworkIdentity.server
+  name: server
+  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_server
+  commentId: P:Mirror.NetworkIdentity.server
+  fullName: Mirror.NetworkIdentity.server
+  nameWithType: NetworkIdentity.server
+- uid: Mirror.NetworkIdentity.server*
+  name: server
+  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_server_
+  commentId: Overload:Mirror.NetworkIdentity.server
+  isSpec: "True"
+  fullName: Mirror.NetworkIdentity.server
+  nameWithType: NetworkIdentity.server
 - uid: Mirror.NetworkIdentity.serverOnly
   name: serverOnly
   href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_serverOnly
@@ -3277,6 +3355,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkManager.Awake
   nameWithType: NetworkManager.Awake
+- uid: Mirror.NetworkManager.client
+  name: client
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_client
+  commentId: F:Mirror.NetworkManager.client
+  fullName: Mirror.NetworkManager.client
+  nameWithType: NetworkManager.client
 - uid: Mirror.NetworkManager.clientLoadedScene
   name: clientLoadedScene
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_clientLoadedScene
@@ -3745,6 +3829,12 @@ references:
   commentId: F:Mirror.NetworkManager.runInBackground
   fullName: Mirror.NetworkManager.runInBackground
   nameWithType: NetworkManager.runInBackground
+- uid: Mirror.NetworkManager.server
+  name: server
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_server
+  commentId: F:Mirror.NetworkManager.server
+  fullName: Mirror.NetworkManager.server
+  nameWithType: NetworkManager.server
 - uid: Mirror.NetworkManager.ServerChangeScene(System.String)
   name: ServerChangeScene(String)
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_ServerChangeScene_System_String_
@@ -3770,25 +3860,6 @@ references:
   commentId: F:Mirror.NetworkManager.showDebugMessages
   fullName: Mirror.NetworkManager.showDebugMessages
   nameWithType: NetworkManager.showDebugMessages
-- uid: Mirror.NetworkManager.Shutdown
-  name: Shutdown()
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_Shutdown
-  commentId: M:Mirror.NetworkManager.Shutdown
-  fullName: Mirror.NetworkManager.Shutdown()
-  nameWithType: NetworkManager.Shutdown()
-- uid: Mirror.NetworkManager.Shutdown*
-  name: Shutdown
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_Shutdown_
-  commentId: Overload:Mirror.NetworkManager.Shutdown
-  isSpec: "True"
-  fullName: Mirror.NetworkManager.Shutdown
-  nameWithType: NetworkManager.Shutdown
-- uid: Mirror.NetworkManager.singleton
-  name: singleton
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_singleton
-  commentId: F:Mirror.NetworkManager.singleton
-  fullName: Mirror.NetworkManager.singleton
-  nameWithType: NetworkManager.singleton
 - uid: Mirror.NetworkManager.spawnPrefabs
   name: spawnPrefabs
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_spawnPrefabs
@@ -5423,6 +5494,12 @@ references:
   commentId: F:Mirror.NetworkRoomPlayer.ReadyToBegin
   fullName: Mirror.NetworkRoomPlayer.ReadyToBegin
   nameWithType: NetworkRoomPlayer.ReadyToBegin
+- uid: Mirror.NetworkRoomPlayer.roomManager
+  name: roomManager
+  href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_roomManager
+  commentId: F:Mirror.NetworkRoomPlayer.roomManager
+  fullName: Mirror.NetworkRoomPlayer.roomManager
+  nameWithType: NetworkRoomPlayer.roomManager
 - uid: Mirror.NetworkRoomPlayer.ShowRoomGUI
   name: ShowRoomGUI
   href: api/Mirror.NetworkRoomPlayer.html#Mirror_NetworkRoomPlayer_ShowRoomGUI
@@ -5474,18 +5551,18 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.AddConnection
   nameWithType: NetworkServer.AddConnection
-- uid: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject)
-  name: AddPlayerForConnection(NetworkConnection, GameObject)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_GameObject_
-  commentId: M:Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject)
-  fullName: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection, GameObject)
-  nameWithType: NetworkServer.AddPlayerForConnection(NetworkConnection, GameObject)
-- uid: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject,Guid)
-  name: AddPlayerForConnection(NetworkConnection, GameObject, Guid)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_GameObject_Guid_
-  commentId: M:Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject,Guid)
-  fullName: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection, GameObject, Guid)
-  nameWithType: NetworkServer.AddPlayerForConnection(NetworkConnection, GameObject, Guid)
+- uid: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject)
+  name: AddPlayerForConnection(NetworkConnection, NetworkClient, GameObject)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_Mirror_NetworkClient_GameObject_
+  commentId: M:Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject)
+  fullName: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection, Mirror.NetworkClient, GameObject)
+  nameWithType: NetworkServer.AddPlayerForConnection(NetworkConnection, NetworkClient, GameObject)
+- uid: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject,Guid)
+  name: AddPlayerForConnection(NetworkConnection, NetworkClient, GameObject, Guid)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_Mirror_NetworkClient_GameObject_Guid_
+  commentId: M:Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject,Guid)
+  fullName: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection, Mirror.NetworkClient, GameObject, Guid)
+  nameWithType: NetworkServer.AddPlayerForConnection(NetworkConnection, NetworkClient, GameObject, Guid)
 - uid: Mirror.NetworkServer.AddPlayerForConnection*
   name: AddPlayerForConnection
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_
@@ -5647,18 +5724,18 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.RemoveConnection
   nameWithType: NetworkServer.RemoveConnection
-- uid: Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,GameObject,Guid,System.Boolean)
-  name: ReplacePlayerForConnection(NetworkConnection, GameObject, Guid, Boolean)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_ReplacePlayerForConnection_Mirror_NetworkConnection_GameObject_Guid_System_Boolean_
-  commentId: M:Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,GameObject,Guid,System.Boolean)
-  fullName: Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection, GameObject, Guid, System.Boolean)
-  nameWithType: NetworkServer.ReplacePlayerForConnection(NetworkConnection, GameObject, Guid, Boolean)
-- uid: Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,GameObject,System.Boolean)
-  name: ReplacePlayerForConnection(NetworkConnection, GameObject, Boolean)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_ReplacePlayerForConnection_Mirror_NetworkConnection_GameObject_System_Boolean_
-  commentId: M:Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,GameObject,System.Boolean)
-  fullName: Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection, GameObject, System.Boolean)
-  nameWithType: NetworkServer.ReplacePlayerForConnection(NetworkConnection, GameObject, Boolean)
+- uid: Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject,Guid,System.Boolean)
+  name: ReplacePlayerForConnection(NetworkConnection, NetworkClient, GameObject, Guid, Boolean)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_ReplacePlayerForConnection_Mirror_NetworkConnection_Mirror_NetworkClient_GameObject_Guid_System_Boolean_
+  commentId: M:Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject,Guid,System.Boolean)
+  fullName: Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection, Mirror.NetworkClient, GameObject, Guid, System.Boolean)
+  nameWithType: NetworkServer.ReplacePlayerForConnection(NetworkConnection, NetworkClient, GameObject, Guid, Boolean)
+- uid: Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject,System.Boolean)
+  name: ReplacePlayerForConnection(NetworkConnection, NetworkClient, GameObject, Boolean)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_ReplacePlayerForConnection_Mirror_NetworkConnection_Mirror_NetworkClient_GameObject_System_Boolean_
+  commentId: M:Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject,System.Boolean)
+  fullName: Mirror.NetworkServer.ReplacePlayerForConnection(Mirror.NetworkConnection, Mirror.NetworkClient, GameObject, System.Boolean)
+  nameWithType: NetworkServer.ReplacePlayerForConnection(NetworkConnection, NetworkClient, GameObject, Boolean)
 - uid: Mirror.NetworkServer.ReplacePlayerForConnection*
   name: ReplacePlayerForConnection
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_ReplacePlayerForConnection_
@@ -5794,18 +5871,18 @@ references:
   commentId: M:Mirror.NetworkServer.Spawn(GameObject,GameObject)
   fullName: Mirror.NetworkServer.Spawn(GameObject, GameObject)
   nameWithType: NetworkServer.Spawn(GameObject, GameObject)
-- uid: Mirror.NetworkServer.Spawn(GameObject,Guid,Mirror.NetworkConnection)
-  name: Spawn(GameObject, Guid, NetworkConnection)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Guid_Mirror_NetworkConnection_
-  commentId: M:Mirror.NetworkServer.Spawn(GameObject,Guid,Mirror.NetworkConnection)
-  fullName: Mirror.NetworkServer.Spawn(GameObject, Guid, Mirror.NetworkConnection)
-  nameWithType: NetworkServer.Spawn(GameObject, Guid, NetworkConnection)
-- uid: Mirror.NetworkServer.Spawn(GameObject,Mirror.NetworkConnection)
-  name: Spawn(GameObject, NetworkConnection)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Mirror_NetworkConnection_
-  commentId: M:Mirror.NetworkServer.Spawn(GameObject,Mirror.NetworkConnection)
-  fullName: Mirror.NetworkServer.Spawn(GameObject, Mirror.NetworkConnection)
-  nameWithType: NetworkServer.Spawn(GameObject, NetworkConnection)
+- uid: Mirror.NetworkServer.Spawn(GameObject,Guid,Mirror.NetworkClient,Mirror.NetworkConnection)
+  name: Spawn(GameObject, Guid, NetworkClient, NetworkConnection)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Guid_Mirror_NetworkClient_Mirror_NetworkConnection_
+  commentId: M:Mirror.NetworkServer.Spawn(GameObject,Guid,Mirror.NetworkClient,Mirror.NetworkConnection)
+  fullName: Mirror.NetworkServer.Spawn(GameObject, Guid, Mirror.NetworkClient, Mirror.NetworkConnection)
+  nameWithType: NetworkServer.Spawn(GameObject, Guid, NetworkClient, NetworkConnection)
+- uid: Mirror.NetworkServer.Spawn(GameObject,Mirror.NetworkClient,Mirror.NetworkConnection)
+  name: Spawn(GameObject, NetworkClient, NetworkConnection)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Mirror_NetworkClient_Mirror_NetworkConnection_
+  commentId: M:Mirror.NetworkServer.Spawn(GameObject,Mirror.NetworkClient,Mirror.NetworkConnection)
+  fullName: Mirror.NetworkServer.Spawn(GameObject, Mirror.NetworkClient, Mirror.NetworkConnection)
+  nameWithType: NetworkServer.Spawn(GameObject, NetworkClient, NetworkConnection)
 - uid: Mirror.NetworkServer.Spawn*
   name: Spawn
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_
@@ -5813,12 +5890,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.Spawn
   nameWithType: NetworkServer.Spawn
-- uid: Mirror.NetworkServer.SpawnObjects
-  name: SpawnObjects()
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnObjects
-  commentId: M:Mirror.NetworkServer.SpawnObjects
-  fullName: Mirror.NetworkServer.SpawnObjects()
-  nameWithType: NetworkServer.SpawnObjects()
+- uid: Mirror.NetworkServer.SpawnObjects(Mirror.NetworkClient)
+  name: SpawnObjects(NetworkClient)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnObjects_Mirror_NetworkClient_
+  commentId: M:Mirror.NetworkServer.SpawnObjects(Mirror.NetworkClient)
+  fullName: Mirror.NetworkServer.SpawnObjects(Mirror.NetworkClient)
+  nameWithType: NetworkServer.SpawnObjects(NetworkClient)
 - uid: Mirror.NetworkServer.SpawnObjects*
   name: SpawnObjects
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnObjects_
@@ -5832,18 +5909,6 @@ references:
   commentId: M:Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,GameObject)
   fullName: Mirror.NetworkServer.SpawnWithClientAuthority(GameObject, GameObject)
   nameWithType: NetworkServer.SpawnWithClientAuthority(GameObject, GameObject)
-- uid: Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,Guid,Mirror.NetworkConnection)
-  name: SpawnWithClientAuthority(GameObject, Guid, NetworkConnection)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnWithClientAuthority_GameObject_Guid_Mirror_NetworkConnection_
-  commentId: M:Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,Guid,Mirror.NetworkConnection)
-  fullName: Mirror.NetworkServer.SpawnWithClientAuthority(GameObject, Guid, Mirror.NetworkConnection)
-  nameWithType: NetworkServer.SpawnWithClientAuthority(GameObject, Guid, NetworkConnection)
-- uid: Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,Mirror.NetworkConnection)
-  name: SpawnWithClientAuthority(GameObject, NetworkConnection)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnWithClientAuthority_GameObject_Mirror_NetworkConnection_
-  commentId: M:Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,Mirror.NetworkConnection)
-  fullName: Mirror.NetworkServer.SpawnWithClientAuthority(GameObject, Mirror.NetworkConnection)
-  nameWithType: NetworkServer.SpawnWithClientAuthority(GameObject, NetworkConnection)
 - uid: Mirror.NetworkServer.SpawnWithClientAuthority*
   name: SpawnWithClientAuthority
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnWithClientAuthority_
@@ -5899,6 +5964,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkStartPosition.Awake
   nameWithType: NetworkStartPosition.Awake
+- uid: Mirror.NetworkStartPosition.manager
+  name: manager
+  href: api/Mirror.NetworkStartPosition.html#Mirror_NetworkStartPosition_manager
+  commentId: F:Mirror.NetworkStartPosition.manager
+  fullName: Mirror.NetworkStartPosition.manager
+  nameWithType: NetworkStartPosition.manager
 - uid: Mirror.NetworkStartPosition.OnDestroy
   name: OnDestroy()
   href: api/Mirror.NetworkStartPosition.html#Mirror_NetworkStartPosition_OnDestroy
