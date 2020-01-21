@@ -3111,19 +3111,6 @@ references:
   commentId: T:Mirror.NetworkIdentity.ClientAuthorityCallback
   fullName: Mirror.NetworkIdentity.ClientAuthorityCallback
   nameWithType: NetworkIdentity.ClientAuthorityCallback
-- uid: Mirror.NetworkIdentity.clientAuthorityOwner
-  name: clientAuthorityOwner
-  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_clientAuthorityOwner
-  commentId: P:Mirror.NetworkIdentity.clientAuthorityOwner
-  fullName: Mirror.NetworkIdentity.clientAuthorityOwner
-  nameWithType: NetworkIdentity.clientAuthorityOwner
-- uid: Mirror.NetworkIdentity.clientAuthorityOwner*
-  name: clientAuthorityOwner
-  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_clientAuthorityOwner_
-  commentId: Overload:Mirror.NetworkIdentity.clientAuthorityOwner
-  isSpec: "True"
-  fullName: Mirror.NetworkIdentity.clientAuthorityOwner
-  nameWithType: NetworkIdentity.clientAuthorityOwner
 - uid: Mirror.NetworkIdentity.connectionToClient
   name: connectionToClient
   href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_connectionToClient
@@ -3603,12 +3590,6 @@ references:
   commentId: M:Mirror.NetworkManager.OnServerAddPlayer(Mirror.NetworkConnection)
   fullName: Mirror.NetworkManager.OnServerAddPlayer(Mirror.NetworkConnection)
   nameWithType: NetworkManager.OnServerAddPlayer(NetworkConnection)
-- uid: Mirror.NetworkManager.OnServerAddPlayer(Mirror.NetworkConnection,Mirror.AddPlayerMessage)
-  name: OnServerAddPlayer(NetworkConnection, AddPlayerMessage)
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_OnServerAddPlayer_Mirror_NetworkConnection_Mirror_AddPlayerMessage_
-  commentId: M:Mirror.NetworkManager.OnServerAddPlayer(Mirror.NetworkConnection,Mirror.AddPlayerMessage)
-  fullName: Mirror.NetworkManager.OnServerAddPlayer(Mirror.NetworkConnection, Mirror.AddPlayerMessage)
-  nameWithType: NetworkManager.OnServerAddPlayer(NetworkConnection, AddPlayerMessage)
 - uid: Mirror.NetworkManager.OnServerAddPlayer*
   name: OnServerAddPlayer
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_OnServerAddPlayer_
@@ -5903,19 +5884,6 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.SpawnObjects
   nameWithType: NetworkServer.SpawnObjects
-- uid: Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,GameObject)
-  name: SpawnWithClientAuthority(GameObject, GameObject)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnWithClientAuthority_GameObject_GameObject_
-  commentId: M:Mirror.NetworkServer.SpawnWithClientAuthority(GameObject,GameObject)
-  fullName: Mirror.NetworkServer.SpawnWithClientAuthority(GameObject, GameObject)
-  nameWithType: NetworkServer.SpawnWithClientAuthority(GameObject, GameObject)
-- uid: Mirror.NetworkServer.SpawnWithClientAuthority*
-  name: SpawnWithClientAuthority
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnWithClientAuthority_
-  commentId: Overload:Mirror.NetworkServer.SpawnWithClientAuthority
-  isSpec: "True"
-  fullName: Mirror.NetworkServer.SpawnWithClientAuthority
-  nameWithType: NetworkServer.SpawnWithClientAuthority
 - uid: Mirror.NetworkServer.UnregisterHandler*
   name: UnregisterHandler
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_UnregisterHandler_
@@ -8023,14 +7991,6 @@ references:
   fullName.vb: Mirror.SyncIDictionary(Of TKey, TValue).Operation.OP_CLEAR
   nameWithType: SyncIDictionary<TKey, TValue>.Operation.OP_CLEAR
   nameWithType.vb: SyncIDictionary(Of TKey, TValue).Operation.OP_CLEAR
-- uid: Mirror.SyncIDictionary`2.Operation.OP_DIRTY
-  name: OP_DIRTY
-  href: api/Mirror.SyncIDictionary-2.Operation.html#Mirror_SyncIDictionary_2_Operation_OP_DIRTY
-  commentId: F:Mirror.SyncIDictionary`2.Operation.OP_DIRTY
-  fullName: Mirror.SyncIDictionary<TKey, TValue>.Operation.OP_DIRTY
-  fullName.vb: Mirror.SyncIDictionary(Of TKey, TValue).Operation.OP_DIRTY
-  nameWithType: SyncIDictionary<TKey, TValue>.Operation.OP_DIRTY
-  nameWithType.vb: SyncIDictionary(Of TKey, TValue).Operation.OP_DIRTY
 - uid: Mirror.SyncIDictionary`2.Operation.OP_REMOVE
   name: OP_REMOVE
   href: api/Mirror.SyncIDictionary-2.Operation.html#Mirror_SyncIDictionary_2_Operation_OP_REMOVE
@@ -8624,14 +8584,6 @@ references:
   fullName.vb: Mirror.SyncList(Of T).Operation.OP_CLEAR
   nameWithType: SyncList<T>.Operation.OP_CLEAR
   nameWithType.vb: SyncList(Of T).Operation.OP_CLEAR
-- uid: Mirror.SyncList`1.Operation.OP_DIRTY
-  name: OP_DIRTY
-  href: api/Mirror.SyncList-1.Operation.html#Mirror_SyncList_1_Operation_OP_DIRTY
-  commentId: F:Mirror.SyncList`1.Operation.OP_DIRTY
-  fullName: Mirror.SyncList<T>.Operation.OP_DIRTY
-  fullName.vb: Mirror.SyncList(Of T).Operation.OP_DIRTY
-  nameWithType: SyncList<T>.Operation.OP_DIRTY
-  nameWithType.vb: SyncList(Of T).Operation.OP_DIRTY
 - uid: Mirror.SyncList`1.Operation.OP_INSERT
   name: OP_INSERT
   href: api/Mirror.SyncList-1.Operation.html#Mirror_SyncList_1_Operation_OP_INSERT
@@ -8640,14 +8592,6 @@ references:
   fullName.vb: Mirror.SyncList(Of T).Operation.OP_INSERT
   nameWithType: SyncList<T>.Operation.OP_INSERT
   nameWithType.vb: SyncList(Of T).Operation.OP_INSERT
-- uid: Mirror.SyncList`1.Operation.OP_REMOVE
-  name: OP_REMOVE
-  href: api/Mirror.SyncList-1.Operation.html#Mirror_SyncList_1_Operation_OP_REMOVE
-  commentId: F:Mirror.SyncList`1.Operation.OP_REMOVE
-  fullName: Mirror.SyncList<T>.Operation.OP_REMOVE
-  fullName.vb: Mirror.SyncList(Of T).Operation.OP_REMOVE
-  nameWithType: SyncList<T>.Operation.OP_REMOVE
-  nameWithType.vb: SyncList(Of T).Operation.OP_REMOVE
 - uid: Mirror.SyncList`1.Operation.OP_REMOVEAT
   name: OP_REMOVEAT
   href: api/Mirror.SyncList-1.Operation.html#Mirror_SyncList_1_Operation_OP_REMOVEAT
