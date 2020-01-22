@@ -5367,6 +5367,19 @@ references:
   commentId: F:Mirror.NetworkRoomManager.PendingPlayers
   fullName: Mirror.NetworkRoomManager.PendingPlayers
   nameWithType: NetworkRoomManager.PendingPlayers
+- uid: Mirror.NetworkRoomManager.RecalculateRoomPlayerIndices
+  name: RecalculateRoomPlayerIndices()
+  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_RecalculateRoomPlayerIndices
+  commentId: M:Mirror.NetworkRoomManager.RecalculateRoomPlayerIndices
+  fullName: Mirror.NetworkRoomManager.RecalculateRoomPlayerIndices()
+  nameWithType: NetworkRoomManager.RecalculateRoomPlayerIndices()
+- uid: Mirror.NetworkRoomManager.RecalculateRoomPlayerIndices*
+  name: RecalculateRoomPlayerIndices
+  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_RecalculateRoomPlayerIndices_
+  commentId: Overload:Mirror.NetworkRoomManager.RecalculateRoomPlayerIndices
+  isSpec: "True"
+  fullName: Mirror.NetworkRoomManager.RecalculateRoomPlayerIndices
+  nameWithType: NetworkRoomManager.RecalculateRoomPlayerIndices
 - uid: Mirror.NetworkRoomManager.RoomScene
   name: RoomScene
   href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_RoomScene
@@ -6214,19 +6227,32 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkTransformBase.OnSerialize
   nameWithType: NetworkTransformBase.OnSerialize
-- uid: Mirror.NetworkTransformBase.TargetComponent
-  name: TargetComponent
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_TargetComponent
-  commentId: P:Mirror.NetworkTransformBase.TargetComponent
-  fullName: Mirror.NetworkTransformBase.TargetComponent
-  nameWithType: NetworkTransformBase.TargetComponent
-- uid: Mirror.NetworkTransformBase.TargetComponent*
-  name: TargetComponent
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_TargetComponent_
-  commentId: Overload:Mirror.NetworkTransformBase.TargetComponent
+- uid: Mirror.NetworkTransformBase.SerializeIntoWriter(Mirror.NetworkWriter,Vector3,Quaternion,Mirror.NetworkTransformBase.Compression,Vector3)
+  name: SerializeIntoWriter(NetworkWriter, Vector3, Quaternion, NetworkTransformBase.Compression, Vector3)
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_SerializeIntoWriter_Mirror_NetworkWriter_Vector3_Quaternion_Mirror_NetworkTransformBase_Compression_Vector3_
+  commentId: M:Mirror.NetworkTransformBase.SerializeIntoWriter(Mirror.NetworkWriter,Vector3,Quaternion,Mirror.NetworkTransformBase.Compression,Vector3)
+  fullName: Mirror.NetworkTransformBase.SerializeIntoWriter(Mirror.NetworkWriter, Vector3, Quaternion, Mirror.NetworkTransformBase.Compression, Vector3)
+  nameWithType: NetworkTransformBase.SerializeIntoWriter(NetworkWriter, Vector3, Quaternion, NetworkTransformBase.Compression, Vector3)
+- uid: Mirror.NetworkTransformBase.SerializeIntoWriter*
+  name: SerializeIntoWriter
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_SerializeIntoWriter_
+  commentId: Overload:Mirror.NetworkTransformBase.SerializeIntoWriter
   isSpec: "True"
-  fullName: Mirror.NetworkTransformBase.TargetComponent
-  nameWithType: NetworkTransformBase.TargetComponent
+  fullName: Mirror.NetworkTransformBase.SerializeIntoWriter
+  nameWithType: NetworkTransformBase.SerializeIntoWriter
+- uid: Mirror.NetworkTransformBase.targetComponent
+  name: targetComponent
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_targetComponent
+  commentId: P:Mirror.NetworkTransformBase.targetComponent
+  fullName: Mirror.NetworkTransformBase.targetComponent
+  nameWithType: NetworkTransformBase.targetComponent
+- uid: Mirror.NetworkTransformBase.targetComponent*
+  name: targetComponent
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_targetComponent_
+  commentId: Overload:Mirror.NetworkTransformBase.targetComponent
+  isSpec: "True"
+  fullName: Mirror.NetworkTransformBase.targetComponent
+  nameWithType: NetworkTransformBase.targetComponent
 - uid: Mirror.NetworkTransformChild
   name: NetworkTransformChild
   href: api/Mirror.NetworkTransformChild.html
