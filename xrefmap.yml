@@ -6240,19 +6240,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkTransformBase.SerializeIntoWriter
   nameWithType: NetworkTransformBase.SerializeIntoWriter
-- uid: Mirror.NetworkTransformBase.targetComponent
-  name: targetComponent
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_targetComponent
-  commentId: P:Mirror.NetworkTransformBase.targetComponent
-  fullName: Mirror.NetworkTransformBase.targetComponent
-  nameWithType: NetworkTransformBase.targetComponent
-- uid: Mirror.NetworkTransformBase.targetComponent*
-  name: targetComponent
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_targetComponent_
-  commentId: Overload:Mirror.NetworkTransformBase.targetComponent
+- uid: Mirror.NetworkTransformBase.TargetComponent
+  name: TargetComponent
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_TargetComponent
+  commentId: P:Mirror.NetworkTransformBase.TargetComponent
+  fullName: Mirror.NetworkTransformBase.TargetComponent
+  nameWithType: NetworkTransformBase.TargetComponent
+- uid: Mirror.NetworkTransformBase.TargetComponent*
+  name: TargetComponent
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_TargetComponent_
+  commentId: Overload:Mirror.NetworkTransformBase.TargetComponent
   isSpec: "True"
-  fullName: Mirror.NetworkTransformBase.targetComponent
-  nameWithType: NetworkTransformBase.targetComponent
+  fullName: Mirror.NetworkTransformBase.TargetComponent
+  nameWithType: NetworkTransformBase.TargetComponent
 - uid: Mirror.NetworkTransformChild
   name: NetworkTransformChild
   href: api/Mirror.NetworkTransformChild.html
