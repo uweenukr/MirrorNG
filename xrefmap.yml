@@ -6111,12 +6111,12 @@ references:
   commentId: T:Mirror.NetworkTransformBase
   fullName: Mirror.NetworkTransformBase
   nameWithType: NetworkTransformBase
-- uid: Mirror.NetworkTransformBase.clientAuthority
-  name: clientAuthority
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_clientAuthority
-  commentId: F:Mirror.NetworkTransformBase.clientAuthority
-  fullName: Mirror.NetworkTransformBase.clientAuthority
-  nameWithType: NetworkTransformBase.clientAuthority
+- uid: Mirror.NetworkTransformBase.ClientAuthority
+  name: ClientAuthority
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_ClientAuthority
+  commentId: F:Mirror.NetworkTransformBase.ClientAuthority
+  fullName: Mirror.NetworkTransformBase.ClientAuthority
+  nameWithType: NetworkTransformBase.ClientAuthority
 - uid: Mirror.NetworkTransformBase.Compression
   name: NetworkTransformBase.Compression
   href: api/Mirror.NetworkTransformBase.Compression.html
@@ -6183,24 +6183,24 @@ references:
   commentId: F:Mirror.NetworkTransformBase.DataPoint.TimeStamp
   fullName: Mirror.NetworkTransformBase.DataPoint.TimeStamp
   nameWithType: NetworkTransformBase.DataPoint.TimeStamp
-- uid: Mirror.NetworkTransformBase.localEulerAnglesSensitivity
-  name: localEulerAnglesSensitivity
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_localEulerAnglesSensitivity
-  commentId: F:Mirror.NetworkTransformBase.localEulerAnglesSensitivity
-  fullName: Mirror.NetworkTransformBase.localEulerAnglesSensitivity
-  nameWithType: NetworkTransformBase.localEulerAnglesSensitivity
-- uid: Mirror.NetworkTransformBase.localPositionSensitivity
-  name: localPositionSensitivity
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_localPositionSensitivity
-  commentId: F:Mirror.NetworkTransformBase.localPositionSensitivity
-  fullName: Mirror.NetworkTransformBase.localPositionSensitivity
-  nameWithType: NetworkTransformBase.localPositionSensitivity
-- uid: Mirror.NetworkTransformBase.localScaleSensitivity
-  name: localScaleSensitivity
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_localScaleSensitivity
-  commentId: F:Mirror.NetworkTransformBase.localScaleSensitivity
-  fullName: Mirror.NetworkTransformBase.localScaleSensitivity
-  nameWithType: NetworkTransformBase.localScaleSensitivity
+- uid: Mirror.NetworkTransformBase.LocalEulerAnglesSensitivity
+  name: LocalEulerAnglesSensitivity
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_LocalEulerAnglesSensitivity
+  commentId: F:Mirror.NetworkTransformBase.LocalEulerAnglesSensitivity
+  fullName: Mirror.NetworkTransformBase.LocalEulerAnglesSensitivity
+  nameWithType: NetworkTransformBase.LocalEulerAnglesSensitivity
+- uid: Mirror.NetworkTransformBase.LocalPositionSensitivity
+  name: LocalPositionSensitivity
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_LocalPositionSensitivity
+  commentId: F:Mirror.NetworkTransformBase.LocalPositionSensitivity
+  fullName: Mirror.NetworkTransformBase.LocalPositionSensitivity
+  nameWithType: NetworkTransformBase.LocalPositionSensitivity
+- uid: Mirror.NetworkTransformBase.LocalScaleSensitivity
+  name: LocalScaleSensitivity
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_LocalScaleSensitivity
+  commentId: F:Mirror.NetworkTransformBase.LocalScaleSensitivity
+  fullName: Mirror.NetworkTransformBase.LocalScaleSensitivity
+  nameWithType: NetworkTransformBase.LocalScaleSensitivity
 - uid: Mirror.NetworkTransformBase.OnDeserialize(Mirror.NetworkReader,System.Boolean)
   name: OnDeserialize(NetworkReader, Boolean)
   href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_OnDeserialize_Mirror_NetworkReader_System_Boolean_
