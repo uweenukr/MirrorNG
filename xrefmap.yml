@@ -5654,19 +5654,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.Listen
   nameWithType: NetworkServer.Listen
-- uid: Mirror.NetworkServer.localClientActive
-  name: localClientActive
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_localClientActive
-  commentId: P:Mirror.NetworkServer.localClientActive
-  fullName: Mirror.NetworkServer.localClientActive
-  nameWithType: NetworkServer.localClientActive
-- uid: Mirror.NetworkServer.localClientActive*
-  name: localClientActive
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_localClientActive_
-  commentId: Overload:Mirror.NetworkServer.localClientActive
-  isSpec: "True"
-  fullName: Mirror.NetworkServer.localClientActive
-  nameWithType: NetworkServer.localClientActive
+- uid: Mirror.NetworkServer.localClient
+  name: localClient
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_localClient
+  commentId: F:Mirror.NetworkServer.localClient
+  fullName: Mirror.NetworkServer.localClient
+  nameWithType: NetworkServer.localClient
 - uid: Mirror.NetworkServer.localConnection
   name: localConnection
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_localConnection
@@ -5865,18 +5858,18 @@ references:
   commentId: M:Mirror.NetworkServer.Spawn(GameObject,GameObject)
   fullName: Mirror.NetworkServer.Spawn(GameObject, GameObject)
   nameWithType: NetworkServer.Spawn(GameObject, GameObject)
-- uid: Mirror.NetworkServer.Spawn(GameObject,Guid,Mirror.NetworkClient,Mirror.NetworkConnection)
-  name: Spawn(GameObject, Guid, NetworkClient, NetworkConnection)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Guid_Mirror_NetworkClient_Mirror_NetworkConnection_
-  commentId: M:Mirror.NetworkServer.Spawn(GameObject,Guid,Mirror.NetworkClient,Mirror.NetworkConnection)
-  fullName: Mirror.NetworkServer.Spawn(GameObject, Guid, Mirror.NetworkClient, Mirror.NetworkConnection)
-  nameWithType: NetworkServer.Spawn(GameObject, Guid, NetworkClient, NetworkConnection)
-- uid: Mirror.NetworkServer.Spawn(GameObject,Mirror.NetworkClient,Mirror.NetworkConnection)
-  name: Spawn(GameObject, NetworkClient, NetworkConnection)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Mirror_NetworkClient_Mirror_NetworkConnection_
-  commentId: M:Mirror.NetworkServer.Spawn(GameObject,Mirror.NetworkClient,Mirror.NetworkConnection)
-  fullName: Mirror.NetworkServer.Spawn(GameObject, Mirror.NetworkClient, Mirror.NetworkConnection)
-  nameWithType: NetworkServer.Spawn(GameObject, NetworkClient, NetworkConnection)
+- uid: Mirror.NetworkServer.Spawn(GameObject,Guid,Mirror.NetworkConnection)
+  name: Spawn(GameObject, Guid, NetworkConnection)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Guid_Mirror_NetworkConnection_
+  commentId: M:Mirror.NetworkServer.Spawn(GameObject,Guid,Mirror.NetworkConnection)
+  fullName: Mirror.NetworkServer.Spawn(GameObject, Guid, Mirror.NetworkConnection)
+  nameWithType: NetworkServer.Spawn(GameObject, Guid, NetworkConnection)
+- uid: Mirror.NetworkServer.Spawn(GameObject,Mirror.NetworkConnection)
+  name: Spawn(GameObject, NetworkConnection)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_GameObject_Mirror_NetworkConnection_
+  commentId: M:Mirror.NetworkServer.Spawn(GameObject,Mirror.NetworkConnection)
+  fullName: Mirror.NetworkServer.Spawn(GameObject, Mirror.NetworkConnection)
+  nameWithType: NetworkServer.Spawn(GameObject, NetworkConnection)
 - uid: Mirror.NetworkServer.Spawn*
   name: Spawn
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Spawn_
@@ -5884,12 +5877,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.Spawn
   nameWithType: NetworkServer.Spawn
-- uid: Mirror.NetworkServer.SpawnObjects(Mirror.NetworkClient)
-  name: SpawnObjects(NetworkClient)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnObjects_Mirror_NetworkClient_
-  commentId: M:Mirror.NetworkServer.SpawnObjects(Mirror.NetworkClient)
-  fullName: Mirror.NetworkServer.SpawnObjects(Mirror.NetworkClient)
-  nameWithType: NetworkServer.SpawnObjects(NetworkClient)
+- uid: Mirror.NetworkServer.SpawnObjects
+  name: SpawnObjects()
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnObjects
+  commentId: M:Mirror.NetworkServer.SpawnObjects
+  fullName: Mirror.NetworkServer.SpawnObjects()
+  nameWithType: NetworkServer.SpawnObjects()
 - uid: Mirror.NetworkServer.SpawnObjects*
   name: SpawnObjects
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SpawnObjects_
