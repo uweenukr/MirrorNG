@@ -5660,6 +5660,19 @@ references:
   commentId: F:Mirror.NetworkServer.localClient
   fullName: Mirror.NetworkServer.localClient
   nameWithType: NetworkServer.localClient
+- uid: Mirror.NetworkServer.LocalClientActive
+  name: LocalClientActive
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_LocalClientActive
+  commentId: P:Mirror.NetworkServer.LocalClientActive
+  fullName: Mirror.NetworkServer.LocalClientActive
+  nameWithType: NetworkServer.LocalClientActive
+- uid: Mirror.NetworkServer.LocalClientActive*
+  name: LocalClientActive
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_LocalClientActive_
+  commentId: Overload:Mirror.NetworkServer.LocalClientActive
+  isSpec: "True"
+  fullName: Mirror.NetworkServer.LocalClientActive
+  nameWithType: NetworkServer.LocalClientActive
 - uid: Mirror.NetworkServer.localConnection
   name: localConnection
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_localConnection
