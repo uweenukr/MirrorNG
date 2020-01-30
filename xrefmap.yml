@@ -846,6 +846,12 @@ references:
   commentId: F:Mirror.Discovery.NetworkDiscoveryHUD.networkDiscovery
   fullName: Mirror.Discovery.NetworkDiscoveryHUD.networkDiscovery
   nameWithType: NetworkDiscoveryHUD.networkDiscovery
+- uid: Mirror.Discovery.NetworkDiscoveryHUD.networkManager
+  name: networkManager
+  href: api/Mirror.Discovery.NetworkDiscoveryHUD.html#Mirror_Discovery_NetworkDiscoveryHUD_networkManager
+  commentId: F:Mirror.Discovery.NetworkDiscoveryHUD.networkManager
+  fullName: Mirror.Discovery.NetworkDiscoveryHUD.networkManager
+  nameWithType: NetworkDiscoveryHUD.networkManager
 - uid: Mirror.Discovery.NetworkDiscoveryHUD.OnDiscoveredServer(Mirror.Discovery.ServerResponse)
   name: OnDiscoveredServer(ServerResponse)
   href: api/Mirror.Discovery.NetworkDiscoveryHUD.html#Mirror_Discovery_NetworkDiscoveryHUD_OnDiscoveredServer_Mirror_Discovery_ServerResponse_
@@ -10546,6 +10552,12 @@ references:
   commentId: M:Mirror.Tcp.TcpTransport.ClientConnect(System.String)
   fullName: Mirror.Tcp.TcpTransport.ClientConnect(System.String)
   nameWithType: TcpTransport.ClientConnect(String)
+- uid: Mirror.Tcp.TcpTransport.ClientConnect(Uri)
+  name: ClientConnect(Uri)
+  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ClientConnect_Uri_
+  commentId: M:Mirror.Tcp.TcpTransport.ClientConnect(Uri)
+  fullName: Mirror.Tcp.TcpTransport.ClientConnect(Uri)
+  nameWithType: TcpTransport.ClientConnect(Uri)
 - uid: Mirror.Tcp.TcpTransport.ClientConnect*
   name: ClientConnect
   href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ClientConnect_
@@ -10633,6 +10645,12 @@ references:
   commentId: F:Mirror.Tcp.TcpTransport.port
   fullName: Mirror.Tcp.TcpTransport.port
   nameWithType: TcpTransport.port
+- uid: Mirror.Tcp.TcpTransport.Scheme
+  name: Scheme
+  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_Scheme
+  commentId: F:Mirror.Tcp.TcpTransport.Scheme
+  fullName: Mirror.Tcp.TcpTransport.Scheme
+  nameWithType: TcpTransport.Scheme
 - uid: Mirror.Tcp.TcpTransport.server
   name: server
   href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_server
@@ -10720,6 +10738,19 @@ references:
   isSpec: "True"
   fullName: Mirror.Tcp.TcpTransport.ServerStop
   nameWithType: TcpTransport.ServerStop
+- uid: Mirror.Tcp.TcpTransport.ServerUri
+  name: ServerUri()
+  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ServerUri
+  commentId: M:Mirror.Tcp.TcpTransport.ServerUri
+  fullName: Mirror.Tcp.TcpTransport.ServerUri()
+  nameWithType: TcpTransport.ServerUri()
+- uid: Mirror.Tcp.TcpTransport.ServerUri*
+  name: ServerUri
+  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ServerUri_
+  commentId: Overload:Mirror.Tcp.TcpTransport.ServerUri
+  isSpec: "True"
+  fullName: Mirror.Tcp.TcpTransport.ServerUri
+  nameWithType: TcpTransport.ServerUri
 - uid: Mirror.Tcp.TcpTransport.Shutdown
   name: Shutdown()
   href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_Shutdown
