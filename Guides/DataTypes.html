@@ -83,8 +83,9 @@
 <p>The client and server can pass data to each other via <a href="Communications/RemoteActions.html">Remote methods</a>, <a href="Sync/index.html">State Synchronization</a> or via <a href="Communications/NetworkMessages.html">Network Messages</a></p>
 <p>Mirror supports a number of data types you can use with these, including:</p>
 <ul>
-<li>Basic c# types (byte, int, char, uint, float, string, UInt64, etc)</li>
+<li>Basic c# types (byte, int, char, uint, UInt64, float, string, etc)</li>
 <li>Built-in Unity math type (Vector3, Quaternion, Rect, Plane, Vector3Int, etc)</li>
+<li>URI</li>
 <li>NetworkIdentity</li>
 <li>Game object with a NetworkIdentity component attached.</li>
 <li>Structures with any of the above (it's recommended to implement IEquatable&lt;T&gt; to avoid boxing and to have the struct readonly, cause modifying one of fields doesn't cause a resync)</li>
@@ -240,7 +241,7 @@ public static class ArmorSerializer
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/ac96914a9d4f3567ad965266a214fc6a16572da1/doc/Guides/DataTypes.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/doc/Guides/DataTypes.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

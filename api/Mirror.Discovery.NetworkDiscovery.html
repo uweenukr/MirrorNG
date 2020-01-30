@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class NetworkDiscovery
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class NetworkDiscovery
+   ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Mirror.Discovery.NetworkDiscovery">
+  
+  
+  <h1 id="Mirror_Discovery_NetworkDiscovery" data-uid="Mirror.Discovery.NetworkDiscovery" class="text-break">Class NetworkDiscovery
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html">NetworkDiscoveryBase</a>&lt;<a class="xref" href="Mirror.Discovery.ServerRequest.html">ServerRequest</a>, <a class="xref" href="Mirror.Discovery.ServerResponse.html">ServerResponse</a>&gt;</div>
+    <div class="level2"><span class="xref">NetworkDiscovery</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_SupportedOnThisPlatform">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.SupportedOnThisPlatform</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_secretHandshake">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.secretHandshake</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_serverUdpClient">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.serverUdpClient</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_clientUdpClient">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.clientUdpClient</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_RandomLong">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.RandomLong()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_AdvertiseServer">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.AdvertiseServer()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ServerListenAsync">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.ServerListenAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ProcessClientRequest__0_IPEndPoint_">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.ProcessClientRequest(ServerRequest, IPEndPoint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ProcessRequest__0_IPEndPoint_">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.ProcessRequest(ServerRequest, IPEndPoint)</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_StartDiscovery">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.StartDiscovery()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_StopDiscovery">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.StopDiscovery()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ClientListenAsync">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.ClientListenAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_BroadcastDiscoveryRequest">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.BroadcastDiscoveryRequest()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_GetRequest">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.GetRequest()</a>
+    </div>
+    <div>
+      <a class="xref" href="Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ProcessResponse__1_IPEndPoint_">NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;.ProcessResponse(ServerResponse, IPEndPoint)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Mirror.Discovery.html">Mirror.Discovery</a></h6>
+  <h6><strong>Assembly</strong>: doc.dll</h6>
+  <h5 id="Mirror_Discovery_NetworkDiscovery_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class NetworkDiscovery : NetworkDiscoveryBase&lt;ServerRequest, ServerResponse&gt;</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MirrorNG/MirrorNG/new/3963b71830fdd86376b57cecc3c7ea661b453b1d/apiSpec/new?filename=Mirror_Discovery_NetworkDiscovery_OnServerFound.md&amp;value=---%0Auid%3A%20Mirror.Discovery.NetworkDiscovery.OnServerFound%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/Assets/Mirror/Components/Discovery/NetworkDiscovery.cs/#L23">View Source</a>
+  </span>
+  <h4 id="Mirror_Discovery_NetworkDiscovery_OnServerFound" data-uid="Mirror.Discovery.NetworkDiscovery.OnServerFound">OnServerFound</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ServerFoundUnityEvent OnServerFound</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.Discovery.ServerFoundUnityEvent.html">ServerFoundUnityEvent</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MirrorNG/MirrorNG/new/3963b71830fdd86376b57cecc3c7ea661b453b1d/apiSpec/new?filename=Mirror_Discovery_NetworkDiscovery_transport.md&amp;value=---%0Auid%3A%20Mirror.Discovery.NetworkDiscovery.transport%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/Assets/Mirror/Components/Discovery/NetworkDiscovery.cs/#L20">View Source</a>
+  </span>
+  <h4 id="Mirror_Discovery_NetworkDiscovery_transport" data-uid="Mirror.Discovery.NetworkDiscovery.transport">transport</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Transport transport</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.Transport.html">Transport</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MirrorNG/MirrorNG/new/3963b71830fdd86376b57cecc3c7ea661b453b1d/apiSpec/new?filename=Mirror_Discovery_NetworkDiscovery_ServerId.md&amp;value=---%0Auid%3A%20Mirror.Discovery.NetworkDiscovery.ServerId%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/Assets/Mirror/Components/Discovery/NetworkDiscovery.cs/#L17">View Source</a>
+  </span>
+  <a id="Mirror_Discovery_NetworkDiscovery_ServerId_" data-uid="Mirror.Discovery.NetworkDiscovery.ServerId*"></a>
+  <h4 id="Mirror_Discovery_NetworkDiscovery_ServerId" data-uid="Mirror.Discovery.NetworkDiscovery.ServerId">ServerId</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long ServerId { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MirrorNG/MirrorNG/new/3963b71830fdd86376b57cecc3c7ea661b453b1d/apiSpec/new?filename=Mirror_Discovery_NetworkDiscovery_GetRequest.md&amp;value=---%0Auid%3A%20Mirror.Discovery.NetworkDiscovery.GetRequest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/Assets/Mirror/Components/Discovery/NetworkDiscovery.cs/#L81">View Source</a>
+  </span>
+  <a id="Mirror_Discovery_NetworkDiscovery_GetRequest_" data-uid="Mirror.Discovery.NetworkDiscovery.GetRequest*"></a>
+  <h4 id="Mirror_Discovery_NetworkDiscovery_GetRequest" data-uid="Mirror.Discovery.NetworkDiscovery.GetRequest">GetRequest()</h4>
+  <div class="markdown level1 summary"><p>Create a message that will be broadcasted on the network to discover servers</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override ServerRequest GetRequest()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.Discovery.ServerRequest.html">ServerRequest</a></td>
+        <td><p>An instance of ServerRequest with data to be broadcasted</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Mirror.Discovery.NetworkDiscoveryBase&lt;Mirror.Discovery.ServerRequest, Mirror.Discovery.ServerResponse&gt;.GetRequest()</span></div>
+  <h5 id="Mirror_Discovery_NetworkDiscovery_GetRequest_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Override if you wish to include additional data in the discovery message
+such as desired game mode, language, difficulty, etc...</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MirrorNG/MirrorNG/new/3963b71830fdd86376b57cecc3c7ea661b453b1d/apiSpec/new?filename=Mirror_Discovery_NetworkDiscovery_ProcessRequest_Mirror_Discovery_ServerRequest_IPEndPoint_.md&amp;value=---%0Auid%3A%20Mirror.Discovery.NetworkDiscovery.ProcessRequest(Mirror.Discovery.ServerRequest%2CIPEndPoint)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/Assets/Mirror/Components/Discovery/NetworkDiscovery.cs/#L46">View Source</a>
+  </span>
+  <a id="Mirror_Discovery_NetworkDiscovery_ProcessRequest_" data-uid="Mirror.Discovery.NetworkDiscovery.ProcessRequest*"></a>
+  <h4 id="Mirror_Discovery_NetworkDiscovery_ProcessRequest_Mirror_Discovery_ServerRequest_IPEndPoint_" data-uid="Mirror.Discovery.NetworkDiscovery.ProcessRequest(Mirror.Discovery.ServerRequest,IPEndPoint)">ProcessRequest(ServerRequest, IPEndPoint)</h4>
+  <div class="markdown level1 summary"><p>Process the request from a client</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override ServerResponse ProcessRequest(ServerRequest request, IPEndPoint endpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.Discovery.ServerRequest.html">ServerRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>Request comming from client</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IPEndPoint</span></td>
+        <td><span class="parametername">endpoint</span></td>
+        <td><p>Address of the client that sent the request</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.Discovery.ServerResponse.html">ServerResponse</a></td>
+        <td><p>The message to be sent back to the client or null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Mirror.Discovery.NetworkDiscoveryBase&lt;Mirror.Discovery.ServerRequest, Mirror.Discovery.ServerResponse&gt;.ProcessRequest(Mirror.Discovery.ServerRequest, IPEndPoint)</span></div>
+  <h5 id="Mirror_Discovery_NetworkDiscovery_ProcessRequest_Mirror_Discovery_ServerRequest_IPEndPoint__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Override if you wish to provide more information to the clients
+such as the name of the host player</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MirrorNG/MirrorNG/new/3963b71830fdd86376b57cecc3c7ea661b453b1d/apiSpec/new?filename=Mirror_Discovery_NetworkDiscovery_ProcessResponse_Mirror_Discovery_ServerResponse_IPEndPoint_.md&amp;value=---%0Auid%3A%20Mirror.Discovery.NetworkDiscovery.ProcessResponse(Mirror.Discovery.ServerResponse%2CIPEndPoint)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/Assets/Mirror/Components/Discovery/NetworkDiscovery.cs/#L92">View Source</a>
+  </span>
+  <a id="Mirror_Discovery_NetworkDiscovery_ProcessResponse_" data-uid="Mirror.Discovery.NetworkDiscovery.ProcessResponse*"></a>
+  <h4 id="Mirror_Discovery_NetworkDiscovery_ProcessResponse_Mirror_Discovery_ServerResponse_IPEndPoint_" data-uid="Mirror.Discovery.NetworkDiscovery.ProcessResponse(Mirror.Discovery.ServerResponse,IPEndPoint)">ProcessResponse(ServerResponse, IPEndPoint)</h4>
+  <div class="markdown level1 summary"><p>Process the answer from a server</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void ProcessResponse(ServerResponse response, IPEndPoint endpoint)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Mirror.Discovery.ServerResponse.html">ServerResponse</a></td>
+        <td><span class="parametername">response</span></td>
+        <td><p>Response that came from the server</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">IPEndPoint</span></td>
+        <td><span class="parametername">endpoint</span></td>
+        <td><p>Address of the server that replied</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Mirror.Discovery.NetworkDiscoveryBase&lt;Mirror.Discovery.ServerRequest, Mirror.Discovery.ServerResponse&gt;.ProcessResponse(Mirror.Discovery.ServerResponse, IPEndPoint)</span></div>
+  <h5 id="Mirror_Discovery_NetworkDiscovery_ProcessResponse_Mirror_Discovery_ServerResponse_IPEndPoint__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>A client receives a reply from a server, this method processes the
+reply and raises an event</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/MirrorNG/MirrorNG/new/3963b71830fdd86376b57cecc3c7ea661b453b1d/apiSpec/new?filename=Mirror_Discovery_NetworkDiscovery_Start.md&amp;value=---%0Auid%3A%20Mirror.Discovery.NetworkDiscovery.Start%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/Assets/Mirror/Components/Discovery/NetworkDiscovery.cs/#L25">View Source</a>
+  </span>
+  <a id="Mirror_Discovery_NetworkDiscovery_Start_" data-uid="Mirror.Discovery.NetworkDiscovery.Start*"></a>
+  <h4 id="Mirror_Discovery_NetworkDiscovery_Start" data-uid="Mirror.Discovery.NetworkDiscovery.Start">Start()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Start()</code></pre>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MirrorNG/MirrorNG/new/3963b71830fdd86376b57cecc3c7ea661b453b1d/apiSpec/new?filename=Mirror_Discovery_NetworkDiscovery.md&amp;value=---%0Auid%3A%20Mirror.Discovery.NetworkDiscovery%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/Assets/Mirror/Components/Discovery/NetworkDiscovery.cs/#L11" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

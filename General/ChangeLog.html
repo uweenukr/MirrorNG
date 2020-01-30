@@ -79,10 +79,16 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="change-log">Change Log</h1>
 
-<h2 id="version-7xx---in-progress">Version 7.x.x - In Progress</h2>
+<h2 id="version-8xx---in-progress">Version 8.x.x - In Progress</h2>
 <ul>
 <li>Added: NetworkAnimator now has a ResetTrigger function and server / client authority warnings</li>
 <li>Added: NetworkTransform now has 3 new floats for Sensitivity to quiet down message traffic from micro changes.</li>
+<li>Added: Network Observer added to <a href="ScriptTemplates.html">Script Templates</a> -- See the new Mirror section in the Assets &gt; Create menu.</li>
+<li>Added: <a href="../Components/NetworkDiscovery.html">Network Discovery</a> has been reimplemented including an example and script template -- thanks to all those who contributed!</li>
+<li>Added: <a href="../Guides/NetworkDiscovery.html">Network Discovery</a> Guide added to documentation</li>
+<li>Added: <a href="../Components/NetworkSceneChecker.html">Network Scene Checker Component</a></li>
+<li>Added: Mirror Icon for all components</li>
+<li>Added: URI added to supported data types</li>
 <li>Fixed: NetworkTransform and NetworkAnimator now uses NetworkWriterPool</li>
 <li>Fixed: NetworkTransform and NetworkAnimator now respect <code>hasAuthority</code> for client owned objects</li>
 <li>Fixed: NetworkTransform will now correctly teleport if time / distance are too large</li>
@@ -93,7 +99,10 @@
 <li>Fixed: IL2CPP builds no longer trigger an assert when stopping server</li>
 <li>Fixed: SyncVars are now set for Host player before hook is invoked</li>
 <li>Fixed: StopHost no longer tries to change to the Offline scene twice</li>
+<li>Fixed: NetworkRoomManager roomSlots are now correctly managed on both server and clients</li>
+<li>Fixed: Additive scene operations no longer incorrectly lead to extraneous AddPlayer messages from clients.</li>
 <li>Changed: Shutdown logic has been streamlined</li>
+<li>Changed: NetworkIdentity <code>GetSceneIdenity</code> method renamed to <code>GetSceneIdentity</code> (name typo)</li>
 <li>Changed: OnApplicationQuit virtual method added to Transport class and <code>Transport.activeTransport.Shutdown()</code> is no longer called from Network Manager</li>
 <li>Changed: <strong>Breaking</strong> SyncVar Hooks now require <strong>two</strong> parameters, one each for the old and new value, and the property value is now set <strong>before</strong> the hook is called.</li>
 </ul>
@@ -420,7 +429,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/ac96914a9d4f3567ad965266a214fc6a16572da1/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

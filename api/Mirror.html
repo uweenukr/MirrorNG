@@ -183,6 +183,11 @@ present the data in a friendly way to the user</p>
       <section><p>This component works in conjunction with the NetworkRoomManager to make up the multiplayer room system.</p>
 <p>The RoomPrefab object of the NetworkRoomManager must have this component on it. This component holds basic room player data required for the room to function. Game specific data for room players can be put in other components on the RoomPrefab or in scripts derived from NetworkRoomPlayer.</p>
 </section>
+      <h4><a class="xref" href="Mirror.NetworkSceneChecker.html">NetworkSceneChecker</a></h4>
+      <section><p>Component that controls visibility of networked objects between scenes.</p>
+<p>Any object with this component on it will only be visible to other objects in the same scene</p>
+<p>This would be used when the server has multiple additive subscenes loaded to isolate players to their respective subscenes</p>
+</section>
       <h4><a class="xref" href="Mirror.NetworkServer.html">NetworkServer</a></h4>
       <section><p>The NetworkServer.</p>
 </section>

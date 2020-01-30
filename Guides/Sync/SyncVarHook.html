@@ -86,6 +86,9 @@
 <li>The Hook is always called after the value was set. You don't need to set it yourself.</li>
 </ul>
 <p>Below is a simple example of assigning a random color to each player when they're spawned on the server.  All clients will see all players in the correct colors, even if they join later.</p>
+<blockquote>
+<p>Note:  The signature for hook methods was changed in version 7.0 (Feb 2020) to having 2 parameters (old and new values).  If you're on an older version, hook methods just have one parameter (new value).</p>
+</blockquote>
 <pre><code class="lang-cs">using UnityEngine;
 using UnityEngine.Networking;
 
@@ -127,7 +130,7 @@ public class PlayerController : NetworkBehaviour
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/ac96914a9d4f3567ad965266a214fc6a16572da1/doc/Guides/Sync/SyncVarHook.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/doc/Guides/Sync/SyncVarHook.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

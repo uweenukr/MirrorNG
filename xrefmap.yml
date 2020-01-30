@@ -508,6 +508,400 @@ references:
   isSpec: "True"
   fullName: Mirror.DisconnectMessage.Serialize
   nameWithType: DisconnectMessage.Serialize
+- uid: Mirror.Discovery
+  name: Mirror.Discovery
+  href: api/Mirror.Discovery.html
+  commentId: N:Mirror.Discovery
+  fullName: Mirror.Discovery
+  nameWithType: Mirror.Discovery
+- uid: Mirror.Discovery.NetworkDiscovery
+  name: NetworkDiscovery
+  href: api/Mirror.Discovery.NetworkDiscovery.html
+  commentId: T:Mirror.Discovery.NetworkDiscovery
+  fullName: Mirror.Discovery.NetworkDiscovery
+  nameWithType: NetworkDiscovery
+- uid: Mirror.Discovery.NetworkDiscovery.GetRequest
+  name: GetRequest()
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_GetRequest
+  commentId: M:Mirror.Discovery.NetworkDiscovery.GetRequest
+  fullName: Mirror.Discovery.NetworkDiscovery.GetRequest()
+  nameWithType: NetworkDiscovery.GetRequest()
+- uid: Mirror.Discovery.NetworkDiscovery.GetRequest*
+  name: GetRequest
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_GetRequest_
+  commentId: Overload:Mirror.Discovery.NetworkDiscovery.GetRequest
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscovery.GetRequest
+  nameWithType: NetworkDiscovery.GetRequest
+- uid: Mirror.Discovery.NetworkDiscovery.OnServerFound
+  name: OnServerFound
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_OnServerFound
+  commentId: F:Mirror.Discovery.NetworkDiscovery.OnServerFound
+  fullName: Mirror.Discovery.NetworkDiscovery.OnServerFound
+  nameWithType: NetworkDiscovery.OnServerFound
+- uid: Mirror.Discovery.NetworkDiscovery.ProcessRequest(Mirror.Discovery.ServerRequest,IPEndPoint)
+  name: ProcessRequest(ServerRequest, IPEndPoint)
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_ProcessRequest_Mirror_Discovery_ServerRequest_IPEndPoint_
+  commentId: M:Mirror.Discovery.NetworkDiscovery.ProcessRequest(Mirror.Discovery.ServerRequest,IPEndPoint)
+  fullName: Mirror.Discovery.NetworkDiscovery.ProcessRequest(Mirror.Discovery.ServerRequest, IPEndPoint)
+  nameWithType: NetworkDiscovery.ProcessRequest(ServerRequest, IPEndPoint)
+- uid: Mirror.Discovery.NetworkDiscovery.ProcessRequest*
+  name: ProcessRequest
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_ProcessRequest_
+  commentId: Overload:Mirror.Discovery.NetworkDiscovery.ProcessRequest
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscovery.ProcessRequest
+  nameWithType: NetworkDiscovery.ProcessRequest
+- uid: Mirror.Discovery.NetworkDiscovery.ProcessResponse(Mirror.Discovery.ServerResponse,IPEndPoint)
+  name: ProcessResponse(ServerResponse, IPEndPoint)
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_ProcessResponse_Mirror_Discovery_ServerResponse_IPEndPoint_
+  commentId: M:Mirror.Discovery.NetworkDiscovery.ProcessResponse(Mirror.Discovery.ServerResponse,IPEndPoint)
+  fullName: Mirror.Discovery.NetworkDiscovery.ProcessResponse(Mirror.Discovery.ServerResponse, IPEndPoint)
+  nameWithType: NetworkDiscovery.ProcessResponse(ServerResponse, IPEndPoint)
+- uid: Mirror.Discovery.NetworkDiscovery.ProcessResponse*
+  name: ProcessResponse
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_ProcessResponse_
+  commentId: Overload:Mirror.Discovery.NetworkDiscovery.ProcessResponse
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscovery.ProcessResponse
+  nameWithType: NetworkDiscovery.ProcessResponse
+- uid: Mirror.Discovery.NetworkDiscovery.ServerId
+  name: ServerId
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_ServerId
+  commentId: P:Mirror.Discovery.NetworkDiscovery.ServerId
+  fullName: Mirror.Discovery.NetworkDiscovery.ServerId
+  nameWithType: NetworkDiscovery.ServerId
+- uid: Mirror.Discovery.NetworkDiscovery.ServerId*
+  name: ServerId
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_ServerId_
+  commentId: Overload:Mirror.Discovery.NetworkDiscovery.ServerId
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscovery.ServerId
+  nameWithType: NetworkDiscovery.ServerId
+- uid: Mirror.Discovery.NetworkDiscovery.Start
+  name: Start()
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_Start
+  commentId: M:Mirror.Discovery.NetworkDiscovery.Start
+  fullName: Mirror.Discovery.NetworkDiscovery.Start()
+  nameWithType: NetworkDiscovery.Start()
+- uid: Mirror.Discovery.NetworkDiscovery.Start*
+  name: Start
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_Start_
+  commentId: Overload:Mirror.Discovery.NetworkDiscovery.Start
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscovery.Start
+  nameWithType: NetworkDiscovery.Start
+- uid: Mirror.Discovery.NetworkDiscovery.transport
+  name: transport
+  href: api/Mirror.Discovery.NetworkDiscovery.html#Mirror_Discovery_NetworkDiscovery_transport
+  commentId: F:Mirror.Discovery.NetworkDiscovery.transport
+  fullName: Mirror.Discovery.NetworkDiscovery.transport
+  nameWithType: NetworkDiscovery.transport
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2
+  name: NetworkDiscoveryBase<Request, Response>
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html
+  commentId: T:Mirror.Discovery.NetworkDiscoveryBase`2
+  name.vb: NetworkDiscoveryBase(Of Request, Response)
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response)
+  nameWithType: NetworkDiscoveryBase<Request, Response>
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response)
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.AdvertiseServer
+  name: AdvertiseServer()
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_AdvertiseServer
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.AdvertiseServer
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.AdvertiseServer()
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).AdvertiseServer()
+  nameWithType: NetworkDiscoveryBase<Request, Response>.AdvertiseServer()
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).AdvertiseServer()
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.AdvertiseServer*
+  name: AdvertiseServer
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_AdvertiseServer_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.AdvertiseServer
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.AdvertiseServer
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).AdvertiseServer
+  nameWithType: NetworkDiscoveryBase<Request, Response>.AdvertiseServer
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).AdvertiseServer
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.BroadcastDiscoveryRequest
+  name: BroadcastDiscoveryRequest()
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_BroadcastDiscoveryRequest
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.BroadcastDiscoveryRequest
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.BroadcastDiscoveryRequest()
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).BroadcastDiscoveryRequest()
+  nameWithType: NetworkDiscoveryBase<Request, Response>.BroadcastDiscoveryRequest()
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).BroadcastDiscoveryRequest()
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.BroadcastDiscoveryRequest*
+  name: BroadcastDiscoveryRequest
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_BroadcastDiscoveryRequest_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.BroadcastDiscoveryRequest
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.BroadcastDiscoveryRequest
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).BroadcastDiscoveryRequest
+  nameWithType: NetworkDiscoveryBase<Request, Response>.BroadcastDiscoveryRequest
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).BroadcastDiscoveryRequest
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ClientListenAsync
+  name: ClientListenAsync()
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ClientListenAsync
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.ClientListenAsync
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ClientListenAsync()
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ClientListenAsync()
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ClientListenAsync()
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ClientListenAsync()
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ClientListenAsync*
+  name: ClientListenAsync
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ClientListenAsync_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.ClientListenAsync
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ClientListenAsync
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ClientListenAsync
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ClientListenAsync
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ClientListenAsync
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.clientUdpClient
+  name: clientUdpClient
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_clientUdpClient
+  commentId: F:Mirror.Discovery.NetworkDiscoveryBase`2.clientUdpClient
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.clientUdpClient
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).clientUdpClient
+  nameWithType: NetworkDiscoveryBase<Request, Response>.clientUdpClient
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).clientUdpClient
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.GetRequest
+  name: GetRequest()
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_GetRequest
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.GetRequest
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.GetRequest()
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).GetRequest()
+  nameWithType: NetworkDiscoveryBase<Request, Response>.GetRequest()
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).GetRequest()
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.GetRequest*
+  name: GetRequest
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_GetRequest_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.GetRequest
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.GetRequest
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).GetRequest
+  nameWithType: NetworkDiscoveryBase<Request, Response>.GetRequest
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).GetRequest
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ProcessClientRequest(`0,IPEndPoint)
+  name: ProcessClientRequest(Request, IPEndPoint)
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ProcessClientRequest__0_IPEndPoint_
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.ProcessClientRequest(`0,IPEndPoint)
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ProcessClientRequest(Request, IPEndPoint)
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ProcessClientRequest(Request, IPEndPoint)
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ProcessClientRequest(Request, IPEndPoint)
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ProcessClientRequest(Request, IPEndPoint)
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ProcessClientRequest*
+  name: ProcessClientRequest
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ProcessClientRequest_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.ProcessClientRequest
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ProcessClientRequest
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ProcessClientRequest
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ProcessClientRequest
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ProcessClientRequest
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ProcessRequest(`0,IPEndPoint)
+  name: ProcessRequest(Request, IPEndPoint)
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ProcessRequest__0_IPEndPoint_
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.ProcessRequest(`0,IPEndPoint)
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ProcessRequest(Request, IPEndPoint)
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ProcessRequest(Request, IPEndPoint)
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ProcessRequest(Request, IPEndPoint)
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ProcessRequest(Request, IPEndPoint)
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ProcessRequest*
+  name: ProcessRequest
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ProcessRequest_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.ProcessRequest
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ProcessRequest
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ProcessRequest
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ProcessRequest
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ProcessRequest
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ProcessResponse(`1,IPEndPoint)
+  name: ProcessResponse(Response, IPEndPoint)
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ProcessResponse__1_IPEndPoint_
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.ProcessResponse(`1,IPEndPoint)
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ProcessResponse(Response, IPEndPoint)
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ProcessResponse(Response, IPEndPoint)
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ProcessResponse(Response, IPEndPoint)
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ProcessResponse(Response, IPEndPoint)
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ProcessResponse*
+  name: ProcessResponse
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ProcessResponse_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.ProcessResponse
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ProcessResponse
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ProcessResponse
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ProcessResponse
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ProcessResponse
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.RandomLong
+  name: RandomLong()
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_RandomLong
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.RandomLong
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.RandomLong()
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).RandomLong()
+  nameWithType: NetworkDiscoveryBase<Request, Response>.RandomLong()
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).RandomLong()
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.RandomLong*
+  name: RandomLong
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_RandomLong_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.RandomLong
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.RandomLong
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).RandomLong
+  nameWithType: NetworkDiscoveryBase<Request, Response>.RandomLong
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).RandomLong
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.secretHandshake
+  name: secretHandshake
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_secretHandshake
+  commentId: F:Mirror.Discovery.NetworkDiscoveryBase`2.secretHandshake
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.secretHandshake
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).secretHandshake
+  nameWithType: NetworkDiscoveryBase<Request, Response>.secretHandshake
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).secretHandshake
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ServerListenAsync
+  name: ServerListenAsync()
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ServerListenAsync
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.ServerListenAsync
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ServerListenAsync()
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ServerListenAsync()
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ServerListenAsync()
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ServerListenAsync()
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.ServerListenAsync*
+  name: ServerListenAsync
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_ServerListenAsync_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.ServerListenAsync
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.ServerListenAsync
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).ServerListenAsync
+  nameWithType: NetworkDiscoveryBase<Request, Response>.ServerListenAsync
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).ServerListenAsync
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.serverUdpClient
+  name: serverUdpClient
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_serverUdpClient
+  commentId: F:Mirror.Discovery.NetworkDiscoveryBase`2.serverUdpClient
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.serverUdpClient
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).serverUdpClient
+  nameWithType: NetworkDiscoveryBase<Request, Response>.serverUdpClient
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).serverUdpClient
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.StartDiscovery
+  name: StartDiscovery()
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_StartDiscovery
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.StartDiscovery
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.StartDiscovery()
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).StartDiscovery()
+  nameWithType: NetworkDiscoveryBase<Request, Response>.StartDiscovery()
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).StartDiscovery()
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.StartDiscovery*
+  name: StartDiscovery
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_StartDiscovery_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.StartDiscovery
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.StartDiscovery
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).StartDiscovery
+  nameWithType: NetworkDiscoveryBase<Request, Response>.StartDiscovery
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).StartDiscovery
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.StopDiscovery
+  name: StopDiscovery()
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_StopDiscovery
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.StopDiscovery
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.StopDiscovery()
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).StopDiscovery()
+  nameWithType: NetworkDiscoveryBase<Request, Response>.StopDiscovery()
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).StopDiscovery()
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.StopDiscovery*
+  name: StopDiscovery
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_StopDiscovery_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.StopDiscovery
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.StopDiscovery
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).StopDiscovery
+  nameWithType: NetworkDiscoveryBase<Request, Response>.StopDiscovery
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).StopDiscovery
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.SupportedOnThisPlatform
+  name: SupportedOnThisPlatform
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_SupportedOnThisPlatform
+  commentId: P:Mirror.Discovery.NetworkDiscoveryBase`2.SupportedOnThisPlatform
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.SupportedOnThisPlatform
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).SupportedOnThisPlatform
+  nameWithType: NetworkDiscoveryBase<Request, Response>.SupportedOnThisPlatform
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).SupportedOnThisPlatform
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.SupportedOnThisPlatform*
+  name: SupportedOnThisPlatform
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_SupportedOnThisPlatform_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.SupportedOnThisPlatform
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.SupportedOnThisPlatform
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).SupportedOnThisPlatform
+  nameWithType: NetworkDiscoveryBase<Request, Response>.SupportedOnThisPlatform
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).SupportedOnThisPlatform
+- uid: Mirror.Discovery.NetworkDiscoveryHUD
+  name: NetworkDiscoveryHUD
+  href: api/Mirror.Discovery.NetworkDiscoveryHUD.html
+  commentId: T:Mirror.Discovery.NetworkDiscoveryHUD
+  fullName: Mirror.Discovery.NetworkDiscoveryHUD
+  nameWithType: NetworkDiscoveryHUD
+- uid: Mirror.Discovery.NetworkDiscoveryHUD.networkDiscovery
+  name: networkDiscovery
+  href: api/Mirror.Discovery.NetworkDiscoveryHUD.html#Mirror_Discovery_NetworkDiscoveryHUD_networkDiscovery
+  commentId: F:Mirror.Discovery.NetworkDiscoveryHUD.networkDiscovery
+  fullName: Mirror.Discovery.NetworkDiscoveryHUD.networkDiscovery
+  nameWithType: NetworkDiscoveryHUD.networkDiscovery
+- uid: Mirror.Discovery.NetworkDiscoveryHUD.OnDiscoveredServer(Mirror.Discovery.ServerResponse)
+  name: OnDiscoveredServer(ServerResponse)
+  href: api/Mirror.Discovery.NetworkDiscoveryHUD.html#Mirror_Discovery_NetworkDiscoveryHUD_OnDiscoveredServer_Mirror_Discovery_ServerResponse_
+  commentId: M:Mirror.Discovery.NetworkDiscoveryHUD.OnDiscoveredServer(Mirror.Discovery.ServerResponse)
+  fullName: Mirror.Discovery.NetworkDiscoveryHUD.OnDiscoveredServer(Mirror.Discovery.ServerResponse)
+  nameWithType: NetworkDiscoveryHUD.OnDiscoveredServer(ServerResponse)
+- uid: Mirror.Discovery.NetworkDiscoveryHUD.OnDiscoveredServer*
+  name: OnDiscoveredServer
+  href: api/Mirror.Discovery.NetworkDiscoveryHUD.html#Mirror_Discovery_NetworkDiscoveryHUD_OnDiscoveredServer_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryHUD.OnDiscoveredServer
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryHUD.OnDiscoveredServer
+  nameWithType: NetworkDiscoveryHUD.OnDiscoveredServer
+- uid: Mirror.Discovery.ServerFoundUnityEvent
+  name: ServerFoundUnityEvent
+  href: api/Mirror.Discovery.ServerFoundUnityEvent.html
+  commentId: T:Mirror.Discovery.ServerFoundUnityEvent
+  fullName: Mirror.Discovery.ServerFoundUnityEvent
+  nameWithType: ServerFoundUnityEvent
+- uid: Mirror.Discovery.ServerRequest
+  name: ServerRequest
+  href: api/Mirror.Discovery.ServerRequest.html
+  commentId: T:Mirror.Discovery.ServerRequest
+  fullName: Mirror.Discovery.ServerRequest
+  nameWithType: ServerRequest
+- uid: Mirror.Discovery.ServerResponse
+  name: ServerResponse
+  href: api/Mirror.Discovery.ServerResponse.html
+  commentId: T:Mirror.Discovery.ServerResponse
+  fullName: Mirror.Discovery.ServerResponse
+  nameWithType: ServerResponse
+- uid: Mirror.Discovery.ServerResponse.EndPoint
+  name: EndPoint
+  href: api/Mirror.Discovery.ServerResponse.html#Mirror_Discovery_ServerResponse_EndPoint
+  commentId: P:Mirror.Discovery.ServerResponse.EndPoint
+  fullName: Mirror.Discovery.ServerResponse.EndPoint
+  nameWithType: ServerResponse.EndPoint
+- uid: Mirror.Discovery.ServerResponse.EndPoint*
+  name: EndPoint
+  href: api/Mirror.Discovery.ServerResponse.html#Mirror_Discovery_ServerResponse_EndPoint_
+  commentId: Overload:Mirror.Discovery.ServerResponse.EndPoint
+  isSpec: "True"
+  fullName: Mirror.Discovery.ServerResponse.EndPoint
+  nameWithType: ServerResponse.EndPoint
+- uid: Mirror.Discovery.ServerResponse.serverId
+  name: serverId
+  href: api/Mirror.Discovery.ServerResponse.html#Mirror_Discovery_ServerResponse_serverId
+  commentId: F:Mirror.Discovery.ServerResponse.serverId
+  fullName: Mirror.Discovery.ServerResponse.serverId
+  nameWithType: ServerResponse.serverId
+- uid: Mirror.Discovery.ServerResponse.uri
+  name: uri
+  href: api/Mirror.Discovery.ServerResponse.html#Mirror_Discovery_ServerResponse_uri
+  commentId: F:Mirror.Discovery.ServerResponse.uri
+  fullName: Mirror.Discovery.ServerResponse.uri
+  nameWithType: ServerResponse.uri
 - uid: Mirror.ErrorMessage
   name: ErrorMessage
   href: api/Mirror.ErrorMessage.html
@@ -804,6 +1198,19 @@ references:
   isSpec: "True"
   fullName: Mirror.FallbackTransport.ServerStop
   nameWithType: FallbackTransport.ServerStop
+- uid: Mirror.FallbackTransport.ServerUri
+  name: ServerUri()
+  href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_ServerUri
+  commentId: M:Mirror.FallbackTransport.ServerUri
+  fullName: Mirror.FallbackTransport.ServerUri()
+  nameWithType: FallbackTransport.ServerUri()
+- uid: Mirror.FallbackTransport.ServerUri*
+  name: ServerUri
+  href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_ServerUri_
+  commentId: Overload:Mirror.FallbackTransport.ServerUri
+  isSpec: "True"
+  fullName: Mirror.FallbackTransport.ServerUri
+  nameWithType: FallbackTransport.ServerUri
 - uid: Mirror.FallbackTransport.Shutdown
   name: Shutdown()
   href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_Shutdown
@@ -1260,6 +1667,19 @@ references:
   isSpec: "True"
   fullName: Mirror.LLAPITransport.ServerStop
   nameWithType: LLAPITransport.ServerStop
+- uid: Mirror.LLAPITransport.ServerUri
+  name: ServerUri()
+  href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_ServerUri
+  commentId: M:Mirror.LLAPITransport.ServerUri
+  fullName: Mirror.LLAPITransport.ServerUri()
+  nameWithType: LLAPITransport.ServerUri()
+- uid: Mirror.LLAPITransport.ServerUri*
+  name: ServerUri
+  href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_ServerUri_
+  commentId: Overload:Mirror.LLAPITransport.ServerUri
+  isSpec: "True"
+  fullName: Mirror.LLAPITransport.ServerUri
+  nameWithType: LLAPITransport.ServerUri
 - uid: Mirror.LLAPITransport.Shutdown
   name: Shutdown()
   href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_Shutdown
@@ -1641,6 +2061,19 @@ references:
   isSpec: "True"
   fullName: Mirror.MultiplexTransport.ServerStop
   nameWithType: MultiplexTransport.ServerStop
+- uid: Mirror.MultiplexTransport.ServerUri
+  name: ServerUri()
+  href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_ServerUri
+  commentId: M:Mirror.MultiplexTransport.ServerUri
+  fullName: Mirror.MultiplexTransport.ServerUri()
+  nameWithType: MultiplexTransport.ServerUri()
+- uid: Mirror.MultiplexTransport.ServerUri*
+  name: ServerUri
+  href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_ServerUri_
+  commentId: Overload:Mirror.MultiplexTransport.ServerUri
+  isSpec: "True"
+  fullName: Mirror.MultiplexTransport.ServerUri
+  nameWithType: MultiplexTransport.ServerUri
 - uid: Mirror.MultiplexTransport.Shutdown
   name: Shutdown()
   href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_Shutdown
@@ -3150,6 +3583,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkIdentity.GetSceneIdenity
   nameWithType: NetworkIdentity.GetSceneIdenity
+- uid: Mirror.NetworkIdentity.GetSceneIdentity(System.UInt64)
+  name: GetSceneIdentity(UInt64)
+  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_GetSceneIdentity_System_UInt64_
+  commentId: M:Mirror.NetworkIdentity.GetSceneIdentity(System.UInt64)
+  fullName: Mirror.NetworkIdentity.GetSceneIdentity(System.UInt64)
+  nameWithType: NetworkIdentity.GetSceneIdentity(UInt64)
+- uid: Mirror.NetworkIdentity.GetSceneIdentity*
+  name: GetSceneIdentity
+  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_GetSceneIdentity_
+  commentId: Overload:Mirror.NetworkIdentity.GetSceneIdentity
+  isSpec: "True"
+  fullName: Mirror.NetworkIdentity.GetSceneIdentity
+  nameWithType: NetworkIdentity.GetSceneIdentity
 - uid: Mirror.NetworkIdentity.hasAuthority
   name: hasAuthority
   href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_hasAuthority
@@ -3276,14 +3722,7 @@ references:
 - uid: Mirror.NetworkIdentity.sceneId
   name: sceneId
   href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_sceneId
-  commentId: P:Mirror.NetworkIdentity.sceneId
-  fullName: Mirror.NetworkIdentity.sceneId
-  nameWithType: NetworkIdentity.sceneId
-- uid: Mirror.NetworkIdentity.sceneId*
-  name: sceneId
-  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_sceneId_
-  commentId: Overload:Mirror.NetworkIdentity.sceneId
-  isSpec: "True"
+  commentId: F:Mirror.NetworkIdentity.sceneId
   fullName: Mirror.NetworkIdentity.sceneId
   nameWithType: NetworkIdentity.sceneId
 - uid: Mirror.NetworkIdentity.server
@@ -4805,6 +5244,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkReaderExtensions.ReadUInt64
   nameWithType: NetworkReaderExtensions.ReadUInt64
+- uid: Mirror.NetworkReaderExtensions.ReadUri(Mirror.NetworkReader)
+  name: ReadUri(NetworkReader)
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadUri_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkReaderExtensions.ReadUri(Mirror.NetworkReader)
+  fullName: Mirror.NetworkReaderExtensions.ReadUri(Mirror.NetworkReader)
+  nameWithType: NetworkReaderExtensions.ReadUri(NetworkReader)
+- uid: Mirror.NetworkReaderExtensions.ReadUri*
+  name: ReadUri
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadUri_
+  commentId: Overload:Mirror.NetworkReaderExtensions.ReadUri
+  isSpec: "True"
+  fullName: Mirror.NetworkReaderExtensions.ReadUri
+  nameWithType: NetworkReaderExtensions.ReadUri
 - uid: Mirror.NetworkReaderExtensions.ReadVector2(Mirror.NetworkReader)
   name: ReadVector2(NetworkReader)
   href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadVector2_Mirror_NetworkReader_
@@ -5513,6 +5965,79 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkRoomPlayer.Start
   nameWithType: NetworkRoomPlayer.Start
+- uid: Mirror.NetworkSceneChecker
+  name: NetworkSceneChecker
+  href: api/Mirror.NetworkSceneChecker.html
+  commentId: T:Mirror.NetworkSceneChecker
+  fullName: Mirror.NetworkSceneChecker
+  nameWithType: NetworkSceneChecker
+- uid: Mirror.NetworkSceneChecker.forceHidden
+  name: forceHidden
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_forceHidden
+  commentId: F:Mirror.NetworkSceneChecker.forceHidden
+  fullName: Mirror.NetworkSceneChecker.forceHidden
+  nameWithType: NetworkSceneChecker.forceHidden
+- uid: Mirror.NetworkSceneChecker.OnCheckObserver(Mirror.NetworkConnection)
+  name: OnCheckObserver(NetworkConnection)
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_OnCheckObserver_Mirror_NetworkConnection_
+  commentId: M:Mirror.NetworkSceneChecker.OnCheckObserver(Mirror.NetworkConnection)
+  fullName: Mirror.NetworkSceneChecker.OnCheckObserver(Mirror.NetworkConnection)
+  nameWithType: NetworkSceneChecker.OnCheckObserver(NetworkConnection)
+- uid: Mirror.NetworkSceneChecker.OnCheckObserver*
+  name: OnCheckObserver
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_OnCheckObserver_
+  commentId: Overload:Mirror.NetworkSceneChecker.OnCheckObserver
+  isSpec: "True"
+  fullName: Mirror.NetworkSceneChecker.OnCheckObserver
+  nameWithType: NetworkSceneChecker.OnCheckObserver
+- uid: Mirror.NetworkSceneChecker.OnRebuildObservers(HashSet{Mirror.NetworkConnection},System.Boolean)
+  name: OnRebuildObservers(HashSet<NetworkConnection>, Boolean)
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_OnRebuildObservers_HashSet_Mirror_NetworkConnection__System_Boolean_
+  commentId: M:Mirror.NetworkSceneChecker.OnRebuildObservers(HashSet{Mirror.NetworkConnection},System.Boolean)
+  name.vb: OnRebuildObservers(HashSet(Of NetworkConnection), Boolean)
+  fullName: Mirror.NetworkSceneChecker.OnRebuildObservers(HashSet<Mirror.NetworkConnection>, System.Boolean)
+  fullName.vb: Mirror.NetworkSceneChecker.OnRebuildObservers(HashSet(Of Mirror.NetworkConnection), System.Boolean)
+  nameWithType: NetworkSceneChecker.OnRebuildObservers(HashSet<NetworkConnection>, Boolean)
+  nameWithType.vb: NetworkSceneChecker.OnRebuildObservers(HashSet(Of NetworkConnection), Boolean)
+- uid: Mirror.NetworkSceneChecker.OnRebuildObservers*
+  name: OnRebuildObservers
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_OnRebuildObservers_
+  commentId: Overload:Mirror.NetworkSceneChecker.OnRebuildObservers
+  isSpec: "True"
+  fullName: Mirror.NetworkSceneChecker.OnRebuildObservers
+  nameWithType: NetworkSceneChecker.OnRebuildObservers
+- uid: Mirror.NetworkSceneChecker.OnSetHostVisibility(System.Boolean)
+  name: OnSetHostVisibility(Boolean)
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_OnSetHostVisibility_System_Boolean_
+  commentId: M:Mirror.NetworkSceneChecker.OnSetHostVisibility(System.Boolean)
+  fullName: Mirror.NetworkSceneChecker.OnSetHostVisibility(System.Boolean)
+  nameWithType: NetworkSceneChecker.OnSetHostVisibility(Boolean)
+- uid: Mirror.NetworkSceneChecker.OnSetHostVisibility*
+  name: OnSetHostVisibility
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_OnSetHostVisibility_
+  commentId: Overload:Mirror.NetworkSceneChecker.OnSetHostVisibility
+  isSpec: "True"
+  fullName: Mirror.NetworkSceneChecker.OnSetHostVisibility
+  nameWithType: NetworkSceneChecker.OnSetHostVisibility
+- uid: Mirror.NetworkSceneChecker.OnStartServer
+  name: OnStartServer()
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_OnStartServer
+  commentId: M:Mirror.NetworkSceneChecker.OnStartServer
+  fullName: Mirror.NetworkSceneChecker.OnStartServer()
+  nameWithType: NetworkSceneChecker.OnStartServer()
+- uid: Mirror.NetworkSceneChecker.OnStartServer*
+  name: OnStartServer
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_OnStartServer_
+  commentId: Overload:Mirror.NetworkSceneChecker.OnStartServer
+  isSpec: "True"
+  fullName: Mirror.NetworkSceneChecker.OnStartServer
+  nameWithType: NetworkSceneChecker.OnStartServer
+- uid: Mirror.NetworkSceneChecker.sceneCheckerObjects
+  name: sceneCheckerObjects
+  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_sceneCheckerObjects
+  commentId: F:Mirror.NetworkSceneChecker.sceneCheckerObjects
+  fullName: Mirror.NetworkSceneChecker.sceneCheckerObjects
+  nameWithType: NetworkSceneChecker.sceneCheckerObjects
 - uid: Mirror.NetworkServer
   name: NetworkServer
   href: api/Mirror.NetworkServer.html
@@ -6817,6 +7342,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkWriterExtensions.WriteUInt16
   nameWithType: NetworkWriterExtensions.WriteUInt16
+- uid: Mirror.NetworkWriterExtensions.WriteUri(Mirror.NetworkWriter,Uri)
+  name: WriteUri(NetworkWriter, Uri)
+  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteUri_Mirror_NetworkWriter_Uri_
+  commentId: M:Mirror.NetworkWriterExtensions.WriteUri(Mirror.NetworkWriter,Uri)
+  fullName: Mirror.NetworkWriterExtensions.WriteUri(Mirror.NetworkWriter, Uri)
+  nameWithType: NetworkWriterExtensions.WriteUri(NetworkWriter, Uri)
+- uid: Mirror.NetworkWriterExtensions.WriteUri*
+  name: WriteUri
+  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteUri_
+  commentId: Overload:Mirror.NetworkWriterExtensions.WriteUri
+  isSpec: "True"
+  fullName: Mirror.NetworkWriterExtensions.WriteUri
+  nameWithType: NetworkWriterExtensions.WriteUri
 - uid: Mirror.NetworkWriterExtensions.WriteVector2(Mirror.NetworkWriter,Vector2)
   name: WriteVector2(NetworkWriter, Vector2)
   href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteVector2_Mirror_NetworkWriter_Vector2_
@@ -9502,19 +10040,19 @@ references:
   commentId: F:Mirror.Tcp.Client.client
   fullName: Mirror.Tcp.Client.client
   nameWithType: Client.client
-- uid: Mirror.Tcp.Client.Connect(System.String,System.Int32)
-  name: Connect(String, Int32)
-  href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_Connect_System_String_System_Int32_
-  commentId: M:Mirror.Tcp.Client.Connect(System.String,System.Int32)
-  fullName: Mirror.Tcp.Client.Connect(System.String, System.Int32)
-  nameWithType: Client.Connect(String, Int32)
-- uid: Mirror.Tcp.Client.Connect*
-  name: Connect
-  href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_Connect_
-  commentId: Overload:Mirror.Tcp.Client.Connect
+- uid: Mirror.Tcp.Client.ConnectAsync(System.String,System.Int32)
+  name: ConnectAsync(String, Int32)
+  href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_ConnectAsync_System_String_System_Int32_
+  commentId: M:Mirror.Tcp.Client.ConnectAsync(System.String,System.Int32)
+  fullName: Mirror.Tcp.Client.ConnectAsync(System.String, System.Int32)
+  nameWithType: Client.ConnectAsync(String, Int32)
+- uid: Mirror.Tcp.Client.ConnectAsync*
+  name: ConnectAsync
+  href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_ConnectAsync_
+  commentId: Overload:Mirror.Tcp.Client.ConnectAsync
   isSpec: "True"
-  fullName: Mirror.Tcp.Client.Connect
-  nameWithType: Client.Connect
+  fullName: Mirror.Tcp.Client.ConnectAsync
+  nameWithType: Client.ConnectAsync
 - uid: Mirror.Tcp.Client.Connected
   name: Connected
   href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_Connected
@@ -10450,6 +10988,19 @@ references:
   isSpec: "True"
   fullName: Mirror.TelepathyTransport.ServerStop
   nameWithType: TelepathyTransport.ServerStop
+- uid: Mirror.TelepathyTransport.ServerUri
+  name: ServerUri()
+  href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_ServerUri
+  commentId: M:Mirror.TelepathyTransport.ServerUri
+  fullName: Mirror.TelepathyTransport.ServerUri()
+  nameWithType: TelepathyTransport.ServerUri()
+- uid: Mirror.TelepathyTransport.ServerUri*
+  name: ServerUri
+  href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_ServerUri_
+  commentId: Overload:Mirror.TelepathyTransport.ServerUri
+  isSpec: "True"
+  fullName: Mirror.TelepathyTransport.ServerUri
+  nameWithType: TelepathyTransport.ServerUri
 - uid: Mirror.TelepathyTransport.Shutdown
   name: Shutdown()
   href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_Shutdown
@@ -10717,6 +11268,19 @@ references:
   isSpec: "True"
   fullName: Mirror.Transport.ServerStop
   nameWithType: Transport.ServerStop
+- uid: Mirror.Transport.ServerUri
+  name: ServerUri()
+  href: api/Mirror.Transport.html#Mirror_Transport_ServerUri
+  commentId: M:Mirror.Transport.ServerUri
+  fullName: Mirror.Transport.ServerUri()
+  nameWithType: Transport.ServerUri()
+- uid: Mirror.Transport.ServerUri*
+  name: ServerUri
+  href: api/Mirror.Transport.html#Mirror_Transport_ServerUri_
+  commentId: Overload:Mirror.Transport.ServerUri
+  isSpec: "True"
+  fullName: Mirror.Transport.ServerUri
+  nameWithType: Transport.ServerUri
 - uid: Mirror.Transport.Shutdown
   name: Shutdown()
   href: api/Mirror.Transport.html#Mirror_Transport_Shutdown
@@ -10835,19 +11399,19 @@ references:
   commentId: T:Mirror.Websocket.Client
   fullName: Mirror.Websocket.Client
   nameWithType: Client
-- uid: Mirror.Websocket.Client.Connect(Uri)
-  name: Connect(Uri)
-  href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_Connect_Uri_
-  commentId: M:Mirror.Websocket.Client.Connect(Uri)
-  fullName: Mirror.Websocket.Client.Connect(Uri)
-  nameWithType: Client.Connect(Uri)
-- uid: Mirror.Websocket.Client.Connect*
-  name: Connect
-  href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_Connect_
-  commentId: Overload:Mirror.Websocket.Client.Connect
+- uid: Mirror.Websocket.Client.ConnectAsync(Uri)
+  name: ConnectAsync(Uri)
+  href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_ConnectAsync_Uri_
+  commentId: M:Mirror.Websocket.Client.ConnectAsync(Uri)
+  fullName: Mirror.Websocket.Client.ConnectAsync(Uri)
+  nameWithType: Client.ConnectAsync(Uri)
+- uid: Mirror.Websocket.Client.ConnectAsync*
+  name: ConnectAsync
+  href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_ConnectAsync_
+  commentId: Overload:Mirror.Websocket.Client.ConnectAsync
   isSpec: "True"
-  fullName: Mirror.Websocket.Client.Connect
-  nameWithType: Client.Connect
+  fullName: Mirror.Websocket.Client.ConnectAsync
+  nameWithType: Client.ConnectAsync
 - uid: Mirror.Websocket.Client.Connected
   name: Connected
   href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_Connected
@@ -10917,22 +11481,22 @@ references:
   commentId: E:Mirror.Websocket.Client.ReceivedError
   fullName: Mirror.Websocket.Client.ReceivedError
   nameWithType: Client.ReceivedError
-- uid: Mirror.Websocket.Client.Send(ArraySegment{System.Byte})
-  name: Send(ArraySegment<Byte>)
-  href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_Send_ArraySegment_System_Byte__
-  commentId: M:Mirror.Websocket.Client.Send(ArraySegment{System.Byte})
-  name.vb: Send(ArraySegment(Of Byte))
-  fullName: Mirror.Websocket.Client.Send(ArraySegment<System.Byte>)
-  fullName.vb: Mirror.Websocket.Client.Send(ArraySegment(Of System.Byte))
-  nameWithType: Client.Send(ArraySegment<Byte>)
-  nameWithType.vb: Client.Send(ArraySegment(Of Byte))
-- uid: Mirror.Websocket.Client.Send*
-  name: Send
-  href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_Send_
-  commentId: Overload:Mirror.Websocket.Client.Send
+- uid: Mirror.Websocket.Client.SendAsync(ArraySegment{System.Byte})
+  name: SendAsync(ArraySegment<Byte>)
+  href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_SendAsync_ArraySegment_System_Byte__
+  commentId: M:Mirror.Websocket.Client.SendAsync(ArraySegment{System.Byte})
+  name.vb: SendAsync(ArraySegment(Of Byte))
+  fullName: Mirror.Websocket.Client.SendAsync(ArraySegment<System.Byte>)
+  fullName.vb: Mirror.Websocket.Client.SendAsync(ArraySegment(Of System.Byte))
+  nameWithType: Client.SendAsync(ArraySegment<Byte>)
+  nameWithType.vb: Client.SendAsync(ArraySegment(Of Byte))
+- uid: Mirror.Websocket.Client.SendAsync*
+  name: SendAsync
+  href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_SendAsync_
+  commentId: Overload:Mirror.Websocket.Client.SendAsync
   isSpec: "True"
-  fullName: Mirror.Websocket.Client.Send
-  nameWithType: Client.Send
+  fullName: Mirror.Websocket.Client.SendAsync
+  nameWithType: Client.SendAsync
 - uid: Mirror.Websocket.Client.ToString
   name: ToString()
   href: api/Mirror.Websocket.Client.html#Mirror_Websocket_Client_ToString
@@ -11072,22 +11636,22 @@ references:
   commentId: E:Mirror.Websocket.Server.ReceivedError
   fullName: Mirror.Websocket.Server.ReceivedError
   nameWithType: Server.ReceivedError
-- uid: Mirror.Websocket.Server.Send(System.Int32,ArraySegment{System.Byte})
-  name: Send(Int32, ArraySegment<Byte>)
-  href: api/Mirror.Websocket.Server.html#Mirror_Websocket_Server_Send_System_Int32_ArraySegment_System_Byte__
-  commentId: M:Mirror.Websocket.Server.Send(System.Int32,ArraySegment{System.Byte})
-  name.vb: Send(Int32, ArraySegment(Of Byte))
-  fullName: Mirror.Websocket.Server.Send(System.Int32, ArraySegment<System.Byte>)
-  fullName.vb: Mirror.Websocket.Server.Send(System.Int32, ArraySegment(Of System.Byte))
-  nameWithType: Server.Send(Int32, ArraySegment<Byte>)
-  nameWithType.vb: Server.Send(Int32, ArraySegment(Of Byte))
-- uid: Mirror.Websocket.Server.Send*
-  name: Send
-  href: api/Mirror.Websocket.Server.html#Mirror_Websocket_Server_Send_
-  commentId: Overload:Mirror.Websocket.Server.Send
+- uid: Mirror.Websocket.Server.SendAsync(System.Int32,ArraySegment{System.Byte})
+  name: SendAsync(Int32, ArraySegment<Byte>)
+  href: api/Mirror.Websocket.Server.html#Mirror_Websocket_Server_SendAsync_System_Int32_ArraySegment_System_Byte__
+  commentId: M:Mirror.Websocket.Server.SendAsync(System.Int32,ArraySegment{System.Byte})
+  name.vb: SendAsync(Int32, ArraySegment(Of Byte))
+  fullName: Mirror.Websocket.Server.SendAsync(System.Int32, ArraySegment<System.Byte>)
+  fullName.vb: Mirror.Websocket.Server.SendAsync(System.Int32, ArraySegment(Of System.Byte))
+  nameWithType: Server.SendAsync(Int32, ArraySegment<Byte>)
+  nameWithType.vb: Server.SendAsync(Int32, ArraySegment(Of Byte))
+- uid: Mirror.Websocket.Server.SendAsync*
+  name: SendAsync
+  href: api/Mirror.Websocket.Server.html#Mirror_Websocket_Server_SendAsync_
+  commentId: Overload:Mirror.Websocket.Server.SendAsync
   isSpec: "True"
-  fullName: Mirror.Websocket.Server.Send
-  nameWithType: Server.Send
+  fullName: Mirror.Websocket.Server.SendAsync
+  nameWithType: Server.SendAsync
 - uid: Mirror.Websocket.Server.SslConfiguration
   name: Server.SslConfiguration
   href: api/Mirror.Websocket.Server.SslConfiguration.html
@@ -11385,6 +11949,19 @@ references:
   isSpec: "True"
   fullName: Mirror.Websocket.WebsocketTransport.ServerStop
   nameWithType: WebsocketTransport.ServerStop
+- uid: Mirror.Websocket.WebsocketTransport.ServerUri
+  name: ServerUri()
+  href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_ServerUri
+  commentId: M:Mirror.Websocket.WebsocketTransport.ServerUri
+  fullName: Mirror.Websocket.WebsocketTransport.ServerUri()
+  nameWithType: WebsocketTransport.ServerUri()
+- uid: Mirror.Websocket.WebsocketTransport.ServerUri*
+  name: ServerUri
+  href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_ServerUri_
+  commentId: Overload:Mirror.Websocket.WebsocketTransport.ServerUri
+  isSpec: "True"
+  fullName: Mirror.Websocket.WebsocketTransport.ServerUri
+  nameWithType: WebsocketTransport.ServerUri
 - uid: Mirror.Websocket.WebsocketTransport.Shutdown
   name: Shutdown()
   href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_Shutdown

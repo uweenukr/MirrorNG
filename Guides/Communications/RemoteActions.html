@@ -86,6 +86,9 @@
 <h2 id="commands">Commands</h2>
 <p>Commands are sent from player objects on the client to player objects on the server. For security, Commands can only be sent from YOUR player object, so you cannot control the objects of other players. To make a function into a command, add the [Command] custom attribute to it, and add the “Cmd” prefix. This function will now be run on the server when it is called on the client. Any arguments will automatically be passed to the server with the command.</p>
 <p>Commands functions must have the prefix “Cmd”. This is a hint when reading code that calls the command - this function is special and is not invoked locally like a normal function.</p>
+<blockquote>
+<p>Commands cannot be used directly as event handlers e.g. UI OnClick events, either by code or by inspector assignment. Create a separate method for the handler that calls the Command.</p>
+</blockquote>
 <pre><code class="lang-cs">public class Player : NetworkBehaviour
 {
     void Update()
@@ -117,6 +120,9 @@
 <h2 id="clientrpc-calls">ClientRpc Calls</h2>
 <p>ClientRpc calls are sent from objects on the server to objects on clients. They can be sent from any server object with a NetworkIdentity that has been spawned. Since the server has authority, then there no security issues with server objects being able to send these calls. To make a function into a ClientRpc call, add the [ClientRpc] custom attribute to it, and add the “Rpc” prefix. This function will now be run on clients when it is called on the server. Any arguments will automatically be passed to the clients with the ClientRpc call..</p>
 <p>ClientRpc functions must have the prefix “Rpc”. This is a hint when reading code that calls the method - this function is special and is not invoked locally like a normal function.</p>
+<blockquote>
+<p>ClientRpc's cannot be used directly as event handlers e.g. UI OnClick events, either by code or by inspector assignment. Create a separate method for the handler that calls the ClientRpc.</p>
+</blockquote>
 <pre><code class="lang-cs">public class Player : NetworkBehaviour
 {
     int health;
@@ -140,6 +146,9 @@
 <h2 id="targetrpc-calls">TargetRpc Calls</h2>
 <p>TargetRpc functions are called by user code on the server, and then invoked on the corresponding client object on the client of the specified NetworkConnection. The arguments to the RPC call are serialized across the network, so that the client function is invoked with the same values as the function on the server. These functions must begin with the prefix &quot;Target&quot; and cannot be static.</p>
 <p>The first argument to an TargetRpc function must be a NetworkConnection object.</p>
+<blockquote>
+<p>TargetRpc's cannot be used directly as event handlers e.g. UI OnClick events, either by code or by inspector assignment. Create a separate method for the handler that calls the TargetRpc.</p>
+</blockquote>
 <p>This example shows how a client can use a Command to make a request from the server (<code>CmdMagic</code>) by including its own <code>connectionToClient</code> as one of the parameters of the TargetRpc invoked directly from that Command:</p>
 <pre><code class="lang-cs">public class Player : NetworkBehaviour
 {
@@ -168,7 +177,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/ac96914a9d4f3567ad965266a214fc6a16572da1/doc/Guides/Communications/RemoteActions.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/doc/Guides/Communications/RemoteActions.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

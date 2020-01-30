@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Network Discovery </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Network Discovery ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="http://mirror-networking.com">
+                <img id="logo" class="svg" style="vertical-align: middle;" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="network-discovery">Network Discovery</h1>
+
+<p>Suppose your are next to a friend. He starts a game in host mode and you want to join him. How will your phone locate his? Finding out his IP address is not exactly intuitive or something kids can do.</p>
+<p>To solve this problem you can use Network Discovery. When your game starts, it sends a message in your current network asking &quot;Is there any server available?&quot;. Any server within the same network will reply and provide information about how to connect to it.</p>
+<p>Mirror comes with a simple implementation of Network Discovery you can simply use in your game. It also provides a way for you to extend it so that you can pass additional data during the discovery phase.</p>
+<p><img src="../Components/NetworkDiscovery.png" alt="Inspector"></p>
+<h2 id="quick-start">Quick Start</h2>
+<p>To use Network Discovery follow these steps:</p>
+<ol>
+<li>Create a gameobject with a NetworkManager if you have not done so already</li>
+<li>Do not add a NetworkManagerHUD. Discovery has a different UI component.</li>
+<li>Add a NetworkDiscoveryHUD component to the NetworkManager gameobject.<br>
+A NetworkDiscovery component will be automatically added and wired up to your HUD.</li>
+<li>Add a player to the NetworkManager if you have not done so.</li>
+<li>Build and run a standalone version</li>
+<li>Click on Start Host</li>
+<li>Start play mode in the editor and click on Find Servers</li>
+<li>The editor should find the standalone version and display a button</li>
+<li>Click on the button to connect to it.</li>
+</ol>
+<p>The NetworkDiscoveryHUD is provided as a simple and quick way to get started, but you will probably want to replace it with your own user interface.</p>
+<h2 id="custom-network-discovery">Custom Network Discovery</h2>
+<p>You can completely replace the user interface by adding your own interface (typically Unity UI based) instead of the default NetworkDiscoveryHUD. You do still need the NetworkDiscovery component to do the heavy lifting.</p>
+<p>Sometimes you want to provide more information in the discovery messages. Some use cases could include:</p>
+<ul>
+<li>The client can show if the server is in PvP or PvE mode</li>
+<li>The client can show how full the servers are.</li>
+<li>The client can show the ping to each server so the player can chose the fastest server</li>
+<li>The client can show the language</li>
+<li>The client can show if the server is password protected</li>
+</ul>
+<p>To do this, we've provided a <a href="../General/ScriptTemplates.html">Template</a>, so from the Assets menu, click Create &gt; Mirror &gt; Network Discovery.</p>
+<p>This will create a script in your project with 2 empty message classes and a custom NetworkDiscovery class that inherits from NetworkDiscoveryBase and has all the override methods included and documented for you.</p>
+<p>The message classes define what is sent between the client and server. As long as you keep your messages simple using the <a href="DataTypes.html">data types</a> that Mirror can serialize, you won't need to write custom serializers for them.</p>
+<pre><code class="lang-cs">public class DiscoveryRequest : MessageBase
+{
+    public string language=&quot;en&quot;;
+
+    // Add properties for whatever information you want sent by clients
+    // in their broadcast messages that servers will consume.
+}
+
+public class DiscoveryResponse : MessageBase
+{
+    enum GameMode {PvP, PvE};
+
+    // you probably want uri so clients know how to connect to the server
+    public Uri uri;
+
+    public GameMode GameMode;
+    public int TotalPlayers;
+    public int HostPlayerName;
+
+    // Add properties for whatever information you want the server to return to
+    // clients for them to display or consume for establishing a connection.
+}
+</code></pre>
+<p>The custom NetworkDiscovery class contains the overrides for handling the messages above.</p>
+<p>You may want to refer to the NetworkDiscovery.cs script in the Components/Discovery folder to see how these should be implemented.</p>
+<pre><code class="lang-cs">public class NewNetworkDiscovery: NetworkDiscoveryBase&lt;DiscoveryRequest, DiscoveryResponse&gt; 
+{
+    #region Server
+
+    protected override void ProcessClientRequest(DiscoveryRequest request, IPEndPoint endpoint)
+    {
+        base.ProcessClientRequest(request, endpoint);
+    }
+
+    protected override DiscoveryResponse ProcessRequest(DiscoveryRequest request, IPEndPoint endpoint) 
+    {
+        // TODO: Create your response and return it   
+        return new DiscoveryResponse();
+    }
+
+    #endregion
+
+    #region Client
+
+    protected override DiscoveryRequest GetRequest()
+    {
+        return new DiscoveryRequest();
+    }
+
+    protected override void ProcessResponse(DiscoveryResponse response, IPEndPoint endpoint)
+    {
+        // TODO: a server replied,  do something with the response such as invoking a unityevent
+    }
+
+    #endregion
+}
+</code></pre>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/3963b71830fdd86376b57cecc3c7ea661b453b1d/doc/Guides/NetworkDiscovery.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
