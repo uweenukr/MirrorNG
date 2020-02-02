@@ -1822,15 +1822,6 @@ references:
   isSpec: "True"
   fullName: Mirror.MessagePacker.Unpack
   nameWithType: MessagePacker.Unpack
-- uid: Mirror.MessagePacker.Unpack``1(ArraySegment{System.Byte})
-  name: Unpack<T>(ArraySegment<Byte>)
-  href: api/Mirror.MessagePacker.html#Mirror_MessagePacker_Unpack__1_ArraySegment_System_Byte__
-  commentId: M:Mirror.MessagePacker.Unpack``1(ArraySegment{System.Byte})
-  name.vb: Unpack(Of T)(ArraySegment(Of Byte))
-  fullName: Mirror.MessagePacker.Unpack<T>(ArraySegment<System.Byte>)
-  fullName.vb: Mirror.MessagePacker.Unpack(Of T)(ArraySegment(Of System.Byte))
-  nameWithType: MessagePacker.Unpack<T>(ArraySegment<Byte>)
-  nameWithType.vb: MessagePacker.Unpack(Of T)(ArraySegment(Of Byte))
 - uid: Mirror.MessagePacker.Unpack``1(System.Byte[])
   name: Unpack<T>(Byte[])
   href: api/Mirror.MessagePacker.html#Mirror_MessagePacker_Unpack__1_System_Byte___
@@ -5328,6 +5319,50 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkReaderExtensions.ReadVector4
   nameWithType: NetworkReaderExtensions.ReadVector4
+- uid: Mirror.NetworkReaderPool
+  name: NetworkReaderPool
+  href: api/Mirror.NetworkReaderPool.html
+  commentId: T:Mirror.NetworkReaderPool
+  fullName: Mirror.NetworkReaderPool
+  nameWithType: NetworkReaderPool
+- uid: Mirror.NetworkReaderPool.GetReader(ArraySegment{System.Byte})
+  name: GetReader(ArraySegment<Byte>)
+  href: api/Mirror.NetworkReaderPool.html#Mirror_NetworkReaderPool_GetReader_ArraySegment_System_Byte__
+  commentId: M:Mirror.NetworkReaderPool.GetReader(ArraySegment{System.Byte})
+  name.vb: GetReader(ArraySegment(Of Byte))
+  fullName: Mirror.NetworkReaderPool.GetReader(ArraySegment<System.Byte>)
+  fullName.vb: Mirror.NetworkReaderPool.GetReader(ArraySegment(Of System.Byte))
+  nameWithType: NetworkReaderPool.GetReader(ArraySegment<Byte>)
+  nameWithType.vb: NetworkReaderPool.GetReader(ArraySegment(Of Byte))
+- uid: Mirror.NetworkReaderPool.GetReader(System.Byte[])
+  name: GetReader(Byte[])
+  href: api/Mirror.NetworkReaderPool.html#Mirror_NetworkReaderPool_GetReader_System_Byte___
+  commentId: M:Mirror.NetworkReaderPool.GetReader(System.Byte[])
+  name.vb: GetReader(Byte())
+  fullName: Mirror.NetworkReaderPool.GetReader(System.Byte[])
+  fullName.vb: Mirror.NetworkReaderPool.GetReader(System.Byte())
+  nameWithType: NetworkReaderPool.GetReader(Byte[])
+  nameWithType.vb: NetworkReaderPool.GetReader(Byte())
+- uid: Mirror.NetworkReaderPool.GetReader*
+  name: GetReader
+  href: api/Mirror.NetworkReaderPool.html#Mirror_NetworkReaderPool_GetReader_
+  commentId: Overload:Mirror.NetworkReaderPool.GetReader
+  isSpec: "True"
+  fullName: Mirror.NetworkReaderPool.GetReader
+  nameWithType: NetworkReaderPool.GetReader
+- uid: Mirror.NetworkReaderPool.Recycle(Mirror.NetworkReader)
+  name: Recycle(NetworkReader)
+  href: api/Mirror.NetworkReaderPool.html#Mirror_NetworkReaderPool_Recycle_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkReaderPool.Recycle(Mirror.NetworkReader)
+  fullName: Mirror.NetworkReaderPool.Recycle(Mirror.NetworkReader)
+  nameWithType: NetworkReaderPool.Recycle(NetworkReader)
+- uid: Mirror.NetworkReaderPool.Recycle*
+  name: Recycle
+  href: api/Mirror.NetworkReaderPool.html#Mirror_NetworkReaderPool_Recycle_
+  commentId: Overload:Mirror.NetworkReaderPool.Recycle
+  isSpec: "True"
+  fullName: Mirror.NetworkReaderPool.Recycle
+  nameWithType: NetworkReaderPool.Recycle
 - uid: Mirror.NetworkRoomManager
   name: NetworkRoomManager
   href: api/Mirror.NetworkRoomManager.html
@@ -5489,6 +5524,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkRoomManager.OnRoomClientSceneChanged
   nameWithType: NetworkRoomManager.OnRoomClientSceneChanged
+- uid: Mirror.NetworkRoomManager.OnRoomServerAddPlayer(Mirror.NetworkConnection)
+  name: OnRoomServerAddPlayer(NetworkConnection)
+  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_OnRoomServerAddPlayer_Mirror_NetworkConnection_
+  commentId: M:Mirror.NetworkRoomManager.OnRoomServerAddPlayer(Mirror.NetworkConnection)
+  fullName: Mirror.NetworkRoomManager.OnRoomServerAddPlayer(Mirror.NetworkConnection)
+  nameWithType: NetworkRoomManager.OnRoomServerAddPlayer(NetworkConnection)
+- uid: Mirror.NetworkRoomManager.OnRoomServerAddPlayer*
+  name: OnRoomServerAddPlayer
+  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_OnRoomServerAddPlayer_
+  commentId: Overload:Mirror.NetworkRoomManager.OnRoomServerAddPlayer
+  isSpec: "True"
+  fullName: Mirror.NetworkRoomManager.OnRoomServerAddPlayer
+  nameWithType: NetworkRoomManager.OnRoomServerAddPlayer
 - uid: Mirror.NetworkRoomManager.OnRoomServerConnect(Mirror.NetworkConnection)
   name: OnRoomServerConnect(NetworkConnection)
   href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_OnRoomServerConnect_Mirror_NetworkConnection_

@@ -89,6 +89,7 @@
 <li>Added: <a href="../Components/NetworkSceneChecker.html">Network Scene Checker Component</a></li>
 <li>Added: Mirror Icon for all components</li>
 <li>Added: URI added to supported data types</li>
+<li>Added: <code>NetworkReaderPool</code> has been implemented in place of <code>new NetworkReader</code> everywhere, significantly reducing garbage allocation</li>
 <li>Fixed: NetworkTransform and NetworkAnimator now uses NetworkWriterPool</li>
 <li>Fixed: NetworkTransform and NetworkAnimator now respect <code>hasAuthority</code> for client owned objects</li>
 <li>Fixed: NetworkTransform will now correctly teleport if time / distance are too large</li>
@@ -100,7 +101,9 @@
 <li>Fixed: SyncVars are now set for Host player before hook is invoked</li>
 <li>Fixed: StopHost no longer tries to change to the Offline scene twice</li>
 <li>Fixed: NetworkRoomManager roomSlots are now correctly managed on both server and clients</li>
+<li>Fixed: NetworkRoomManager now correctly supports multiple GamePlay scenes and adds a virtual <code>OnRoomServerAddPlayer</code></li>
 <li>Fixed: Additive scene operations no longer incorrectly lead to extraneous AddPlayer messages from clients.</li>
+<li>Fixed: <code>NetworkWriterPool</code> is now used everywhere instead of <code>new NetworkWriter</code> (we missed a couple when the pool was implemented)</li>
 <li>Changed: Shutdown logic has been streamlined</li>
 <li>Changed: NetworkIdentity <code>GetSceneIdenity</code> method renamed to <code>GetSceneIdentity</code> (name typo)</li>
 <li>Changed: OnApplicationQuit virtual method added to Transport class and <code>Transport.activeTransport.Shutdown()</code> is no longer called from Network Manager</li>
@@ -429,7 +432,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/d6a1154e98c52e7873411ce9d7b87f7b294dc436/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/8c6bbeec02294847d936281cf7a5aec385f0e0b4/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
