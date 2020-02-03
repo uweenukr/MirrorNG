@@ -6768,18 +6768,18 @@ references:
   commentId: F:Mirror.NetworkTransformBase.DataPoint.TimeStamp
   fullName: Mirror.NetworkTransformBase.DataPoint.TimeStamp
   nameWithType: NetworkTransformBase.DataPoint.TimeStamp
-- uid: Mirror.NetworkTransformBase.LocalEulerAnglesSensitivity
-  name: LocalEulerAnglesSensitivity
-  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_LocalEulerAnglesSensitivity
-  commentId: F:Mirror.NetworkTransformBase.LocalEulerAnglesSensitivity
-  fullName: Mirror.NetworkTransformBase.LocalEulerAnglesSensitivity
-  nameWithType: NetworkTransformBase.LocalEulerAnglesSensitivity
 - uid: Mirror.NetworkTransformBase.LocalPositionSensitivity
   name: LocalPositionSensitivity
   href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_LocalPositionSensitivity
   commentId: F:Mirror.NetworkTransformBase.LocalPositionSensitivity
   fullName: Mirror.NetworkTransformBase.LocalPositionSensitivity
   nameWithType: NetworkTransformBase.LocalPositionSensitivity
+- uid: Mirror.NetworkTransformBase.LocalRotationSensitivity
+  name: LocalRotationSensitivity
+  href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_LocalRotationSensitivity
+  commentId: F:Mirror.NetworkTransformBase.LocalRotationSensitivity
+  fullName: Mirror.NetworkTransformBase.LocalRotationSensitivity
+  nameWithType: NetworkTransformBase.LocalRotationSensitivity
 - uid: Mirror.NetworkTransformBase.LocalScaleSensitivity
   name: LocalScaleSensitivity
   href: api/Mirror.NetworkTransformBase.html#Mirror_NetworkTransformBase_LocalScaleSensitivity
