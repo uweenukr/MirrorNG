@@ -1049,25 +1049,25 @@ references:
   isSpec: "True"
   fullName: Mirror.FallbackTransport.Awake
   nameWithType: FallbackTransport.Awake
-- uid: Mirror.FallbackTransport.ClientConnect(System.String)
-  name: ClientConnect(String)
-  href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_ClientConnect_System_String_
-  commentId: M:Mirror.FallbackTransport.ClientConnect(System.String)
-  fullName: Mirror.FallbackTransport.ClientConnect(System.String)
-  nameWithType: FallbackTransport.ClientConnect(String)
-- uid: Mirror.FallbackTransport.ClientConnect(Uri)
-  name: ClientConnect(Uri)
-  href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_ClientConnect_Uri_
-  commentId: M:Mirror.FallbackTransport.ClientConnect(Uri)
-  fullName: Mirror.FallbackTransport.ClientConnect(Uri)
-  nameWithType: FallbackTransport.ClientConnect(Uri)
-- uid: Mirror.FallbackTransport.ClientConnect*
-  name: ClientConnect
-  href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_ClientConnect_
-  commentId: Overload:Mirror.FallbackTransport.ClientConnect
+- uid: Mirror.FallbackTransport.ClientConnectAsync(System.String)
+  name: ClientConnectAsync(String)
+  href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_ClientConnectAsync_System_String_
+  commentId: M:Mirror.FallbackTransport.ClientConnectAsync(System.String)
+  fullName: Mirror.FallbackTransport.ClientConnectAsync(System.String)
+  nameWithType: FallbackTransport.ClientConnectAsync(String)
+- uid: Mirror.FallbackTransport.ClientConnectAsync(Uri)
+  name: ClientConnectAsync(Uri)
+  href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_ClientConnectAsync_Uri_
+  commentId: M:Mirror.FallbackTransport.ClientConnectAsync(Uri)
+  fullName: Mirror.FallbackTransport.ClientConnectAsync(Uri)
+  nameWithType: FallbackTransport.ClientConnectAsync(Uri)
+- uid: Mirror.FallbackTransport.ClientConnectAsync*
+  name: ClientConnectAsync
+  href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_ClientConnectAsync_
+  commentId: Overload:Mirror.FallbackTransport.ClientConnectAsync
   isSpec: "True"
-  fullName: Mirror.FallbackTransport.ClientConnect
-  nameWithType: FallbackTransport.ClientConnect
+  fullName: Mirror.FallbackTransport.ClientConnectAsync
+  nameWithType: FallbackTransport.ClientConnectAsync
 - uid: Mirror.FallbackTransport.ClientConnected
   name: ClientConnected()
   href: api/Mirror.FallbackTransport.html#Mirror_FallbackTransport_ClientConnected
@@ -1442,25 +1442,25 @@ references:
   isSpec: "True"
   fullName: Mirror.LLAPITransport.Available
   nameWithType: LLAPITransport.Available
-- uid: Mirror.LLAPITransport.ClientConnect(System.String)
-  name: ClientConnect(String)
-  href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_ClientConnect_System_String_
-  commentId: M:Mirror.LLAPITransport.ClientConnect(System.String)
-  fullName: Mirror.LLAPITransport.ClientConnect(System.String)
-  nameWithType: LLAPITransport.ClientConnect(String)
-- uid: Mirror.LLAPITransport.ClientConnect(Uri)
-  name: ClientConnect(Uri)
-  href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_ClientConnect_Uri_
-  commentId: M:Mirror.LLAPITransport.ClientConnect(Uri)
-  fullName: Mirror.LLAPITransport.ClientConnect(Uri)
-  nameWithType: LLAPITransport.ClientConnect(Uri)
-- uid: Mirror.LLAPITransport.ClientConnect*
-  name: ClientConnect
-  href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_ClientConnect_
-  commentId: Overload:Mirror.LLAPITransport.ClientConnect
+- uid: Mirror.LLAPITransport.ClientConnectAsync(System.String)
+  name: ClientConnectAsync(String)
+  href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_ClientConnectAsync_System_String_
+  commentId: M:Mirror.LLAPITransport.ClientConnectAsync(System.String)
+  fullName: Mirror.LLAPITransport.ClientConnectAsync(System.String)
+  nameWithType: LLAPITransport.ClientConnectAsync(String)
+- uid: Mirror.LLAPITransport.ClientConnectAsync(Uri)
+  name: ClientConnectAsync(Uri)
+  href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_ClientConnectAsync_Uri_
+  commentId: M:Mirror.LLAPITransport.ClientConnectAsync(Uri)
+  fullName: Mirror.LLAPITransport.ClientConnectAsync(Uri)
+  nameWithType: LLAPITransport.ClientConnectAsync(Uri)
+- uid: Mirror.LLAPITransport.ClientConnectAsync*
+  name: ClientConnectAsync
+  href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_ClientConnectAsync_
+  commentId: Overload:Mirror.LLAPITransport.ClientConnectAsync
   isSpec: "True"
-  fullName: Mirror.LLAPITransport.ClientConnect
-  nameWithType: LLAPITransport.ClientConnect
+  fullName: Mirror.LLAPITransport.ClientConnectAsync
+  nameWithType: LLAPITransport.ClientConnectAsync
 - uid: Mirror.LLAPITransport.ClientConnected
   name: ClientConnected()
   href: api/Mirror.LLAPITransport.html#Mirror_LLAPITransport_ClientConnected
@@ -1903,25 +1903,25 @@ references:
   isSpec: "True"
   fullName: Mirror.MultiplexTransport.Awake
   nameWithType: MultiplexTransport.Awake
-- uid: Mirror.MultiplexTransport.ClientConnect(System.String)
-  name: ClientConnect(String)
-  href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_ClientConnect_System_String_
-  commentId: M:Mirror.MultiplexTransport.ClientConnect(System.String)
-  fullName: Mirror.MultiplexTransport.ClientConnect(System.String)
-  nameWithType: MultiplexTransport.ClientConnect(String)
-- uid: Mirror.MultiplexTransport.ClientConnect(Uri)
-  name: ClientConnect(Uri)
-  href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_ClientConnect_Uri_
-  commentId: M:Mirror.MultiplexTransport.ClientConnect(Uri)
-  fullName: Mirror.MultiplexTransport.ClientConnect(Uri)
-  nameWithType: MultiplexTransport.ClientConnect(Uri)
-- uid: Mirror.MultiplexTransport.ClientConnect*
-  name: ClientConnect
-  href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_ClientConnect_
-  commentId: Overload:Mirror.MultiplexTransport.ClientConnect
+- uid: Mirror.MultiplexTransport.ClientConnectAsync(System.String)
+  name: ClientConnectAsync(String)
+  href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_ClientConnectAsync_System_String_
+  commentId: M:Mirror.MultiplexTransport.ClientConnectAsync(System.String)
+  fullName: Mirror.MultiplexTransport.ClientConnectAsync(System.String)
+  nameWithType: MultiplexTransport.ClientConnectAsync(String)
+- uid: Mirror.MultiplexTransport.ClientConnectAsync(Uri)
+  name: ClientConnectAsync(Uri)
+  href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_ClientConnectAsync_Uri_
+  commentId: M:Mirror.MultiplexTransport.ClientConnectAsync(Uri)
+  fullName: Mirror.MultiplexTransport.ClientConnectAsync(Uri)
+  nameWithType: MultiplexTransport.ClientConnectAsync(Uri)
+- uid: Mirror.MultiplexTransport.ClientConnectAsync*
+  name: ClientConnectAsync
+  href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_ClientConnectAsync_
+  commentId: Overload:Mirror.MultiplexTransport.ClientConnectAsync
   isSpec: "True"
-  fullName: Mirror.MultiplexTransport.ClientConnect
-  nameWithType: MultiplexTransport.ClientConnect
+  fullName: Mirror.MultiplexTransport.ClientConnectAsync
+  nameWithType: MultiplexTransport.ClientConnectAsync
 - uid: Mirror.MultiplexTransport.ClientConnected
   name: ClientConnected()
   href: api/Mirror.MultiplexTransport.html#Mirror_MultiplexTransport_ClientConnected
@@ -3025,25 +3025,25 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkClient.active
   nameWithType: NetworkClient.active
-- uid: Mirror.NetworkClient.Connect(System.String)
-  name: Connect(String)
-  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Connect_System_String_
-  commentId: M:Mirror.NetworkClient.Connect(System.String)
-  fullName: Mirror.NetworkClient.Connect(System.String)
-  nameWithType: NetworkClient.Connect(String)
-- uid: Mirror.NetworkClient.Connect(Uri)
-  name: Connect(Uri)
-  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Connect_Uri_
-  commentId: M:Mirror.NetworkClient.Connect(Uri)
-  fullName: Mirror.NetworkClient.Connect(Uri)
-  nameWithType: NetworkClient.Connect(Uri)
-- uid: Mirror.NetworkClient.Connect*
-  name: Connect
-  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Connect_
-  commentId: Overload:Mirror.NetworkClient.Connect
+- uid: Mirror.NetworkClient.ConnectAsync(System.String)
+  name: ConnectAsync(String)
+  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_ConnectAsync_System_String_
+  commentId: M:Mirror.NetworkClient.ConnectAsync(System.String)
+  fullName: Mirror.NetworkClient.ConnectAsync(System.String)
+  nameWithType: NetworkClient.ConnectAsync(String)
+- uid: Mirror.NetworkClient.ConnectAsync(Uri)
+  name: ConnectAsync(Uri)
+  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_ConnectAsync_Uri_
+  commentId: M:Mirror.NetworkClient.ConnectAsync(Uri)
+  fullName: Mirror.NetworkClient.ConnectAsync(Uri)
+  nameWithType: NetworkClient.ConnectAsync(Uri)
+- uid: Mirror.NetworkClient.ConnectAsync*
+  name: ConnectAsync
+  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_ConnectAsync_
+  commentId: Overload:Mirror.NetworkClient.ConnectAsync
   isSpec: "True"
-  fullName: Mirror.NetworkClient.Connect
-  nameWithType: NetworkClient.Connect
+  fullName: Mirror.NetworkClient.ConnectAsync
+  nameWithType: NetworkClient.ConnectAsync
 - uid: Mirror.NetworkClient.connection
   name: connection
   href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_connection
@@ -10110,7 +10110,14 @@ references:
 - uid: Mirror.Tcp.Client.Connected
   name: Connected
   href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_Connected
-  commentId: E:Mirror.Tcp.Client.Connected
+  commentId: P:Mirror.Tcp.Client.Connected
+  fullName: Mirror.Tcp.Client.Connected
+  nameWithType: Client.Connected
+- uid: Mirror.Tcp.Client.Connected*
+  name: Connected
+  href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_Connected_
+  commentId: Overload:Mirror.Tcp.Client.Connected
+  isSpec: "True"
   fullName: Mirror.Tcp.Client.Connected
   nameWithType: Client.Connected
 - uid: Mirror.Tcp.Client.Connecting
@@ -10145,19 +10152,6 @@ references:
   commentId: E:Mirror.Tcp.Client.Disconnected
   fullName: Mirror.Tcp.Client.Disconnected
   nameWithType: Client.Disconnected
-- uid: Mirror.Tcp.Client.IsConnected
-  name: IsConnected
-  href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_IsConnected
-  commentId: P:Mirror.Tcp.Client.IsConnected
-  fullName: Mirror.Tcp.Client.IsConnected
-  nameWithType: Client.IsConnected
-- uid: Mirror.Tcp.Client.IsConnected*
-  name: IsConnected
-  href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_IsConnected_
-  commentId: Overload:Mirror.Tcp.Client.IsConnected
-  isSpec: "True"
-  fullName: Mirror.Tcp.Client.IsConnected
-  nameWithType: Client.IsConnected
 - uid: Mirror.Tcp.Client.NoDelay
   name: NoDelay
   href: api/Mirror.Tcp.Client.html#Mirror_Tcp_Client_NoDelay
@@ -10594,25 +10588,25 @@ references:
   commentId: F:Mirror.Tcp.TcpTransport.client
   fullName: Mirror.Tcp.TcpTransport.client
   nameWithType: TcpTransport.client
-- uid: Mirror.Tcp.TcpTransport.ClientConnect(System.String)
-  name: ClientConnect(String)
-  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ClientConnect_System_String_
-  commentId: M:Mirror.Tcp.TcpTransport.ClientConnect(System.String)
-  fullName: Mirror.Tcp.TcpTransport.ClientConnect(System.String)
-  nameWithType: TcpTransport.ClientConnect(String)
-- uid: Mirror.Tcp.TcpTransport.ClientConnect(Uri)
-  name: ClientConnect(Uri)
-  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ClientConnect_Uri_
-  commentId: M:Mirror.Tcp.TcpTransport.ClientConnect(Uri)
-  fullName: Mirror.Tcp.TcpTransport.ClientConnect(Uri)
-  nameWithType: TcpTransport.ClientConnect(Uri)
-- uid: Mirror.Tcp.TcpTransport.ClientConnect*
-  name: ClientConnect
-  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ClientConnect_
-  commentId: Overload:Mirror.Tcp.TcpTransport.ClientConnect
+- uid: Mirror.Tcp.TcpTransport.ClientConnectAsync(System.String)
+  name: ClientConnectAsync(String)
+  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ClientConnectAsync_System_String_
+  commentId: M:Mirror.Tcp.TcpTransport.ClientConnectAsync(System.String)
+  fullName: Mirror.Tcp.TcpTransport.ClientConnectAsync(System.String)
+  nameWithType: TcpTransport.ClientConnectAsync(String)
+- uid: Mirror.Tcp.TcpTransport.ClientConnectAsync(Uri)
+  name: ClientConnectAsync(Uri)
+  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ClientConnectAsync_Uri_
+  commentId: M:Mirror.Tcp.TcpTransport.ClientConnectAsync(Uri)
+  fullName: Mirror.Tcp.TcpTransport.ClientConnectAsync(Uri)
+  nameWithType: TcpTransport.ClientConnectAsync(Uri)
+- uid: Mirror.Tcp.TcpTransport.ClientConnectAsync*
+  name: ClientConnectAsync
+  href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ClientConnectAsync_
+  commentId: Overload:Mirror.Tcp.TcpTransport.ClientConnectAsync
   isSpec: "True"
-  fullName: Mirror.Tcp.TcpTransport.ClientConnect
-  nameWithType: TcpTransport.ClientConnect
+  fullName: Mirror.Tcp.TcpTransport.ClientConnectAsync
+  nameWithType: TcpTransport.ClientConnectAsync
 - uid: Mirror.Tcp.TcpTransport.ClientConnected
   name: ClientConnected()
   href: api/Mirror.Tcp.TcpTransport.html#Mirror_Tcp_TcpTransport_ClientConnected
@@ -10850,25 +10844,25 @@ references:
   commentId: F:Mirror.TelepathyTransport.client
   fullName: Mirror.TelepathyTransport.client
   nameWithType: TelepathyTransport.client
-- uid: Mirror.TelepathyTransport.ClientConnect(System.String)
-  name: ClientConnect(String)
-  href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_ClientConnect_System_String_
-  commentId: M:Mirror.TelepathyTransport.ClientConnect(System.String)
-  fullName: Mirror.TelepathyTransport.ClientConnect(System.String)
-  nameWithType: TelepathyTransport.ClientConnect(String)
-- uid: Mirror.TelepathyTransport.ClientConnect(Uri)
-  name: ClientConnect(Uri)
-  href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_ClientConnect_Uri_
-  commentId: M:Mirror.TelepathyTransport.ClientConnect(Uri)
-  fullName: Mirror.TelepathyTransport.ClientConnect(Uri)
-  nameWithType: TelepathyTransport.ClientConnect(Uri)
-- uid: Mirror.TelepathyTransport.ClientConnect*
-  name: ClientConnect
-  href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_ClientConnect_
-  commentId: Overload:Mirror.TelepathyTransport.ClientConnect
+- uid: Mirror.TelepathyTransport.ClientConnectAsync(System.String)
+  name: ClientConnectAsync(String)
+  href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_ClientConnectAsync_System_String_
+  commentId: M:Mirror.TelepathyTransport.ClientConnectAsync(System.String)
+  fullName: Mirror.TelepathyTransport.ClientConnectAsync(System.String)
+  nameWithType: TelepathyTransport.ClientConnectAsync(String)
+- uid: Mirror.TelepathyTransport.ClientConnectAsync(Uri)
+  name: ClientConnectAsync(Uri)
+  href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_ClientConnectAsync_Uri_
+  commentId: M:Mirror.TelepathyTransport.ClientConnectAsync(Uri)
+  fullName: Mirror.TelepathyTransport.ClientConnectAsync(Uri)
+  nameWithType: TelepathyTransport.ClientConnectAsync(Uri)
+- uid: Mirror.TelepathyTransport.ClientConnectAsync*
+  name: ClientConnectAsync
+  href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_ClientConnectAsync_
+  commentId: Overload:Mirror.TelepathyTransport.ClientConnectAsync
   isSpec: "True"
-  fullName: Mirror.TelepathyTransport.ClientConnect
-  nameWithType: TelepathyTransport.ClientConnect
+  fullName: Mirror.TelepathyTransport.ClientConnectAsync
+  nameWithType: TelepathyTransport.ClientConnectAsync
 - uid: Mirror.TelepathyTransport.ClientConnected
   name: ClientConnected()
   href: api/Mirror.TelepathyTransport.html#Mirror_TelepathyTransport_ClientConnected
@@ -11131,25 +11125,25 @@ references:
   isSpec: "True"
   fullName: Mirror.Transport.Available
   nameWithType: Transport.Available
-- uid: Mirror.Transport.ClientConnect(System.String)
-  name: ClientConnect(String)
-  href: api/Mirror.Transport.html#Mirror_Transport_ClientConnect_System_String_
-  commentId: M:Mirror.Transport.ClientConnect(System.String)
-  fullName: Mirror.Transport.ClientConnect(System.String)
-  nameWithType: Transport.ClientConnect(String)
-- uid: Mirror.Transport.ClientConnect(Uri)
-  name: ClientConnect(Uri)
-  href: api/Mirror.Transport.html#Mirror_Transport_ClientConnect_Uri_
-  commentId: M:Mirror.Transport.ClientConnect(Uri)
-  fullName: Mirror.Transport.ClientConnect(Uri)
-  nameWithType: Transport.ClientConnect(Uri)
-- uid: Mirror.Transport.ClientConnect*
-  name: ClientConnect
-  href: api/Mirror.Transport.html#Mirror_Transport_ClientConnect_
-  commentId: Overload:Mirror.Transport.ClientConnect
+- uid: Mirror.Transport.ClientConnectAsync(System.String)
+  name: ClientConnectAsync(String)
+  href: api/Mirror.Transport.html#Mirror_Transport_ClientConnectAsync_System_String_
+  commentId: M:Mirror.Transport.ClientConnectAsync(System.String)
+  fullName: Mirror.Transport.ClientConnectAsync(System.String)
+  nameWithType: Transport.ClientConnectAsync(String)
+- uid: Mirror.Transport.ClientConnectAsync(Uri)
+  name: ClientConnectAsync(Uri)
+  href: api/Mirror.Transport.html#Mirror_Transport_ClientConnectAsync_Uri_
+  commentId: M:Mirror.Transport.ClientConnectAsync(Uri)
+  fullName: Mirror.Transport.ClientConnectAsync(Uri)
+  nameWithType: Transport.ClientConnectAsync(Uri)
+- uid: Mirror.Transport.ClientConnectAsync*
+  name: ClientConnectAsync
+  href: api/Mirror.Transport.html#Mirror_Transport_ClientConnectAsync_
+  commentId: Overload:Mirror.Transport.ClientConnectAsync
   isSpec: "True"
-  fullName: Mirror.Transport.ClientConnect
-  nameWithType: Transport.ClientConnect
+  fullName: Mirror.Transport.ClientConnectAsync
+  nameWithType: Transport.ClientConnectAsync
 - uid: Mirror.Transport.ClientConnected
   name: ClientConnected()
   href: api/Mirror.Transport.html#Mirror_Transport_ClientConnected
@@ -11218,12 +11212,6 @@ references:
   isSpec: "True"
   fullName: Mirror.Transport.OnApplicationQuit
   nameWithType: Transport.OnApplicationQuit
-- uid: Mirror.Transport.OnClientConnected
-  name: OnClientConnected
-  href: api/Mirror.Transport.html#Mirror_Transport_OnClientConnected
-  commentId: F:Mirror.Transport.OnClientConnected
-  fullName: Mirror.Transport.OnClientConnected
-  nameWithType: Transport.OnClientConnected
 - uid: Mirror.Transport.OnClientDataReceived
   name: OnClientDataReceived
   href: api/Mirror.Transport.html#Mirror_Transport_OnClientDataReceived
@@ -11837,25 +11825,25 @@ references:
   commentId: F:Mirror.Websocket.WebsocketTransport.client
   fullName: Mirror.Websocket.WebsocketTransport.client
   nameWithType: WebsocketTransport.client
-- uid: Mirror.Websocket.WebsocketTransport.ClientConnect(System.String)
-  name: ClientConnect(String)
-  href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_ClientConnect_System_String_
-  commentId: M:Mirror.Websocket.WebsocketTransport.ClientConnect(System.String)
-  fullName: Mirror.Websocket.WebsocketTransport.ClientConnect(System.String)
-  nameWithType: WebsocketTransport.ClientConnect(String)
-- uid: Mirror.Websocket.WebsocketTransport.ClientConnect(Uri)
-  name: ClientConnect(Uri)
-  href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_ClientConnect_Uri_
-  commentId: M:Mirror.Websocket.WebsocketTransport.ClientConnect(Uri)
-  fullName: Mirror.Websocket.WebsocketTransport.ClientConnect(Uri)
-  nameWithType: WebsocketTransport.ClientConnect(Uri)
-- uid: Mirror.Websocket.WebsocketTransport.ClientConnect*
-  name: ClientConnect
-  href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_ClientConnect_
-  commentId: Overload:Mirror.Websocket.WebsocketTransport.ClientConnect
+- uid: Mirror.Websocket.WebsocketTransport.ClientConnectAsync(System.String)
+  name: ClientConnectAsync(String)
+  href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_ClientConnectAsync_System_String_
+  commentId: M:Mirror.Websocket.WebsocketTransport.ClientConnectAsync(System.String)
+  fullName: Mirror.Websocket.WebsocketTransport.ClientConnectAsync(System.String)
+  nameWithType: WebsocketTransport.ClientConnectAsync(String)
+- uid: Mirror.Websocket.WebsocketTransport.ClientConnectAsync(Uri)
+  name: ClientConnectAsync(Uri)
+  href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_ClientConnectAsync_Uri_
+  commentId: M:Mirror.Websocket.WebsocketTransport.ClientConnectAsync(Uri)
+  fullName: Mirror.Websocket.WebsocketTransport.ClientConnectAsync(Uri)
+  nameWithType: WebsocketTransport.ClientConnectAsync(Uri)
+- uid: Mirror.Websocket.WebsocketTransport.ClientConnectAsync*
+  name: ClientConnectAsync
+  href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_ClientConnectAsync_
+  commentId: Overload:Mirror.Websocket.WebsocketTransport.ClientConnectAsync
   isSpec: "True"
-  fullName: Mirror.Websocket.WebsocketTransport.ClientConnect
-  nameWithType: WebsocketTransport.ClientConnect
+  fullName: Mirror.Websocket.WebsocketTransport.ClientConnectAsync
+  nameWithType: WebsocketTransport.ClientConnectAsync
 - uid: Mirror.Websocket.WebsocketTransport.ClientConnected
   name: ClientConnected()
   href: api/Mirror.Websocket.WebsocketTransport.html#Mirror_Websocket_WebsocketTransport_ClientConnected
@@ -12085,19 +12073,19 @@ references:
   commentId: F:Telepathy.Client.client
   fullName: Telepathy.Client.client
   nameWithType: Client.client
-- uid: Telepathy.Client.Connect(System.String,System.Int32)
-  name: Connect(String, Int32)
-  href: api/Telepathy.Client.html#Telepathy_Client_Connect_System_String_System_Int32_
-  commentId: M:Telepathy.Client.Connect(System.String,System.Int32)
-  fullName: Telepathy.Client.Connect(System.String, System.Int32)
-  nameWithType: Client.Connect(String, Int32)
-- uid: Telepathy.Client.Connect*
-  name: Connect
-  href: api/Telepathy.Client.html#Telepathy_Client_Connect_
-  commentId: Overload:Telepathy.Client.Connect
+- uid: Telepathy.Client.ConnectAsync(System.String,System.Int32)
+  name: ConnectAsync(String, Int32)
+  href: api/Telepathy.Client.html#Telepathy_Client_ConnectAsync_System_String_System_Int32_
+  commentId: M:Telepathy.Client.ConnectAsync(System.String,System.Int32)
+  fullName: Telepathy.Client.ConnectAsync(System.String, System.Int32)
+  nameWithType: Client.ConnectAsync(String, Int32)
+- uid: Telepathy.Client.ConnectAsync*
+  name: ConnectAsync
+  href: api/Telepathy.Client.html#Telepathy_Client_ConnectAsync_
+  commentId: Overload:Telepathy.Client.ConnectAsync
   isSpec: "True"
-  fullName: Telepathy.Client.Connect
-  nameWithType: Client.Connect
+  fullName: Telepathy.Client.ConnectAsync
+  nameWithType: Client.ConnectAsync
 - uid: Telepathy.Client.Connected
   name: Connected
   href: api/Telepathy.Client.html#Telepathy_Client_Connected
