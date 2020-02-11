@@ -119,10 +119,10 @@ public class MyNetworkManager : MonoBehaviour
 }
 </code></pre>
 <p>This basic code calls setup functions to get things going. Below are the simple setup functions for each of the scenarios. These functions create a server, or the right kind of client for each scenario. Note that the remote client assumes the server is on the same machine (localhost). For a finished game this would be an internet address, or something supplied by a matchmaker or master server.</p>
-<pre><code class="lang-cs">// Create a server and listen on a port  
+<pre><code class="lang-cs">// Create a server with a maximum number of connections
 public void SetupServer()
 {
-    NetworkServer.Listen(7777);
+    NetworkServer.Listen(4);
     isAtStartup = false;
 }
 
@@ -157,7 +157,7 @@ public void OnConnected(NetworkConnection conn, ConnectMessage netMsg)
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/b4a98d490ac4d238ab7787e3cbfe2d40a0d77e1c/doc/Guides/ClientsServers.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/23e5f652778e24eff46e8c4ceb5fe7accad1632d/doc/Guides/ClientsServers.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

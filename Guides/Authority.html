@@ -83,6 +83,7 @@
 <h2 id="server-authority">Server Authority</h2>
 <p>The default state of authority in networked games using Mirror is that the Server has authority over all game objects which do not represent players. This means, for example, the server would manage control of all collectible items, moving platforms, NPCs, and any other parts of your game that players can interact with, and player game objects have authority on their owner’s client (meaning the client manages their behavior).</p>
 <h2 id="client-authority">Client Authority</h2>
+<p><a href="https://www.youtube.com/watch?v=WBFrA0Gnpi8&amp;list=PLkx8oFug638oBYF5EOwsSS-gOVBXj1dkP&amp;index=4"><img src="../images/video_tutorial.png" alt="Client and server authority video tutorial"></a></p>
 <p>Client authority means the local client can control a networked game object. By default only the server has control over a networked object.</p>
 <p>In practical terms, having client authority means that the client can call <a href="Communications/RemoteActions.html">Command</a> methods, and if the client disconnects, the object is automatically destroyed.</p>
 <p>Use the <code>NetworkIdentity.hasAuthority</code> property in the client to find out whether a game object has local authority (also accessible on <code>NetworkBehaviour</code> for convenience).</p>
@@ -117,7 +118,7 @@ void CmdSpawn()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/b4a98d490ac4d238ab7787e3cbfe2d40a0d77e1c/doc/Guides/Authority.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/23e5f652778e24eff46e8c4ceb5fe7accad1632d/doc/Guides/Authority.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

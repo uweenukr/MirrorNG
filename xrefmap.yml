@@ -783,6 +783,23 @@ references:
   fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).serverUdpClient
   nameWithType: NetworkDiscoveryBase<Request, Response>.serverUdpClient
   nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).serverUdpClient
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.Start
+  name: Start()
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_Start
+  commentId: M:Mirror.Discovery.NetworkDiscoveryBase`2.Start
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.Start()
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).Start()
+  nameWithType: NetworkDiscoveryBase<Request, Response>.Start()
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).Start()
+- uid: Mirror.Discovery.NetworkDiscoveryBase`2.Start*
+  name: Start
+  href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_Start_
+  commentId: Overload:Mirror.Discovery.NetworkDiscoveryBase`2.Start
+  isSpec: "True"
+  fullName: Mirror.Discovery.NetworkDiscoveryBase<Request, Response>.Start
+  fullName.vb: Mirror.Discovery.NetworkDiscoveryBase(Of Request, Response).Start
+  nameWithType: NetworkDiscoveryBase<Request, Response>.Start
+  nameWithType.vb: NetworkDiscoveryBase(Of Request, Response).Start
 - uid: Mirror.Discovery.NetworkDiscoveryBase`2.StartDiscovery
   name: StartDiscovery()
   href: api/Mirror.Discovery.NetworkDiscoveryBase-2.html#Mirror_Discovery_NetworkDiscoveryBase_2_StartDiscovery
@@ -5033,6 +5050,22 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkReaderExtensions.ReadMatrix4x4
   nameWithType: NetworkReaderExtensions.ReadMatrix4x4
+- uid: Mirror.NetworkReaderExtensions.ReadMessage*
+  name: ReadMessage
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadMessage_
+  commentId: Overload:Mirror.NetworkReaderExtensions.ReadMessage
+  isSpec: "True"
+  fullName: Mirror.NetworkReaderExtensions.ReadMessage
+  nameWithType: NetworkReaderExtensions.ReadMessage
+- uid: Mirror.NetworkReaderExtensions.ReadMessage``1(Mirror.NetworkReader,``0)
+  name: ReadMessage<T>(NetworkReader, T)
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadMessage__1_Mirror_NetworkReader___0_
+  commentId: M:Mirror.NetworkReaderExtensions.ReadMessage``1(Mirror.NetworkReader,``0)
+  name.vb: ReadMessage(Of T)(NetworkReader, T)
+  fullName: Mirror.NetworkReaderExtensions.ReadMessage<T>(Mirror.NetworkReader, T)
+  fullName.vb: Mirror.NetworkReaderExtensions.ReadMessage(Of T)(Mirror.NetworkReader, T)
+  nameWithType: NetworkReaderExtensions.ReadMessage<T>(NetworkReader, T)
+  nameWithType.vb: NetworkReaderExtensions.ReadMessage(Of T)(NetworkReader, T)
 - uid: Mirror.NetworkReaderExtensions.ReadNetworkIdentity(Mirror.NetworkReader)
   name: ReadNetworkIdentity(NetworkReader)
   href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadNetworkIdentity_Mirror_NetworkReader_
@@ -7214,6 +7247,22 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkWriterExtensions.WriteMatrix4x4
   nameWithType: NetworkWriterExtensions.WriteMatrix4x4
+- uid: Mirror.NetworkWriterExtensions.WriteMessage*
+  name: WriteMessage
+  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteMessage_
+  commentId: Overload:Mirror.NetworkWriterExtensions.WriteMessage
+  isSpec: "True"
+  fullName: Mirror.NetworkWriterExtensions.WriteMessage
+  nameWithType: NetworkWriterExtensions.WriteMessage
+- uid: Mirror.NetworkWriterExtensions.WriteMessage``1(Mirror.NetworkWriter,``0)
+  name: WriteMessage<T>(NetworkWriter, T)
+  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteMessage__1_Mirror_NetworkWriter___0_
+  commentId: M:Mirror.NetworkWriterExtensions.WriteMessage``1(Mirror.NetworkWriter,``0)
+  name.vb: WriteMessage(Of T)(NetworkWriter, T)
+  fullName: Mirror.NetworkWriterExtensions.WriteMessage<T>(Mirror.NetworkWriter, T)
+  fullName.vb: Mirror.NetworkWriterExtensions.WriteMessage(Of T)(Mirror.NetworkWriter, T)
+  nameWithType: NetworkWriterExtensions.WriteMessage<T>(NetworkWriter, T)
+  nameWithType.vb: NetworkWriterExtensions.WriteMessage(Of T)(NetworkWriter, T)
 - uid: Mirror.NetworkWriterExtensions.WriteNetworkIdentity(Mirror.NetworkWriter,Mirror.NetworkIdentity)
   name: WriteNetworkIdentity(NetworkWriter, NetworkIdentity)
   href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteNetworkIdentity_Mirror_NetworkWriter_Mirror_NetworkIdentity_
