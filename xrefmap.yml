@@ -6157,18 +6157,18 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.AddConnection
   nameWithType: NetworkServer.AddConnection
-- uid: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject)
-  name: AddPlayerForConnection(NetworkConnection, NetworkClient, GameObject)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_Mirror_NetworkClient_GameObject_
-  commentId: M:Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject)
-  fullName: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection, Mirror.NetworkClient, GameObject)
-  nameWithType: NetworkServer.AddPlayerForConnection(NetworkConnection, NetworkClient, GameObject)
-- uid: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject,Guid)
-  name: AddPlayerForConnection(NetworkConnection, NetworkClient, GameObject, Guid)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_Mirror_NetworkClient_GameObject_Guid_
-  commentId: M:Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,Mirror.NetworkClient,GameObject,Guid)
-  fullName: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection, Mirror.NetworkClient, GameObject, Guid)
-  nameWithType: NetworkServer.AddPlayerForConnection(NetworkConnection, NetworkClient, GameObject, Guid)
+- uid: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject)
+  name: AddPlayerForConnection(NetworkConnection, GameObject)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_GameObject_
+  commentId: M:Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject)
+  fullName: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection, GameObject)
+  nameWithType: NetworkServer.AddPlayerForConnection(NetworkConnection, GameObject)
+- uid: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject,Guid)
+  name: AddPlayerForConnection(NetworkConnection, GameObject, Guid)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_Mirror_NetworkConnection_GameObject_Guid_
+  commentId: M:Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection,GameObject,Guid)
+  fullName: Mirror.NetworkServer.AddPlayerForConnection(Mirror.NetworkConnection, GameObject, Guid)
+  nameWithType: NetworkServer.AddPlayerForConnection(NetworkConnection, GameObject, Guid)
 - uid: Mirror.NetworkServer.AddPlayerForConnection*
   name: AddPlayerForConnection
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_AddPlayerForConnection_
