@@ -5383,12 +5383,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkReaderPool.GetReader
   nameWithType: NetworkReaderPool.GetReader
-- uid: Mirror.NetworkReaderPool.Recycle(Mirror.NetworkReader)
-  name: Recycle(NetworkReader)
-  href: api/Mirror.NetworkReaderPool.html#Mirror_NetworkReaderPool_Recycle_Mirror_NetworkReader_
-  commentId: M:Mirror.NetworkReaderPool.Recycle(Mirror.NetworkReader)
-  fullName: Mirror.NetworkReaderPool.Recycle(Mirror.NetworkReader)
-  nameWithType: NetworkReaderPool.Recycle(NetworkReader)
+- uid: Mirror.NetworkReaderPool.Recycle(Mirror.PooledNetworkReader)
+  name: Recycle(PooledNetworkReader)
+  href: api/Mirror.NetworkReaderPool.html#Mirror_NetworkReaderPool_Recycle_Mirror_PooledNetworkReader_
+  commentId: M:Mirror.NetworkReaderPool.Recycle(Mirror.PooledNetworkReader)
+  fullName: Mirror.NetworkReaderPool.Recycle(Mirror.PooledNetworkReader)
+  nameWithType: NetworkReaderPool.Recycle(PooledNetworkReader)
 - uid: Mirror.NetworkReaderPool.Recycle*
   name: Recycle
   href: api/Mirror.NetworkReaderPool.html#Mirror_NetworkReaderPool_Recycle_
@@ -7542,12 +7542,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkWriterPool.GetWriter
   nameWithType: NetworkWriterPool.GetWriter
-- uid: Mirror.NetworkWriterPool.Recycle(Mirror.NetworkWriter)
-  name: Recycle(NetworkWriter)
-  href: api/Mirror.NetworkWriterPool.html#Mirror_NetworkWriterPool_Recycle_Mirror_NetworkWriter_
-  commentId: M:Mirror.NetworkWriterPool.Recycle(Mirror.NetworkWriter)
-  fullName: Mirror.NetworkWriterPool.Recycle(Mirror.NetworkWriter)
-  nameWithType: NetworkWriterPool.Recycle(NetworkWriter)
+- uid: Mirror.NetworkWriterPool.Recycle(Mirror.PooledNetworkWriter)
+  name: Recycle(PooledNetworkWriter)
+  href: api/Mirror.NetworkWriterPool.html#Mirror_NetworkWriterPool_Recycle_Mirror_PooledNetworkWriter_
+  commentId: M:Mirror.NetworkWriterPool.Recycle(Mirror.PooledNetworkWriter)
+  fullName: Mirror.NetworkWriterPool.Recycle(Mirror.PooledNetworkWriter)
+  nameWithType: NetworkWriterPool.Recycle(PooledNetworkWriter)
 - uid: Mirror.NetworkWriterPool.Recycle*
   name: Recycle
   href: api/Mirror.NetworkWriterPool.html#Mirror_NetworkWriterPool_Recycle_
@@ -7745,6 +7745,44 @@ references:
   commentId: F:Mirror.PlayerSpawnMethod.RoundRobin
   fullName: Mirror.PlayerSpawnMethod.RoundRobin
   nameWithType: PlayerSpawnMethod.RoundRobin
+- uid: Mirror.PooledNetworkReader
+  name: PooledNetworkReader
+  href: api/Mirror.PooledNetworkReader.html
+  commentId: T:Mirror.PooledNetworkReader
+  fullName: Mirror.PooledNetworkReader
+  nameWithType: PooledNetworkReader
+- uid: Mirror.PooledNetworkReader.Dispose
+  name: Dispose()
+  href: api/Mirror.PooledNetworkReader.html#Mirror_PooledNetworkReader_Dispose
+  commentId: M:Mirror.PooledNetworkReader.Dispose
+  fullName: Mirror.PooledNetworkReader.Dispose()
+  nameWithType: PooledNetworkReader.Dispose()
+- uid: Mirror.PooledNetworkReader.Dispose*
+  name: Dispose
+  href: api/Mirror.PooledNetworkReader.html#Mirror_PooledNetworkReader_Dispose_
+  commentId: Overload:Mirror.PooledNetworkReader.Dispose
+  isSpec: "True"
+  fullName: Mirror.PooledNetworkReader.Dispose
+  nameWithType: PooledNetworkReader.Dispose
+- uid: Mirror.PooledNetworkWriter
+  name: PooledNetworkWriter
+  href: api/Mirror.PooledNetworkWriter.html
+  commentId: T:Mirror.PooledNetworkWriter
+  fullName: Mirror.PooledNetworkWriter
+  nameWithType: PooledNetworkWriter
+- uid: Mirror.PooledNetworkWriter.Dispose
+  name: Dispose()
+  href: api/Mirror.PooledNetworkWriter.html#Mirror_PooledNetworkWriter_Dispose
+  commentId: M:Mirror.PooledNetworkWriter.Dispose
+  fullName: Mirror.PooledNetworkWriter.Dispose()
+  nameWithType: PooledNetworkWriter.Dispose()
+- uid: Mirror.PooledNetworkWriter.Dispose*
+  name: Dispose
+  href: api/Mirror.PooledNetworkWriter.html#Mirror_PooledNetworkWriter_Dispose_
+  commentId: Overload:Mirror.PooledNetworkWriter.Dispose
+  isSpec: "True"
+  fullName: Mirror.PooledNetworkWriter.Dispose
+  nameWithType: PooledNetworkWriter.Dispose
 - uid: Mirror.ReadyMessage
   name: ReadyMessage
   href: api/Mirror.ReadyMessage.html

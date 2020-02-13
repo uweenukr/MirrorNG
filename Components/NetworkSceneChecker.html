@@ -89,6 +89,31 @@ Tick this checkbox to hide this object from all players.</li>
 <p>This component would typically be used when the server has several subscenes loaded and needs to isolate networked objects to the subscene they're in.</p>
 <p>A game object with a Network Scene Checker component must also have a Network Identity component. When you create a Network Scene Checker component on a game object, Mirror also creates a Network Identity component on that game object if it does not already have one.</p>
 <p>Scene objects with a Network Scene Checker component are disabled when they're not in the same scene, and spawned objects are destroyed when they're not in the same scene.</p>
+<h2 id="use-with-additive-scenes">Use with Additive Scenes</h2>
+<p>In Mirror, the Server and connected Clients are always on the same main scene, however the server and clients can have various combinations of smaller subscenes loaded additively. The server may load all subscenes at start, or it may dynamically load and unload subscenes where players or other activity is going on as needed.</p>
+<p>All player objects are always first spawned in the main scene, which may or may not have visual content, networked objects, etc. With this component attached to all networked objects, whenever the player object is moved to a subscene (from the main or from another subscene), the observers lists for objects in both the new scene and the prior scene are updated accordingly.</p>
+<p>Loading the subscene(s) on the server is through the normal process with <code>SceneManager</code>:</p>
+<pre><code class="lang-cs">SceneManager.LoadSceneAsync(subScene, LoadSceneMode.Additive);
+</code></pre>
+<p>Next, you will send a <code>SceneMessage</code> to the client telling it to load a subscene additively:</p>
+<pre><code class="lang-cs">SceneMessage msg = new SceneMessage
+{
+    sceneName = subScene,
+    sceneOperation = SceneOperation.LoadAdditive
+};
+
+connectionToClient.Send(msg);
+</code></pre>
+<p>Then, on the server only, you just move the player object to the subscene:</p>
+<pre><code class="lang-cs">// Position the player object in world space first
+// This assumes it has a NetworkTransform component that will update clients
+player.transform.position = new Vector3(100, 1, 100);
+
+// Then move the player object to the subscene
+SceneManager.MoveGameObjectToScene(player, subScene);
+</code></pre>
+<p>Optionally you can send another <code>SceneMessage</code> to the client with <code>SceneOperation.UnloadAdditive</code> to remove any previous additive scene the client no longer needs.  This would apply to a game that has levels after a level change. A short delay may be necessary before removal to allow the client to get fully synced.</p>
+<p>Depending on the complexity of your game, you may find it helpful when switching a player between subscenes to move the player object to the main scene first, yield 100 ms, re-position it, and finally move it to the new subscene.</p>
 </article>
           </div>
           
@@ -97,7 +122,7 @@ Tick this checkbox to hide this object from all players.</li>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/fb267557af292e048df248d4f85fff3569ac2963/doc/Components/NetworkSceneChecker.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/ac9d503cc38c0d66bfdd35781a2adc915484956b/doc/Components/NetworkSceneChecker.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

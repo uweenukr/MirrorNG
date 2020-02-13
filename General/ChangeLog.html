@@ -81,9 +81,14 @@
 
 <h2 id="version-10xx---in-progress">Version 10.x.x - In Progress</h2>
 <ul>
+<li>Added: Weaver will now block play mode and builds if there are weaver errors and show them in the console again.</li>
+<li>Added: PooledNetworkReader and PooledNetworkWriter, both Disposable.</li>
 <li>Added: NetworkReader.ReadMessage<t>.</t></li>
 <li>Added: NetworkDiscovery now handles headless server mode.</li>
-<li>Changed: Breaking - Renamed NeworkWriter.Write to WriteMessage for consistency.</li>
+<li>Added: SyncVar, Cmd's and Rpc's now support Scriptable Objects via CreateInstance on the receiving side.</li>
+<li>Fixed: <code>isClient</code> now returns true on clients in OnDestroy for networked objects.</li>
+<li>Changed: NetworkSceneChecker now works from OnEnable instead of Awake.</li>
+<li>Changed: Renamed NeworkWriter.Write to WriteMessage for consistency.</li>
 </ul>
 <h2 id="version-902---2020-feb-04">Version 9.0.2 - 2020-Feb-04</h2>
 <ul>
@@ -400,7 +405,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/fb267557af292e048df248d4f85fff3569ac2963/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/ac9d503cc38c0d66bfdd35781a2adc915484956b/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
