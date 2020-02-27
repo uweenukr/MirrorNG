@@ -83,7 +83,7 @@
 <p>SyncVars are properties of classes that inherit from NetworkBehaviour, which are synchronized from the server to clients. When a game object is spawned, or a new player joins a game in progress, they are sent the latest state of all SyncVars on networked objects that are visible to them. Use the <code>SyncVar</code> custom attribute to specify which variables in your script you want to synchronize.</p>
 <p>The state of SyncVars is applied to game objects on clients before <code>OnStartClient()</code> is called, so the state of the object is always up-to-date inside <code>OnStartClient()</code>.</p>
 <p>SyncVars can use any <a href="../DataTypes.html">type supported by Mirror</a>. You can have up to 64 SyncVars on a single NetworkBehaviour script, including SyncLists (see next section, below).</p>
-<p>The server automatically sends SyncVar updates when the value of a SyncVar changes, so you do not need to track when they change or send information about the changes yourself.</p>
+<p>The server automatically sends SyncVar updates when the value of a SyncVar changes, so you do not need to track when they change or send information about the changes yourself. Changing a value in the inspector will not trigger an update.</p>
 <blockquote>
 <p>The <a href="SyncVarHook.html">SyncVar hook</a> attribute can be used to specify a method to be called when the SyncVar changes value on the client.</p>
 </blockquote>
@@ -151,7 +151,7 @@ class Cat : Pet
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/e17b4bf7629da109e710c53d508495e39ce9917d/doc/Guides/Sync/SyncVars.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/6d278924482e41d674fde03b6d24aab1d039f31d/doc/Guides/Sync/SyncVars.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

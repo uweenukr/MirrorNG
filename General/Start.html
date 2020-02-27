@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="getting-started">Getting Started</h1>
 
-<p>This document describes steps to converting a single player game to a multiplayer game, using the new Unity Multiplayer networking system. The process described here is a simplified, higher level version of the actual process for a real game; it doesn’t always work exactly like this, but it provides a basic recipe for the process.</p>
+<p>This document describes steps to creating a multiplayer game with Mirror. The process described here is a simplified, higher level version of the actual process for a real game; it doesn’t always work exactly like this, but it provides a basic recipe for the process.</p>
 <h2 id="video-tutorials">Video tutorials</h2>
 <p>Check out these <a href="https://www.youtube.com/playlist?list=PLkx8oFug638oBYF5EOwsSS-gOVBXj1dkP">awesome videos</a> showing you how to get started with mirror. Courtesy of <a href="https://www.youtube.com/channel/UCGIF1XekJqHYIafvE7l0c2A">First Gear Games</a> also known as Punfish in discord.</p>
 <h2 id="script-templates">Script Templates</h2>
@@ -98,7 +98,6 @@
 <ul>
 <li>Find the Prefab for the player game object in the game, or create a Prefab from the player game object</li>
 <li>Add the NetworkIdentity component to the player Prefab</li>
-<li>Check the LocalPlayerAuthority box on the NetworkIdentity</li>
 <li>Set the <code>playerPrefab</code> in the NetworkManager’s Spawn Info section to the player Prefab</li>
 <li>Remove the player game object instance from the Scene if it exists in the Scene</li>
 </ul>
@@ -106,8 +105,9 @@
 <h2 id="player-movement">Player movement</h2>
 <ul>
 <li>Add a NetworkTransform component to the player Prefab</li>
+<li>Check the Client Authority checkbox on the component.</li>
 <li>Update input and control scripts to respect <code>isLocalPlayer</code></li>
-<li>Fix Camera to use spawned player and <code>isLocalPlayer</code></li>
+<li>Override OnStartLocalPlayer to take control of the Main Camera in the scene for the player.</li>
 </ul>
 <p>For example, this script only processes input for the local player:</p>
 <pre><code class="lang-cs">using UnityEngine;
@@ -166,7 +166,7 @@ public class Controls : NetworkBehaviour
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/e17b4bf7629da109e710c53d508495e39ce9917d/doc/General/Start.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/6d278924482e41d674fde03b6d24aab1d039f31d/doc/General/Start.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

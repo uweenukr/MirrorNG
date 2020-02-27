@@ -119,7 +119,7 @@
 <p>Mirror includes a <a href="../Components/Authenticators/Basic.html">Basic Authenticator</a> in the Mirror / Authenticators folder which just uses a simple username and password.</p>
 <h2 id="custom-authenticators">Custom Authenticators</h2>
 <p>Authenticators are derived from an <code>Authenticator</code> abstract class that allows you to implement any authentication scheme you need.</p>
-<p>To make your Authenticator, create a class that inherits from <code>Authenticator</code> and override the methods as needed. - When a client is successfully authenticated,  call <code>base.OnServerAuthenticated.Invoke(conn)</code> on the server and <code>base.OnClientAuthenticated.Invoke(conn)</code> on the client. Mirror is listening for these events to proceed with the connection sequence. Subscribe to OnServerAuthenticated and OnClientAuthenticated events if you wish to perform additional steps after authentication.</p>
+<p>From the Assets menu, click Create &gt; Mirror &gt; Network Authenticator to make your own custom Authenticator from our <a href="../General/ScriptTemplates.html">Script Templates</a>, and just fill in the messages and validation code to suit your needs. When a client is successfully authenticated,  call <code>base.OnServerAuthenticated.Invoke(conn)</code> on the server and <code>base.OnClientAuthenticated.Invoke(conn)</code> on the client. Mirror is listening for these events to proceed with the connection sequence. Subscribe to OnServerAuthenticated and OnClientAuthenticated events if you wish to perform additional steps after authentication.</p>
 <h3 id="tips">Tips</h3>
 <ul>
 <li>Register handlers for messages in <code>OnStartServer</code> and <code>OnStartClient</code>. They're called from StartServer/StartHost, and StartClient, respectively.</li>
@@ -129,7 +129,7 @@
 <li>Remember to put a small delay on the Disconnect call on the server if you send a failure message so that it has a chance to be delivered before the connection is dropped.</li>
 </ul>
 </li>
-<li><code>NetworkConnection</code> has an <code>AuthenticationData</code> object where you can drop a class instance of any data you need to persist on the server related to the authentication, such as account id's, tokens, character selection, etc.</li>
+<li><code>NetworkConnection</code> has an <code>authenticationData</code> object where you can drop any data you need to persist on the server related to the authentication, such as account id's, tokens, character selection, etc.</li>
 </ul>
 <p>Now that you have the foundation of a custom Authenticator component, the rest is up to you. You can exchange any number of custom messages between the server and client as necessary to complete your authentication process before approving the client.</p>
 <p>If you write a good authenticator, consider sharing it with other users or donating it to the mirror project.</p>
@@ -141,7 +141,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/e17b4bf7629da109e710c53d508495e39ce9917d/doc/Guides/Authentication.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/6d278924482e41d674fde03b6d24aab1d039f31d/doc/Guides/Authentication.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

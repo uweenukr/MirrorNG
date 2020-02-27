@@ -3074,12 +3074,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkClient.connection
   nameWithType: NetworkClient.connection
-- uid: Mirror.NetworkClient.Disconnect(Mirror.NetworkServer)
-  name: Disconnect(NetworkServer)
-  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Disconnect_Mirror_NetworkServer_
-  commentId: M:Mirror.NetworkClient.Disconnect(Mirror.NetworkServer)
-  fullName: Mirror.NetworkClient.Disconnect(Mirror.NetworkServer)
-  nameWithType: NetworkClient.Disconnect(NetworkServer)
+- uid: Mirror.NetworkClient.Disconnect
+  name: Disconnect()
+  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Disconnect
+  commentId: M:Mirror.NetworkClient.Disconnect
+  fullName: Mirror.NetworkClient.Disconnect()
+  nameWithType: NetworkClient.Disconnect()
 - uid: Mirror.NetworkClient.Disconnect*
   name: Disconnect
   href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Disconnect_
@@ -5583,6 +5583,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkRoomManager.OnRoomServerConnect
   nameWithType: NetworkRoomManager.OnRoomServerConnect
+- uid: Mirror.NetworkRoomManager.OnRoomServerCreateGamePlayer(Mirror.NetworkConnection)
+  name: OnRoomServerCreateGamePlayer(NetworkConnection)
+  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_OnRoomServerCreateGamePlayer_Mirror_NetworkConnection_
+  commentId: M:Mirror.NetworkRoomManager.OnRoomServerCreateGamePlayer(Mirror.NetworkConnection)
+  fullName: Mirror.NetworkRoomManager.OnRoomServerCreateGamePlayer(Mirror.NetworkConnection)
+  nameWithType: NetworkRoomManager.OnRoomServerCreateGamePlayer(NetworkConnection)
 - uid: Mirror.NetworkRoomManager.OnRoomServerCreateGamePlayer(Mirror.NetworkConnection,GameObject)
   name: OnRoomServerCreateGamePlayer(NetworkConnection, GameObject)
   href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_OnRoomServerCreateGamePlayer_Mirror_NetworkConnection_GameObject_
@@ -5648,12 +5654,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkRoomManager.OnRoomServerSceneChanged
   nameWithType: NetworkRoomManager.OnRoomServerSceneChanged
-- uid: Mirror.NetworkRoomManager.OnRoomServerSceneLoadedForPlayer(GameObject,GameObject)
-  name: OnRoomServerSceneLoadedForPlayer(GameObject, GameObject)
-  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_OnRoomServerSceneLoadedForPlayer_GameObject_GameObject_
-  commentId: M:Mirror.NetworkRoomManager.OnRoomServerSceneLoadedForPlayer(GameObject,GameObject)
-  fullName: Mirror.NetworkRoomManager.OnRoomServerSceneLoadedForPlayer(GameObject, GameObject)
-  nameWithType: NetworkRoomManager.OnRoomServerSceneLoadedForPlayer(GameObject, GameObject)
+- uid: Mirror.NetworkRoomManager.OnRoomServerSceneLoadedForPlayer(Mirror.NetworkConnection,GameObject,GameObject)
+  name: OnRoomServerSceneLoadedForPlayer(NetworkConnection, GameObject, GameObject)
+  href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_OnRoomServerSceneLoadedForPlayer_Mirror_NetworkConnection_GameObject_GameObject_
+  commentId: M:Mirror.NetworkRoomManager.OnRoomServerSceneLoadedForPlayer(Mirror.NetworkConnection,GameObject,GameObject)
+  fullName: Mirror.NetworkRoomManager.OnRoomServerSceneLoadedForPlayer(Mirror.NetworkConnection, GameObject, GameObject)
+  nameWithType: NetworkRoomManager.OnRoomServerSceneLoadedForPlayer(NetworkConnection, GameObject, GameObject)
 - uid: Mirror.NetworkRoomManager.OnRoomServerSceneLoadedForPlayer*
   name: OnRoomServerSceneLoadedForPlayer
   href: api/Mirror.NetworkRoomManager.html#Mirror_NetworkRoomManager_OnRoomServerSceneLoadedForPlayer_
@@ -6119,12 +6125,6 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkSceneChecker.OnStartServer
   nameWithType: NetworkSceneChecker.OnStartServer
-- uid: Mirror.NetworkSceneChecker.sceneCheckerObjects
-  name: sceneCheckerObjects
-  href: api/Mirror.NetworkSceneChecker.html#Mirror_NetworkSceneChecker_sceneCheckerObjects
-  commentId: F:Mirror.NetworkSceneChecker.sceneCheckerObjects
-  fullName: Mirror.NetworkSceneChecker.sceneCheckerObjects
-  nameWithType: NetworkSceneChecker.sceneCheckerObjects
 - uid: Mirror.NetworkServer
   name: NetworkServer
   href: api/Mirror.NetworkServer.html
@@ -6355,19 +6355,6 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.ReplacePlayerForConnection
   nameWithType: NetworkServer.ReplacePlayerForConnection
-- uid: Mirror.NetworkServer.Reset
-  name: Reset()
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Reset
-  commentId: M:Mirror.NetworkServer.Reset
-  fullName: Mirror.NetworkServer.Reset()
-  nameWithType: NetworkServer.Reset()
-- uid: Mirror.NetworkServer.Reset*
-  name: Reset
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Reset_
-  commentId: Overload:Mirror.NetworkServer.Reset
-  isSpec: "True"
-  fullName: Mirror.NetworkServer.Reset
-  nameWithType: NetworkServer.Reset
 - uid: Mirror.NetworkServer.SendToAll*
   name: SendToAll
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SendToAll_
@@ -6391,15 +6378,15 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.SendToClientOfPlayer
   nameWithType: NetworkServer.SendToClientOfPlayer
-- uid: Mirror.NetworkServer.SendToClientOfPlayer``1(Mirror.NetworkIdentity,``0)
-  name: SendToClientOfPlayer<T>(NetworkIdentity, T)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SendToClientOfPlayer__1_Mirror_NetworkIdentity___0_
-  commentId: M:Mirror.NetworkServer.SendToClientOfPlayer``1(Mirror.NetworkIdentity,``0)
-  name.vb: SendToClientOfPlayer(Of T)(NetworkIdentity, T)
-  fullName: Mirror.NetworkServer.SendToClientOfPlayer<T>(Mirror.NetworkIdentity, T)
-  fullName.vb: Mirror.NetworkServer.SendToClientOfPlayer(Of T)(Mirror.NetworkIdentity, T)
-  nameWithType: NetworkServer.SendToClientOfPlayer<T>(NetworkIdentity, T)
-  nameWithType.vb: NetworkServer.SendToClientOfPlayer(Of T)(NetworkIdentity, T)
+- uid: Mirror.NetworkServer.SendToClientOfPlayer``1(Mirror.NetworkIdentity,``0,System.Int32)
+  name: SendToClientOfPlayer<T>(NetworkIdentity, T, Int32)
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SendToClientOfPlayer__1_Mirror_NetworkIdentity___0_System_Int32_
+  commentId: M:Mirror.NetworkServer.SendToClientOfPlayer``1(Mirror.NetworkIdentity,``0,System.Int32)
+  name.vb: SendToClientOfPlayer(Of T)(NetworkIdentity, T, Int32)
+  fullName: Mirror.NetworkServer.SendToClientOfPlayer<T>(Mirror.NetworkIdentity, T, System.Int32)
+  fullName.vb: Mirror.NetworkServer.SendToClientOfPlayer(Of T)(Mirror.NetworkIdentity, T, System.Int32)
+  nameWithType: NetworkServer.SendToClientOfPlayer<T>(NetworkIdentity, T, Int32)
+  nameWithType.vb: NetworkServer.SendToClientOfPlayer(Of T)(NetworkIdentity, T, Int32)
 - uid: Mirror.NetworkServer.SendToReady*
   name: SendToReady
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_SendToReady_

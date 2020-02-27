@@ -84,17 +84,17 @@
 <ul>
 <li>The Hook method must have a two parameters of the same type as the SyncVar property. One for the old value, one for the new value.</li>
 <li>The Hook is always called after the value was set. You don't need to set it yourself.</li>
+<li>The Hook only fires for changed values, and changing a value in the inspector will not trigger an update.</li>
 </ul>
 <p>Below is a simple example of assigning a random color to each player when they're spawned on the server.  All clients will see all players in the correct colors, even if they join later.</p>
 <blockquote>
 <p>Note:  The signature for hook methods was changed in version 7.0 (Feb 2020) to having 2 parameters (old and new values).  If you're on an older version, hook methods just have one parameter (new value).</p>
 </blockquote>
 <pre><code class="lang-cs">using UnityEngine;
-using UnityEngine.Networking;
+using Mirror;
 
 public class PlayerController : NetworkBehaviour
 {
-
     [SyncVar(hook = nameof(SetColor))]
     Color playerColor = Color.black;
 
@@ -130,7 +130,7 @@ public class PlayerController : NetworkBehaviour
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/e17b4bf7629da109e710c53d508495e39ce9917d/doc/Guides/Sync/SyncVarHook.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/6d278924482e41d674fde03b6d24aab1d039f31d/doc/Guides/Sync/SyncVarHook.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

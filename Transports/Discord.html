@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Network Room Manager </title>
+    <title>Discord Transport </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Network Room Manager ">
+    <meta name="title" content="Discord Transport ">
     <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -77,104 +77,20 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="network-room-manager">Network Room Manager</h1>
+<h1 id="discord-transport">Discord Transport</h1>
 
-<p>**Please see the Room example in the Examples folder in your Mirror folder</p>
-<p>The Network Room Manager is a specialized type of <a href="NetworkManager.html">Network Manager</a> that provides a multiplayer room before entering the main play scene of the game. It allows you to set up a network with:</p>
+<p>Discord Transport is a networking transport that enables sending networking packets via <a href="https://discordapp.com/developers/docs/game-sdk/sdk-starter-guide">Discord's Game SDK</a>.</p>
+<p><img src="Discord.PNG" alt="The Discord Transport"></p>
+<p><a href="https://github.com/Derek-R-S/Discord-Mirror/releases">Latest Release</a></p>
+<p><a href="https://github.com/Derek-R-S/Discord-Mirror">Getting Started</a></p>
+<h2 id="features">Features</h2>
 <ul>
-<li>A maximum player limit</li>
-<li>Automatic start when all players are ready</li>
-<li>Option to prevent players from joining a game in progress</li>
-<li>Customizable ways for players to choose options while in room  </li>
+<li>Discord's Relay - No need to port forward or worry about NAT issues!</li>
+<li>No IPs - No IPs mean no IP leaks or hassle</li>
+<li>Encryption - Discord automatically encrypts all your data</li>
 </ul>
-<p>There are two types of player objects with the Network Room Manager:</p>
-<p><strong>Room Player Prefab</strong></p>
-<ul>
-<li>One for each player</li>
-<li>Created when client connects, or player is added</li>
-<li>Persists until client disconnects</li>
-<li>Holds ready flag and configuration data</li>
-<li>Handles commands in the room</li>
-<li>Must use the <a href="NetworkRoomPlayer.html">Network Room Player</a> component</li>
-</ul>
-<p><strong>Player Prefab</strong></p>
-<ul>
-<li>One for each player</li>
-<li>Created when game scene is started</li>
-<li>Destroyed when leaving game scene</li>
-<li>Handles commands in the game  </li>
-</ul>
-<p><img src="NetworkRoomManager.png" alt="Network Room Manager"></p>
-<h2 id="properties">Properties</h2>
-<ul>
-<li><strong>Show Room GUI</strong><br>
-Show the default OnGUI controls for the room.</li>
-<li><strong>Min Players</strong><br>
-Minimum number of players needed to start a game.</li>
-<li><strong>Room Player Prefab</strong><br>
-The prefab to create for players when they enter the room (requires Network Room Player component).</li>
-<li><strong>Room Scene</strong><br>
-The scene to use for the room.</li>
-<li><strong>Gameplay Scene</strong><br>
-The scene to use for main game play.</li>
-<li><strong>pendingPlayers</strong><br>
-List&lt;PendingPlayer&gt; that holds players that are ready to start playing.</li>
-<li><strong>roomSlots</strong><br>
-List&lt;NetworkRoomPlayer&gt; that manages the slots for connected clients in the room.</li>
-<li><strong>allPlayersReady</strong><br>
-Bool indicating if all players are ready to start playing.  This value changes as players invoke <code>CmdChangeReadyState</code> indicating true or false, and will be set false when a new client connects.</li>
-</ul>
-<h2 id="methods">Methods</h2>
-<h3 id="server-virtual-methods">Server Virtual Methods</h3>
-<pre><code class="lang-cs">public virtual void OnRoomStartHost() {}
-
-public virtual void OnRoomStopHost() {}
-
-public virtual void OnRoomStartServer() {}
-
-public virtual void OnRoomServerConnect(NetworkConnection conn) {}
-
-public virtual void OnRoomServerDisconnect(NetworkConnection conn) {}
-
-public virtual void OnRoomServerSceneChanged(string sceneName) {}
-
-public virtual GameObject OnRoomServerCreateRoomPlayer(NetworkConnection conn)
-{
-    return null;
-}
-
-public virtual GameObject OnRoomServerCreateGamePlayer(NetworkConnection conn)
-{
-    return null;
-}
-
-public virtual bool OnRoomServerSceneLoadedForPlayer(GameObject roomPlayer, GameObject gamePlayer)
-{
-    return true;
-}
-
-public virtual void OnRoomServerPlayersReady()
-{
-    ServerChangeScene(GameplayScene);
-}
-</code></pre>
-<h3 id="client-virtual-methods">Client Virtual Methods</h3>
-<pre><code class="lang-cs">public virtual void OnRoomClientEnter() {}
-
-public virtual void OnRoomClientExit() {}
-
-public virtual void OnRoomClientConnect(NetworkConnection conn) {}
-
-public virtual void OnRoomClientDisconnect(NetworkConnection conn) {}
-
-public virtual void OnRoomStartClient() {}
-
-public virtual void OnRoomStopClient() {}
-
-public virtual void OnRoomClientSceneChanged(NetworkConnection conn) {}
-
-public virtual void OnRoomClientAddPlayerFailed() {}
-</code></pre>
+<h2 id="credits">Credits</h2>
+<p>Derek - Made Discord-Mirror</p>
 </article>
           </div>
           
@@ -183,7 +99,7 @@ public virtual void OnRoomClientAddPlayerFailed() {}
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/6d278924482e41d674fde03b6d24aab1d039f31d/doc/Components/NetworkRoomManager.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/6d278924482e41d674fde03b6d24aab1d039f31d/doc/Transports/Discord.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

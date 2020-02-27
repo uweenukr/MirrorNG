@@ -79,24 +79,38 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="deprecations">Deprecations</h1>
 
-<p>Certain features of Unity Networking were removed from Mirror for various reasons. This page will identify all removed features, the reason for removal, and possible alternatives.</p>
+<p>Certain features of Unity Networking (UNet) were removed from Mirror or modified for various reasons. This page will identify all changed and removed features, properties, and methods, the reason for change or removal, and possible alternatives.</p>
+<blockquote>
+<p>Note: Some changes in this document may apply to an upcoming release to the Asset Store.</p>
+</blockquote>
 <h2 id="match-namespace">Match Namespace</h2>
 <p>As part of the Unity Services, this entire namespace was removed. It didn't work well to begin with, and was incredibly complex to be part of the core networking package. We expect this, along with other back-end services, will be provided through standalone apps that have integration to Mirror.</p>
-<h2 id="networkport-in-network-manager">networkPort in Network Manager</h2>
-<p>Network Manager's <code>networkPort</code> property was removed now that all transports are separate components. Not all transports use ports, but those that do have a field for it. See <a href="../Transports/index.html">Transports</a> for more info.</p>
-<h2 id="playercontroller-in-networkconnection">playerController in NetworkConnection</h2>
-<p>This was renamed to <code>identity</code> since that's what it is: the <code>NetworkIdentity</code> for the connection. If you need to convert a project after this change, Visual Studio / VS Code can help...read more <a href="PlayerControllerToIdentity.html">here</a>.</p>
-<h2 id="local-player-authority-in-networkidentity">Local Player Authority in NetworkIdentity</h2>
-<p>This has been phased out through overhauling, and simplifying how <a href="../Guides/Authority.html">Authority</a> works in Mirror.</p>
 <h2 id="network-server-simple">Network Server Simple</h2>
 <p>This was too complex and impractical to maintain for what little it did, and was removed. There are much easier ways to make a basic listen server, with or without one of our transports.</p>
 <h2 id="couch-co-op">Couch Co-Op</h2>
 <p>The core networking was greatly simplified by removing this low-hanging fruit. It was buggy, and too convoluted to be worth fixing.  For those that need something like this, consider defining a non-visible player prefab as a message conduit that spawns actual player prefabs with client authority.  All inputs would route through the conduit prefab to control the player objects.</p>
+<h2 id="message-types">Message Types</h2>
+<p>The <code>MsgType</code> enumeration was removed. All message types are generated dynamically. Use <code>Send&lt;T&gt;</code> instead.</p>
 <h2 id="network-transform">Network Transform</h2>
-<p>This component was significantly simplified so that it only syncs position and rotation. Rigidbody support was removed. We will create a new separate component for NetworkRigidbody that will be server authoritative with physics simulation and interpolation.</p>
+<p><a href="../Components/NetworkTransform.html">Network Transform</a> was significantly simplified so that it only syncs position, rotation and scale. Rigidbody support was removed. We may create a new NetworkRigidbody component that will be server authoritative with physics simulation and interpolation.</p>
+<h2 id="network-animator">Network Animator</h2>
+<p><a href="../Components/NetworkAnimator.html">Network Animator</a> was also simplified, as it batches all Animator parameters into a single update message.</p>
+<h2 id="syncvar-hook-parameters">SyncVar Hook Parameters</h2>
+<p><a href="../Guides/Sync/SyncVars.html">SyncVar</a> property values are now updated before the hook is called, and hooks now require two parameters of the same type as the property: <code>oldValue</code> and <code>newValue</code></p>
+<h2 id="syncliststruct">SyncListSTRUCT</h2>
+<p>Use <code>SyncList&lt;YourSpecialStruct&gt;</code> instead.</p>
+<h2 id="synclist-operations">SyncList Operations</h2>
+<ul>
+<li><code>OP_REMOVE</code> was replaced by <code>OP_REMOVEAT</code></li>
+<li><code>OP_DIRTY</code> was replaced by <code>OP_SET</code></li>
+</ul>
+<h2 id="syncidictionary-operations">SyncIDictionary Operations</h2>
+<ul>
+<li><code>OP_DIRTY</code> was replaced by <code>OP_SET</code></li>
+</ul>
 <h2 id="quality-of-service-flags">Quality of Service Flags</h2>
-<p>In classic UNET, QoS Flags were used to determine how packets got to the remote end. For example, if you needed a packet to be prioritized in the queue, you would specify a high priority flag which the Unity LLAPI would then receive and deal appropriately. Unfortunately, this caused a lot of extra work for the transport layer and some of the QoS flags did not work as intended due to buggy or code that relied on too much magic.</p>
-<p>In Mirror, QoS flags were replaced with a &quot;Channels&quot; system. This system paves the way for future Mirror improvements, so you can send data on different channels - for example, you could have all game activity on channel 0, while in-game text chat is sent on channel 1 and voice chat is sent on channel 2. In the future, it may be possible to assign a transport system per channel, allowing one to have a TCP transport for critical game network data on channel 0, while in-game text and voice chat is running on a UDP transport in parallel on channel 1. Some transports (such as Ignorance.md) also provide legacy compatibility for those attached to QoS flags.</p>
+<p>In classic UNet, QoS Flags were used to determine how packets got to the remote end. For example, if you needed a packet to be prioritized in the queue, you would specify a high priority flag which the Unity LLAPI would then receive and deal with appropriately. Unfortunately, this caused a lot of extra work for the transport layer and some of the QoS flags did not work as intended due to buggy code that relied on too much magic.</p>
+<p>In Mirror, QoS flags were replaced with a &quot;Channels&quot; system. This system paves the way for future Mirror improvements, so you can send data on different channels - for example, you could have all game activity on channel 0, while in-game text chat is sent on channel 1 and voice chat is sent on channel 2. In the future, it may be possible to assign a transport system per channel, allowing one to have a TCP transport for critical game network data on channel 0, while in-game text and voice chat is running on a UDP transport in parallel on channel 1. Some transports, such as <a href="../Transports/Ignorance.html">Ignorance</a>, also provide legacy compatibility for those attached to QoS flags.</p>
 <p>The currently defined channels are:</p>
 <ul>
 <li><p><code>Channels.DefaultReliable = 0</code></p>
@@ -105,6 +119,288 @@
 </li>
 </ul>
 <p>Currently, Mirror using it's default TCP transport will always send everything over a reliable channel. There is no way to bypass this behaviour without using a third-party transport, since TCP is always reliable. Other transports may support other channel sending methods.</p>
+<h2 id="changes-by-class">Changes by Class</h2>
+<h3 id="networkmanager">NetworkManager</h3>
+<ul>
+<li><p><code>networkPort</code><br>
+Removed as part of separating Transports to components. Not all transports use ports, but those that do have a field for it. See <a href="../Transports/index.html">Transports</a> for more info.</p>
+</li>
+<li><p><code>IsHeadless()</code><br>
+Use <code>isHeadless</code> instead, as it's a property now.</p>
+</li>
+<li><p><code>client</code><br>
+Use NetworkClient directly, it will be made static soon. For example, use <code>NetworkClient.Send(message)</code> instead of <code>NetworkManager.client.Send(message)</code>.</p>
+</li>
+<li><p><code>IsClientConnected()</code><br>
+Use static property <code>NetworkClient.isConnected</code> instead.</p>
+</li>
+<li><p><code>OnStartClient(NetworkClient client)</code><br>
+Override OnStartClient() instead since all <code>NetworkClient</code> methods are static now.</p>
+</li>
+<li><p><code>OnClientChangeScene(string newSceneName)</code><br>
+Override <code>OnClientChangeScene(string newSceneName, SceneOperation sceneOperation, bool customHandling)</code> instead.</p>
+</li>
+<li><p><code>OnClientChangeScene(string newSceneName, SceneOperation sceneOperation)</code><br>
+Override <code>OnClientChangeScene(string newSceneName, SceneOperation sceneOperation, bool customHandling)</code> instead.</p>
+</li>
+<li><p><code>OnServerAddPlayer(NetworkConnection conn, AddPlayerMessage extraMessage)</code><br>
+Override <code>OnServerAddPlayer(NetworkConnection conn)</code> instead. See <a href="../Guides/GameObjects/SpawnPlayerCustom.html">Custom Player Spawn Guide</a> for details.</p>
+</li>
+</ul>
+<h3 id="networkroommanager">NetworkRoomManager</h3>
+<ul>
+<li><p><code>OnRoomServerCreateGamePlayer(NetworkConnection conn)</code><br>
+Use <code>OnRoomServerCreateGamePlayer(NetworkConnection conn, GameObject roomPlayer)</code> instead.</p>
+</li>
+<li><p><code>OnRoomServerSceneLoadedForPlayer(GameObject roomPlayer, GameObject gamePlayer)</code><br>
+Use <code>OnRoomServerSceneLoadedForPlayer(NetworkConnection conn, GameObject roomPlayer, GameObject gamePlayer)</code> instead.</p>
+</li>
+</ul>
+<h3 id="networkidentity">NetworkIdentity</h3>
+<ul>
+<li><p><code>clientAuthorityOwner</code><br>
+Use connectionToClient instead</p>
+</li>
+<li><p><code>GetSceneIdenity</code><br>
+Use <code>GetSceneIdentity</code> instead (typo in original name)</p>
+</li>
+<li><p><code>RemoveClientAuthority(NetworkConnection conn)</code><br>
+NetworkConnection parameter is no longer needed and nothing is returned</p>
+</li>
+<li><p>Local Player Authority checkbox<br>
+This checkbox is no longer needed, and we simplified how <a href="../Guides/Authority.html">Authority</a> works in Mirror.</p>
+</li>
+</ul>
+<h3 id="networkbehaviour">NetworkBehaviour</h3>
+<ul>
+<li><p><code>sendInterval</code> attribute<br>
+Use <code>NetworkBehaviour.syncInterval</code> field instead. Can be modified in the Inspector too.</p>
+</li>
+<li><p><code>List&lt;SyncObject&gt; m_SyncObjects</code><br>
+Use <code>List&lt;SyncObject&gt; syncObjects</code> instead.</p>
+</li>
+<li><p><code>OnSetLocalVisibility(bool visible)</code><br>
+Override <code>OnSetHostVisibility(bool visible)</code> instead.</p>
+</li>
+</ul>
+<h3 id="networkconnection">NetworkConnection</h3>
+<ul>
+<li><p><code>hostId</code><br>
+Removed because it's not needed ever since we removed LLAPI as default. It's always 0 for regular connections and -1 for local connections. Use <code>connection.GetType() == typeof(NetworkConnection)</code> to check if it's a regular or local connection.</p>
+</li>
+<li><p><code>isConnected</code><br>
+Removed because it's pointless. A NetworkConnection is always connected.</p>
+</li>
+<li><p><code>InvokeHandlerNoData(int msgType)</code><br>
+Use <code>InvokeHandler&lt;T&gt;</code> instead.</p>
+</li>
+<li><p><code>playerController</code><br>
+renamed to <code>identity</code> since that's what it is: the <code>NetworkIdentity</code> for the connection. If you need to convert a project after this change, Visual Studio / VS Code can help...read more <a href="PlayerControllerToIdentity.html">here</a>.</p>
+</li>
+<li><p><code>RegisterHandler(short msgType, NetworkMessageDelegate handler)</code><br>
+Use <code>NetworkServer.RegisterHandler&lt;T&gt;()</code> or <code>NetworkClient.RegisterHandler&lt;T&gt;()</code> instead.</p>
+</li>
+<li><p><code>UnregisterHandler(short msgType)</code><br>
+Use <code>NetworkServer.UnregisterHandler&lt;T&gt;()</code> or <code>NetworkClient.UnregisterHandler&lt;T&gt;()</code> instead.</p>
+</li>
+<li><p><code>Send(int msgType, MessageBase msg, int channelId = Channels.DefaultReliable)</code><br>
+Use <code>Send&lt;T&gt;(msg, channelId)</code> instead.</p>
+</li>
+</ul>
+<h3 id="networkserver">NetworkServer</h3>
+<ul>
+<li><p><code>FindLocalObject(uint netId)</code><br>
+Use <code>NetworkIdentity.spawned[netId]</code> instead.</p>
+</li>
+<li><p><code>RegisterHandler(int msgType, NetworkMessageDelegate handler)</code><br>
+Use <code>RegisterHandler&lt;T&gt;(T msg)</code> instead.</p>
+</li>
+<li><p><code>RegisterHandler(MsgType msgType, NetworkMessageDelegate handler)</code><br>
+Use <code>RegisterHandler&lt;T&gt;(T msg)</code> instead.</p>
+</li>
+<li><p><code>UnregisterHandler(int msgType)</code><br>
+Use <code>UnregisterHandler&lt;T&gt;(T msg)</code> instead.</p>
+</li>
+<li><p><code>UnregisterHandler(MsgType msgType)</code><br>
+Use <code>UnregisterHandler&lt;T&gt;(T msg)</code> instead.</p>
+</li>
+<li><p><code>SendToAll(int msgType, MessageBase msg, int channelId = Channels.DefaultReliable)</code><br>
+Use <code>SendToAll&lt;T&gt;(T msg, int channelId = Channels.DefaultReliable)</code> instead.</p>
+</li>
+<li><p><code>SendToClient(int connectionId, int msgType, MessageBase msg)</code><br>
+Use <code>NetworkConnection.Send&lt;T&gt;(T msg, int channelId = Channels.DefaultReliable)</code> instead.</p>
+</li>
+<li><p><code>SendToClient&lt;T&gt;(int connectionId, T msg)</code><br>
+Use <code>NetworkConnection.Send&lt;T&gt;(T msg, int channelId = Channels.DefaultReliable)</code> instead.</p>
+</li>
+<li><p><code>SendToClientOfPlayer(NetworkIdentity identity, int msgType, MessageBase msg)</code><br>
+Use <code>SendToClientOfPlayer&lt;T&gt;(NetworkIdentity identity, T msg, int channelId = Channels.DefaultReliable)</code> instead.</p>
+</li>
+<li><p><code>SendToReady(NetworkIdentity identity, short msgType, MessageBase msg, int channelId = Channels.DefaultReliable)</code><br>
+Use <code>SendToReady&lt;T&gt;(NetworkIdentity identity, T msg, int channelId = Channels.DefaultReliable)</code> instead.</p>
+</li>
+<li><p><code>SpawnWithClientAuthority(GameObject obj, GameObject player)</code><br>
+Use <code>Spawn(GameObject, GameObject)</code> instead.</p>
+</li>
+<li><p><code>SpawnWithClientAuthority(GameObject obj, NetworkConnection ownerConnection)</code><br>
+Use <code>Spawn(obj, connection)</code> instead.</p>
+</li>
+<li><p><code>SpawnWithClientAuthority(GameObject obj, Guid assetId, NetworkConnection ownerConnection)</code><br>
+Use <code>Spawn(obj, assetId, connection)</code> instead</p>
+</li>
+</ul>
+<h3 id="networkclient">NetworkClient</h3>
+<ul>
+<li><p><code>NetworkClient singleton</code><br>
+Use <code>NetworkClient</code> directly. Singleton isn't needed anymore as all functions are static now.<br>
+Example: <code>NetworkClient.Send(message)</code> instead of <code>NetworkClient.singleton.Send(message)</code>.</p>
+</li>
+<li><p><code>allClients</code><br>
+Use <code>NetworkClient</code> directly instead. There is always exactly one client.</p>
+</li>
+<li><p><code>GetRTT()</code><br>
+Use <code>NetworkTime.rtt</code> instead.</p>
+</li>
+<li><p><code>RegisterHandler(int msgType, NetworkMessageDelegate handler)</code><br>
+Use <code>RegisterHandler&lt;T&gt;(T msg)</code> instead.</p>
+</li>
+<li><p><code>RegisterHandler(MsgType msgType, NetworkMessageDelegate handler)</code><br>
+Use <code>RegisterHandler&lt;T&gt;(T msg)</code> instead.</p>
+</li>
+<li><p><code>UnregisterHandler(int msgType)</code><br>
+Use <code>UnregisterHandler&lt;T&gt;(T msg)</code> instead.</p>
+</li>
+<li><p><code>UnregisterHandler(MsgType msgType)</code><br>
+Use <code>UnregisterHandler&lt;T&gt;(T msg)</code> instead.</p>
+</li>
+<li><p><code>Send(short msgType, MessageBase msg)</code><br>
+Use <code>Send&lt;T&gt;(T msg, int channelId = Channels.DefaultReliable)</code> with no message id instead</p>
+</li>
+<li><p><code>ShutdownAll()</code><br>
+Use <code>Shutdown()</code> instead. There is only one client.</p>
+</li>
+</ul>
+<h3 id="clientscene">ClientScene</h3>
+<ul>
+<li><code>FindLocalObject(uint netId)</code><br>
+Use <code>NetworkIdentity.spawned[netId]</code> instead.</li>
+</ul>
+<h3 id="messages">Messages</h3>
+<p>Basic messages of simple types were all removed as unnecessary bloat. You can create your own message classes instead.</p>
+<ul>
+<li><code>StringMessage</code></li>
+<li><code>ByteMessage</code></li>
+<li><code>BytesMessage</code></li>
+<li><code>IntegerMessage</code></li>
+<li><code>DoubleMessage</code></li>
+<li><code>EmptyMessage</code></li>
+</ul>
+<h3 id="networkwriter">NetworkWriter</h3>
+<ul>
+<li><p><code>Write(bool value)</code><br>
+Use <code>WriteBoolean</code> instead.</p>
+</li>
+<li><p><code>Write(byte value)</code><br>
+Use <code>WriteByte</code> instead.</p>
+</li>
+<li><p><code>Write(sbyte value)</code><br>
+Use <code>WriteSByte</code> instead.</p>
+</li>
+<li><p><code>Write(short value)</code><br>
+Use <code>WriteInt16</code> instead.</p>
+</li>
+<li><p><code>Write(ushort value)</code><br>
+Use <code>WriteUInt16</code> instead.</p>
+</li>
+<li><p><code>Write(int value)</code><br>
+Use <code>WriteInt32</code> instead.</p>
+</li>
+<li><p><code>Write(uint value)</code><br>
+Use <code>WriteUInt32</code> instead.</p>
+</li>
+<li><p><code>Write(long value)</code><br>
+Use <code>WriteInt64</code> instead.</p>
+</li>
+<li><p><code>Write(ulong value)</code><br>
+Use <code>WriteUInt64</code> instead.</p>
+</li>
+<li><p><code>Write(float value)</code><br>
+Use <code>WriteSingle</code> instead.</p>
+</li>
+<li><p><code>Write(double value)</code><br>
+Use <code>WriteDouble</code> instead.</p>
+</li>
+<li><p><code>Write(decimal value)</code><br>
+Use <code>WriteDecimal</code> instead.</p>
+</li>
+<li><p><code>Write(string value)</code><br>
+Use <code>WriteString</code> instead.</p>
+</li>
+<li><p><code>Write(char value)</code><br>
+Use <code>WriteChar</code> instead.</p>
+</li>
+<li><p><code>Write(Vector2 value)</code><br>
+Use <code>WriteVector2</code> instead.</p>
+</li>
+<li><p><code>Write(Vector2Int value)</code><br>
+Use <code>WriteVector2Int</code> instead.</p>
+</li>
+<li><p><code>Write(Vector3 value)</code><br>
+Use <code>WriteVector3</code> instead.</p>
+</li>
+<li><p><code>Write(Vector3Int value)</code><br>
+Use <code>WriteVector3Int</code> instead.</p>
+</li>
+<li><p><code>Write(Vector4 value)</code><br>
+Use <code>WriteVector4</code> instead.</p>
+</li>
+<li><p><code>Write(Color value)</code><br>
+Use <code>WriteColor</code> instead.</p>
+</li>
+<li><p><code>Write(Color32 value)</code><br>
+Use <code>WriteColor32</code> instead.</p>
+</li>
+<li><p><code>Write(Guid value)</code><br>
+Use <code>WriteGuid</code> instead.</p>
+</li>
+<li><p><code>Write(Transform value)</code><br>
+Use <code>WriteTransform</code> instead.</p>
+</li>
+<li><p><code>Write(Quaternion value)</code><br>
+Use <code>WriteQuaternion</code> instead.</p>
+</li>
+<li><p><code>Write(Rect value)</code><br>
+Use <code>WriteRect</code> instead.</p>
+</li>
+<li><p><code>Write(Plane value)</code><br>
+Use <code>WritePlane</code> instead.</p>
+</li>
+<li><p><code>Write(Ray value)</code><br>
+Use <code>WriteRay</code> instead.</p>
+</li>
+<li><p><code>Write(Matrix4x4 value)</code><br>
+Use <code>WriteMatrix4x4</code> instead.</p>
+</li>
+<li><p><code>Write(NetworkIdentity value)</code><br>
+Use <code>WriteNetworkIdentity</code> instead.</p>
+</li>
+<li><p><code>Write(GameObject value)</code><br>
+Use <code>WriteGameObject</code> instead.</p>
+</li>
+<li><p><code>Write(byte[] buffer, int offset, int count)</code><br>
+Use <code>WriteBytes</code> instead.</p>
+</li>
+</ul>
+<h3 id="transport">Transport</h3>
+<ul>
+<li><code>GetConnectionInfo(int connectionId, out string address)</code><br>
+Use <code>ServerGetClientAddress(int connectionId)</code> instead.</li>
+</ul>
+<h3 id="telepathytransport">TelepathyTransport</h3>
+<ul>
+<li><code>MaxMessageSize</code><br>
+Use <code>MaxMessageSizeFromClient</code> or <code>MaxMessageSizeFromServer</code> instead.</li>
+</ul>
 </article>
           </div>
           
@@ -113,7 +409,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/e17b4bf7629da109e710c53d508495e39ce9917d/doc/General/Deprecations.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/6d278924482e41d674fde03b6d24aab1d039f31d/doc/General/Deprecations.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
