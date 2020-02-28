@@ -1848,22 +1848,19 @@ references:
   fullName.vb: Mirror.MessagePacker.Unpack(Of T)(System.Byte())
   nameWithType: MessagePacker.Unpack<T>(Byte[])
   nameWithType.vb: MessagePacker.Unpack(Of T)(Byte())
-- uid: Mirror.MessagePacker.UnpackMessage(Mirror.NetworkReader,System.Int32@)
-  name: UnpackMessage(NetworkReader, out Int32)
-  href: api/Mirror.MessagePacker.html#Mirror_MessagePacker_UnpackMessage_Mirror_NetworkReader_System_Int32__
-  commentId: M:Mirror.MessagePacker.UnpackMessage(Mirror.NetworkReader,System.Int32@)
-  name.vb: UnpackMessage(NetworkReader, ByRef Int32)
-  fullName: Mirror.MessagePacker.UnpackMessage(Mirror.NetworkReader, out System.Int32)
-  fullName.vb: Mirror.MessagePacker.UnpackMessage(Mirror.NetworkReader, ByRef System.Int32)
-  nameWithType: MessagePacker.UnpackMessage(NetworkReader, out Int32)
-  nameWithType.vb: MessagePacker.UnpackMessage(NetworkReader, ByRef Int32)
-- uid: Mirror.MessagePacker.UnpackMessage*
-  name: UnpackMessage
-  href: api/Mirror.MessagePacker.html#Mirror_MessagePacker_UnpackMessage_
-  commentId: Overload:Mirror.MessagePacker.UnpackMessage
+- uid: Mirror.MessagePacker.UnpackId(Mirror.NetworkReader)
+  name: UnpackId(NetworkReader)
+  href: api/Mirror.MessagePacker.html#Mirror_MessagePacker_UnpackId_Mirror_NetworkReader_
+  commentId: M:Mirror.MessagePacker.UnpackId(Mirror.NetworkReader)
+  fullName: Mirror.MessagePacker.UnpackId(Mirror.NetworkReader)
+  nameWithType: MessagePacker.UnpackId(NetworkReader)
+- uid: Mirror.MessagePacker.UnpackId*
+  name: UnpackId
+  href: api/Mirror.MessagePacker.html#Mirror_MessagePacker_UnpackId_
+  commentId: Overload:Mirror.MessagePacker.UnpackId
   isSpec: "True"
-  fullName: Mirror.MessagePacker.UnpackMessage
-  nameWithType: MessagePacker.UnpackMessage
+  fullName: Mirror.MessagePacker.UnpackId
+  nameWithType: MessagePacker.UnpackId
 - uid: Mirror.MirrorInvokeType
   name: MirrorInvokeType
   href: api/Mirror.MirrorInvokeType.html
