@@ -3251,7 +3251,7 @@ references:
 - uid: Mirror.NetworkIdentity.clientAuthorityCallback
   name: clientAuthorityCallback
   href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_clientAuthorityCallback
-  commentId: F:Mirror.NetworkIdentity.clientAuthorityCallback
+  commentId: E:Mirror.NetworkIdentity.clientAuthorityCallback
   fullName: Mirror.NetworkIdentity.clientAuthorityCallback
   nameWithType: NetworkIdentity.clientAuthorityCallback
 - uid: Mirror.NetworkIdentity.ClientAuthorityCallback
