@@ -2856,19 +2856,6 @@ references:
   fullName.vb: Mirror.NetworkClient.Send(Of T)(T, System.Int32)
   nameWithType: NetworkClient.Send<T>(T, Int32)
   nameWithType.vb: NetworkClient.Send(Of T)(T, Int32)
-- uid: Mirror.NetworkClient.serverIp
-  name: serverIp
-  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_serverIp
-  commentId: P:Mirror.NetworkClient.serverIp
-  fullName: Mirror.NetworkClient.serverIp
-  nameWithType: NetworkClient.serverIp
-- uid: Mirror.NetworkClient.serverIp*
-  name: serverIp
-  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_serverIp_
-  commentId: Overload:Mirror.NetworkClient.serverIp
-  isSpec: "True"
-  fullName: Mirror.NetworkClient.serverIp
-  nameWithType: NetworkClient.serverIp
 - uid: Mirror.NetworkClient.Shutdown
   name: Shutdown()
   href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Shutdown
@@ -3598,12 +3585,6 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkManager.mode
   nameWithType: NetworkManager.mode
-- uid: Mirror.NetworkManager.networkAddress
-  name: networkAddress
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_networkAddress
-  commentId: F:Mirror.NetworkManager.networkAddress
-  fullName: Mirror.NetworkManager.networkAddress
-  nameWithType: NetworkManager.networkAddress
 - uid: Mirror.NetworkManager.networkSceneName
   name: networkSceneName
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_networkSceneName
@@ -4015,12 +3996,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkManager.Start
   nameWithType: NetworkManager.Start
-- uid: Mirror.NetworkManager.StartClient
-  name: StartClient()
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_StartClient
-  commentId: M:Mirror.NetworkManager.StartClient
-  fullName: Mirror.NetworkManager.StartClient()
-  nameWithType: NetworkManager.StartClient()
+- uid: Mirror.NetworkManager.StartClient(System.String)
+  name: StartClient(String)
+  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_StartClient_System_String_
+  commentId: M:Mirror.NetworkManager.StartClient(System.String)
+  fullName: Mirror.NetworkManager.StartClient(System.String)
+  nameWithType: NetworkManager.StartClient(String)
 - uid: Mirror.NetworkManager.StartClient(Uri)
   name: StartClient(Uri)
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_StartClient_Uri_
@@ -4154,6 +4135,12 @@ references:
   commentId: F:Mirror.NetworkManagerHUD.offsetY
   fullName: Mirror.NetworkManagerHUD.offsetY
   nameWithType: NetworkManagerHUD.offsetY
+- uid: Mirror.NetworkManagerHUD.serverIp
+  name: serverIp
+  href: api/Mirror.NetworkManagerHUD.html#Mirror_NetworkManagerHUD_serverIp
+  commentId: F:Mirror.NetworkManagerHUD.serverIp
+  fullName: Mirror.NetworkManagerHUD.serverIp
+  nameWithType: NetworkManagerHUD.serverIp
 - uid: Mirror.NetworkManagerHUD.showGUI
   name: showGUI
   href: api/Mirror.NetworkManagerHUD.html#Mirror_NetworkManagerHUD_showGUI
