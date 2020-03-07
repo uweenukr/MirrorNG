@@ -777,6 +777,32 @@ namespace Mirror.Weaver
             return true;
         }
 
+        public static bool ProcessCmdMethodsValidateFunction(MethodReference md)
+        {
+            if (md.ReturnType.FullName == Weaver.IEnumeratorType.FullName)
+            {
+                Weaver.Error($"{md} cannot be a coroutine");
+                return false;
+            }
+            if (md.HasGenericParameters)
+            {
+                Weaver.Error($"{md} cannot have generic parameters");
+                return false;
+            }
+            if (md.ReturnType.FullName.StartsWith("System.Threading.Tasks.Task`1") )
+            {
+                // async command
+                return true;
+            }
+            else if (md.ReturnType.FullName != Weaver.voidType.FullName)
+            {
+                // Commands can return a Task
+                Weaver.Error($"{md} cannot return a value.  Make it void instead");
+                return false;
+            }
+            return true;
+        }
+
         public static bool ProcessMethodsValidateParameters(MethodReference md, CustomAttribute ca)
         {
             for (int i = 0; i < md.Parameters.Count; ++i)

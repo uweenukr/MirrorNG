@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Mirror.Tcp;
 using NUnit.Framework;
 using UnityEngine;
@@ -39,6 +40,12 @@ namespace Mirror.Tests
         {
             this.targetRpcArg1 = arg1;
             this.targetRpcArg2 = arg2;
+        }
+
+        [Command]
+        public Task<int> CmdAsyncTest(int arg1)
+        {
+            return Task.FromResult(arg1 * arg1);
         }
     }
 
