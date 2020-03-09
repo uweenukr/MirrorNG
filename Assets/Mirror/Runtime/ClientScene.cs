@@ -40,12 +40,12 @@ namespace Mirror
         /// <summary>
         /// The current NetworkServer used to set NetworkIdentity.server when applying the spawn payload.
         /// </summary>
-        public static NetworkServer server { get; internal set; }
+        public static NetworkServer server { get; set; }
 
         /// <summary>
         /// The current NetworkClient used to set NetworkIdentity.client when applying the spawn payload.
         /// </summary>
-        public static NetworkClient client { get; internal set; }
+        public static NetworkClient client { get; set; }
 
         /// <summary>
         /// This is a dictionary of the prefabs that are registered on the client with ClientScene.RegisterPrefab().
@@ -81,10 +81,6 @@ namespace Mirror
             // NOTE: It can be "normal" when changing scenes for the player to be destroyed and recreated.
             // But, the player structures are not cleaned up, we'll just replace the old player
             localPlayer = identity;
-
-            // NOTE: we DONT need to set isClient=true here, because OnStartClient
-            // is called before OnStartLocalPlayer, hence it's already set.
-            // localPlayer.isClient = true;
 
             if (readyConnection != null)
             {

@@ -1,3 +1,26 @@
+## [15.0.5](https://github.com/MirrorNG/MirrorNG/compare/15.0.4-master...15.0.5-master) (2020-03-08)
+
+
+### Bug Fixes
+
+* don't crash when stopping the client ([f584388](https://github.com/MirrorNG/MirrorNG/commit/f584388a16e746ac5c3000123a02a5c77387765e))
+* race condition closing tcp connections ([717f1f5](https://github.com/MirrorNG/MirrorNG/commit/717f1f5ad783e13a6d55920e454cb91f380cd621))
+
+## [15.0.4](https://github.com/MirrorNG/MirrorNG/compare/15.0.3-master...15.0.4-master) (2020-03-08)
+
+
+### Bug Fixes
+
+* attributes causing a NRE ([#69](https://github.com/MirrorNG/MirrorNG/issues/69)) ([fc99c67](https://github.com/MirrorNG/MirrorNG/commit/fc99c67712564e2d983674b37858591903294f1a))
+
+## [15.0.3](https://github.com/MirrorNG/MirrorNG/compare/15.0.2-master...15.0.3-master) (2020-03-08)
+
+
+### Bug Fixes
+
+* NetworkIdentity.RebuildObservers: added missing null check for observers coming from components that implement OnRebuildObservers. Previously this caused a NullReferenceException. ([a5f495a](https://github.com/MirrorNG/MirrorNG/commit/a5f495a77485b972cf39f8a42bae6d7d852be38c))
+* SendToObservers missing result variable ([9c09c26](https://github.com/MirrorNG/MirrorNG/commit/9c09c26a5cd28cadae4049fea71cddc38c00cf79))
+
 ## [15.0.2](https://github.com/MirrorNG/MirrorNG/compare/15.0.1-master...15.0.2-master) (2020-03-06)
 
 
