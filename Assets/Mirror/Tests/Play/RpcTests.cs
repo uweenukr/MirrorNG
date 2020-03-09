@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Mirror.Tcp;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools;
 
 namespace Mirror.Tests
 {
@@ -50,6 +49,17 @@ namespace Mirror.Tests
 
     public class RpcTests : HostTests<RpcComponent>
     {
+
+        // Unity's nunit does not support async tests
+        // so we do this boilerplate to run our async methods
+        public IEnumerator RunAsync(Func<Task> block)
+        {
+            var task = Task.Run(block);
+
+            while (!task.IsCompleted) { yield return null; }
+            if (task.IsFaulted) { throw task.Exception; }
+        }
+
         [Test]
         public void CommandWithoutAuthority()
         {
@@ -78,6 +88,15 @@ namespace Mirror.Tests
 
             Assert.That(component.cmdArg1, Is.EqualTo(1));
             Assert.That(component.cmdArg2, Is.EqualTo("hello"));
+        }
+
+        [UnityTest]
+        public IEnumerator AsyncCommand()
+        {
+            return RunAsync(async () =>
+            {
+                Assert.That(await component.CmdAsyncTest(3), Is.EqualTo(9));
+            });
         }
 
         [Test]
