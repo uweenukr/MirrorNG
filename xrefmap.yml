@@ -2749,6 +2749,32 @@ references:
   fullName.vb: Mirror.NetworkBehaviour.SyncVarEqual(Of T)(T, ByRef T)
   nameWithType: NetworkBehaviour.SyncVarEqual<T>(T, ref T)
   nameWithType.vb: NetworkBehaviour.SyncVarEqual(Of T)(T, ByRef T)
+- uid: Mirror.NetworkBehaviour.SyncVarGameObjectEqual(GameObject,System.UInt32)
+  name: SyncVarGameObjectEqual(GameObject, UInt32)
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SyncVarGameObjectEqual_GameObject_System_UInt32_
+  commentId: M:Mirror.NetworkBehaviour.SyncVarGameObjectEqual(GameObject,System.UInt32)
+  fullName: Mirror.NetworkBehaviour.SyncVarGameObjectEqual(GameObject, System.UInt32)
+  nameWithType: NetworkBehaviour.SyncVarGameObjectEqual(GameObject, UInt32)
+- uid: Mirror.NetworkBehaviour.SyncVarGameObjectEqual*
+  name: SyncVarGameObjectEqual
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SyncVarGameObjectEqual_
+  commentId: Overload:Mirror.NetworkBehaviour.SyncVarGameObjectEqual
+  isSpec: "True"
+  fullName: Mirror.NetworkBehaviour.SyncVarGameObjectEqual
+  nameWithType: NetworkBehaviour.SyncVarGameObjectEqual
+- uid: Mirror.NetworkBehaviour.SyncVarNetworkIdentityEqual(Mirror.NetworkIdentity,System.UInt32)
+  name: SyncVarNetworkIdentityEqual(NetworkIdentity, UInt32)
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SyncVarNetworkIdentityEqual_Mirror_NetworkIdentity_System_UInt32_
+  commentId: M:Mirror.NetworkBehaviour.SyncVarNetworkIdentityEqual(Mirror.NetworkIdentity,System.UInt32)
+  fullName: Mirror.NetworkBehaviour.SyncVarNetworkIdentityEqual(Mirror.NetworkIdentity, System.UInt32)
+  nameWithType: NetworkBehaviour.SyncVarNetworkIdentityEqual(NetworkIdentity, UInt32)
+- uid: Mirror.NetworkBehaviour.SyncVarNetworkIdentityEqual*
+  name: SyncVarNetworkIdentityEqual
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_SyncVarNetworkIdentityEqual_
+  commentId: Overload:Mirror.NetworkBehaviour.SyncVarNetworkIdentityEqual
+  isSpec: "True"
+  fullName: Mirror.NetworkBehaviour.SyncVarNetworkIdentityEqual
+  nameWithType: NetworkBehaviour.SyncVarNetworkIdentityEqual
 - uid: Mirror.NetworkClient
   name: NetworkClient
   href: api/Mirror.NetworkClient.html
