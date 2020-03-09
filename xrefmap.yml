@@ -1356,6 +1356,43 @@ references:
   isSpec: "True"
   fullName: Mirror.IMessageBase.Serialize
   nameWithType: IMessageBase.Serialize
+- uid: Mirror.InvalidMessageException
+  name: InvalidMessageException
+  href: api/Mirror.InvalidMessageException.html
+  commentId: T:Mirror.InvalidMessageException
+  fullName: Mirror.InvalidMessageException
+  nameWithType: InvalidMessageException
+- uid: Mirror.InvalidMessageException.#ctor
+  name: InvalidMessageException()
+  href: api/Mirror.InvalidMessageException.html#Mirror_InvalidMessageException__ctor
+  commentId: M:Mirror.InvalidMessageException.#ctor
+  fullName: Mirror.InvalidMessageException.InvalidMessageException()
+  nameWithType: InvalidMessageException.InvalidMessageException()
+- uid: Mirror.InvalidMessageException.#ctor(SerializationInfo,StreamingContext)
+  name: InvalidMessageException(SerializationInfo, StreamingContext)
+  href: api/Mirror.InvalidMessageException.html#Mirror_InvalidMessageException__ctor_SerializationInfo_StreamingContext_
+  commentId: M:Mirror.InvalidMessageException.#ctor(SerializationInfo,StreamingContext)
+  fullName: Mirror.InvalidMessageException.InvalidMessageException(SerializationInfo, StreamingContext)
+  nameWithType: InvalidMessageException.InvalidMessageException(SerializationInfo, StreamingContext)
+- uid: Mirror.InvalidMessageException.#ctor(System.String)
+  name: InvalidMessageException(String)
+  href: api/Mirror.InvalidMessageException.html#Mirror_InvalidMessageException__ctor_System_String_
+  commentId: M:Mirror.InvalidMessageException.#ctor(System.String)
+  fullName: Mirror.InvalidMessageException.InvalidMessageException(System.String)
+  nameWithType: InvalidMessageException.InvalidMessageException(String)
+- uid: Mirror.InvalidMessageException.#ctor(System.String,Exception)
+  name: InvalidMessageException(String, Exception)
+  href: api/Mirror.InvalidMessageException.html#Mirror_InvalidMessageException__ctor_System_String_Exception_
+  commentId: M:Mirror.InvalidMessageException.#ctor(System.String,Exception)
+  fullName: Mirror.InvalidMessageException.InvalidMessageException(System.String, Exception)
+  nameWithType: InvalidMessageException.InvalidMessageException(String, Exception)
+- uid: Mirror.InvalidMessageException.#ctor*
+  name: InvalidMessageException
+  href: api/Mirror.InvalidMessageException.html#Mirror_InvalidMessageException__ctor_
+  commentId: Overload:Mirror.InvalidMessageException.#ctor
+  isSpec: "True"
+  fullName: Mirror.InvalidMessageException.InvalidMessageException
+  nameWithType: InvalidMessageException.InvalidMessageException
 - uid: Mirror.ISyncObject
   name: ISyncObject
   href: api/Mirror.ISyncObject.html
