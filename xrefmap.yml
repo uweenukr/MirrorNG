@@ -3083,6 +3083,15 @@ references:
   commentId: F:Mirror.NetworkConnection.logNetworkMessages
   fullName: Mirror.NetworkConnection.logNetworkMessages
   nameWithType: NetworkConnection.logNetworkMessages
+- uid: Mirror.NetworkConnection.Send(ArraySegment{System.Byte},System.Int32)
+  name: Send(ArraySegment<Byte>, Int32)
+  href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_Send_ArraySegment_System_Byte__System_Int32_
+  commentId: M:Mirror.NetworkConnection.Send(ArraySegment{System.Byte},System.Int32)
+  name.vb: Send(ArraySegment(Of Byte), Int32)
+  fullName: Mirror.NetworkConnection.Send(ArraySegment<System.Byte>, System.Int32)
+  fullName.vb: Mirror.NetworkConnection.Send(ArraySegment(Of System.Byte), System.Int32)
+  nameWithType: NetworkConnection.Send(ArraySegment<Byte>, Int32)
+  nameWithType.vb: NetworkConnection.Send(ArraySegment(Of Byte), Int32)
 - uid: Mirror.NetworkConnection.Send*
   name: Send
   href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_Send_
@@ -3099,6 +3108,15 @@ references:
   fullName.vb: Mirror.NetworkConnection.Send(Of T)(T, System.Int32)
   nameWithType: NetworkConnection.Send<T>(T, Int32)
   nameWithType.vb: NetworkConnection.Send(Of T)(T, Int32)
+- uid: Mirror.NetworkConnection.Send``1(IEnumerable{Mirror.NetworkConnection},``0,System.Int32)
+  name: Send<T>(IEnumerable<NetworkConnection>, T, Int32)
+  href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_Send__1_IEnumerable_Mirror_NetworkConnection____0_System_Int32_
+  commentId: M:Mirror.NetworkConnection.Send``1(IEnumerable{Mirror.NetworkConnection},``0,System.Int32)
+  name.vb: Send(Of T)(IEnumerable(Of NetworkConnection), T, Int32)
+  fullName: Mirror.NetworkConnection.Send<T>(IEnumerable<Mirror.NetworkConnection>, T, System.Int32)
+  fullName.vb: Mirror.NetworkConnection.Send(Of T)(IEnumerable(Of Mirror.NetworkConnection), T, System.Int32)
+  nameWithType: NetworkConnection.Send<T>(IEnumerable<NetworkConnection>, T, Int32)
+  nameWithType.vb: NetworkConnection.Send(Of T)(IEnumerable(Of NetworkConnection), T, Int32)
 - uid: Mirror.NetworkConnection.ToString
   name: ToString()
   href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_ToString
@@ -3157,6 +3175,22 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkConnectionToClient.Disconnect
   nameWithType: NetworkConnectionToClient.Disconnect
+- uid: Mirror.NetworkConnectionToClient.Send(ArraySegment{System.Byte},System.Int32)
+  name: Send(ArraySegment<Byte>, Int32)
+  href: api/Mirror.NetworkConnectionToClient.html#Mirror_NetworkConnectionToClient_Send_ArraySegment_System_Byte__System_Int32_
+  commentId: M:Mirror.NetworkConnectionToClient.Send(ArraySegment{System.Byte},System.Int32)
+  name.vb: Send(ArraySegment(Of Byte), Int32)
+  fullName: Mirror.NetworkConnectionToClient.Send(ArraySegment<System.Byte>, System.Int32)
+  fullName.vb: Mirror.NetworkConnectionToClient.Send(ArraySegment(Of System.Byte), System.Int32)
+  nameWithType: NetworkConnectionToClient.Send(ArraySegment<Byte>, Int32)
+  nameWithType.vb: NetworkConnectionToClient.Send(ArraySegment(Of Byte), Int32)
+- uid: Mirror.NetworkConnectionToClient.Send*
+  name: Send
+  href: api/Mirror.NetworkConnectionToClient.html#Mirror_NetworkConnectionToClient_Send_
+  commentId: Overload:Mirror.NetworkConnectionToClient.Send
+  isSpec: "True"
+  fullName: Mirror.NetworkConnectionToClient.Send
+  nameWithType: NetworkConnectionToClient.Send
 - uid: Mirror.NetworkConnectionToServer
   name: NetworkConnectionToServer
   href: api/Mirror.NetworkConnectionToServer.html
@@ -3189,6 +3223,22 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkConnectionToServer.Disconnect
   nameWithType: NetworkConnectionToServer.Disconnect
+- uid: Mirror.NetworkConnectionToServer.Send(ArraySegment{System.Byte},System.Int32)
+  name: Send(ArraySegment<Byte>, Int32)
+  href: api/Mirror.NetworkConnectionToServer.html#Mirror_NetworkConnectionToServer_Send_ArraySegment_System_Byte__System_Int32_
+  commentId: M:Mirror.NetworkConnectionToServer.Send(ArraySegment{System.Byte},System.Int32)
+  name.vb: Send(ArraySegment(Of Byte), Int32)
+  fullName: Mirror.NetworkConnectionToServer.Send(ArraySegment<System.Byte>, System.Int32)
+  fullName.vb: Mirror.NetworkConnectionToServer.Send(ArraySegment(Of System.Byte), System.Int32)
+  nameWithType: NetworkConnectionToServer.Send(ArraySegment<Byte>, Int32)
+  nameWithType.vb: NetworkConnectionToServer.Send(ArraySegment(Of Byte), Int32)
+- uid: Mirror.NetworkConnectionToServer.Send*
+  name: Send
+  href: api/Mirror.NetworkConnectionToServer.html#Mirror_NetworkConnectionToServer_Send_
+  commentId: Overload:Mirror.NetworkConnectionToServer.Send
+  isSpec: "True"
+  fullName: Mirror.NetworkConnectionToServer.Send
+  nameWithType: NetworkConnectionToServer.Send
 - uid: Mirror.NetworkDiagnostics
   name: NetworkDiagnostics
   href: api/Mirror.NetworkDiagnostics.html
