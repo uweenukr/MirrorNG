@@ -3112,22 +3112,6 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkConnection.ToString
   nameWithType: NetworkConnection.ToString
-- uid: Mirror.NetworkConnection.ValidatePacketSize(ArraySegment{System.Byte},System.Int32)
-  name: ValidatePacketSize(ArraySegment<Byte>, Int32)
-  href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_ValidatePacketSize_ArraySegment_System_Byte__System_Int32_
-  commentId: M:Mirror.NetworkConnection.ValidatePacketSize(ArraySegment{System.Byte},System.Int32)
-  name.vb: ValidatePacketSize(ArraySegment(Of Byte), Int32)
-  fullName: Mirror.NetworkConnection.ValidatePacketSize(ArraySegment<System.Byte>, System.Int32)
-  fullName.vb: Mirror.NetworkConnection.ValidatePacketSize(ArraySegment(Of System.Byte), System.Int32)
-  nameWithType: NetworkConnection.ValidatePacketSize(ArraySegment<Byte>, Int32)
-  nameWithType.vb: NetworkConnection.ValidatePacketSize(ArraySegment(Of Byte), Int32)
-- uid: Mirror.NetworkConnection.ValidatePacketSize*
-  name: ValidatePacketSize
-  href: api/Mirror.NetworkConnection.html#Mirror_NetworkConnection_ValidatePacketSize_
-  commentId: Overload:Mirror.NetworkConnection.ValidatePacketSize
-  isSpec: "True"
-  fullName: Mirror.NetworkConnection.ValidatePacketSize
-  nameWithType: NetworkConnection.ValidatePacketSize
 - uid: Mirror.NetworkConnectionToClient
   name: NetworkConnectionToClient
   href: api/Mirror.NetworkConnectionToClient.html
