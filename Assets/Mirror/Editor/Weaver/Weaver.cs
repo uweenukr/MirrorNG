@@ -78,7 +78,6 @@ namespace Mirror.Weaver
         public static MethodReference CmdDelegateConstructor;
 
         public static MethodReference NetworkServerGetActive;
-        public static MethodReference NetworkServerGetLocalClientActive;
         public static MethodReference NetworkClientGetActive;
 
         public static MethodReference NetworkBehaviourGetIdentity;
@@ -265,7 +264,6 @@ namespace Mirror.Weaver
             PooledNetworkWriterType = CurrentAssembly.MainModule.ImportReference(pooledNetworkWriterTmp);
 
             NetworkServerGetActive = Resolvers.ResolveMethod(NetworkServerType, CurrentAssembly, "get_active");
-            NetworkServerGetLocalClientActive = Resolvers.ResolveMethod(NetworkServerType, CurrentAssembly, "get_LocalClientActive");
             NetworkClientGetActive = Resolvers.ResolveMethod(NetworkClientType, CurrentAssembly, "get_active");
 
             CmdDelegateReference = NetAssembly.MainModule.GetType("Mirror.NetworkBehaviour/CmdDelegate");
