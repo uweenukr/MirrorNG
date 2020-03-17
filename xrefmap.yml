@@ -2274,6 +2274,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkBehaviour.isClientOnly
   nameWithType: NetworkBehaviour.isClientOnly
+- uid: Mirror.NetworkBehaviour.isLocalClient
+  name: isLocalClient
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_isLocalClient
+  commentId: P:Mirror.NetworkBehaviour.isLocalClient
+  fullName: Mirror.NetworkBehaviour.isLocalClient
+  nameWithType: NetworkBehaviour.isLocalClient
+- uid: Mirror.NetworkBehaviour.isLocalClient*
+  name: isLocalClient
+  href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_isLocalClient_
+  commentId: Overload:Mirror.NetworkBehaviour.isLocalClient
+  isSpec: "True"
+  fullName: Mirror.NetworkBehaviour.isLocalClient
+  nameWithType: NetworkBehaviour.isLocalClient
 - uid: Mirror.NetworkBehaviour.isLocalPlayer
   name: isLocalPlayer
   href: api/Mirror.NetworkBehaviour.html#Mirror_NetworkBehaviour_isLocalPlayer
@@ -3415,6 +3428,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkIdentity.isClient
   nameWithType: NetworkIdentity.isClient
+- uid: Mirror.NetworkIdentity.isLocalClient
+  name: isLocalClient
+  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_isLocalClient
+  commentId: P:Mirror.NetworkIdentity.isLocalClient
+  fullName: Mirror.NetworkIdentity.isLocalClient
+  nameWithType: NetworkIdentity.isLocalClient
+- uid: Mirror.NetworkIdentity.isLocalClient*
+  name: isLocalClient
+  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_isLocalClient_
+  commentId: Overload:Mirror.NetworkIdentity.isLocalClient
+  isSpec: "True"
+  fullName: Mirror.NetworkIdentity.isLocalClient
+  nameWithType: NetworkIdentity.isLocalClient
 - uid: Mirror.NetworkIdentity.isLocalPlayer
   name: isLocalPlayer
   href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_isLocalPlayer
