@@ -3376,19 +3376,6 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkIdentity.connectionToServer
   nameWithType: NetworkIdentity.connectionToServer
-- uid: Mirror.NetworkIdentity.GetSceneIdenity(System.UInt64)
-  name: GetSceneIdenity(UInt64)
-  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_GetSceneIdenity_System_UInt64_
-  commentId: M:Mirror.NetworkIdentity.GetSceneIdenity(System.UInt64)
-  fullName: Mirror.NetworkIdentity.GetSceneIdenity(System.UInt64)
-  nameWithType: NetworkIdentity.GetSceneIdenity(UInt64)
-- uid: Mirror.NetworkIdentity.GetSceneIdenity*
-  name: GetSceneIdenity
-  href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_GetSceneIdenity_
-  commentId: Overload:Mirror.NetworkIdentity.GetSceneIdenity
-  isSpec: "True"
-  fullName: Mirror.NetworkIdentity.GetSceneIdenity
-  nameWithType: NetworkIdentity.GetSceneIdenity
 - uid: Mirror.NetworkIdentity.GetSceneIdentity(System.UInt64)
   name: GetSceneIdentity(UInt64)
   href: api/Mirror.NetworkIdentity.html#Mirror_NetworkIdentity_GetSceneIdentity_System_UInt64_
@@ -6806,22 +6793,6 @@ references:
   commentId: T:Mirror.NetworkWriterExtensions
   fullName: Mirror.NetworkWriterExtensions
   nameWithType: NetworkWriterExtensions
-- uid: Mirror.NetworkWriterExtensions.Write*
-  name: Write
-  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_Write_
-  commentId: Overload:Mirror.NetworkWriterExtensions.Write
-  isSpec: "True"
-  fullName: Mirror.NetworkWriterExtensions.Write
-  nameWithType: NetworkWriterExtensions.Write
-- uid: Mirror.NetworkWriterExtensions.Write``1(Mirror.NetworkWriter,``0)
-  name: Write<T>(NetworkWriter, T)
-  href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_Write__1_Mirror_NetworkWriter___0_
-  commentId: M:Mirror.NetworkWriterExtensions.Write``1(Mirror.NetworkWriter,``0)
-  name.vb: Write(Of T)(NetworkWriter, T)
-  fullName: Mirror.NetworkWriterExtensions.Write<T>(Mirror.NetworkWriter, T)
-  fullName.vb: Mirror.NetworkWriterExtensions.Write(Of T)(Mirror.NetworkWriter, T)
-  nameWithType: NetworkWriterExtensions.Write<T>(NetworkWriter, T)
-  nameWithType.vb: NetworkWriterExtensions.Write(Of T)(NetworkWriter, T)
 - uid: Mirror.NetworkWriterExtensions.WriteBoolean(Mirror.NetworkWriter,System.Boolean)
   name: WriteBoolean(NetworkWriter, Boolean)
   href: api/Mirror.NetworkWriterExtensions.html#Mirror_NetworkWriterExtensions_WriteBoolean_Mirror_NetworkWriter_System_Boolean_
