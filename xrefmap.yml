@@ -2932,6 +2932,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkClient.Spawned
   nameWithType: NetworkClient.Spawned
+- uid: Mirror.NetworkClient.Time
+  name: Time
+  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Time
+  commentId: F:Mirror.NetworkClient.Time
+  fullName: Mirror.NetworkClient.Time
+  nameWithType: NetworkClient.Time
 - uid: Mirror.NetworkClient.UnregisterHandler*
   name: UnregisterHandler
   href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_UnregisterHandler_
@@ -6249,6 +6255,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.SpawnObjects
   nameWithType: NetworkServer.SpawnObjects
+- uid: Mirror.NetworkServer.Time
+  name: Time
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Time
+  commentId: F:Mirror.NetworkServer.Time
+  fullName: Mirror.NetworkServer.Time
+  nameWithType: NetworkServer.Time
 - uid: Mirror.NetworkServer.UnregisterHandler*
   name: UnregisterHandler
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_UnregisterHandler_
@@ -6322,6 +6334,19 @@ references:
   commentId: T:Mirror.NetworkTime
   fullName: Mirror.NetworkTime
   nameWithType: NetworkTime
+- uid: Mirror.NetworkTime.#ctor
+  name: NetworkTime()
+  href: api/Mirror.NetworkTime.html#Mirror_NetworkTime__ctor
+  commentId: M:Mirror.NetworkTime.#ctor
+  fullName: Mirror.NetworkTime.NetworkTime()
+  nameWithType: NetworkTime.NetworkTime()
+- uid: Mirror.NetworkTime.#ctor*
+  name: NetworkTime
+  href: api/Mirror.NetworkTime.html#Mirror_NetworkTime__ctor_
+  commentId: Overload:Mirror.NetworkTime.#ctor
+  isSpec: "True"
+  fullName: Mirror.NetworkTime.NetworkTime
+  nameWithType: NetworkTime.NetworkTime
 - uid: Mirror.NetworkTime.offset
   name: offset
   href: api/Mirror.NetworkTime.html#Mirror_NetworkTime_offset
@@ -6399,19 +6424,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkTime.rttVar
   nameWithType: NetworkTime.rttVar
-- uid: Mirror.NetworkTime.time
-  name: time
-  href: api/Mirror.NetworkTime.html#Mirror_NetworkTime_time
-  commentId: P:Mirror.NetworkTime.time
-  fullName: Mirror.NetworkTime.time
-  nameWithType: NetworkTime.time
-- uid: Mirror.NetworkTime.time*
-  name: time
-  href: api/Mirror.NetworkTime.html#Mirror_NetworkTime_time_
-  commentId: Overload:Mirror.NetworkTime.time
+- uid: Mirror.NetworkTime.Time
+  name: Time
+  href: api/Mirror.NetworkTime.html#Mirror_NetworkTime_Time
+  commentId: P:Mirror.NetworkTime.Time
+  fullName: Mirror.NetworkTime.Time
+  nameWithType: NetworkTime.Time
+- uid: Mirror.NetworkTime.Time*
+  name: Time
+  href: api/Mirror.NetworkTime.html#Mirror_NetworkTime_Time_
+  commentId: Overload:Mirror.NetworkTime.Time
   isSpec: "True"
-  fullName: Mirror.NetworkTime.time
-  nameWithType: NetworkTime.time
+  fullName: Mirror.NetworkTime.Time
+  nameWithType: NetworkTime.Time
 - uid: Mirror.NetworkTime.timeSd
   name: timeSd
   href: api/Mirror.NetworkTime.html#Mirror_NetworkTime_timeSd
