@@ -3676,12 +3676,6 @@ references:
   commentId: F:Mirror.NetworkManager.loadingSceneAsync
   fullName: Mirror.NetworkManager.loadingSceneAsync
   nameWithType: NetworkManager.loadingSceneAsync
-- uid: Mirror.NetworkManager.maxConnections
-  name: maxConnections
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_maxConnections
-  commentId: F:Mirror.NetworkManager.maxConnections
-  fullName: Mirror.NetworkManager.maxConnections
-  nameWithType: NetworkManager.maxConnections
 - uid: Mirror.NetworkManager.mode
   name: mode
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_mode
@@ -6013,12 +6007,12 @@ references:
   commentId: F:Mirror.NetworkServer.dontListen
   fullName: Mirror.NetworkServer.dontListen
   nameWithType: NetworkServer.dontListen
-- uid: Mirror.NetworkServer.Listen(System.Int32)
-  name: Listen(Int32)
-  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Listen_System_Int32_
-  commentId: M:Mirror.NetworkServer.Listen(System.Int32)
-  fullName: Mirror.NetworkServer.Listen(System.Int32)
-  nameWithType: NetworkServer.Listen(Int32)
+- uid: Mirror.NetworkServer.Listen
+  name: Listen()
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Listen
+  commentId: M:Mirror.NetworkServer.Listen
+  fullName: Mirror.NetworkServer.Listen()
+  nameWithType: NetworkServer.Listen()
 - uid: Mirror.NetworkServer.Listen*
   name: Listen
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_Listen_
@@ -6058,6 +6052,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkServer.localConnection
   nameWithType: NetworkServer.localConnection
+- uid: Mirror.NetworkServer.MaxConnections
+  name: MaxConnections
+  href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_MaxConnections
+  commentId: F:Mirror.NetworkServer.MaxConnections
+  fullName: Mirror.NetworkServer.MaxConnections
+  nameWithType: NetworkServer.MaxConnections
 - uid: Mirror.NetworkServer.RegisterHandler*
   name: RegisterHandler
   href: api/Mirror.NetworkServer.html#Mirror_NetworkServer_RegisterHandler_
