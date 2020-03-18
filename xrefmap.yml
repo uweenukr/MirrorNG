@@ -2945,6 +2945,12 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkClient.Spawned
   nameWithType: NetworkClient.Spawned
+- uid: Mirror.NetworkClient.spawnPrefabs
+  name: spawnPrefabs
+  href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_spawnPrefabs
+  commentId: F:Mirror.NetworkClient.spawnPrefabs
+  fullName: Mirror.NetworkClient.spawnPrefabs
+  nameWithType: NetworkClient.spawnPrefabs
 - uid: Mirror.NetworkClient.Time
   name: Time
   href: api/Mirror.NetworkClient.html#Mirror_NetworkClient_Time
@@ -4081,12 +4087,6 @@ references:
   commentId: F:Mirror.NetworkManager.showDebugMessages
   fullName: Mirror.NetworkManager.showDebugMessages
   nameWithType: NetworkManager.showDebugMessages
-- uid: Mirror.NetworkManager.spawnPrefabs
-  name: spawnPrefabs
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_spawnPrefabs
-  commentId: F:Mirror.NetworkManager.spawnPrefabs
-  fullName: Mirror.NetworkManager.spawnPrefabs
-  nameWithType: NetworkManager.spawnPrefabs
 - uid: Mirror.NetworkManager.Start
   name: Start()
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_Start
