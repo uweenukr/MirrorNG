@@ -4050,12 +4050,6 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkManager.RegisterStartPosition
   nameWithType: NetworkManager.RegisterStartPosition
-- uid: Mirror.NetworkManager.runInBackground
-  name: runInBackground
-  href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_runInBackground
-  commentId: F:Mirror.NetworkManager.runInBackground
-  fullName: Mirror.NetworkManager.runInBackground
-  nameWithType: NetworkManager.runInBackground
 - uid: Mirror.NetworkManager.server
   name: server
   href: api/Mirror.NetworkManager.html#Mirror_NetworkManager_server
