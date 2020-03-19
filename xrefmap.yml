@@ -4759,6 +4759,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkReaderExtensions.ReadDouble
   nameWithType: NetworkReaderExtensions.ReadDouble
+- uid: Mirror.NetworkReaderExtensions.ReadGameObject(Mirror.NetworkReader)
+  name: ReadGameObject(NetworkReader)
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadGameObject_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkReaderExtensions.ReadGameObject(Mirror.NetworkReader)
+  fullName: Mirror.NetworkReaderExtensions.ReadGameObject(Mirror.NetworkReader)
+  nameWithType: NetworkReaderExtensions.ReadGameObject(NetworkReader)
+- uid: Mirror.NetworkReaderExtensions.ReadGameObject*
+  name: ReadGameObject
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadGameObject_
+  commentId: Overload:Mirror.NetworkReaderExtensions.ReadGameObject
+  isSpec: "True"
+  fullName: Mirror.NetworkReaderExtensions.ReadGameObject
+  nameWithType: NetworkReaderExtensions.ReadGameObject
 - uid: Mirror.NetworkReaderExtensions.ReadGuid(Mirror.NetworkReader)
   name: ReadGuid(NetworkReader)
   href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadGuid_Mirror_NetworkReader_
@@ -4840,6 +4853,19 @@ references:
   fullName.vb: Mirror.NetworkReaderExtensions.ReadMessage(Of T)(Mirror.NetworkReader, T)
   nameWithType: NetworkReaderExtensions.ReadMessage<T>(NetworkReader, T)
   nameWithType.vb: NetworkReaderExtensions.ReadMessage(Of T)(NetworkReader, T)
+- uid: Mirror.NetworkReaderExtensions.ReadNetworkIdentity(Mirror.NetworkReader)
+  name: ReadNetworkIdentity(NetworkReader)
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadNetworkIdentity_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkReaderExtensions.ReadNetworkIdentity(Mirror.NetworkReader)
+  fullName: Mirror.NetworkReaderExtensions.ReadNetworkIdentity(Mirror.NetworkReader)
+  nameWithType: NetworkReaderExtensions.ReadNetworkIdentity(NetworkReader)
+- uid: Mirror.NetworkReaderExtensions.ReadNetworkIdentity*
+  name: ReadNetworkIdentity
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadNetworkIdentity_
+  commentId: Overload:Mirror.NetworkReaderExtensions.ReadNetworkIdentity
+  isSpec: "True"
+  fullName: Mirror.NetworkReaderExtensions.ReadNetworkIdentity
+  nameWithType: NetworkReaderExtensions.ReadNetworkIdentity
 - uid: Mirror.NetworkReaderExtensions.ReadPackedInt32(Mirror.NetworkReader)
   name: ReadPackedInt32(NetworkReader)
   href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadPackedInt32_Mirror_NetworkReader_
@@ -4983,6 +5009,19 @@ references:
   isSpec: "True"
   fullName: Mirror.NetworkReaderExtensions.ReadString
   nameWithType: NetworkReaderExtensions.ReadString
+- uid: Mirror.NetworkReaderExtensions.ReadTransform(Mirror.NetworkReader)
+  name: ReadTransform(NetworkReader)
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadTransform_Mirror_NetworkReader_
+  commentId: M:Mirror.NetworkReaderExtensions.ReadTransform(Mirror.NetworkReader)
+  fullName: Mirror.NetworkReaderExtensions.ReadTransform(Mirror.NetworkReader)
+  nameWithType: NetworkReaderExtensions.ReadTransform(NetworkReader)
+- uid: Mirror.NetworkReaderExtensions.ReadTransform*
+  name: ReadTransform
+  href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadTransform_
+  commentId: Overload:Mirror.NetworkReaderExtensions.ReadTransform
+  isSpec: "True"
+  fullName: Mirror.NetworkReaderExtensions.ReadTransform
+  nameWithType: NetworkReaderExtensions.ReadTransform
 - uid: Mirror.NetworkReaderExtensions.ReadUInt16(Mirror.NetworkReader)
   name: ReadUInt16(NetworkReader)
   href: api/Mirror.NetworkReaderExtensions.html#Mirror_NetworkReaderExtensions_ReadUInt16_Mirror_NetworkReader_
