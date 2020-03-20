@@ -81,7 +81,18 @@
 
 <p><strong>Mirror is published to the Asset Store at the start of every month, unless some critical issue causes a delay.</strong></p>
 <p>Mirror uses semantic versioning, and the versions shown here are those that were published to the Asset Store, and occasionally major version bumps happen mid-month between store submissions and are therefore not individually shown here.</p>
-<h2 id="version-10xx---in-progress">Version 10.x.x - In Progress</h2>
+<h2 id="version-11xx---in-progress">Version 11.x.x - In Progress</h2>
+<ul>
+<li>Fixed: Setting breakpoints in an IDE for Command's and Rpc's work correctly now.</li>
+<li>Fixed: NetworkServer's calls to SendToObservers now reports correct channel to Mirror Profiler.</li>
+<li>Fixed: NetworkRoomPlayer inspector and documentation updated to be less confusing.</li>
+<li>Fixed: NetworkIdentity no longer double calls NetworkServer.Destroy.</li>
+<li>Fixed: NwtworkAnimator now correctly excludes parameters controlled by curves.</li>
+<li>Fixed: NetworkBehaviour now uses a property drawer for the SyncVar label so it displays better.</li>
+<li>Changed: NetworkSceneChecker initializes in Awake again because OnEnable proved to be unreliable in some cases.</li>
+<li>Changed: <strong>Breaking</strong> Many obsolete methods and properties removed. Use version 10 first if upgrading from UNet or older Mirror. See <a href="Deprecations.html">Deprecations</a> for complete list.</li>
+</ul>
+<h2 id="version-1047---2020-mar-03">Version 10.4.7 - 2020-Mar-03</h2>
 <ul>
 <li>Added: Weaver will now block play mode and builds if there are weaver errors and show them in the console again.</li>
 <li>Added: PooledNetworkReader and PooledNetworkWriter, both Disposable.</li>
@@ -94,8 +105,12 @@
 <li>Fixed: NetworkAnimator and NetworkTransform now correctly check for client authority in their respective Command methods.</li>
 <li>Fixed: Network Room Manager Script Template had a virtual method instead of an override.</li>
 <li>Fixed: NetworkServer's calls to NetworkConnectionToClient.Send now includes the channelId parameter that was missing.</li>
+<li>Fixed: NetworkServer's calls to SendToAll, SendToReady, and SendToObservers send to the exact connection if it is detected as local connection, instead of falling back to the .localConnection.</li>
+<li>Fixed: NetworkServer.SpawnObjects returns false if server isn't running.</li>
+<li>Fixed: NetworkTransform rotation detection improved.</li>
+<li>Fixed: Weaver generated code now builds properly for IL2CPP (again).</li>
 <li>Changed: StartHost in Network Manager is no longer a virtual method (and shoudn't have been). Override OnStartHost instead.</li>
-<li>Changed: NetworkRoomManager's OnRoomServerSceneLoadedForPlayer now includes NetworkConnection parameter</li>
+<li>Changed: NetworkRoomManager's OnRoomServerSceneLoadedForPlayer now includes NetworkConnection parameter.</li>
 <li>Changed: NetworkSceneChecker now works from OnEnable instead of Awake, and uses Scene instead of scene name.</li>
 <li>Changed: Renamed NeworkWriter.Write to WriteMessage for consistency.</li>
 </ul>
@@ -414,7 +429,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/MirrorNG/MirrorNG/blob/dca2d4056fe613793480b378d25509284a1fd46a/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/MirrorNG/MirrorNG/blob/06f0056ca9f055d56e64f4760837d31ca10a47b2/doc/General/ChangeLog.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
