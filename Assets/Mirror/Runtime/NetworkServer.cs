@@ -629,7 +629,7 @@ namespace Mirror
             if (conn is ULocalConnectionToClient)
             {
                 identity.hasAuthority = true;
-                ClientScene.InternalAddPlayer(identity);
+                this.localClient.InternalAddPlayer(identity);
             }
 
             // set ready if not set yet
@@ -687,7 +687,7 @@ namespace Mirror
             if (conn is ULocalConnectionToClient)
             {
                 identity.hasAuthority = true;
-                ClientScene.InternalAddPlayer(identity);
+                client.InternalAddPlayer(identity);
             }
 
             // add connection to observers AFTER the playerController was set.
@@ -877,8 +877,8 @@ namespace Mirror
                 var msg = new SpawnMessage
                 {
                     netId = identity.netId,
-                    isLocalPlayer = conn?.identity == identity,
-                    isOwner = identity.connectionToClient == conn && conn != null,
+                    isLocalPlayer = conn.identity == identity,
+                    isOwner = identity.connectionToClient == conn,
                     sceneId = identity.sceneId,
                     assetId = identity.assetId,
                     // use local values for VR support
