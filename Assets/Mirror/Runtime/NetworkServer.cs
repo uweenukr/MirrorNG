@@ -23,6 +23,8 @@ namespace Mirror
     {
         bool initialized;
 
+        bool initialServerSpawn;
+
         [Serializable] public class NetworkConnectionEvent : UnityEvent<NetworkConnection> { }
 
         /// <summary>
@@ -390,6 +392,8 @@ namespace Mirror
 
             // let everyone know we just accepted a connection
             Connected.Invoke(conn);
+
+            OnStarted();
 
             // now process messages until the connection closes
 
@@ -1025,6 +1029,16 @@ namespace Mirror
 
             // If not a scene object
             return identity.sceneId != 0;
+        }
+
+        void OnStarted()
+        {
+            if (initialServerSpawn)
+                return;
+
+            initialServerSpawn = true;
+
+            SpawnObjects();
         }
 
         /// <summary>
