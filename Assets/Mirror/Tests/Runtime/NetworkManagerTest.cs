@@ -49,8 +49,6 @@ namespace Mirror.Tests
             Assert.That(manager.serverTickRate, Is.EqualTo(30));
             Assert.That(manager.server.MaxConnections, Is.EqualTo(4));
             Assert.That(manager.IsNetworkActive, Is.False);
-
-            Assert.That(manager.networkSceneName, Is.Empty);
         }
 
         [UnityTest]
