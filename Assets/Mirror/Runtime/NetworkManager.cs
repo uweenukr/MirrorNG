@@ -357,7 +357,7 @@ namespace Mirror
 
         void RegisterClientMessages(NetworkConnection connection)
         {
-            connection.RegisterHandler<NetworkConnectionToServer, NotReadyMessage>(OnClientNotReadyMessageInternal);
+            connection.RegisterHandler<NotReadyMessage>(OnClientNotReadyMessageInternal);
         }
 
         // called after successful authentication

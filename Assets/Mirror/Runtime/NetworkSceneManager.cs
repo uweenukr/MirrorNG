@@ -113,7 +113,7 @@ namespace Mirror
         {
             if (mode == LoadSceneMode.Additive)
             {
-                if (server.active)
+                if (server.Active)
                 {
                     // TODO only respawn the server objects from that scene later!
                     server.SpawnObjects();
@@ -188,9 +188,9 @@ namespace Mirror
 
         void RegisterClientMessages(NetworkConnection connection)
         {
-            connection.RegisterHandler<NetworkConnectionToServer, SceneMessage>(OnClientSceneInternal, false);
+            connection.RegisterHandler<SceneMessage>(OnClientSceneInternal, false);
         }
-        void OnClientAuthenticated(NetworkConnectionToServer conn)
+        void OnClientAuthenticated(NetworkConnection conn)
         {
             RegisterClientMessages(conn);
 
@@ -204,7 +204,7 @@ namespace Mirror
         {
             if (LogFilter.Debug) Debug.Log("NetworkSceneManager.OnClientSceneInternal");
 
-            if (client.IsConnected && !server.active)
+            if (client.IsConnected && !server.Active)
             {
                 ClientChangeScene(msg.sceneName, msg.sceneOperation, msg.customHandling);
             }
@@ -275,7 +275,7 @@ namespace Mirror
         /// <para>Scene changes can cause player objects to be destroyed. The default implementation of OnClientSceneChanged in the NetworkManager is to add a player object for the connection if no player object exists.</para>
         /// </summary>
         /// <param name="conn">The network connection that the scene change message arrived on.</param>
-        public virtual void OnClientSceneChanged(NetworkConnectionToServer conn)
+        public virtual void OnClientSceneChanged(NetworkConnection conn)
         {
             // always become ready.
             if (!client.ready)
@@ -293,7 +293,7 @@ namespace Mirror
                 FinishLoadSceneHost();
             }
             // server-only mode?
-            else if (server.active)
+            else if (server.Active)
             {
                 FinishLoadSceneServerOnly();
             }
