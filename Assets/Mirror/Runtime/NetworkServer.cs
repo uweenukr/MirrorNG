@@ -59,6 +59,8 @@ namespace Mirror
         // The host client for this server 
         public NetworkClient LocalClient { get; private set; }
 
+        ClientObjectManager clientObjectManager;
+
         /// <summary>
         /// True if there is a local client connected to this server (host mode)
         /// </summary>
@@ -263,6 +265,11 @@ namespace Mirror
 
             _ = ConnectionAcceptedAsync(conn);
 
+        }
+
+        public void SetClientObjectManager(ClientObjectManager comp)
+        {
+            clientObjectManager = comp;
         }
 
         internal void ActivateHostScene()
@@ -582,7 +589,7 @@ namespace Mirror
             if (conn == LocalConnection)
             {
                 identity.HasAuthority = true;
-                this.LocalClient.clientObjectManager.InternalAddPlayer(identity);
+                clientObjectManager.InternalAddPlayer(identity);
             }
 
             // set ready if not set yet
@@ -640,7 +647,7 @@ namespace Mirror
             if (conn == LocalConnection)
             {
                 identity.HasAuthority = true;
-                client.clientObjectManager.InternalAddPlayer(identity);
+                clientObjectManager.InternalAddPlayer(identity);
             }
 
             // add connection to observers AFTER the playerController was set.
