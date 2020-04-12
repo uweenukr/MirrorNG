@@ -21,6 +21,7 @@ namespace Mirror.Tests
         protected NetworkManager manager;
         protected NetworkServer server;
         protected NetworkClient client;
+        protected ClientObjectManager clientObjectManager;
 
         protected GameObject serverPlayerGO;
         protected NetworkIdentity serverIdentity;
@@ -42,6 +43,10 @@ namespace Mirror.Tests
             manager = networkManagerGo.GetComponent<NetworkManager>();
             manager.client = networkManagerGo.GetComponent<NetworkClient>();
             manager.server = networkManagerGo.GetComponent<NetworkServer>();
+
+            clientObjectManager = networkManagerGo.GetComponent<ClientObjectManager>();
+            clientObjectManager.client = client;
+            clientObjectManager.server = server;
 
             server = manager.server;
             client = manager.client;

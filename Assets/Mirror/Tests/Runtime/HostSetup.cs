@@ -31,7 +31,7 @@ namespace Mirror.Tests
             networkManagerGo = new GameObject();
             networkManagerGo.AddComponent<MockTransport>();
             manager = networkManagerGo.AddComponent<NetworkManager>();
-            clientObjectManager = networkManagerGo.AddComponent<ClientObjectManager>();
+            clientObjectManager = networkManagerGo.GetComponent<ClientObjectManager>();
             manager.client = networkManagerGo.GetComponent<NetworkClient>();
             manager.server = networkManagerGo.GetComponent<NetworkServer>();
             server = manager.server;
