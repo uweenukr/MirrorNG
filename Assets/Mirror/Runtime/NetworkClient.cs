@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
@@ -27,8 +28,6 @@ namespace Mirror
         [Header("Authentication")]
         [Tooltip("Authentication component attached to this object")]
         public NetworkAuthenticator authenticator;
-
-        public ClientObjectManager clientObjectManager;
 
         [Serializable] public class NetworkConnectionEvent : UnityEvent<INetworkConnection> { }
 
@@ -66,7 +65,24 @@ namespace Mirror
         /// <summary>
         /// The host server
         /// </summary>
-        NetworkServer hostServer;
+        public NetworkServer hostServer { get; private set; }
+
+        readonly Dictionary<uint, NetworkIdentity> spawned = new Dictionary<uint, NetworkIdentity>();
+
+        /// <summary>
+        /// List of all objects spawned in this client
+        /// </summary>
+        public Dictionary<uint, NetworkIdentity> Spawned
+        {
+            get
+            {
+                // if we are in host mode,  the list of spawned object is the same as the server list
+                if (hostServer != null)
+                    return hostServer.spawned;
+                else
+                    return spawned;
+            }
+        }
 
         /// <summary>
         /// NetworkClient can connect to local server in host mode too
