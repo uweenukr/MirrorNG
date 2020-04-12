@@ -19,6 +19,7 @@ namespace Mirror
     [HelpURL("https://mirror-networking.com/docs/Components/NetworkManager.html")]
     [RequireComponent(typeof(NetworkServer))]
     [RequireComponent(typeof(NetworkClient))]
+    [RequireComponent(typeof(ClientObjectManager))]
     [DisallowMultipleComponent]
     public class NetworkManager : MonoBehaviour
     {
@@ -53,6 +54,7 @@ namespace Mirror
 
         public NetworkServer server;
         public NetworkClient client;
+        public ClientObjectManager clientObjectManager;
 
         // transport layer
         [Header("Network Info")]
@@ -123,6 +125,16 @@ namespace Mirror
                 Debug.Log("NetworkManager: added NetworkClient because there was none yet.");
 #if UNITY_EDITOR
                 UnityEditor.Undo.RecordObject(gameObject, "Added NetworkClient");
+#endif
+            }
+
+            // add ClientObjectManager if there is none yet. makes upgrading easier.
+            if (GetComponent<ClientObjectManager>() == null)
+            {
+                clientObjectManager = gameObject.AddComponent<ClientObjectManager>();
+                Debug.Log("NetworkManager: added ClientObjectManager because there was none yet.");
+#if UNITY_EDITOR
+                UnityEditor.Undo.RecordObject(gameObject, "Added ClientObjectManager");
 #endif
             }
         }
@@ -519,7 +531,7 @@ namespace Mirror
                 }
                 if (client.Active)
                 {
-                    client.clientObjectManager.PrepareToSpawnSceneObjects();
+                    clientObjectManager.PrepareToSpawnSceneObjects();
                     if (LogFilter.Debug) Debug.Log("Rebuild Client spawnableObjects after additive scene load: " + scene.name);
                 }
             }
@@ -691,7 +703,7 @@ namespace Mirror
         {
             if (LogFilter.Debug) Debug.Log("NetworkManager.OnClientNotReadyMessageInternal");
 
-            client.clientObjectManager.ready = false;
+            clientObjectManager.ready = false;
             OnClientNotReady(conn);
 
             // NOTE: clientReadyConnection is not set here! don't want OnClientConnect to be invoked again after scene changes.
@@ -790,8 +802,8 @@ namespace Mirror
         public virtual void OnClientSceneChanged(INetworkConnection conn)
         {
             // always become ready.
-            if (!client.clientObjectManager.ready)
-                client.clientObjectManager.Ready(conn);
+            if (!clientObjectManager.ready)
+                clientObjectManager.Ready(conn);
         }
 
         #endregion
