@@ -582,7 +582,7 @@ namespace Mirror
             if (conn == LocalConnection)
             {
                 identity.HasAuthority = true;
-                this.LocalClient.InternalAddPlayer(identity);
+                this.LocalClient.clientObjectManager.InternalAddPlayer(identity);
             }
 
             // set ready if not set yet
@@ -640,7 +640,7 @@ namespace Mirror
             if (conn == LocalConnection)
             {
                 identity.HasAuthority = true;
-                client.InternalAddPlayer(identity);
+                client.clientObjectManager.InternalAddPlayer(identity);
             }
 
             // add connection to observers AFTER the playerController was set.

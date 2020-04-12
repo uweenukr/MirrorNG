@@ -102,12 +102,12 @@ namespace Mirror.Tests
         [Test]
         public void ReadyTest()
         {
-            Assert.That(!client.ready);
+            Assert.That(!client.clientObjectManager.ready);
 
             client.ConnectHost(server);
 
-            client.Ready(client.Connection);
-            Assert.That(client.ready);
+            client.clientObjectManager.Ready(client.Connection);
+            Assert.That(client.clientObjectManager.ready);
             Assert.That(client.Connection.IsReady);
         }
 
@@ -116,11 +116,11 @@ namespace Mirror.Tests
         {
             client.ConnectHost(server);
 
-            client.Ready(client.Connection);
+            client.clientObjectManager.Ready(client.Connection);
 
             Assert.Throws<InvalidOperationException>(() =>
             {
-                client.Ready(client.Connection);
+                client.clientObjectManager.Ready(client.Connection);
             });
         }
 
@@ -131,7 +131,7 @@ namespace Mirror.Tests
 
             Assert.Throws<InvalidOperationException>(() =>
             {
-                client.Ready(null);
+                client.clientObjectManager.Ready(null);
             });
         }
 
@@ -140,7 +140,7 @@ namespace Mirror.Tests
         {
             Assert.Throws<InvalidOperationException>(() =>
             {
-                _ = client.RemovePlayer();
+                _ = client.clientObjectManager.RemovePlayer();
             });
 
             PlayerSpawner spawner = serverGO.AddComponent<PlayerSpawner>();
@@ -156,7 +156,7 @@ namespace Mirror.Tests
 
             Assert.That(client.LocalPlayer != null);
 
-            Assert.That(client.RemovePlayer());
+            Assert.That(client.clientObjectManager.RemovePlayer());
             Assert.That(identity == null);
             Assert.That(client.LocalPlayer == null);
         }
@@ -165,7 +165,7 @@ namespace Mirror.Tests
         public void RegisterPrefabTest()
         {
             Guid guid = Guid.NewGuid();
-            client.RegisterPrefab(gameObject, guid);
+            client.clientObjectManager.RegisterPrefab(gameObject, guid);
 
             Assert.That(gameObject.GetComponent<NetworkIdentity>().AssetId == guid);
         }
@@ -175,7 +175,7 @@ namespace Mirror.Tests
         {
             Assert.Throws<InvalidOperationException>(() =>
             {
-                client.RegisterPrefab(new GameObject());
+                client.clientObjectManager.RegisterPrefab(new GameObject());
             });
         }
 
@@ -186,7 +186,7 @@ namespace Mirror.Tests
 
             Assert.Throws<InvalidOperationException>(() =>
             {
-                client.RegisterPrefab(new GameObject(), guid);
+                client.clientObjectManager.RegisterPrefab(new GameObject(), guid);
             });
         }
 
@@ -196,7 +196,7 @@ namespace Mirror.Tests
             SpawnMessage msg = new SpawnMessage();
             InvalidOperationException ex = Assert.Throws<InvalidOperationException>(() =>
             {
-                client.OnSpawn(msg);
+                client.clientObjectManager.OnSpawn(msg);
             });
 
             Assert.That(ex.Message, Is.EqualTo("OnObjSpawn netId: " + msg.netId + " has invalid asset Id"));
@@ -207,7 +207,7 @@ namespace Mirror.Tests
         {
             Assert.Throws<InvalidOperationException>(() =>
             {
-                client.UnregisterPrefab(new GameObject());
+                client.clientObjectManager.UnregisterPrefab(new GameObject());
             });
         }
 
@@ -215,11 +215,11 @@ namespace Mirror.Tests
         public IEnumerable GetPrefabTest()
         {
             Guid guid = Guid.NewGuid();
-            client.RegisterPrefab(gameObject, guid);
+            client.clientObjectManager.RegisterPrefab(gameObject, guid);
 
             yield return null;
 
-            client.GetPrefab(guid, out GameObject result);
+            client.clientObjectManager.GetPrefab(guid, out GameObject result);
 
             Assert.That(result != null);
             Assert.That(result.GetComponent<NetworkIdentity>().AssetId == guid);

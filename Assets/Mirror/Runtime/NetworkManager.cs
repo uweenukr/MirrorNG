@@ -519,7 +519,7 @@ namespace Mirror
                 }
                 if (client.Active)
                 {
-                    client.PrepareToSpawnSceneObjects();
+                    client.clientObjectManager.PrepareToSpawnSceneObjects();
                     if (LogFilter.Debug) Debug.Log("Rebuild Client spawnableObjects after additive scene load: " + scene.name);
                 }
             }
@@ -691,7 +691,7 @@ namespace Mirror
         {
             if (LogFilter.Debug) Debug.Log("NetworkManager.OnClientNotReadyMessageInternal");
 
-            client.ready = false;
+            client.clientObjectManager.ready = false;
             OnClientNotReady(conn);
 
             // NOTE: clientReadyConnection is not set here! don't want OnClientConnect to be invoked again after scene changes.
@@ -790,8 +790,8 @@ namespace Mirror
         public virtual void OnClientSceneChanged(INetworkConnection conn)
         {
             // always become ready.
-            if (!client.ready)
-                client.Ready(conn);
+            if (!client.clientObjectManager.ready)
+                client.clientObjectManager.Ready(conn);
         }
 
         #endregion
