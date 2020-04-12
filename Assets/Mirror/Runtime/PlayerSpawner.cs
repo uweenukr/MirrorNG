@@ -13,6 +13,7 @@ namespace Mirror
 
         public NetworkClient client;
         public NetworkServer server;
+        public ClientObjectManager clientObjectManager;
 
         public NetworkIdentity playerPrefab;
 
@@ -31,7 +32,7 @@ namespace Mirror
 
             client.Authenticated.AddListener(OnClientAuthenticated);
             server.Authenticated.AddListener(OnServerAuthenticated);
-            client.clientObjectManager.RegisterPrefab(playerPrefab.gameObject);
+            clientObjectManager.RegisterPrefab(playerPrefab.gameObject);
         }
 
         private void OnServerAuthenticated(INetworkConnection connection)
@@ -51,8 +52,8 @@ namespace Mirror
             // that when we have online/offline scenes. so we need the
             // clientLoadedScene flag to prevent it.
             // Ready/AddPlayer is usually triggered by a scene load completing. if no scene was loaded, then Ready/AddPlayer it here instead.
-            if (!client.clientObjectManager.ready)
-                client.clientObjectManager.Ready(connection);
+            if (!clientObjectManager.ready)
+                clientObjectManager.Ready(connection);
 
             client.Send(new AddPlayerMessage());
         }
