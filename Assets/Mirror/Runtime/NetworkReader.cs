@@ -357,7 +357,7 @@ namespace Mirror
 
             if (NetworkClient.Current != null)
             {
-                if (NetworkClient.Current.clientObjectManager.Spawned.TryGetValue(netId, out NetworkIdentity identity))
+                if (NetworkClient.Current.Spawned.TryGetValue(netId, out NetworkIdentity identity))
                 {
                     return identity;
                 }
