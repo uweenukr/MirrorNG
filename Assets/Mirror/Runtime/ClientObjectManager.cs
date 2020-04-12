@@ -7,11 +7,14 @@ using Object = UnityEngine.Object;
 
 namespace Mirror
 {
+    [RequireComponent(typeof(NetworkServer))]
     [RequireComponent(typeof(NetworkClient))]
     [DisallowMultipleComponent]
     public class ClientObjectManager : MonoBehaviour
     {
         static readonly ILogger logger = LogFactory.GetLogger(typeof(ClientObjectManager));
+
+        bool initialized;
 
         // spawn handlers
         readonly Dictionary<Guid, SpawnHandlerDelegate> spawnHandlers = new Dictionary<Guid, SpawnHandlerDelegate>();
@@ -100,8 +103,18 @@ namespace Mirror
         /// </summary>
         public NetworkIdentity LocalPlayer => Connection?.Identity;
 
-        private void Start()
+
+
+        public void Initialize()
         {
+            if (initialized)
+                return;
+
+            initialized = true;
+
+            server.GetComponent<NetworkServer>();
+            client.GetComponent<NetworkClient>();
+
             client.Connected.AddListener(OnConnected);
             client.Disconnected.AddListener(OnDisconnected);
 

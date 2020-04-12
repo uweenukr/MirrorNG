@@ -45,8 +45,7 @@ namespace Mirror.Tests
             manager.server = networkManagerGo.GetComponent<NetworkServer>();
 
             clientObjectManager = networkManagerGo.GetComponent<ClientObjectManager>();
-            clientObjectManager.client = client;
-            clientObjectManager.server = server;
+            clientObjectManager.Initialize();
 
             server = manager.server;
             client = manager.client;
