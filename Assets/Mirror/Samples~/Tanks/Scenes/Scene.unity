@@ -1524,8 +1524,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fbf0a5cb914b1c9bbb8a42e081f4bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Started:
+    m_PersistentCalls:
+      m_Calls: []
   Port: 7777
   HashCashBits: 18
+  SendWindowSize: 32
+  ReceiveWindowSize: 8192
   delayMode: 0
 --- !u!114 &1282001520
 MonoBehaviour:
@@ -1699,23 +1704,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Levels:
+  - Name: NetworkServer
+    level: 2
+  - Name: NetworkTime
+    level: 2
   - Name: NetworkIdentity
+    level: 2
+  - Name: NetworkClient
+    level: 2
+  - Name: NetworkSceneManager
+    level: 2
+  - Name: RemoteCallHelper
     level: 2
   - Name: NetworkBehaviour
     level: 2
   - Name: ServerObjectManager
     level: 2
-  - Name: ClientObjectManager
-    level: 2
-  - Name: NetworkServer
-    level: 2
-  - Name: NetworkTime
-    level: 2
-  - Name: NetworkSceneManager
-    level: 2
   - Name: PlayerSpawner
     level: 2
-  - Name: NetworkClient
+  - Name: ClientObjectManager
+    level: 2
+  - Name: NetworkBehaviourInspector
     level: 2
   - Name: EnterPlayModeSettingsCheck
     level: 2
@@ -1729,13 +1738,15 @@ MonoBehaviour:
     level: 2
   - Name: NetworkReaderPool
     level: 2
+  - Name: BasicAuthenticator
+    level: 2
+  - Name: NetworkRigidbody
+    level: 2
   - Name: ZoneHandler
     level: 2
   - Name: AdditiveNetworkManager
     level: 2
   - Name: NetworkProximityChecker
-    level: 2
-  - Name: RemoteCallHelper
     level: 2
   - Name: NetworkAnimator
     level: 2
@@ -1750,8 +1761,6 @@ MonoBehaviour:
   - Name: NetworkSceneChecker
     level: 2
   - Name: Reward
-    level: 2
-  - Name: NetworkRigidbody
     level: 2
 --- !u!1 &1458789072
 GameObject:
@@ -2188,6 +2197,82 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: 150, z: 0}
+--- !u!1 &2115382302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2115382305}
+  - component: {fileID: 2115382304}
+  - component: {fileID: 2115382303}
+  - component: {fileID: 2115382306}
+  m_Layer: 0
+  m_Name: Agones
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2115382303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115382302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0e3eecaa6bc8b4e8802ff13a7c03d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  server: {fileID: 1282001523}
+  sdk: {fileID: 2115382304}
+--- !u!114 &2115382304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115382302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a977753d6f09941bb5f0bb6604358a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthIntervalSecond: 5
+  healthEnabled: 1
+  logEnabled: 1
+--- !u!4 &2115382305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115382302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2115382306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115382302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f333c8247442ac84db6c38b8ac66a6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  server: {fileID: 1282001523}
+  startOnHeadless: 1
 --- !u!114 &695766753322977103
 MonoBehaviour:
   m_ObjectHideFlags: 0
