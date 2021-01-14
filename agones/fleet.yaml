@@ -27,7 +27,7 @@ spec:
         spec:
           containers:
           - name: gameserver
-            image: uwee/mirrorng:ng-tanks-0.1
+            image: uwee/mirrorng:ng-tanks-0.2
             resources:
               requests:
                 memory: "128Mi"
