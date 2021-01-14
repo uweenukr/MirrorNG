@@ -9,7 +9,7 @@ public class AgonesShim : MonoBehaviour
 
     public void Awake()
     {
-        //server.Started.AddListener(ConnectWrapper);
+        server.Started.AddListener(ConnectWrapper);
         server.Stopped.AddListener(ShutdownWrapper);
     }
 
