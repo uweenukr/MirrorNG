@@ -51,36 +51,9 @@ namespace Mirror
 
         public UnityEvent Stopped = new UnityEvent();
 
-        /// <summary>
-        /// This is invoked when a host is started.
-        /// <para>StartHost has multiple signatures, but they all cause this hook to be called.</para>
-        /// </summary>
-        public UnityEvent OnStartHost = new UnityEvent();
-
-        /// <summary>
-        /// This is called when a host is stopped.
-        /// </summary>
-        public UnityEvent OnStopHost = new UnityEvent();
-
         //[Header("Authentication")]
         //[Tooltip("Authentication component attached to this object")]
         public NetworkAuthenticator authenticator;
-
-        /// <summary>
-        /// The connection to the host mode client (if any).
-        /// </summary>
-        // original HLAPI has .localConnections list with only m_LocalConnection in it
-        // (for backwards compatibility because they removed the real localConnections list a while ago)
-        // => removed it for easier code. use .localConnection now!
-        public INetworkConnection LocalConnection { get; private set; }
-
-        // The host client for this server 
-        public NetworkClient LocalClient { get; private set; }
-
-        /// <summary>
-        /// True if there is a local client connected to this server (host mode)
-        /// </summary>
-        public bool LocalClientActive => LocalClient != null && LocalClient.Active;
 
         /// <summary>
         /// Number of active player objects across all connections on the server.
@@ -105,8 +78,6 @@ namespace Mirror
         /// </summary>
         public bool Active { get; private set; }
 
-        public readonly Dictionary<uint, NetworkIdentity> Spawned = new Dictionary<uint, NetworkIdentity>();
-
         // Time kept in this server
         public readonly NetworkTime Time = new NetworkTime();
 
@@ -118,12 +89,6 @@ namespace Mirror
         /// </summary>
         public void Disconnect()
         {
-            if (LocalClient != null)
-            {
-                OnStopHost.Invoke();
-                LocalClient.Disconnect();
-            }
-
             // make a copy,  during disconnect, it is possible that connections
             // are modified, so it throws
             // System.InvalidOperationException : Collection was modified; enumeration operation may not execute.
@@ -213,39 +178,6 @@ namespace Mirror
         }
 
         /// <summary>
-        /// This starts a network "host" - a server and client in the same application.
-        /// <para>The client returned from StartHost() is a special "local" client that communicates to the in-process server using a message queue instead of the real network. But in almost all other cases, it can be treated as a normal client.</para>
-        /// </summary>
-        public UniTask StartHost(NetworkClient client)
-        {
-            if (!client)
-                throw new InvalidOperationException("NetworkClient not assigned. Unable to StartHost()");
-
-            // start listening to network connections
-            UniTask task = ListenAsync();
-
-            Active = true;
-
-            client.ConnectHost(this);
-
-            // call OnStartHost AFTER SetupServer. this way we can use
-            // NetworkServer.Spawn etc. in there too. just like OnStartServer
-            // is called after the server is actually properly started.
-            OnStartHost.Invoke();
-
-            logger.Log("NetworkServer StartHost");
-            return task;
-        }
-
-        /// <summary>
-        /// This stops both the client and the server that the manager is using.
-        /// </summary>
-        public void StopHost()
-        {
-            Disconnect();
-        }
-
-        /// <summary>
         /// cleanup resources so that we can start again
         /// </summary>
         private void Cleanup()
@@ -298,26 +230,6 @@ namespace Mirror
         public void RemoveConnection(INetworkConnection conn)
         {
             connections.Remove(conn);
-        }
-
-        /// <summary>
-        /// called by LocalClient to add itself. dont call directly.
-        /// </summary>
-        /// <param name="client">The local client</param>
-        /// <param name="tconn">The connection to the client</param>
-        internal void SetLocalConnection(NetworkClient client, IConnection tconn)
-        {
-            if (LocalConnection != null)
-            {
-                throw new InvalidOperationException("Local Connection already exists");
-            }
-
-            INetworkConnection conn = GetNewConnection(tconn);
-            LocalConnection = conn;
-            LocalClient = client;
-
-            ConnectionAcceptedAsync(conn).Forget();
-
         }
 
         readonly List<INetworkConnection> connectionsExcludeSelf = new List<INetworkConnection>(100);
@@ -415,9 +327,6 @@ namespace Mirror
 
             connection.DestroyOwnedObjects();
             connection.Identity = null;
-
-            if (connection == LocalConnection)
-                LocalConnection = null;
         }
 
         internal void OnAuthenticated(INetworkConnection conn)
