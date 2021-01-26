@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
+using Mirror.Standalone;
 
 namespace Mirror.KCP
 {
@@ -77,7 +77,7 @@ namespace Mirror.KCP
             // in the very first message we must mine a hashcash token
             // and send that as a hello
             // the server won't accept connections otherwise
-            string applicationName = Application.productName;
+            string applicationName = Globals.productName;
 
             HashCash token = await UniTask.Run( () => HashCash.Mine(applicationName, bits));
             byte[] hello = new byte[1000];

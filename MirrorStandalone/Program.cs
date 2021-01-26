@@ -1,8 +1,13 @@
-﻿using Mirror;
-using Mirror.KCP;
+﻿using Mirror.KCP;
 
-namespace MirrorStandalone
+namespace Mirror.Standalone
 {
+    public static class Globals
+    {
+        //I know...this is temporary!
+        public const string productName = "CHANGE_ME";
+    }
+
     class Program
     {
         static void Main(string[] args)

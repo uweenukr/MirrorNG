@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using Cysharp.Threading.Tasks;
+using Mirror.Standalone;
 
 namespace Mirror.KCP
 {
     public class KcpTransport : Transport
     {
-        //THIS SHOULD BE DEFINED IN A BETTER WAY:
-        public string productName = "CHANGE_ME";
-
         Socket socket;
 
         //[Header("Transport Configuration")]
@@ -149,7 +147,7 @@ namespace Mirror.KCP
                 return false;
 
             // does the token validate?
-            if (!token.Validate(productName, HashCashBits))
+            if (!token.Validate(Globals.productName, HashCashBits))
                 return false;
 
             used.Add(token);
