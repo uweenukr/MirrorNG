@@ -114,8 +114,6 @@ namespace Mirror
             //Make sure connections are cleared in case any old connections references exist from previous sessions
             connections.Clear();
 
-            if (Transport is null)
-                Transport = GetComponent<Transport>();
             if (Transport == null)
                 throw new InvalidOperationException("Transport could not be found for NetworkServer");
 
