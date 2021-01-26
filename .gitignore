@@ -78,3 +78,5 @@ Assets/Mirror/Samples.meta
 Builds/
 InitTestScene*.unity.*
 InitTestScene*.unity
+
+MirrorStandalone/UnityEngine.dll
