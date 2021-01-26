@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 using Cysharp.Threading.Tasks;
 
 namespace Mirror
@@ -9,7 +8,7 @@ namespace Mirror
     /// Base transport class,  any transport should implement this class
     /// and it's abstract methods
     /// </summary>
-    public abstract class Transport : MonoBehaviour
+    public abstract class Transport
     {
         public class ConnectEvent : UnityEvent<IConnection> { }
 
