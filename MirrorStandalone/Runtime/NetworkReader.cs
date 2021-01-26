@@ -46,11 +46,6 @@ namespace Mirror
         public int Length => buffer.Count;
 
         /// <summary>
-        /// The network client that created this reader. May be null
-        /// </summary>
-        public NetworkClient Client { get; internal set; }
-
-        /// <summary>
         /// The Network Server that created this reader. May be null
         /// </summary>
         public NetworkServer Server { get; internal set; }
@@ -387,27 +382,6 @@ namespace Mirror
 
         public static Guid ReadGuid(this NetworkReader reader) => new Guid(reader.ReadBytes(16));
 
-        public static NetworkIdentity ReadNetworkIdentity(this NetworkReader reader)
-        {
-            uint netId = reader.ReadPackedUInt32();
-            if (netId == 0)
-                return null;
-
-            if (reader.Client != null)
-            {
-                reader.Client.Spawned.TryGetValue(netId, out NetworkIdentity identity);
-                return identity;
-            }
-            else if (reader.Server != null)
-            {
-                reader.Server.Spawned.TryGetValue(netId, out NetworkIdentity identity);
-                return identity;
-            }
-
-            if (logger.WarnEnabled()) logger.LogFormat(LogType.Warning, "ReadNetworkIdentity netId:{0} not found in spawned", netId);
-            return null;
-        }
-
         public static List<T> ReadList<T>(this NetworkReader reader)
         {
             int length = reader.ReadPackedInt32();
@@ -439,33 +413,6 @@ namespace Mirror
         public static Uri ReadUri(this NetworkReader reader)
         {
             return new Uri(reader.ReadString());
-        }
-
-        public static NetworkBehaviour ReadNetworkBehaviour(this NetworkReader reader)
-        {
-            NetworkIdentity identity = reader.ReadNetworkIdentity();
-            if (identity == null)
-            {
-                return null;
-            }
-
-            byte componentIndex = reader.ReadByte();
-            return identity.NetworkBehaviours[componentIndex];
-        }
-
-        public static T ReadNetworkBehaviour<T>(this NetworkReader reader) where T : NetworkBehaviour
-        {
-            return reader.ReadNetworkBehaviour() as T;
-        }
-
-        public static GameObject ReadGameObject(this NetworkReader reader)
-        {
-            NetworkIdentity identity = reader.ReadNetworkIdentity();
-            if (identity == null)
-            {
-                return null;
-            }
-            return identity.gameObject;
         }
     }
 }

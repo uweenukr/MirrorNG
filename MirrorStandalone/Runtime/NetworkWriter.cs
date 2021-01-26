@@ -468,16 +468,6 @@ namespace Mirror
             writer.WriteBytes(data, 0, data.Length);
         }
 
-        public static void WriteNetworkIdentity(this NetworkWriter writer, NetworkIdentity value)
-        {
-            if (value == null)
-            {
-                writer.WritePackedUInt32(0);
-                return;
-            }
-            writer.WritePackedUInt32(value.NetId);
-        }
-
         public static void WriteUri(this NetworkWriter writer, Uri uri)
         {
             writer.WriteString(uri.ToString());
@@ -515,30 +505,6 @@ namespace Mirror
             {
                 writer.Write(segment.Array[segment.Offset + i]);
             }
-        }
-
-        public static void WriteNetworkBehaviour(this NetworkWriter writer, NetworkBehaviour value)
-        {
-            if (value == null)
-            {
-                writer.WriteUInt32(0);
-                return;
-            }
-            writer.WriteUInt32(value.NetId);
-            writer.WriteByte((byte)value.ComponentIndex);
-        }
-
-        public static void WriteGameObject(this NetworkWriter writer, GameObject value)
-        {
-            if (value == null)
-            {
-                writer.WriteUInt32(0);
-                return;
-            }
-            NetworkIdentity identity = value.GetComponent<NetworkIdentity>();
-            if (identity == null)
-                throw new InvalidOperationException($"Cannot send GameObject without a NetworkIdentity {value.name}");
-            writer.WriteNetworkIdentity(identity);
         }
     }
 }
