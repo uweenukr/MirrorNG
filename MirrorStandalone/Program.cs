@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirror;
+using Mirror.KCP;
 
 namespace MirrorStandalone
 {
@@ -6,7 +7,15 @@ namespace MirrorStandalone
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            NetworkServer server = new NetworkServer();
+            server.Transport = new KcpTransport();
+
+            _ = server.ListenAsync();
+
+            while(true)
+            {
+
+            }
         }
     }
 }
