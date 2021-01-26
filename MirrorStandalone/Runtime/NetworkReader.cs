@@ -135,11 +135,11 @@ namespace Mirror
         /// <returns></returns>
         public T Read<T>()
         {
-            if (Reader<T>.Read == null)
-                Debug.AssertFormat(
-                    Reader<T>.Read != null,
-                    @"No reader found for {0}. See https://mirrorng.github.io/MirrorNG/Articles/General/Troubleshooting.html for details",
-                    typeof(T));
+            //if (Reader<T>.Read == null)
+            //    Debug.AssertFormat(
+            //        Reader<T>.Read != null,
+            //        @"No reader found for {0}. See https://mirrorng.github.io/MirrorNG/Articles/General/Troubleshooting.html for details",
+            //        typeof(T));
 
             return Reader<T>.Read(this);
         }
@@ -341,10 +341,10 @@ namespace Mirror
         public static Vector2 ReadVector2(this NetworkReader reader) => new Vector2(reader.ReadSingle(), reader.ReadSingle());
         public static Vector3 ReadVector3(this NetworkReader reader) => new Vector3(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
         public static Vector4 ReadVector4(this NetworkReader reader) => new Vector4(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
-        public static Vector2Int ReadVector2Int(this NetworkReader reader) => new Vector2Int(reader.ReadPackedInt32(), reader.ReadPackedInt32());
-        public static Vector3Int ReadVector3Int(this NetworkReader reader) => new Vector3Int(reader.ReadPackedInt32(), reader.ReadPackedInt32(), reader.ReadPackedInt32());
+        //public static Vector2Int ReadVector2Int(this NetworkReader reader) => new Vector2Int(reader.ReadPackedInt32(), reader.ReadPackedInt32());
+        //public static Vector3Int ReadVector3Int(this NetworkReader reader) => new Vector3Int(reader.ReadPackedInt32(), reader.ReadPackedInt32(), reader.ReadPackedInt32());
         public static Color ReadColor(this NetworkReader reader) => new Color(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
-        public static Color32 ReadColor32(this NetworkReader reader) => new Color32(reader.ReadByte(), reader.ReadByte(), reader.ReadByte(), reader.ReadByte());
+        //public static Color32 ReadColor32(this NetworkReader reader) => new Color32(reader.ReadByte(), reader.ReadByte(), reader.ReadByte(), reader.ReadByte());
         public static Quaternion ReadQuaternion(this NetworkReader reader) => new Quaternion(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
         public static Rect ReadRect(this NetworkReader reader) => new Rect(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
         public static Plane ReadPlane(this NetworkReader reader) => new Plane(reader.ReadVector3(), reader.ReadSingle());

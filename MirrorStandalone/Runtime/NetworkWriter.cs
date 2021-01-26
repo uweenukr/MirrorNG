@@ -174,11 +174,11 @@ namespace Mirror
         /// <param name="value"></param>
         public void Write<T>(T value)
         {
-            if (Writer<T>.Write == null)
-                Debug.AssertFormat(
-                    Writer<T>.Write != null,
-                    @"No writer found for {0}. See https://mirrorng.github.io/MirrorNG/Articles/General/Troubleshooting.html for details",
-                    typeof(T));
+            //if (Writer<T>.Write == null)
+            //    Debug.AssertFormat(
+            //        Writer<T>.Write != null,
+            //        @"No writer found for {0}. See https://mirrorng.github.io/MirrorNG/Articles/General/Troubleshooting.html for details",
+            //        typeof(T));
 
             Writer<T>.Write(this, value);
         }
@@ -385,18 +385,18 @@ namespace Mirror
             writer.WriteSingle(value.w);
         }
 
-        public static void WriteVector2Int(this NetworkWriter writer, Vector2Int value)
-        {
-            writer.WritePackedInt32(value.x);
-            writer.WritePackedInt32(value.y);
-        }
+        //public static void WriteVector2Int(this NetworkWriter writer, Vector2Int value)
+        //{
+        //    writer.WritePackedInt32(value.x);
+        //    writer.WritePackedInt32(value.y);
+        //}
 
-        public static void WriteVector3Int(this NetworkWriter writer, Vector3Int value)
-        {
-            writer.WritePackedInt32(value.x);
-            writer.WritePackedInt32(value.y);
-            writer.WritePackedInt32(value.z);
-        }
+        //public static void WriteVector3Int(this NetworkWriter writer, Vector3Int value)
+        //{
+        //    writer.WritePackedInt32(value.x);
+        //    writer.WritePackedInt32(value.y);
+        //    writer.WritePackedInt32(value.z);
+        //}
 
         public static void WriteColor(this NetworkWriter writer, Color value)
         {
@@ -406,13 +406,13 @@ namespace Mirror
             writer.WriteSingle(value.a);
         }
 
-        public static void WriteColor32(this NetworkWriter writer, Color32 value)
-        {
-            writer.WriteByte(value.r);
-            writer.WriteByte(value.g);
-            writer.WriteByte(value.b);
-            writer.WriteByte(value.a);
-        }
+        //public static void WriteColor32(this NetworkWriter writer, Color32 value)
+        //{
+        //    writer.WriteByte(value.r);
+        //    writer.WriteByte(value.g);
+        //    writer.WriteByte(value.b);
+        //    writer.WriteByte(value.a);
+        //}
 
         public static void WriteQuaternion(this NetworkWriter writer, Quaternion value)
         {

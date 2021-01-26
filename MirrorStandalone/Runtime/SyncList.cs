@@ -6,7 +6,7 @@ using System.ComponentModel;
 namespace Mirror
 {
     //[EditorBrowsable(EditorBrowsableState.Never)]
-    public class SyncList<T> : IList<T>, IReadOnlyList<T>, ISyncObject
+    public class SyncList<T> : IList<T>, IReadOnlyList<T>
     {
         readonly IList<T> objects;
         readonly IEqualityComparer<T> comparer;
