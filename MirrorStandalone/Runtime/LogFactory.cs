@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Mirror
 {
@@ -24,7 +23,7 @@ namespace Mirror
                 return logger;
             }
 
-            logger = new Logger(Debug.unityLogger)
+            logger = new StandaloneLogger()
             {
                 // by default, log warnings and up
                 filterLogType = defaultLogLevel
