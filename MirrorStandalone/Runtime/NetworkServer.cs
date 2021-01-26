@@ -59,7 +59,7 @@ namespace Mirror
         /// Number of active player objects across all connections on the server.
         /// <para>This is only valid on the host / server.</para>
         /// </summary>
-        public int NumPlayers => connections.Count(kv => kv.Identity != null);
+        public int NumPlayers => connections.Count;
 
         /// <summary>
         /// A list of local connections on the server.
