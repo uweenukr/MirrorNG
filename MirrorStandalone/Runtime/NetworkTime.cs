@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 using Stopwatch = System.Diagnostics.Stopwatch;
 
 namespace Mirror
@@ -50,19 +49,6 @@ namespace Mirror
             _offset = new ExponentialMovingAverage(PingWindowSize);
             offsetMin = double.MinValue;
             offsetMax = double.MaxValue;
-        }
-
-        internal void UpdateClient(NetworkClient client)
-        {
-            if (UnityEngine.Time.time - lastPingTime >= PingFrequency)
-            {
-                var pingMessage = new NetworkPingMessage
-                {
-                    clientTime = LocalTime()
-                };
-                client.Connection.Send(pingMessage, Channel.Unreliable);
-                lastPingTime = UnityEngine.Time.time;
-            }
         }
 
         // executed at the server when we receive a ping message
