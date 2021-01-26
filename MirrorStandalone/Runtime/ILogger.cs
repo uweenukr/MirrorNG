@@ -15,11 +15,15 @@ namespace Mirror
 
     public interface ILogger
     {
+        LogType filterLogType { get; set; }
+
         bool IsLogTypeAllowed(LogType logType);
 
         void Log(object message);
 
         void LogWarning(ILogger logger, object message);
+
+        void LogWarningFormat(object message, object extra);
 
         void LogError(ILogger logger, object message);
 
@@ -28,31 +32,36 @@ namespace Mirror
 
     public class StandaloneLogger : ILogger
     {
-        public LogType filterLogType;
+        public LogType filterLogType { get; set; }
 
         public bool IsLogTypeAllowed(LogType logType)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Log(object message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
         }
 
         public void LogError(ILogger logger, object message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
         }
 
         public void LogException(Exception ex)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(ex.Message);
         }
 
         public void LogWarning(ILogger logger, object message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
+        }
+
+        public void LogWarningFormat(object message, object extra)
+        {
+            Console.WriteLine(message);
         }
     }
 }
