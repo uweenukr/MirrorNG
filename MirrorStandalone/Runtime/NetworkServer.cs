@@ -108,7 +108,7 @@ namespace Mirror
 
             initialized = true;
 
-            Application.quitting += Disconnect;
+            //TODO: Application.quitting += Disconnect;
             if (logger.LogEnabled()) logger.Log("NetworkServer Created version " + Version.Current);
 
             //Make sure connections are cleared in case any old connections references exist from previous sessions
