@@ -25,9 +25,6 @@ namespace Mirror
         // Handles network messages on client and server
         internal delegate void NetworkMessageDelegate(INetworkConnection conn, NetworkReader reader, int channelId);
 
-        // internal so it can be tested
-        private readonly HashSet<NetworkIdentity> visList = new HashSet<NetworkIdentity>();
-
         // message handlers for this connection
         internal readonly Dictionary<int, NetworkMessageDelegate> messageHandlers = new Dictionary<int, NetworkMessageDelegate>();
 
@@ -59,20 +56,6 @@ namespace Mirror
         /// Can be useful for a game master to do IP Bans etc.
         /// </summary>
         public virtual EndPoint Address => connection.GetEndPointAddress();
-
-        /// <summary>
-        /// The NetworkIdentity for this connection.
-        /// </summary>
-        public NetworkIdentity Identity { get; set; }
-
-        /// <summary>
-        /// A list of the NetworkIdentity objects owned by this connection. This list is read-only.
-        /// <para>This includes the player object for the connection - if it has localPlayerAutority set, and any objects spawned with local authority or set with AssignLocalAuthority.</para>
-        /// <para>This list can be used to validate messages from clients, to ensure that clients are only trying to control objects that they own.</para>
-        /// </summary>
-        // IMPORTANT: this needs to be <NetworkIdentity>, not <uint netId>. fixes a bug where DestroyOwnedObjects wouldn't find
-        //            the netId anymore: https://github.com/vis2k/Mirror/issues/1380 . Works fine with NetworkIdentity pointers though.
-        private readonly HashSet<NetworkIdentity> clientOwnedObjects = new HashSet<NetworkIdentity>();
 
         /// <summary>
         /// Creates a new NetworkConnection with the specified address and connectionId
@@ -233,25 +216,6 @@ namespace Mirror
             return $"connection({Address})";
         }
 
-        public void AddToVisList(NetworkIdentity identity)
-        {
-            visList.Add(identity);
-        }
-
-        public void RemoveFromVisList(NetworkIdentity identity)
-        {
-            visList.Remove(identity);
-        }
-
-        public void RemoveObservers()
-        {
-            foreach (NetworkIdentity identity in visList)
-            {
-                identity.RemoveObserverInternal(this);
-            }
-            visList.Clear();
-        }
-
         internal void InvokeHandler(int msgType, NetworkReader reader, int channelId)
         {
             if (messageHandlers.TryGetValue(msgType, out NetworkMessageDelegate msgDelegate))
@@ -313,37 +277,6 @@ namespace Mirror
                     Disconnect();
                 }
             }
-        }
-
-        public void AddOwnedObject(NetworkIdentity networkIdentity)
-        {
-            clientOwnedObjects.Add(networkIdentity);
-        }
-
-        public void RemoveOwnedObject(NetworkIdentity networkIdentity)
-        {
-            clientOwnedObjects.Remove(networkIdentity);
-        }
-
-        public void DestroyOwnedObjects()
-        {
-            // create a copy because the list might be modified when destroying
-            var tmp = new HashSet<NetworkIdentity>(clientOwnedObjects);
-            foreach (NetworkIdentity netIdentity in tmp)
-            {
-                //dont destroy self yet.
-                if (netIdentity != null && netIdentity != Identity && Identity.ServerObjectManager != null)
-                {
-                    Identity.ServerObjectManager.Destroy(netIdentity.gameObject);
-                }
-            }
-
-            if (Identity != null && Identity.Server != null)
-                // Destroy the connections own identity.
-                Identity.ServerObjectManager.Destroy(Identity.gameObject);
-
-            // clear the hashset because we destroyed them all
-            clientOwnedObjects.Clear();
         }
 
         public async UniTask ProcessMessagesAsync()

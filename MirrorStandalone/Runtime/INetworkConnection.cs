@@ -45,32 +45,10 @@ namespace Mirror
     }
 
     /// <summary>
-    /// An object that can observe NetworkIdentities.
-    /// this is useful for interest management
-    /// </summary>
-    public interface IVisibilityTracker
-    {
-        void AddToVisList(NetworkIdentity identity);
-        void RemoveFromVisList(NetworkIdentity identity);
-        void RemoveObservers();
-    }
-
-    /// <summary>
-    /// An object that can own networked objects
-    /// </summary>
-    public interface IObjectOwner
-    {
-        NetworkIdentity Identity { get; set; }
-        void RemoveOwnedObject(NetworkIdentity networkIdentity);
-        void AddOwnedObject(NetworkIdentity networkIdentity);
-        void DestroyOwnedObjects();
-    }
-
-    /// <summary>
     /// A connection to a remote endpoint.
     /// May be from the server to client or from client to server
     /// </summary>
-    public interface INetworkConnection : IMessageHandler, IVisibilityTracker, IObjectOwner
+    public interface INetworkConnection : IMessageHandler
     {
         bool IsReady { get; set; }
         EndPoint Address { get; }
