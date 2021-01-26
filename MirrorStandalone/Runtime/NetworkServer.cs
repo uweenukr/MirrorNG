@@ -287,9 +287,6 @@ namespace Mirror
             RemoveConnection(connection);
 
             Disconnected.Invoke(connection);
-
-            connection.DestroyOwnedObjects();
-            connection.Identity = null;
         }
 
         internal void OnAuthenticated(INetworkConnection conn)
