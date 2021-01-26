@@ -30,24 +30,24 @@ namespace Mirror
         /// <summary>
         /// This is invoked when a server is started - including when a host is started.
         /// </summary>
-        public UnityEvent Started = new UnityEvent();
+        public Action Started;
 
         /// <summary>
         /// Event fires once a new Client has connect to the Server.
         /// </summary>
-        public NetworkConnectionEvent Connected = new NetworkConnectionEvent();
+        public Action<INetworkConnection> Connected;
 
         /// <summary>
         /// Event fires once a new Client has passed Authentication to the Server.
         /// </summary>
-        public NetworkConnectionEvent Authenticated = new NetworkConnectionEvent();
+        public Action<INetworkConnection> Authenticated;
 
         /// <summary>
         /// Event fires once a Client has Disconnected from the Server.
         /// </summary>
-        public NetworkConnectionEvent Disconnected = new NetworkConnectionEvent();
+        public Action<INetworkConnection> Disconnected;
 
-        public UnityEvent Stopped = new UnityEvent();
+        public Action Stopped;
 
         //[Header("Authentication")]
         //[Tooltip("Authentication component attached to this object")]
@@ -119,12 +119,12 @@ namespace Mirror
             {
                 authenticator.OnServerAuthenticated += OnAuthenticated;
 
-                Connected.AddListener(authenticator.OnServerAuthenticateInternal);
+                Connected += authenticator.OnServerAuthenticateInternal;
             }
             else
             {
                 // if no authenticator, consider every connection as authenticated
-                Connected.AddListener(OnAuthenticated);
+                Connected += OnAuthenticated;
             }
         }
 
@@ -142,8 +142,8 @@ namespace Mirror
                 // only start server if we want to listen
                 if (Listening)
                 {
-                    Transport.Started.AddListener(TransportStarted);
-                    Transport.Connected.AddListener(TransportConnected);
+                    Transport.Started += TransportStarted;
+                    Transport.Connected += TransportConnected;
                     await Transport.ListenAsync();
                 }
             }
@@ -153,8 +153,8 @@ namespace Mirror
             }
             finally
             {
-                Transport.Connected.RemoveListener(TransportConnected);
-                Transport.Started.RemoveListener(TransportStarted);
+                Transport.Connected -= TransportConnected;
+                Transport.Started -= TransportStarted;
                 Cleanup();
             }
         }
@@ -182,12 +182,12 @@ namespace Mirror
             if (authenticator != null)
             {
                 authenticator.OnServerAuthenticated -= OnAuthenticated;
-                Connected.RemoveListener(authenticator.OnServerAuthenticateInternal);
+                Connected -= authenticator.OnServerAuthenticateInternal;
             }
             else
             {
                 // if no authenticator, consider every connection as authenticated
-                Connected.RemoveListener(OnAuthenticated);
+                Connected -= OnAuthenticated;
             }
 
             Stopped.Invoke();

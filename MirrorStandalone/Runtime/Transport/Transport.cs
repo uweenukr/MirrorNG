@@ -10,19 +10,17 @@ namespace Mirror
     /// </summary>
     public abstract class Transport
     {
-        public class ConnectEvent : UnityEvent<IConnection> { }
-
         public abstract IEnumerable<string> Scheme { get; }
 
         /// <summary>
         /// Event that gets fired when a client is accepted by the transport
         /// </summary>
-        public ConnectEvent Connected = new ConnectEvent();
+        public Action<IConnection> Connected;
 
         /// <summary>
         /// Raised when the transport starts
         /// </summary>
-        public UnityEvent Started = new UnityEvent();
+        public Action Started;
 
         /// <summary>
         /// Open up the port and listen for connections
