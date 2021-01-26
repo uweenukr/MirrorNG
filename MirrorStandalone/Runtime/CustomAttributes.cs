@@ -8,7 +8,7 @@ namespace Mirror
     /// SyncVars are used to synchronize a variable from the server to all clients automatically.
     /// <para>Value must be changed on server, not directly by clients.  Hook parameter allows you to define a client-side method to be invoked when the client gets an update from the server.</para>
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
+    //[AttributeUsage(AttributeTargets.Field)]
     public class SyncVarAttribute : PropertyAttribute
     {
         ///<summary>A function that should be called on the client when the value changes.</summary>
@@ -19,7 +19,7 @@ namespace Mirror
     /// Call this from a client to run this function on the server.
     /// <para>Make sure to validate input etc. It's not possible to call this from a server.</para>
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    //[AttributeUsage(AttributeTargets.Method)]
     public class ServerRpcAttribute : Attribute
     {
         // this is zero
@@ -33,7 +33,7 @@ namespace Mirror
     /// The server uses a Remote Procedure Call (RPC) to run this function on specific clients.
     /// <para>Note that if you set the target as Connection, you need to pass a specific connection as a parameter of your method</para>
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    //[AttributeUsage(AttributeTargets.Method)]
     public class ClientRpcAttribute : Attribute
     {
         // this is zero
@@ -45,7 +45,7 @@ namespace Mirror
     /// <summary>
     /// Prevents clients from running this method.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    //[AttributeUsage(AttributeTargets.Method)]
     public class ServerAttribute : Attribute
     {
         /// <summary>
@@ -88,7 +88,7 @@ namespace Mirror
     /// <summary>
     /// Prevents the server from running this method.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    //[AttributeUsage(AttributeTargets.Method)]
     public class ClientAttribute : Attribute
     {
         /// <summary>
@@ -102,7 +102,7 @@ namespace Mirror
     /// <summary>
     /// Prevents players without authority from running this method.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    //[AttributeUsage(AttributeTargets.Method)]
     public class HasAuthorityAttribute : Attribute 
     { 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Mirror
     /// <summary>
     /// Prevents nonlocal players from running this method.
     /// </summary>
-    [AttributeUsage(AttributeTargets.Method)]
+    //[AttributeUsage(AttributeTargets.Method)]
     public class LocalPlayerAttribute : Attribute
     {
         /// <summary>
@@ -136,6 +136,6 @@ namespace Mirror
     /// Used to show private SyncList in the inspector,
     /// <para> Use instead of SerializeField for non Serializable types </para>
     /// </summary>
-    [AttributeUsage(AttributeTargets.Field)]
+    //[AttributeUsage(AttributeTargets.Field)]
     public class ShowInInspectorAttribute : Attribute { }
 }

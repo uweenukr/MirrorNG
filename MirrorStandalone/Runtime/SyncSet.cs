@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Mirror
 {
-    [EditorBrowsable(EditorBrowsableState.Never)]
+    //[EditorBrowsable(EditorBrowsableState.Never)]
     public class SyncSet<T> : ISet<T>, ISyncObject
     {
         protected readonly ISet<T> objects;

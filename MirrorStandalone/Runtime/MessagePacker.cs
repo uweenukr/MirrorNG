@@ -69,7 +69,7 @@ namespace Mirror
         // helper function to pack message into a simple byte[] (which allocates)
         // => useful for tests
         // => useful for local client message enqueue
-        [EditorBrowsable(EditorBrowsableState.Never)]
+        //[EditorBrowsable(EditorBrowsableState.Never)]
         public static byte[] Pack<T>(T message)
         {
             using (PooledNetworkWriter writer = NetworkWriterPool.GetWriter())

@@ -11,16 +11,16 @@ namespace Mirror.KCP
     {
         Socket socket;
 
-        [Header("Transport Configuration")]
+        //[Header("Transport Configuration")]
         public ushort Port = 7777;
 
-        [Range(15, 20)]
-        [Tooltip("Used for DoS prevention,  clients must mine a HashCash with these many bits in order to connect, higher means more secure, but slower for the clients")]
+        //[Range(15, 20)]
+        //[Tooltip("Used for DoS prevention,  clients must mine a HashCash with these many bits in order to connect, higher means more secure, but slower for the clients")]
         public int HashCashBits = 18;
 
-        [Tooltip("How many messages can be sent simultaneously")]
+        //[Tooltip("How many messages can be sent simultaneously")]
         public int SendWindowSize = 32;
-        [Tooltip("How many messages can be received")]
+        //[Tooltip("How many messages can be received")]
         public int ReceiveWindowSize = 8192;
 
         public KcpDelayMode delayMode = KcpDelayMode.Normal;

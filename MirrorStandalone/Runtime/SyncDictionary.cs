@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 
 namespace Mirror
 {
-    [EditorBrowsable(EditorBrowsableState.Never)]
+    //[EditorBrowsable(EditorBrowsableState.Never)]
     public class SyncIDictionary<TKey, TValue> : IDictionary<TKey, TValue>, ISyncObject, IReadOnlyDictionary<TKey, TValue>
     {
         protected readonly IDictionary<TKey, TValue> objects;

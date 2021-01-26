@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Mirror
 {
-    [ExecuteInEditMode]
-    [AddComponentMenu("Network/LogSettings")]
+    //[ExecuteInEditMode]
+    //[AddComponentMenu("Network/LogSettings")]
     public class LogSettings : MonoBehaviour
     {
         [Serializable]

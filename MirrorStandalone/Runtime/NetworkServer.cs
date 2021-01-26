@@ -14,8 +14,8 @@ namespace Mirror
     /// <remarks>
     /// <para>NetworkServer handles remote connections from remote clients, and also has a local connection for a local client.</para>
     /// </remarks>
-    [AddComponentMenu("Network/NetworkServer")]
-    [DisallowMultipleComponent]
+    //[AddComponentMenu("Network/NetworkServer")]
+    //[DisallowMultipleComponent]
     public class NetworkServer : MonoBehaviour, INetworkServer
     {
         static readonly ILogger logger = LogFactory.GetLogger(typeof(NetworkServer));
@@ -26,8 +26,8 @@ namespace Mirror
         /// The maximum number of concurrent network connections to support.
         /// <para>This effects the memory usage of the network layer.</para>
         /// </summary>
-        [Tooltip("Maximum number of concurrent connections.")]
-        [Min(1)]
+        //[Tooltip("Maximum number of concurrent connections.")]
+        //[Min(1)]
         public int MaxConnections = 4;
 
         /// <summary>
@@ -63,8 +63,8 @@ namespace Mirror
         /// </summary>
         public UnityEvent OnStopHost = new UnityEvent();
 
-        [Header("Authentication")]
-        [Tooltip("Authentication component attached to this object")]
+        //[Header("Authentication")]
+        //[Tooltip("Authentication component attached to this object")]
         public NetworkAuthenticator authenticator;
 
         /// <summary>
