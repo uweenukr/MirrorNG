@@ -63,7 +63,7 @@ namespace Mirror
         /// <param name="networkConnectionId"></param>
         public NetworkConnection(IConnection connection)
         {
-            Assert.IsNotNull(connection);
+            //Assert.IsNotNull(connection);
             this.connection = connection;
         }
 
