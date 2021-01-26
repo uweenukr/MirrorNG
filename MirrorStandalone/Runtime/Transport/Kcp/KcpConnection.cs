@@ -12,6 +12,8 @@ namespace Mirror.KCP
 {
     public abstract class KcpConnection : IConnection
     {
+        static readonly ILogger logger = LogFactory.GetLogger(typeof(KcpClientConnection));
+
         protected Socket socket;
         protected EndPoint remoteEndpoint;
         protected Kcp kcp;
@@ -107,7 +109,7 @@ namespace Mirror.KCP
             }
             catch (Exception ex)
             {
-                Debug.LogException(ex);
+                logger.LogException(ex);
             }
             finally
             {
@@ -184,7 +186,7 @@ namespace Mirror.KCP
 
             if (kcp.WaitSnd > 1000)
             {
-                Debug.LogWarningFormat("Too many packets waiting in the send queue {0}, you are sending too much data,  the transport can't keep up", kcp.WaitSnd);
+                logger.LogWarningFormat("Too many packets waiting in the send queue {0}, you are sending too much data,  the transport can't keep up", kcp.WaitSnd);
             }
         }
 
