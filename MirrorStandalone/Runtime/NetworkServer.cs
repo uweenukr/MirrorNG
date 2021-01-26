@@ -232,41 +232,6 @@ namespace Mirror
             connections.Remove(conn);
         }
 
-        readonly List<INetworkConnection> connectionsExcludeSelf = new List<INetworkConnection>(100);
-
-        /// <summary>
-        /// this is like SendToReady - but it doesn't check the ready flag on the connection.
-        /// this is used for ObjectDestroy messages.
-        /// </summary>
-        /// <typeparam name="T">The message type</typeparam>
-        /// <param name="identity"></param>
-        /// <param name="msg"></param>
-        /// <param name="channelId"></param>
-        internal void SendToObservers<T>(NetworkIdentity identity, T msg, bool includeOwner = true, int channelId = Channel.Reliable)
-        {
-            if (logger.LogEnabled()) logger.Log("Server.SendToObservers id:" + typeof(T));
-
-            if (identity.observers.Count == 0)
-                return;
-
-            if (includeOwner)
-            {
-                NetworkConnection.Send(identity.observers, msg, channelId);
-            }
-            else
-            {
-                connectionsExcludeSelf.Clear();
-                foreach (INetworkConnection conn in identity.observers)
-                {
-                    if (identity.ConnectionToClient != conn)
-                    {
-                        connectionsExcludeSelf.Add(conn);
-                    }
-                }
-                NetworkConnection.Send(connectionsExcludeSelf, msg, channelId);
-            }
-        }
-
         /// <summary>
         /// Send a message to all connected clients.
         /// </summary>
@@ -334,24 +299,6 @@ namespace Mirror
             if (logger.LogEnabled()) logger.Log("Server authenticate client:" + conn);
 
             Authenticated?.Invoke(conn);
-        }
-
-        /// <summary>
-        /// send this message to the player only
-        /// </summary>
-        /// <typeparam name="T">Message type</typeparam>
-        /// <param name="identity"></param>
-        /// <param name="msg"></param>
-        public void SendToClientOfPlayer<T>(NetworkIdentity identity, T msg, int channelId = Channel.Reliable)
-        {
-            if (identity != null)
-            {
-                identity.ConnectionToClient.Send(msg, channelId);
-            }
-            else
-            {
-                throw new InvalidOperationException("SendToClientOfPlayer: player has no NetworkIdentity: " + identity);
-            }
         }
     }
 }
