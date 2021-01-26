@@ -4,7 +4,6 @@ using System.IO;
 using System.Net;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 namespace Mirror
 {
