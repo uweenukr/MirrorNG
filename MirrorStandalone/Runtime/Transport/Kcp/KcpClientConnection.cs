@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -9,7 +10,6 @@ namespace Mirror.KCP
 {
     public class KcpClientConnection : KcpConnection
     {
-
         readonly byte[] buffer = new byte[1500];
 
         public int HashCashBits {get; set;}
@@ -52,7 +52,7 @@ namespace Mirror.KCP
                     }
 
                     // wait a few MS to poll again
-                    await UniTask.Delay(2);
+                    await Task.Delay(2);
                 }
             }
             catch (SocketException)
@@ -79,7 +79,7 @@ namespace Mirror.KCP
             // the server won't accept connections otherwise
             string applicationName = Application.productName;
 
-            HashCash token = await UniTask.RunOnThreadPool( () => HashCash.Mine(applicationName, bits));
+            HashCash token = await UniTask.Run( () => HashCash.Mine(applicationName, bits));
             byte[] hello = new byte[1000];
             int length = HashCashEncoding.Encode(hello, 0, token);
 

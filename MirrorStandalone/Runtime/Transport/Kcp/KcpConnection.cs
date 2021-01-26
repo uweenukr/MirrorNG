@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Debug = UnityEngine.Debug;
 
@@ -93,7 +94,7 @@ namespace Mirror.KCP
                         check = (uint)(now + 10);
 
 
-                    await UniTask.Delay((int)(check - now));
+                    await Task.Delay((int)(check - now));
                 }
             }
             catch (SocketException)
