@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
 namespace Mirror.KCP
 {
     public class KcpTransport : Transport
     {
+        //THIS SHOULD BE DEFINED IN A BETTER WAY:
+        public string productName = "CHANGE_ME";
+
         Socket socket;
 
         //[Header("Transport Configuration")]
@@ -147,7 +149,7 @@ namespace Mirror.KCP
                 return false;
 
             // does the token validate?
-            if (!token.Validate(Application.productName, HashCashBits))
+            if (!token.Validate(productName, HashCashBits))
                 return false;
 
             used.Add(token);
@@ -203,7 +205,7 @@ namespace Mirror.KCP
         ///     Determines if this transport is supported in the current platform
         /// </summary>
         /// <returns>true if the transport works in this platform</returns>
-        public override bool Supported => Application.platform != RuntimePlatform.WebGLPlayer;
+        public override bool Supported => true;// Application.platform != RuntimePlatform.WebGLPlayer;
 
         /// <summary>
         ///     Connect to a server located at a provided uri
