@@ -260,7 +260,7 @@ namespace Mirror
             AddConnection(conn);
 
             // let everyone know we just accepted a connection
-            Connected.Invoke(conn);
+            Connected?.Invoke(conn);
 
             // now process messages until the connection closes
             try
@@ -284,7 +284,7 @@ namespace Mirror
 
             RemoveConnection(connection);
 
-            Disconnected.Invoke(connection);
+            Disconnected?.Invoke(connection);
         }
 
         internal void OnAuthenticated(INetworkConnection conn)

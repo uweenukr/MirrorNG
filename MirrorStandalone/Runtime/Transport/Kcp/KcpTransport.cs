@@ -125,7 +125,7 @@ namespace Mirror.KCP
             await connection.HandshakeAsync();
 
             // once handshake is completed,  then the connection has been accepted
-            Connected.Invoke(connection);
+            Connected?.Invoke(connection);
         }
 
         private readonly HashSet<HashCash> used = new HashSet<HashCash>();
