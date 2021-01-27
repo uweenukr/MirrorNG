@@ -17,6 +17,11 @@ namespace Mirror.Standalone
 
             _ = server.ListenAsync();
 
+            NetworkClient client = new NetworkClient();
+            client.Transport = new KcpTransport();
+
+            client.ConnectAsync("localhost");
+
             while(true)
             {
 
