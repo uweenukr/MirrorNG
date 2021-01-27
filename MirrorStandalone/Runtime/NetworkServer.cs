@@ -115,17 +115,17 @@ namespace Mirror
             if (Transport == null)
                 throw new InvalidOperationException("Transport could not be found for NetworkServer");
 
-            if (authenticator != null)
-            {
-                authenticator.OnServerAuthenticated += OnAuthenticated;
+            //if (authenticator != null)
+            //{
+            //    authenticator.OnServerAuthenticated += OnAuthenticated;
 
-                Connected += authenticator.OnServerAuthenticateInternal;
-            }
-            else
-            {
-                // if no authenticator, consider every connection as authenticated
-                Connected += OnAuthenticated;
-            }
+            //    Connected += authenticator.OnServerAuthenticateInternal;
+            //}
+            //else
+            //{
+            //    // if no authenticator, consider every connection as authenticated
+            //    Connected += OnAuthenticated;
+            //}
         }
 
         /// <summary>

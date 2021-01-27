@@ -144,17 +144,17 @@ namespace Mirror
 
         void InitializeAuthEvents()
         {
-            if (authenticator != null)
-            {
-                authenticator.OnClientAuthenticated += OnAuthenticated;
+            //if (authenticator != null)
+            //{
+            //    authenticator.OnClientAuthenticated += OnAuthenticated;
 
-                Connected += authenticator.OnClientAuthenticateInternal;
-            }
-            else
-            {
-                // if no authenticator, consider connection as authenticated
-                Connected += OnAuthenticated;
-            }
+            //    Connected += authenticator.OnClientAuthenticateInternal;
+            //}
+            //else
+            //{
+            //    // if no authenticator, consider connection as authenticated
+            //    Connected += OnAuthenticated;
+            //}
         }
 
         async UniTaskVoid OnConnected()
