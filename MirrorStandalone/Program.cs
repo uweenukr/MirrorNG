@@ -13,18 +13,19 @@ namespace Mirror.Standalone
         static void Main(string[] args)
         {
             NetworkServer server = new NetworkServer();
-            server.Transport = new KcpTransport();
-
+            KcpTransport servertransport =  new KcpTransport();
+            server.Transport = servertransport;
             _ = server.ListenAsync();
 
             NetworkClient client = new NetworkClient();
-            client.Transport = new KcpTransport();
-
+            KcpTransport clienttransport = new KcpTransport();
+            client.Transport = clienttransport;
             client.ConnectAsync("localhost");
 
             while(true)
             {
-
+                servertransport.Update();
+                clienttransport.Update();
             }
         }
     }
