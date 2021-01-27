@@ -1,4 +1,6 @@
-﻿namespace Mirror.Standalone
+﻿using Mirror.Standalone.Components;
+
+namespace Mirror.Standalone
 {
     class Program
     {
@@ -6,9 +8,12 @@
         {
             StandaloneNG mirror = new StandaloneNG();
 
-            while(true)
+            TestComponent comp = new TestComponent(mirror);
+
+            while (true)
             {
                 mirror.Update();
+                comp.Update();
             }
         }
     }
