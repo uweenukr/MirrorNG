@@ -54,7 +54,7 @@ namespace Mirror.KCP
                 socket.Bind(new IPEndPoint(IPAddress.IPv6Any, Port));
 
                 // transport started
-                Started.Invoke();
+                Started?.Invoke();
 
                 ListenCompletionSource = AutoResetUniTaskCompletionSource.Create();
                 return ListenCompletionSource.Task;

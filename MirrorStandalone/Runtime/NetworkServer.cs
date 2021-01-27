@@ -164,7 +164,7 @@ namespace Mirror
             logger.Log("Server started listening");
             Active = true;
             // (useful for loading & spawning stuff from database etc.)
-            Started.Invoke();
+            Started?.Invoke();
         }
 
         private void TransportConnected(IConnection connection)
@@ -190,7 +190,7 @@ namespace Mirror
                 Connected -= OnAuthenticated;
             }
 
-            Stopped.Invoke();
+            Stopped?.Invoke();
             initialized = false;
             Active = false;
         }
